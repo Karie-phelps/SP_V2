@@ -4,6 +4,10 @@ import type { ReactNode } from "react";
 type DashboardCardProps = {
   children: ReactNode;
   className?: string;
+  title: string;
+  skill: string;
+  description: string;
+  color: string;
   href?: string; // Optional link for the card
 };
 
@@ -25,9 +29,16 @@ const cardVariants: Variants = {
   },
 } as const;
 
-const DashboardCard = ({ children, className = "" }: DashboardCardProps) => {
+const DashboardCard = ({
+  children,
+  className = "",
+  title,
+  skill,
+  description,
+  color,
+}: DashboardCardProps) => {
   return (
-    <div className="flex flex-col p-2 bg-white shadow-xl rounded-3xl">
+    <div className="flex flex-col p-4 border border-gray-200 bg-white shadow-xl rounded-3xl">
       <motion.div
         initial="hidden"
         animate="visible"
@@ -42,7 +53,14 @@ const DashboardCard = ({ children, className = "" }: DashboardCardProps) => {
       >
         {children}
       </motion.div>
-      <div className="h-25">Name</div>
+      <div className="flex flex-col gap-3 p-2">
+        <div
+          className={`py-1 w-fit px-3 text-center text-xs font-semibold text-purple-600 ${color} rounded-4xl`}
+        >
+          {skill}
+        </div>
+        <div className="h-15 text-sm">{description}</div>
+      </div>
     </div>
   );
 };

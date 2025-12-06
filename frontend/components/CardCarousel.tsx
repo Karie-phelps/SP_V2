@@ -10,12 +10,19 @@ import {
 import { useSwipeable } from "react-swipeable";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ClassroomCard from "./ClassroomCard";
+import { ModuleType } from "@/contexts/LearningProgressContext"; // Add this import
 
 const CARD_WIDTH = 352;
 const CARD_GAP = 32;
 
 interface Card {
-  name: string;
+  title: string;
+  skill: string;
+  imagePath: string;
+  description: string;
+  color: string;
+  url: string;
+  moduleType: ModuleType; // Add this line
 }
 
 interface CardCarouselProps {
@@ -58,7 +65,7 @@ const CardCarousel = ({ skill_cards = [] }: CardCarouselProps) => {
 
   return (
     <div
-      className="relative flex items-center justify-center h-full w-full overflow-hidden mt-10"
+      className="relative flex items-center justify-center h-full w-full overflow-hidden"
       {...swipeHandlers}
     >
       {/* Left Fade Shadow */}
@@ -92,15 +99,36 @@ const CardCarousel = ({ skill_cards = [] }: CardCarouselProps) => {
       {/* Cards Container */}
       <div className="w-full h-full flex items-center justify-center">
         <motion.div className="flex gap-8 items-center" style={{ x }}>
-          {skill_cards.map((card, index) => (
-            <div
-              key={index}
-              className="flex-shrink-0"
-              style={{ width: CARD_WIDTH }}
-            >
-              <ClassroomCard />
-            </div>
-          ))}
+          {skill_cards.map((card, index) => {
+            const isActive = index === currentIndex;
+            return (
+              <motion.div
+                key={index}
+                className="flex-shrink-0"
+                style={{ width: CARD_WIDTH }}
+                animate={{
+                  scale: isActive ? 1.1 : 0.85,
+                  opacity: isActive ? 1 : 0.5,
+                  y: isActive ? 0 : 20,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 25,
+                }}
+              >
+                <ClassroomCard
+                  title={card.title}
+                  skill={card.skill}
+                  imagePath={card.imagePath}
+                  description={card.description}
+                  color={card.color}
+                  url={card.url}
+                  moduleType={card.moduleType} // Add this line
+                />
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
 

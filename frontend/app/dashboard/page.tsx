@@ -6,16 +6,61 @@ import ClassroomCard from "@/components/ClassroomCard";
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import CardCarousel from "@/components/CardCarousel";
+import MainBG from "@/components/MainBG";
+import { ModuleType } from "@/contexts/LearningProgressContext";
+import RecommendedPathIndicator from "@/components/RecommendedPathIndicator";
 
 interface Card {
-  name: string;
+  title: string;
+  skill: string;
+  imagePath: string;
+  description: string;
+  color: string;
+  url: string;
+  moduleType: ModuleType;
 }
 
 const cards: Card[] = [
-  { name: "Vocabulary Lab" },
-  { name: "Grammar Check" },
-  { name: "Composition" },
-  { name: "Reading Comprehension" },
+  {
+    title: "Word Power",
+    skill: "Vocabulary",
+    imagePath: "/art/vocabulary.png",
+    description:
+      "Palawakin ang talasalitaan sa pamamagitan ng mabilis at interaktibong pagsasanay.",
+    color: "bg-yellow-100",
+    url: "/vocabulary",
+    moduleType: "vocabulary",
+  },
+  {
+    title: "Grammar Mastery",
+    skill: "Grammar Accuracy",
+    imagePath: "/art/grammar.png",
+    description:
+      "Sanayin ang tamang anyo at gamit ng salita para sa mas malinaw na pagsulat.",
+    color: "bg-green-100",
+    url: "/grammar",
+    moduleType: "grammar",
+  },
+  {
+    title: "Build-a-Sentence",
+    skill: "Sentence Construction",
+    imagePath: "/art/sentence-construction.png",
+    description:
+      "Ayusin at buuin ang mga pangungusap para sa mas mahusay na pag-unawa at pagpapahayag.",
+    color: "bg-blue-100",
+    url: "/sentence-construction",
+    moduleType: "sentence-construction",
+  },
+  {
+    title: "Read & Understand",
+    skill: "Reading Comprehension",
+    imagePath: "/art/reading-comprehension.png",
+    description:
+      "Basahin ang maiikling teksto at sagutin ang tanong para hasain ang comprehension skills.",
+    color: "bg-pink-100",
+    url: "/reading-comprehension",
+    moduleType: "reading-comprehension",
+  },
 ];
 
 export default function Dashboard() {
@@ -47,14 +92,17 @@ export default function Dashboard() {
     <div className="flex m-0 w-full h-screen flex-col">
       {/* Header */}
       <Header />
-      <div className="relative min-h-screen mx-2 pt-16 md:pt-20 pb-2 flex flex-row justify-center items-center gap-2">
+      <div className="relative min-h-screen mx-2 pt-16 md:pt-18 pb-2 flex flex-row justify-center items-center gap-2">
         {/* Left Side */}
         <div
           className={`${
             isPanelOpen ? "hidden lg:flex" : "flex"
-          } flex-col flex-[2] h-full bg-white rounded-2xl p-3 md:p-5 overflow-hidden border border-gray-300`}
+          } flex-col flex-[2] h-full bg-white rounded-2xl overflow-hidden border-7 border-purple-300 `}
         >
-          <div className="w-auto z-30 h-[30%] bg-white -m-5 rounded-t-2xl shadow-lg"></div>
+          {/* <MainBG imagePath="/bg/forestbg-learn.jpg" /> */}
+          <div className="w-auto z-30 bg-white md:mx-3 md:mt-3 px-3 pt-3">
+            <RecommendedPathIndicator />
+          </div>
           <CardCarousel skill_cards={cards} />
         </div>
 

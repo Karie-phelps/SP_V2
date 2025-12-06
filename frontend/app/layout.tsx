@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
+import { LearningProgressProvider } from "@/contexts/LearningProgressContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} bg-gray-200`}>{children}</body>
+      <body className={`${poppins.variable} bg-gray-200`}>
+        <LearningProgressProvider>{children}</LearningProgressProvider>
+      </body>
     </html>
   );
 }
