@@ -1,3 +1,284 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowLeft, RotateCcw, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import FillBlanksQuestion from "@/components/fillblanks-exercise/FillBlanksQuestion";
+import FillBlanksProgress from "@/components/fillblanks-exercise/FillBlanksProgress";
+import FillBlanksCompletionModal from "@/components/fillblanks-exercise/FillBlanksCompletionModal";
+import { useVocabularyProgress } from "@/hooks/useVocabularyProgress";
+import { useLearningProgress } from "@/contexts/LearningProgressContext";
+import { vocabularyData } from "@/data/vocabulary-dataset";
+import {
+  isLowFrequencyWord,
+  isNearMiss,
+  normalizeText,
+  areSimilarWords,
+} from "@/utils/PerformanceTracker";
+import { evaluateUserPerformance } from "@/rules/evaluateUserPerformance";
+
+interface FillBlanksItem {
+  word: string;
+  sentence: string;
+  meaning: string;
+  correctAnswer: string;
+}
+
+interface FillBlanksAnswer {
+  isCorrect: boolean;
+  userAnswer: string;
+  correctAnswer: string;
+  word: string;
+  isNearMiss: boolean;
+  showedAnswer: boolean;
+}
+
 export default function FillBlanksPage() {
-  return <div></div>;
+  const { updateProgress } = useVocabularyProgress();
+  const { addPerformanceMetrics, getPerformanceHistory } =
+    useLearningProgress();
+
+  const [questions] = useState<FillBlanksItem[]>(() => {
+    const shuffled = [...vocabularyData].sort(() => Math.random() - 0.5);
+    const selected = shuffled.slice(0, 10);
+
+    return selected.map((word) => ({
+      word: word.word,
+      sentence: word.example,
+      meaning: word.meaning,
+      correctAnswer: word.word,
+    }));
+  });
+
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [userAnswer, setUserAnswer] = useState("");
+  const [showResult, setShowResult] = useState(false);
+  const [answers, setAnswers] = useState<(boolean | null)[]>(
+    Array(questions.length).fill(null)
+  );
+  const [detailedAnswers, setDetailedAnswers] = useState<FillBlanksAnswer[]>(
+    []
+  );
+  const [answerRevealed, setAnswerRevealed] = useState(false);
+  const [showCompletion, setShowCompletion] = useState(false);
+
+  const currentItem = questions[currentQuestion];
+  const isLastQuestion = currentQuestion === questions.length - 1;
+
+  const handleSubmit = () => {
+    const normalizedUser = normalizeText(userAnswer);
+    const normalizedCorrect = normalizeText(currentItem.correctAnswer);
+    const isCorrect = normalizedUser === normalizedCorrect;
+    const nearMiss = isNearMiss(userAnswer, currentItem.correctAnswer);
+
+    const newAnswers = [...answers];
+    newAnswers[currentQuestion] = isCorrect;
+    setAnswers(newAnswers);
+
+    // Store detailed answer for analysis
+    setDetailedAnswers([
+      ...detailedAnswers,
+      {
+        isCorrect,
+        userAnswer,
+        correctAnswer: currentItem.correctAnswer,
+        word: currentItem.word,
+        isNearMiss: nearMiss,
+        showedAnswer: answerRevealed,
+      },
+    ]);
+
+    setShowResult(true);
+  };
+
+  const handleNext = () => {
+    if (isLastQuestion) {
+      completeExercise();
+    } else {
+      setCurrentQuestion((prev) => prev + 1);
+      setUserAnswer("");
+      setShowResult(false);
+      setAnswerRevealed(false);
+    }
+  };
+
+  const completeExercise = () => {
+    const correctCount = answers.filter((a) => a === true).length;
+    const score = Math.round((correctCount / questions.length) * 100);
+
+    // Calculate performance metrics
+    let missedLowFreq = 0;
+    let similarChoiceErrors = 0;
+
+    detailedAnswers.forEach((answer, index) => {
+      const question = questions[index];
+
+      // Count missed low-frequency words
+      if (!answer.isCorrect && isLowFrequencyWord(question.word)) {
+        missedLowFreq++;
+      }
+
+      // Count near-miss errors (spelling confusion)
+      if (answer.isNearMiss) {
+        similarChoiceErrors++;
+      }
+
+      // Count if they used "Show Answer" (indicates struggle)
+      if (answer.showedAnswer) {
+        similarChoiceErrors++;
+      }
+
+      // Check for similar word confusion
+      if (!answer.isCorrect && answer.userAnswer) {
+        const allWords = vocabularyData;
+        const userWord = allWords.find(
+          (w) => normalizeText(w.word) === normalizeText(answer.userAnswer)
+        );
+        const correctWord = allWords.find(
+          (w) => normalizeText(w.word) === normalizeText(answer.correctAnswer)
+        );
+
+        if (
+          userWord &&
+          correctWord &&
+          areSimilarWords(userWord.word, correctWord.word)
+        ) {
+          similarChoiceErrors++;
+        }
+      }
+    });
+
+    // Get current difficulty
+    const history = getPerformanceHistory("vocabulary", "fill-blanks");
+    const currentDifficulty =
+      history.length > 0 ? history[history.length - 1].difficulty : "easy";
+
+    // Create performance metrics
+    const metrics = {
+      difficulty: currentDifficulty,
+      score,
+      missedLowFreq,
+      similarChoiceErrors,
+      timestamp: new Date().toISOString(),
+    };
+
+    // Add to performance history
+    addPerformanceMetrics("vocabulary", "fill-blanks", metrics);
+
+    // Evaluate and get next difficulty + tags
+    const allHistory = [...history, metrics];
+    const evaluation = evaluateUserPerformance(allHistory);
+
+    // Update progress with evaluation results
+    updateProgress("fill-blanks", {
+      status: "completed",
+      score,
+      completedAt: new Date().toISOString(),
+      attempts: (history.length || 0) + 1,
+      lastDifficulty: evaluation.nextDifficulty,
+      errorTags: evaluation.tags,
+    });
+
+    setShowCompletion(true);
+  };
+
+  const resetExercise = () => {
+    setCurrentQuestion(0);
+    setUserAnswer("");
+    setShowResult(false);
+    setAnswers(Array(questions.length).fill(null));
+    setDetailedAnswers([]);
+    setAnswerRevealed(false);
+    setShowCompletion(false);
+    window.location.reload();
+  };
+
+  return (
+    <div className="h-screen bg-purple-50 overflow-auto flex flex-col scrollbar-purple">
+      {/* Header */}
+      <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-purple-200">
+        <Link
+          href="/vocabulary"
+          className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back
+        </Link>
+
+        <div className="text-center flex-1 px-4">
+          <h1 className="text-xl md:text-2xl font-bold text-purple-900">
+            Fill-in-the-Blanks
+          </h1>
+        </div>
+
+        <button
+          onClick={resetExercise}
+          className="flex items-center gap-2 text-gray-600 hover:text-gray-700 font-semibold text-sm"
+        >
+          <RotateCcw className="w-4 h-4" />
+          <span className="hidden md:inline">Reset</span>
+        </button>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col justify-center px-4 md:px-8 py-6 space-y-8 max-w-4xl mx-auto w-full">
+        <FillBlanksProgress
+          currentQuestion={currentQuestion}
+          totalQuestions={questions.length}
+          answers={answers}
+        />
+
+        <motion.div
+          key={currentQuestion}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.3 }}
+        >
+          <FillBlanksQuestion
+            questionNumber={currentQuestion + 1}
+            totalQuestions={questions.length}
+            sentence={currentItem.sentence}
+            blankWord={currentItem.word}
+            correctAnswer={currentItem.correctAnswer}
+            hint={currentItem.meaning}
+            userAnswer={userAnswer}
+            onAnswerChange={setUserAnswer}
+            onSubmit={handleSubmit}
+            showResult={showResult}
+            isCorrect={answers[currentQuestion]}
+          />
+        </motion.div>
+
+        {showResult && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex justify-center pb-4"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleNext}
+              className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors"
+            >
+              {isLastQuestion ? "Finish Exercise" : "Next Question"}
+              <ChevronRight className="w-5 h-5" />
+            </motion.button>
+          </motion.div>
+        )}
+      </div>
+
+      <FillBlanksCompletionModal
+        isOpen={showCompletion}
+        score={Math.round(
+          (answers.filter((a) => a === true).length / questions.length) * 100
+        )}
+        correctCount={answers.filter((a) => a === true).length}
+        totalQuestions={questions.length}
+        onClose={() => setShowCompletion(false)}
+      />
+    </div>
+  );
 }

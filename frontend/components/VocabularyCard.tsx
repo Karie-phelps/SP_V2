@@ -59,7 +59,7 @@ export default function VocabularyCard({
             isRecommended
               ? "border-purple-500 ring-4 ring-purple-300 animate-pulse"
               : isCompleted
-              ? "border-green-400"
+              ? "border-green-200"
               : isLocked
               ? "border-gray-300"
               : "border-purple-300"

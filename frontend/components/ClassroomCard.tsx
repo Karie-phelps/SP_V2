@@ -41,6 +41,13 @@ const ClassroomCard = ({
   const isRecommended = getRecommendedModule() === moduleType;
   const recommendationReason = getModuleRecommendationReason(moduleType);
 
+  console.log(`${moduleType}:`, {
+    progress,
+    completed,
+    isRecommended,
+    recommendationReason,
+  });
+
   const handleClick = () => {
     markModuleAccessed(moduleType);
   };
@@ -58,15 +65,15 @@ const ClassroomCard = ({
         color={color}
         className={`p-0 overflow-hidden relative justify-end max-w-4xl w-full min-h-[12rem] transition-all duration-300 ${
           isRecommended && !completed
-            ? "ring-4 ring-purple-500 ring-offset-2 shadow-2xl shadow-purple-500/50"
+            ? "ring-4 ring-purple-500 ring-offset-4 ring-offset-white shadow-2xl shadow-purple-500/70 scale-105" // ENHANCED
             : ""
         }`}
       >
         {/* Recommended Badge (Top-Left) */}
         {isRecommended && !completed && (
-          <div className="absolute top-3 left-3 z-20 flex items-center gap-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg animate-pulse">
-            <Sparkles size={14} />
-            <span>Recommended Next</span>
+          <div className="absolute top-3 left-3 z-30 flex items-center gap-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-2xl animate-pulse border-2 border-white">
+            <Sparkles size={16} className="animate-spin" />
+            <span>RECOMMENDED NEXT</span>
           </div>
         )}
 

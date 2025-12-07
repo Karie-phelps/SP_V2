@@ -9,6 +9,7 @@ import CardCarousel from "@/components/CardCarousel";
 import MainBG from "@/components/MainBG";
 import { ModuleType } from "@/contexts/LearningProgressContext";
 import RecommendedPathIndicator from "@/components/RecommendedPathIndicator";
+import { useLearningProgress } from "@/contexts/LearningProgressContext";
 
 interface Card {
   title: string;
@@ -69,6 +70,28 @@ export default function Dashboard() {
   );
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const { updateProgress, resetProgress } = useLearningProgress();
+
+  // ADD THESE TEST BUTTONS
+  const simulateVocabularyProgress = () => {
+    updateProgress("vocabulary", "flashcards", {
+      status: "completed",
+      score: 85,
+      completedAt: new Date().toISOString(),
+    });
+  };
+
+  const simulateCompleteVocabulary = () => {
+    updateProgress("vocabulary", "flashcards", {
+      status: "completed",
+      score: 90,
+    });
+    updateProgress("vocabulary", "quiz", { status: "completed", score: 85 });
+    updateProgress("vocabulary", "fill-blanks", {
+      status: "completed",
+      score: 88,
+    });
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -92,6 +115,27 @@ export default function Dashboard() {
     <div className="flex m-0 w-full h-screen flex-col">
       {/* Header */}
       <Header />
+      {/* TEST BUTTONS - REMOVE LATER */}
+      {/* <div className="fixed top-20 right-4 z-50 flex flex-col gap-2">
+        <button
+          onClick={simulateVocabularyProgress}
+          className="bg-green-500 text-white px-3 py-1 rounded text-xs"
+        >
+          Test: 33% Vocab Progress
+        </button>
+        <button
+          onClick={simulateCompleteVocabulary}
+          className="bg-blue-500 text-white px-3 py-1 rounded text-xs"
+        >
+          Test: Complete Vocab
+        </button>
+        <button
+          onClick={() => resetProgress()}
+          className="bg-red-500 text-white px-3 py-1 rounded text-xs"
+        >
+          Reset All
+        </button>
+      </div> */}
       <div className="relative min-h-screen mx-2 pt-16 md:pt-18 pb-2 flex flex-row justify-center items-center gap-2">
         {/* Left Side */}
         <div

@@ -167,3 +167,13 @@
   height: 0;
   width: 0;
 }
+
+/* Flashcard 3D Flip Effect */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}

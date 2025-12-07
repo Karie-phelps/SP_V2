@@ -15,6 +15,14 @@ export type ExerciseStatus =
   | "in-progress"
   | "completed";
 
+export interface PerformanceMetrics {
+  difficulty: "easy" | "medium" | "hard";
+  score: number;
+  missedLowFreq: number;
+  similarChoiceErrors: number;
+  timestamp: string;
+}
+
 export interface ExerciseProgress {
   status: ExerciseStatus;
   score: number | null;
@@ -22,13 +30,14 @@ export interface ExerciseProgress {
   attempts: number;
   lastDifficulty: "easy" | "medium" | "hard";
   errorTags: string[];
+  performanceHistory: PerformanceMetrics[]; // NEW
 }
 
 export interface ModuleProgress {
   flashcards: ExerciseProgress;
   quiz: ExerciseProgress;
   "fill-blanks": ExerciseProgress;
-  lastAccessedAt: string | null; // Add this
+  lastAccessedAt: string | null;
 }
 
 export interface AllModulesProgress {
@@ -36,8 +45,8 @@ export interface AllModulesProgress {
   grammar: ModuleProgress;
   "sentence-construction": ModuleProgress;
   "reading-comprehension": ModuleProgress;
-  recommendedModule: ModuleType; // Add this - tracks what system recommends
-  lastCompletedModule: ModuleType | null; // Add this - tracks last finished module
+  recommendedModule: ModuleType;
+  lastCompletedModule: ModuleType | null;
 }
 
 interface LearningProgressContextType {
@@ -53,10 +62,19 @@ interface LearningProgressContextType {
   getNextRecommended: (module: ModuleType) => ExerciseType | null;
   canAccessExercise: (module: ModuleType, exercise: ExerciseType) => boolean;
   isModuleCompleted: (module: ModuleType) => boolean;
-  // New functions for Layer 1
   getRecommendedModule: () => ModuleType;
   markModuleAccessed: (module: ModuleType) => void;
   getModuleRecommendationReason: (module: ModuleType) => string;
+  // NEW: Performance tracking
+  addPerformanceMetrics: (
+    module: ModuleType,
+    exercise: ExerciseType,
+    metrics: PerformanceMetrics
+  ) => void;
+  getPerformanceHistory: (
+    module: ModuleType,
+    exercise: ExerciseType
+  ) => PerformanceMetrics[];
 }
 
 // Default exercise state
@@ -67,6 +85,7 @@ const defaultExerciseProgress: ExerciseProgress = {
   attempts: 0,
   lastDifficulty: "easy",
   errorTags: [],
+  performanceHistory: [], // NEW
 };
 
 // Default module state
@@ -74,7 +93,7 @@ const defaultModuleProgress: ModuleProgress = {
   flashcards: { ...defaultExerciseProgress, status: "available" },
   quiz: { ...defaultExerciseProgress },
   "fill-blanks": { ...defaultExerciseProgress },
-  lastAccessedAt: null, // Add this
+  lastAccessedAt: null,
 };
 
 // Default all modules
@@ -83,7 +102,7 @@ const defaultProgress: AllModulesProgress = {
   grammar: { ...defaultModuleProgress },
   "sentence-construction": { ...defaultModuleProgress },
   "reading-comprehension": { ...defaultModuleProgress },
-  recommendedModule: "vocabulary", // Start with vocabulary
+  recommendedModule: "vocabulary",
   lastCompletedModule: null,
 };
 
@@ -151,7 +170,6 @@ export function LearningProgressProvider({
 
       if (isModuleComplete) {
         updated.lastCompletedModule = module;
-        // Auto-recommend next module in sequence
         const moduleOrder: ModuleType[] = [
           "vocabulary",
           "grammar",
@@ -168,7 +186,43 @@ export function LearningProgressProvider({
     });
   };
 
-  // Reset progress (all modules or specific module)
+  // NEW: Add performance metrics
+  const addPerformanceMetrics = (
+    module: ModuleType,
+    exercise: ExerciseType,
+    metrics: PerformanceMetrics
+  ) => {
+    setProgress((prev) => {
+      const moduleProgress = { ...prev[module] };
+      const exerciseProgress = { ...moduleProgress[exercise] };
+
+      // Add to history
+      exerciseProgress.performanceHistory = [
+        ...exerciseProgress.performanceHistory,
+        metrics,
+      ];
+
+      // Update difficulty and error tags
+      exerciseProgress.lastDifficulty = metrics.difficulty;
+
+      moduleProgress[exercise] = exerciseProgress;
+
+      return {
+        ...prev,
+        [module]: moduleProgress,
+      };
+    });
+  };
+
+  // NEW: Get performance history
+  const getPerformanceHistory = (
+    module: ModuleType,
+    exercise: ExerciseType
+  ): PerformanceMetrics[] => {
+    return progress[module][exercise].performanceHistory || [];
+  };
+
+  // Reset progress
   const resetProgress = (module?: ModuleType) => {
     if (module) {
       setProgress((prev) => ({
@@ -195,22 +249,22 @@ export function LearningProgressProvider({
     return Math.round((completed / 3) * 100);
   };
 
-  // Get overall completion percentage (all modules)
+  // Get overall completion percentage
   const getOverallProgress = (): number => {
-    const totalExercises = 12; // 4 modules × 3 exercises
+    const totalExercises = 12;
     const completedExercises = (Object.values(progress) as ModuleProgress[])
       .flatMap((module) => Object.values(module) as ExerciseProgress[])
       .filter((ex) => ex.status === "completed").length;
     return Math.round((completedExercises / totalExercises) * 100);
   };
 
-  // Get next recommended exercise for a module
+  // Get next recommended exercise
   const getNextRecommended = (module: ModuleType): ExerciseType | null => {
     const moduleData = progress[module];
     if (moduleData.flashcards.status !== "completed") return "flashcards";
     if (moduleData.quiz.status !== "completed") return "quiz";
     if (moduleData["fill-blanks"].status !== "completed") return "fill-blanks";
-    return null; // Module completed
+    return null;
   };
 
   // Check if user can access exercise
@@ -221,7 +275,7 @@ export function LearningProgressProvider({
     return progress[module][exercise].status !== "locked";
   };
 
-  // Check if entire module is completed
+  // Check if module is completed
   const isModuleCompleted = (module: ModuleType): boolean => {
     const moduleData = progress[module];
     return (
@@ -231,12 +285,12 @@ export function LearningProgressProvider({
     );
   };
 
-  // NEW: Get recommended module (Layer 1)
+  // Get recommended module
   const getRecommendedModule = (): ModuleType => {
     return progress.recommendedModule;
   };
 
-  // NEW: Mark module as accessed (for tracking last accessed)
+  // Mark module as accessed
   const markModuleAccessed = (module: ModuleType) => {
     setProgress((prev) => ({
       ...prev,
@@ -247,12 +301,11 @@ export function LearningProgressProvider({
     }));
   };
 
-  // NEW: Get recommendation reason for a module
+  // Get recommendation reason
   const getModuleRecommendationReason = (module: ModuleType): string => {
     const moduleProgress = getModuleProgress(module);
     const isRecommended = progress.recommendedModule === module;
     const isCompleted = isModuleCompleted(module);
-    const lastCompleted = progress.lastCompletedModule;
 
     if (isCompleted) {
       return "✓ Completed";
@@ -268,10 +321,6 @@ export function LearningProgressProvider({
 
     if (moduleProgress > 0 && moduleProgress < 100) {
       return `📊 In Progress: ${moduleProgress}% complete`;
-    }
-
-    if (lastCompleted) {
-      return "Available: You can start anytime";
     }
 
     return "Available";
@@ -291,6 +340,8 @@ export function LearningProgressProvider({
         getRecommendedModule,
         markModuleAccessed,
         getModuleRecommendationReason,
+        addPerformanceMetrics,
+        getPerformanceHistory,
       }}
     >
       {children}
