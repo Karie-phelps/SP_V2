@@ -1,7 +1,7 @@
 "use client";
 
 import { useVocabularyProgress } from "@/hooks/useVocabularyProgress";
-import { Check, Lock, Circle } from "lucide-react";
+import { Lock, Circle } from "lucide-react";
 import { ExerciseType } from "@/contexts/LearningProgressContext";
 
 const steps = [
@@ -11,7 +11,7 @@ const steps = [
 ];
 
 export default function ProgressStepper() {
-  const { progress } = useVocabularyProgress();
+  const { progress, getExerciseMastery } = useVocabularyProgress();
 
   return (
     <div className="w-full max-w-3xl mx-auto mb-8">
@@ -26,7 +26,7 @@ export default function ProgressStepper() {
                   progress.flashcards,
                   progress.quiz,
                   progress["fill-blanks"],
-                ].filter((p) => p.status === "completed").length /
+                ].filter((p) => p.performanceHistory.length > 0).length /
                   3) *
                 100
               }%`,
@@ -34,28 +34,33 @@ export default function ProgressStepper() {
           />
         </div>
 
-        {steps.map((step, index) => {
+        {steps.map((step) => {
           const exerciseProgress = progress[step.id];
-          const isCompleted = exerciseProgress.status === "completed";
+          const hasStarted = exerciseProgress.performanceHistory.length > 0;
           const isAvailable =
             exerciseProgress.status === "available" ||
-            exerciseProgress.status === "in-progress";
+            exerciseProgress.status === "in-progress" ||
+            exerciseProgress.status === "completed";
           const isLocked = exerciseProgress.status === "locked";
+
+          const mastery = hasStarted
+            ? getExerciseMastery(exerciseProgress)
+            : null;
 
           return (
             <div key={step.id} className="flex flex-col items-center relative">
               {/* Circle */}
               <div
-                className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
-                  isCompleted
+                className={`w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold transition-all duration-300 ${
+                  hasStarted
                     ? "bg-purple-600 text-white"
                     : isAvailable
                     ? "bg-purple-100 text-purple-600 border-2 border-purple-600"
                     : "bg-gray-200 text-gray-400"
                 }`}
               >
-                {isCompleted ? (
-                  <Check size={20} />
+                {hasStarted && mastery ? (
+                  <span>{mastery.icon}</span>
                 ) : isLocked ? (
                   <Lock size={16} />
                 ) : (
@@ -66,7 +71,7 @@ export default function ProgressStepper() {
               {/* Label */}
               <span
                 className={`mt-2 text-xs md:text-sm font-medium text-center max-w-[80px] ${
-                  isCompleted || isAvailable
+                  hasStarted || isAvailable
                     ? "text-purple-900"
                     : "text-gray-400"
                 }`}
@@ -74,11 +79,16 @@ export default function ProgressStepper() {
                 {step.label}
               </span>
 
-              {/* Score badge */}
-              {isCompleted && exerciseProgress.score !== null && (
-                <span className="mt-1 text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-semibold">
-                  {exerciseProgress.score}%
-                </span>
+              {/* Mastery badge */}
+              {hasStarted && mastery && (
+                <div className="mt-1 flex flex-col items-center gap-1">
+                  <span className="text-xs bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-semibold capitalize">
+                    {mastery.level}
+                  </span>
+                  <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-semibold capitalize">
+                    {mastery.difficulty}
+                  </span>
+                </div>
               )}
             </div>
           );

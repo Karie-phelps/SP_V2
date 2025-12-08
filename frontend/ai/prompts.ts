@@ -94,5 +94,5 @@ Return:
 - Easy definition (casual, must be in English)
 - Formal definition (academic)
 - 2 new example sentences (Filipino)
-- 1 short bilingual gloss (Filipino + concise English)`;
+- 1 short bilingual gloss (Filipino)`;
 }

@@ -167,7 +167,7 @@ export default function Flashcard({
           }}
         >
           <div className="w-full h-full bg-blue-100 rounded-3xl shadow-xl p-2 md:p-8 flex flex-col items-center justify-between border-4 border-blue-300 overflow-y-auto">
-            <div className="text-center space-y-4 max-w-lg flex-1 flex flex-col items-center justify-center w-full">
+            <div className="text-center space-y-4 max-w-xl flex-1 flex flex-col items-center justify-center w-full">
               {enhancedContent ? (
                 <>
                   <div className="flex items-center gap-2 mb-2">
