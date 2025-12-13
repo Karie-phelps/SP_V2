@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Volume2, Sparkles, BookmarkCheck, BookmarkPlus } from "lucide-react";
 import { useState } from "react";
-import { useReviewDeck } from "@/contexts/ReviewDeckProvider";
 
 interface FlashcardProps {
   word: string;
@@ -33,9 +32,6 @@ export default function Flashcard({
   const [enhancedContent, setEnhancedContent] =
     useState<ParsedEnhancedContent | null>(null);
   const [isLoadingEnhanced, setIsLoadingEnhanced] = useState(false);
-  const { addToReviewDeck, removeFromReviewDeck, isInReviewDeck } =
-    useReviewDeck();
-  const inReviewDeck = isInReviewDeck(wordId);
 
   const handleFlip = () => {
     if (!isAnimating) {
@@ -135,15 +131,6 @@ export default function Flashcard({
     }
   };
 
-  const handleToggleReviewDeck = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (inReviewDeck) {
-      removeFromReviewDeck(wordId);
-    } else {
-      addToReviewDeck(wordId);
-    }
-  };
-
   return (
     <div className="perspective-1000 w-full h-full max-w-3xl mx-auto flex items-center justify-center">
       <motion.div
@@ -162,22 +149,6 @@ export default function Flashcard({
           }}
         >
           <div className="w-full h-full bg-purple-100 rounded-3xl shadow-xl p-6 md:p-8 flex flex-col items-center justify-center border-4 border-purple-300 overflow-y-auto">
-            {/* Add to Review Deck Button - Front */}
-            <button
-              onClick={handleToggleReviewDeck}
-              className={`absolute top-4 right-4 p-2 rounded-lg transition-all ${
-                inReviewDeck
-                  ? "bg-purple-600 text-white"
-                  : "bg-white text-purple-600 border-2 border-purple-300"
-              } hover:scale-110`}
-            >
-              {inReviewDeck ? (
-                <BookmarkCheck className="w-5 h-5" />
-              ) : (
-                <BookmarkPlus className="w-5 h-5" />
-              )}
-            </button>
-
             <div className="text-center space-y-4 md:space-y-6">
               <p className="text-purple-600 text-sm md:text-base font-semibold">
                 Salita / Word
@@ -201,22 +172,6 @@ export default function Flashcard({
           }}
         >
           <div className="w-full h-full bg-blue-100 rounded-3xl shadow-xl p-4 md:p-8 flex flex-col items-center justify-between border-4 border-blue-300 overflow-y-auto">
-            {/* Add to Review Deck Button - Back */}
-            <button
-              onClick={handleToggleReviewDeck}
-              className={`absolute top-4 left-4 p-2 rounded-lg transition-all transform scale-x-[-1] ${
-                inReviewDeck
-                  ? "bg-blue-600 text-white"
-                  : "bg-white text-blue-600 border-2 border-blue-300"
-              } hover:scale-110`}
-            >
-              {inReviewDeck ? (
-                <BookmarkCheck className="w-5 h-5" />
-              ) : (
-                <BookmarkPlus className="w-5 h-5" />
-              )}
-            </button>
-
             <div className="text-center space-y-3 md:space-y-4 max-w-xl flex-1 flex flex-col items-center justify-center w-full">
               {enhancedContent ? (
                 <div className="w-full flex flex-col items-center">

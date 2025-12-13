@@ -4,6 +4,7 @@ import { useLearningProgress } from "@/contexts/LearningProgressContext";
 import type {
   ExerciseProgress as BaseExerciseProgress,
   ExerciseStatus,
+  ExerciseType,
 } from "@/contexts/LearningProgressContext";
 
 type GrammarExerciseType =
@@ -16,6 +17,8 @@ interface ExerciseProgress {
   score?: number | null;
   completedAt?: string | null;
   attempts?: number;
+  lastDifficulty?: "easy" | "medium" | "hard";
+  performanceHistory?: any[];
 }
 
 export type MasteryLevel =
@@ -32,14 +35,26 @@ interface GrammarMastery {
   difficulty: "easy" | "medium" | "hard";
 }
 
+export interface ExerciseMastery {
+  level: MasteryLevel;
+  icon: string;
+  difficulty: "easy" | "medium" | "hard";
+  sessionsAtDifficulty: number;
+  avgScore: number;
+}
+
 export function useGrammarProgress() {
-  const { progress, updateProgress: updateLearningProgress } =
-    useLearningProgress();
+  const {
+    progress,
+    updateProgress: updateLearningProgress,
+    canAccessExercise: canAccessExerciseContext,
+    getNextRecommended: getNextRecommendedContext,
+  } = useLearningProgress();
 
   // Map grammar exercise types to the standard exercise types
   const getStandardExerciseType = (
     exerciseType: GrammarExerciseType
-  ): "flashcards" | "quiz" | "fill-blanks" => {
+  ): ExerciseType => {
     if (exerciseType === "error-identification") return "flashcards";
     if (exerciseType === "sentence-correction") return "quiz";
     return "fill-blanks";
@@ -56,6 +71,8 @@ export function useGrammarProgress() {
       score: exerciseProgress.score,
       completedAt: exerciseProgress.completedAt,
       attempts: exerciseProgress.attempts,
+      lastDifficulty: exerciseProgress.lastDifficulty,
+      performanceHistory: exerciseProgress.performanceHistory,
     };
   };
 
@@ -65,6 +82,64 @@ export function useGrammarProgress() {
   ) => {
     const standardType = getStandardExerciseType(exerciseType);
     updateLearningProgress("grammar", standardType, data);
+  };
+
+  const canAccessExercise = (exerciseType: GrammarExerciseType): boolean => {
+    const standardType = getStandardExerciseType(exerciseType);
+    return canAccessExerciseContext("grammar", standardType);
+  };
+
+  const getNextRecommended = (): GrammarExerciseType | null => {
+    const standardType = getNextRecommendedContext("grammar");
+    if (!standardType) return null;
+
+    // Map back to grammar exercise type
+    if (standardType === "flashcards") return "error-identification";
+    if (standardType === "quiz") return "sentence-correction";
+    return "fill-blanks";
+  };
+
+  const getExerciseMastery = (exercise: ExerciseProgress): ExerciseMastery => {
+    const currentDiff = exercise.lastDifficulty || "easy";
+    const history = (exercise.performanceHistory || []).filter(
+      (h: any) => h.difficulty === currentDiff
+    );
+
+    const sessionsAtDifficulty = history.length;
+    const avgScore =
+      history.length > 0
+        ? history.reduce((sum: number, h: any) => sum + h.score, 0) /
+          history.length
+        : 0;
+
+    let level: MasteryLevel = "beginner";
+    let icon = "🐣";
+
+    if (currentDiff === "hard" && sessionsAtDifficulty >= 5 && avgScore >= 90) {
+      level = "master";
+      icon = "👑";
+    } else if (currentDiff === "hard" && sessionsAtDifficulty >= 3) {
+      level = "advanced";
+      icon = "🏆";
+    } else if (
+      currentDiff === "medium" &&
+      sessionsAtDifficulty >= 3 &&
+      avgScore >= 75
+    ) {
+      level = "proficient";
+      icon = "⭐";
+    } else if (sessionsAtDifficulty >= 3 || currentDiff === "medium") {
+      level = "developing";
+      icon = "🔧";
+    }
+
+    return {
+      level,
+      icon,
+      difficulty: currentDiff,
+      sessionsAtDifficulty,
+      avgScore: Math.round(avgScore),
+    };
   };
 
   const getGrammarMastery = (): GrammarMastery => {
@@ -174,5 +249,8 @@ export function useGrammarProgress() {
     getExerciseProgress,
     updateProgress,
     getGrammarMastery,
+    canAccessExercise,
+    getNextRecommended,
+    getExerciseMastery,
   };
 }

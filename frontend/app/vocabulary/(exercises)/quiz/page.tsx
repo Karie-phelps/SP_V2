@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, RotateCcw, ChevronRight, Lightbulb } from "lucide-react";
 import Link from "next/link";
@@ -18,6 +18,7 @@ import { evaluateUserPerformance } from "@/rules/evaluateUserPerformance";
 import AIExplanation from "@/components/common/AIExplanation";
 
 interface QuizItem {
+  id: number;
   word: string;
   correctAnswer: string;
   options: string[];
@@ -61,42 +62,77 @@ function generateDistractors(
   return distractors;
 }
 
+// Generate quiz questions
+function generateQuizQuestions(): QuizItem[] {
+  const shuffled = [...vocabularyData].sort(() => Math.random() - 0.5);
+  const selected = shuffled.slice(0, 10);
+
+  return selected.map((word) => {
+    const distractors = generateDistractors(word.meaning, word, vocabularyData);
+    const allOptions = [word.meaning, ...distractors];
+    const shuffledOptions = allOptions.sort(() => Math.random() - 0.5);
+
+    return {
+      id: word.id,
+      word: word.word,
+      correctAnswer: word.meaning,
+      options: shuffledOptions,
+      difficulty: word.difficulty,
+      category: word.category,
+    };
+  });
+}
+
 export default function QuizPage() {
   const { updateProgress } = useVocabularyProgress();
   const { addPerformanceMetrics, getPerformanceHistory } =
     useLearningProgress();
 
-  const [quizQuestions] = useState<QuizItem[]>(() => {
-    const shuffled = [...vocabularyData].sort(() => Math.random() - 0.5);
-    const selected = shuffled.slice(0, 10);
-
-    return selected.map((word) => {
-      const distractors = generateDistractors(
-        word.meaning,
-        word,
-        vocabularyData
-      );
-      const allOptions = [word.meaning, ...distractors];
-      const shuffledOptions = allOptions.sort(() => Math.random() - 0.5);
-
-      return {
-        word: word.word,
-        correctAnswer: word.meaning,
-        options: shuffledOptions,
-        difficulty: word.difficulty,
-        category: word.category,
-      };
-    });
-  });
-
+  const [quizQuestions, setQuizQuestions] = useState<QuizItem[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
-  const [answers, setAnswers] = useState<(boolean | null)[]>(
-    Array(quizQuestions.length).fill(null)
-  );
+  const [answers, setAnswers] = useState<(boolean | null)[]>([]);
   const [detailedAnswers, setDetailedAnswers] = useState<QuizAnswer[]>([]);
   const [showCompletion, setShowCompletion] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  // Initialize quiz questions only on client side
+  useEffect(() => {
+    setIsClient(true);
+    const questions = generateQuizQuestions();
+    setQuizQuestions(questions);
+    setAnswers(Array(questions.length).fill(null));
+  }, []);
+
+  // Show loading state while initializing
+  if (!isClient || quizQuestions.length === 0) {
+    return (
+      <div className="h-screen bg-purple-50 flex flex-col">
+        <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-purple-200">
+          <Link
+            href="/vocabulary"
+            className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back
+          </Link>
+
+          <div className="text-center flex-1 px-4">
+            <h1 className="text-xl md:text-2xl font-bold text-purple-900">
+              Multiple Choice Quiz
+            </h1>
+          </div>
+
+          <div className="w-20"></div>
+        </div>
+
+        <div className="flex-1 flex items-center justify-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
+        </div>
+      </div>
+    );
+  }
 
   const currentQuiz = quizQuestions[currentQuestion];
   const isLastQuestion = currentQuestion === quizQuestions.length - 1;
@@ -207,13 +243,15 @@ export default function QuizPage() {
   };
 
   const resetQuiz = () => {
+    // Reset all state without reloading the page
+    const questions = generateQuizQuestions();
+    setQuizQuestions(questions);
     setCurrentQuestion(0);
     setSelectedAnswer(null);
     setShowResult(false);
-    setAnswers(Array(quizQuestions.length).fill(null));
+    setAnswers(Array(questions.length).fill(null));
     setDetailedAnswers([]);
     setShowCompletion(false);
-    window.location.reload();
   };
 
   return (
@@ -244,70 +282,33 @@ export default function QuizPage() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col justify-center px-4 md:px-8 py-6 space-y-8 max-w-7xl mx-auto w-full">
+      <div className="flex-1 flex flex-col justify-start px-4 md:px-8 py-6 space-y-8 max-w-7xl mx-auto w-full">
         <QuizProgress
           currentQuestion={currentQuestion}
           totalQuestions={quizQuestions.length}
           answers={answers}
+          wordId={currentQuiz.id}
         />
 
-        {/* Question and Explanation Side by Side */}
-        <div className="flex flex-col lg:flex-row gap-6 items-start">
-          {/* Quiz Question - slides left on desktop when explanation appears */}
-          <motion.div
-            key={currentQuestion}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{
-              opacity: 1,
-              x: 0,
-              flex: showExplanation ? "0 0 42%" : "1 1 100%",
-            }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.3 }}
-            className="w-full"
-          >
-            <QuizQuestion
-              questionNumber={currentQuestion + 1}
-              totalQuestions={quizQuestions.length}
-              word={currentQuiz.word}
-              options={currentQuiz.options}
-              correctAnswer={currentQuiz.correctAnswer}
-              selectedAnswer={selectedAnswer}
-              onSelectAnswer={handleSelectAnswer}
-              showResult={showResult}
-            />
-          </motion.div>
-
-          {/* AI Explanation - slides in from right */}
-          <AnimatePresence>
-            {showExplanation && (
-              <motion.div
-                initial={{ opacity: 0, x: 100, width: 0 }}
-                animate={{ opacity: 1, x: 0, width: "auto" }}
-                exit={{ opacity: 0, x: 100, width: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="w-full lg:flex-[0_0_55%]"
-              >
-                <div className="bg-white rounded-2xl shadow-lg border-2 border-purple-200 p-6 h-full">
-                  <div className="flex items-center gap-2 mb-4 pb-3 border-b border-purple-100">
-                    <div className="p-2 bg-purple-100 rounded-lg">
-                      <Lightbulb className="w-5 h-5 text-purple-600" />
-                    </div>
-                    <h3 className="text-lg font-bold text-purple-900">
-                      AI Explanation
-                    </h3>
-                  </div>
-                  <AIExplanation
-                    mode="quiz"
-                    word={currentQuiz.word}
-                    correct={currentQuiz.correctAnswer}
-                    selected={selectedAnswer}
-                  />
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+        {/* Question Component with Animation */}
+        <motion.div
+          key={currentQuestion}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.3 }}
+        >
+          <QuizQuestion
+            questionNumber={currentQuestion + 1}
+            totalQuestions={quizQuestions.length}
+            word={currentQuiz.word}
+            options={currentQuiz.options}
+            correctAnswer={currentQuiz.correctAnswer}
+            selectedAnswer={selectedAnswer}
+            onSelectAnswer={handleSelectAnswer}
+            showResult={showResult}
+          />
+        </motion.div>
 
         {showResult ? (
           <motion.div
@@ -341,6 +342,7 @@ export default function QuizPage() {
         correctCount={answers.filter((a) => a === true).length}
         totalQuestions={quizQuestions.length}
         onClose={() => setShowCompletion(false)}
+        onRetake={resetQuiz}
       />
     </div>
   );

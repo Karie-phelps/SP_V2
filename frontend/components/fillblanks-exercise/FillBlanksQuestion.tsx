@@ -171,28 +171,6 @@ export default function FillBlanksQuestion({
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={handleToggleReviewDeck}
-            className={`flex items-center justify-center gap-2 font-semibold py-3 px-6 rounded-xl transition-all border-2 ${
-              inReviewDeck
-                ? "bg-purple-600 text-white border-purple-600"
-                : "bg-white text-purple-600 border-purple-300 hover:bg-purple-50"
-            }`}
-          >
-            {inReviewDeck ? (
-              <>
-                <BookmarkCheck size={18} />
-                In Review Deck
-              </>
-            ) : (
-              <>
-                <BookmarkPlus size={18} />
-                Add to Review
-              </>
-            )}
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             onClick={handleToggleAnswer}
             className="flex items-center justify-center gap-2 bg-orange-100 hover:bg-orange-200 text-orange-700 font-semibold py-3 px-6 rounded-xl transition-colors border-2 border-orange-300"
           >

@@ -2,75 +2,70 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, X, Lightbulb } from "lucide-react";
-import { useReviewDeck } from "@/contexts/ReviewDeckProvider";
-import { vocabularyData } from "@/data/vocabulary-dataset";
 import AIExplanation from "@/components/common/AIExplanation";
 
-interface QuizQuestionProps {
+interface SentenceQuestionProps {
   questionNumber: number;
   totalQuestions: number;
-  word: string;
-  options: string[];
+  sentence: string;
+  prompt: string;
+  choices: string[];
   correctAnswer: string;
   selectedAnswer: string | null;
   onSelectAnswer: (answer: string) => void;
   showResult: boolean;
+  explanation: string;
 }
 
-export default function QuizQuestion({
+export default function SentenceQuestion({
   questionNumber,
   totalQuestions,
-  word,
-  options,
+  sentence,
+  prompt,
+  choices,
   correctAnswer,
   selectedAnswer,
   onSelectAnswer,
   showResult,
-}: QuizQuestionProps) {
-  const { addToReviewDeck, removeFromReviewDeck, isInReviewDeck } =
-    useReviewDeck();
-
-  // Find word ID
-  const wordData = vocabularyData.find((w) => w.word === word);
-  const wordId = wordData?.id || 0;
-  const inReviewDeck = isInReviewDeck(wordId);
-
+  explanation,
+}: SentenceQuestionProps) {
   const showExplanation =
     showResult && selectedAnswer && selectedAnswer !== correctAnswer;
-
-  const handleToggleReviewDeck = () => {
-    if (inReviewDeck) {
-      removeFromReviewDeck(wordId);
-    } else {
-      addToReviewDeck(wordId);
-    }
-  };
 
   return (
     <div className="w-full max-w-7xl mx-auto space-y-6">
       {/* Question Header */}
-      <div className="text-center space-y-2">
-        <h2 className="text-2xl md:text-3xl font-bold text-purple-900">
-          Ano ang kahulugan ng &quot;{word}&quot;?
-        </h2>
+      <div className="space-y-4">
+        <div className="flex flex-col items-center justify-center md:mx-40 bg-yellow-50 border-2 border-yellow-200 rounded-xl p-4">
+          <p className="text-sm text-yellow-800 font-medium mb-2">
+            Original Sentence:
+          </p>
+          <p className="text-base md:text-lg text-gray-900 font-semibold ">
+            &quot;{sentence}&quot;
+          </p>
+        </div>
+
+        <div className="text-center">
+          <h2 className="text-xs md:text-sm text-gray-500">{prompt}</h2>
+        </div>
       </div>
 
       {/* Options and Explanation Side by Side */}
-      <div className="flex flex-col lg:flex-row gap-6 items-center">
+      <div className="flex flex-col lg:flex-row gap-6 items-start">
         {/* Options Container */}
         <motion.div
           animate={{
             flex: showExplanation ? "0 0 42%" : "1 1 100%",
           }}
           transition={{ duration: 0.3 }}
-          className={`w-full mx-3 ${
-            showExplanation ? "lg:flex-[0_0_42%]" : "lg:mx-60"
+          className={`w-full ${
+            showExplanation ? "lg:flex-[0_0_42%]" : "lg:mx-40"
           }`}
         >
           <div className="grid grid-cols-1 gap-3">
-            {options.map((option, index) => {
-              const isSelected = selectedAnswer === option;
-              const isCorrect = option === correctAnswer;
+            {choices.map((choice, index) => {
+              const isSelected = selectedAnswer === choice;
+              const isCorrect = choice === correctAnswer;
               const showCorrect = showResult && isCorrect;
               const showWrong = showResult && isSelected && !isCorrect;
 
@@ -79,7 +74,7 @@ export default function QuizQuestion({
                   key={index}
                   whileHover={!showResult ? { scale: 1.02 } : {}}
                   whileTap={!showResult ? { scale: 0.98 } : {}}
-                  onClick={() => !showResult && onSelectAnswer(option)}
+                  onClick={() => !showResult && onSelectAnswer(choice)}
                   disabled={showResult}
                   className={`relative p-4 rounded-xl border-3 text-left transition-all duration-300 ${
                     showCorrect
@@ -87,8 +82,8 @@ export default function QuizQuestion({
                       : showWrong
                       ? "bg-red-100 border-red-500"
                       : isSelected
-                      ? "bg-purple-100 border-purple-500"
-                      : "bg-white border-purple-200 hover:border-purple-400"
+                      ? "bg-blue-100 border-blue-500"
+                      : "bg-white border-blue-200 hover:border-blue-400"
                   } ${showResult ? "cursor-not-allowed" : "cursor-pointer"}`}
                 >
                   <div className="flex items-center justify-between gap-3">
@@ -100,8 +95,8 @@ export default function QuizQuestion({
                           : showWrong
                           ? "bg-red-500 text-white"
                           : isSelected
-                          ? "bg-purple-500 text-white"
-                          : "bg-purple-100 text-purple-700"
+                          ? "bg-blue-500 text-white"
+                          : "bg-blue-100 text-blue-700"
                       }`}
                     >
                       {String.fromCharCode(65 + index)}
@@ -109,7 +104,7 @@ export default function QuizQuestion({
 
                     {/* Option Text */}
                     <div className="flex-1 text-sm md:text-base text-gray-800 font-medium">
-                      {option}
+                      {choice}
                     </div>
 
                     {/* Result Icon */}
@@ -139,21 +134,24 @@ export default function QuizQuestion({
               transition={{ duration: 0.4, ease: "easeOut" }}
               className="w-full lg:flex-[0_0_55%]"
             >
-              <div className="bg-white rounded-2xl shadow-lg border-2 border-purple-200 p-6 h-full">
-                <div className="flex items-center gap-2 mb-4 pb-3 border-b border-purple-100">
-                  <div className="p-2 bg-purple-100 rounded-lg">
-                    <Lightbulb className="w-5 h-5 text-purple-600" />
+              <div className="bg-white rounded-2xl shadow-lg border-2 border-blue-200 p-6 h-full">
+                <div className="flex items-center gap-2 mb-4 pb-3 border-b border-blue-100">
+                  <div className="p-2 bg-blue-100 rounded-lg">
+                    <Lightbulb className="w-5 h-5 text-blue-600" />
                   </div>
-                  <h3 className="text-lg font-bold text-purple-900">
-                    AI Explanation
+                  <h3 className="text-lg font-bold text-blue-900">
+                    Explanation
                   </h3>
                 </div>
-                <AIExplanation
-                  mode="quiz"
-                  word={word}
-                  correct={correctAnswer}
-                  selected={selectedAnswer}
-                />
+                <div className="text-sm text-gray-800 leading-relaxed">
+                  <p className="mb-3">
+                    <span className="font-semibold text-green-700">
+                      Correct Answer:
+                    </span>{" "}
+                    {correctAnswer}
+                  </p>
+                  <p className="text-gray-700">{explanation}</p>
+                </div>
               </div>
             </motion.div>
           )}

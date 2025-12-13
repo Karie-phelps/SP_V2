@@ -1,7 +1,10 @@
 "use client";
 
 import { useLearningProgress } from "@/contexts/LearningProgressContext";
-import type { ExerciseProgress } from "@/contexts/LearningProgressContext";
+import type {
+  ExerciseProgress,
+  ExerciseType,
+} from "@/contexts/LearningProgressContext";
 
 // Re-export types for backward compatibility
 export type {
@@ -35,10 +38,10 @@ export interface ExerciseMastery {
 export function useVocabularyProgress() {
   const {
     progress,
-    updateProgress,
+    updateProgress: updateLearningProgress,
     getModuleProgress,
-    getNextRecommended,
-    canAccessExercise,
+    getNextRecommended: getNextRecommendedContext,
+    canAccessExercise: canAccessExerciseContext,
   } = useLearningProgress();
 
   const getVocabularyMastery = (): VocabularyMastery => {
@@ -177,12 +180,12 @@ export function useVocabularyProgress() {
 
   return {
     progress: progress.vocabulary,
-    updateProgress: (exercise: any, data: any) =>
-      updateProgress("vocabulary", exercise, data),
+    updateProgress: (exercise: ExerciseType, data: Partial<ExerciseProgress>) =>
+      updateLearningProgress("vocabulary", exercise, data),
     getOverallProgress: () => getModuleProgress("vocabulary"),
-    getNextRecommended: () => getNextRecommended("vocabulary"),
-    canAccessExercise: (exercise: any) =>
-      canAccessExercise("vocabulary", exercise),
+    getNextRecommended: () => getNextRecommendedContext("vocabulary"),
+    canAccessExercise: (exercise: ExerciseType) =>
+      canAccessExerciseContext("vocabulary", exercise),
     getVocabularyMastery,
     getExerciseMastery,
   };

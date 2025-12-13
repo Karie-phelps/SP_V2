@@ -76,6 +76,33 @@ export default function FlashcardsPage() {
   }
 
   const currentWord = sessionWords[currentIndex];
+
+  // Additional safety check
+  if (!currentWord) {
+    return (
+      <div className="h-screen max-h-screen overflow-hidden flex flex-col bg-purple-50">
+        <div className="flex-shrink-0 flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-purple-200">
+          <Link
+            href="/vocabulary"
+            className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back
+          </Link>
+          <div className="text-center flex-1 px-4">
+            <h1 className="text-xl md:text-2xl font-bold text-purple-900">
+              Flashcards Practice
+            </h1>
+          </div>
+          <div className="w-20"></div>
+        </div>
+        <div className="flex-1 flex items-center justify-center">
+          <div className="text-purple-600">Loading session...</div>
+        </div>
+      </div>
+    );
+  }
+
   const masteredCount = cardStates.filter(
     (c) => c.status === "mastered"
   ).length;
@@ -221,6 +248,7 @@ export default function FlashcardsPage() {
             total={sessionWords.length}
             masteredCount={masteredCount}
             learningCount={learningCount}
+            wordId={currentWord.id}
           />
         </div>
 
