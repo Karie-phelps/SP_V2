@@ -173,7 +173,7 @@ export default function AIExplanation({
       )} */}
 
       {/* Time-Pressure Tip - HIGHLIGHTED - Only shown if showProTip is true */}
-      {showProTip && parsed.timePressureTip && (
+      {/* {showProTip && parsed.timePressureTip && (
         <div className="flex gap-3 p-4 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-lg border-2 border-amber-300 shadow-sm">
           <Clock className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
           <div>
@@ -185,7 +185,7 @@ export default function AIExplanation({
             </p>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

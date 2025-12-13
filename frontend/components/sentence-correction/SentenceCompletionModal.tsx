@@ -14,7 +14,7 @@ import confetti from "canvas-confetti";
 import { useEffect, useState } from "react";
 import { useLearningProgress } from "@/contexts/LearningProgressContext";
 
-interface QuizCompletionModalProps {
+interface SentenceCompletionModalProps {
   isOpen: boolean;
   score: number;
   correctCount: number;
@@ -23,14 +23,14 @@ interface QuizCompletionModalProps {
   onRetake?: () => void;
 }
 
-export default function QuizCompletionModal({
+export default function SentenceCompletionModal({
   isOpen,
   score,
   correctCount,
   totalQuestions,
   onClose,
   onRetake,
-}: QuizCompletionModalProps) {
+}: SentenceCompletionModalProps) {
   const { getPerformanceHistory } = useLearningProgress();
   const [showTips, setShowTips] = useState(false);
   const [tips, setTips] = useState<string>("");
@@ -49,7 +49,7 @@ export default function QuizCompletionModal({
   const handleGetTips = async () => {
     setLoadingTips(true);
     try {
-      const history = getPerformanceHistory("vocabulary", "quiz");
+      const history = getPerformanceHistory("grammar", "quiz");
       const latestMetrics = history[history.length - 1];
 
       const response = await fetch("/api/tips", {
@@ -108,7 +108,7 @@ export default function QuizCompletionModal({
             onClick={onClose}
           />
 
-          {/* Modal Container - Centered, then shifts when tips appear */}
+          {/* Modal Container */}
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
             <div
               className={`flex flex-col lg:flex-row gap-4 lg:gap-6 items-stretch w-full transition-all duration-500 ${
@@ -152,10 +152,10 @@ export default function QuizCompletionModal({
                   {/* Title */}
                   <div className="text-center">
                     <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                      Quiz Complete!
+                      Exercise Complete!
                     </h2>
                     <p className="text-gray-600">
-                      You've finished the vocabulary quiz.
+                      You've finished the sentence correction exercise.
                     </p>
                   </div>
 
@@ -182,8 +182,8 @@ export default function QuizCompletionModal({
                   </div>
 
                   {/* Performance Message */}
-                  <div className="text-center p-4 bg-blue-50 rounded-xl">
-                    <p className="text-sm text-blue-800 font-medium">
+                  <div className="text-center p-4 bg-purple-50 rounded-xl">
+                    <p className="text-sm text-purple-800 font-medium">
                       {getPerformanceMessage()}
                     </p>
                   </div>
@@ -193,7 +193,7 @@ export default function QuizCompletionModal({
                     <button
                       onClick={handleGetTips}
                       disabled={loadingTips}
-                      className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-3 px-6 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {loadingTips ? (
                         <>
@@ -212,7 +212,7 @@ export default function QuizCompletionModal({
                   {/* Action Buttons */}
                   <div className="flex flex-col gap-3 mt-auto">
                     <Link
-                      href="/vocabulary/fill-blanks"
+                      href="/grammar/fill-the-blanks"
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors text-center"
                     >
                       Continue to Fill-in-the-Blanks →
@@ -221,19 +221,19 @@ export default function QuizCompletionModal({
                       onClick={handleRetake}
                       className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-xl transition-colors"
                     >
-                      Retake Quiz
+                      Retake Exercise
                     </button>
                     <Link
-                      href="/vocabulary"
+                      href="/grammar"
                       className="w-full text-center text-gray-600 hover:text-gray-800 py-2 text-sm"
                     >
-                      Back to Vocabulary
+                      Back to Grammar
                     </Link>
                   </div>
                 </div>
               </motion.div>
 
-              {/* AI Tips Panel - Beside Modal */}
+              {/* AI Tips Panel */}
               <AnimatePresence>
                 {showTips && tips && (
                   <motion.div
@@ -245,16 +245,16 @@ export default function QuizCompletionModal({
                   >
                     <div className="h-full flex flex-col">
                       {/* Header */}
-                      <div className="p-6 border-b border-blue-100 bg-gradient-to-r from-blue-50 to-pink-50">
-                            <div className="flex items-center gap-3">
-                              <div className="p-2 bg-white rounded-lg shadow-sm">
-                                <Sparkles className="w-6 h-6 text-blue-600" />
-                              </div>
-                              <h3 className="text-xl font-bold text-blue-900">
-                                Personalized Study Tips
-                              </h3>
-                            </div>
+                      <div className="p-6 border-b border-blue-100 bg-gradient-to-r from-blue-50 to-cyan-50">
+                        <div className="flex items-center gap-3">
+                          <div className="p-2 bg-white rounded-lg shadow-sm">
+                            <Sparkles className="w-6 h-6 text-blue-600" />
                           </div>
+                          <h3 className="text-xl font-bold text-blue-900">
+                            Personalized Study Tips
+                          </h3>
+                        </div>
+                      </div>
 
                       {/* Content - Scrollable */}
                       <div className="flex-1 overflow-y-auto p-6">

@@ -20,6 +20,7 @@ import { evaluateUserPerformance } from "@/rules/evaluateUserPerformance";
 import AIExplanation from "@/components/common/AIExplanation";
 
 interface FillBlanksItem {
+  id: number;
   word: string;
   sentence: string;
   meaning: string;
@@ -45,6 +46,7 @@ export default function FillBlanksPage() {
     const selected = shuffled.slice(0, 10);
 
     return selected.map((word) => ({
+      id: word.id,
       word: word.word,
       sentence: word.example,
       meaning: word.meaning,
@@ -224,11 +226,12 @@ export default function FillBlanksPage() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col justify-center px-4 md:px-8 py-6 space-y-8 max-w-7xl mx-auto w-full">
+      <div className="flex-1 flex flex-col justify-start px-4 md:px-8 py-6 space-y-8 max-w-7xl mx-auto w-full">
         <FillBlanksProgress
           currentQuestion={currentQuestion}
           totalQuestions={questions.length}
           answers={answers}
+          id={currentItem.id}
         />
 
         {/* Question and Explanation Side by Side */}

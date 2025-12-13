@@ -65,7 +65,6 @@ interface LearningProgressContextType {
   getRecommendedModule: () => ModuleType;
   markModuleAccessed: (module: ModuleType) => void;
   getModuleRecommendationReason: (module: ModuleType) => string;
-  // NEW: Performance tracking
   addPerformanceMetrics: (
     module: ModuleType,
     exercise: ExerciseType,
@@ -161,12 +160,11 @@ export function LearningProgressProvider({
         [module]: moduleProgress,
       };
 
-      // Check if module is now completed
-      const isModuleComplete = (
-        Object.values(moduleProgress) as ExerciseProgress[]
-      )
-        .filter((ex) => typeof ex.status !== "undefined")
-        .every((ex) => ex.status === "completed");
+      // Check if module is now completed - only check exercise properties
+      const exercises: ExerciseType[] = ["flashcards", "quiz", "fill-blanks"];
+      const isModuleComplete = exercises.every(
+        (ex) => moduleProgress[ex].status === "completed"
+      );
 
       if (isModuleComplete) {
         updated.lastCompletedModule = module;
@@ -251,10 +249,24 @@ export function LearningProgressProvider({
 
   // Get overall completion percentage
   const getOverallProgress = (): number => {
-    const totalExercises = 12;
-    const completedExercises = (Object.values(progress) as ModuleProgress[])
-      .flatMap((module) => Object.values(module) as ExerciseProgress[])
-      .filter((ex) => ex.status === "completed").length;
+    const totalExercises = 12; // 4 modules * 3 exercises
+    const moduleTypes: ModuleType[] = [
+      "vocabulary",
+      "grammar",
+      "sentence-construction",
+      "reading-comprehension",
+    ];
+    const exerciseTypes: ExerciseType[] = ["flashcards", "quiz", "fill-blanks"];
+
+    let completedExercises = 0;
+    moduleTypes.forEach((module) => {
+      exerciseTypes.forEach((exercise) => {
+        if (progress[module][exercise].status === "completed") {
+          completedExercises++;
+        }
+      });
+    });
+
     return Math.round((completedExercises / totalExercises) * 100);
   };
 

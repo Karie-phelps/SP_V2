@@ -3,7 +3,7 @@
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import GrammarCard from "@/components/GrammarCard";
-import ProgressStepper from "../vocabulary/_progress/ProgressStepper";
+import ProgressStepper from "./_progress/ProgressStepper";
 import { useGrammarProgress } from "@/hooks/useGrammarProgress";
 
 export default function GrammarPage() {
@@ -84,7 +84,7 @@ export default function GrammarPage() {
           <GrammarCard
             name="Sentence Correction"
             description="Choose the correctly written sentence"
-            imagePath="/art/correction-icon.png"
+            imagePath="/art/grammar-icon1.png"
             color="bg-blue-50"
             url="/grammar/sentence-correction"
             exerciseType="sentence-correction"
@@ -92,7 +92,7 @@ export default function GrammarPage() {
           <GrammarCard
             name="Fill-in-the-Blanks"
             description="Complete sentences with proper grammar"
-            imagePath="/art/grammar-fill-icon.png"
+            imagePath="/art/grammar-icon1.png"
             color="bg-green-50"
             url="/grammar/fill-blanks"
             exerciseType="fill-blanks"
