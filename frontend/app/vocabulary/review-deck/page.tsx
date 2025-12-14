@@ -4,8 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, CheckCircle, RotateCcw, X, Trash2 } from "lucide-react";
 import Link from "next/link";
-import Flashcard from "@/components/flashcard-exercise/Flashcard";
-import FlashcardProgress from "@/components/flashcard-exercise/FlashcardProgress";
+import Flashcard from "@/components/vocabulary/flashcard-exercise/Flashcard";
+import FlashcardProgress from "@/components/vocabulary/flashcard-exercise/FlashcardProgress";
 import { useReviewDeck } from "@/contexts/ReviewDeckProvider";
 import { vocabularyData } from "@/data/vocabulary-dataset";
 

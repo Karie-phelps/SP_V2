@@ -94,7 +94,7 @@ export default function GrammarPage() {
             description="Complete sentences with proper grammar"
             imagePath="/art/grammar-icon1.png"
             color="bg-green-50"
-            url="/grammar/fill-blanks"
+            url="/grammar/fill-the-blanks"
             exerciseType="fill-blanks"
           />
         </div>

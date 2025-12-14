@@ -172,3 +172,20 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
+
+.scrollbar-green::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-green::-webkit-scrollbar-track {
+  background: rgb(220 252 231);
+}
+
+.scrollbar-green::-webkit-scrollbar-thumb {
+  background: rgb(34 197 94);
+  border-radius: 4px;
+}
+
+.scrollbar-green::-webkit-scrollbar-thumb:hover {
+  background: rgb(22 163 74);
+}

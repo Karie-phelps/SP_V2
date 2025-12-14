@@ -44,16 +44,6 @@ const cards: Card[] = [
     moduleType: "grammar",
   },
   {
-    title: "Read & Understand",
-    skill: "Reading Comprehension",
-    imagePath: "/art/reading-comprehension.png",
-    description:
-      "Basahin ang maiikling teksto at sagutin ang tanong para hasain ang comprehension skills.",
-    color: "bg-pink-100",
-    url: "/reading-comprehension",
-    moduleType: "reading-comprehension",
-  },
-  {
     title: "Build-a-Sentence",
     skill: "Sentence Construction",
     imagePath: "/art/sentence-construction.png",
@@ -62,6 +52,16 @@ const cards: Card[] = [
     color: "bg-blue-100",
     url: "/sentence-construction",
     moduleType: "sentence-construction",
+  },
+  {
+    title: "Read & Understand",
+    skill: "Reading Comprehension",
+    imagePath: "/art/reading-comprehension.png",
+    description:
+      "Basahin ang maiikling teksto at sagutin ang tanong para hasain ang comprehension skills.",
+    color: "bg-pink-100",
+    url: "/reading-comprehension",
+    moduleType: "reading-comprehension",
   },
 ];
 
