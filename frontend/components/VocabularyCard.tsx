@@ -7,7 +7,7 @@ import {
   useVocabularyProgress,
   ExerciseType,
 } from "@/hooks/useVocabularyProgress";
-import { Lock, Sparkles } from "lucide-react";
+import { Lock, CheckCircle, Play, Sparkles } from "lucide-react";
 import { useState } from "react";
 
 interface VocabularyCardProps {
@@ -39,7 +39,6 @@ export default function VocabularyCard({
   const isLocked = !canAccessExercise(exerciseType);
   const isCompleted = exerciseProgress.status === "completed";
   const isRecommended = getNextRecommended() === exerciseType;
-
   const exerciseMastery = getExerciseMastery(exerciseProgress);
 
   const handleClick = (e: React.MouseEvent) => {
@@ -50,128 +49,103 @@ export default function VocabularyCard({
     }
   };
 
-  const masteryColors = {
-    beginner: "bg-gray-100 text-gray-700",
-    developing: "bg-blue-100 text-blue-700",
-    proficient: "bg-blue-100 text-blue-700",
-    advanced: "bg-orange-100 text-orange-700",
-    master: "bg-yellow-100 text-yellow-700",
-  };
-
-  const difficultyColors = {
-    easy: "bg-green-100 text-green-700",
-    medium: "bg-yellow-100 text-yellow-700",
-    hard: "bg-red-100 text-red-700",
-  };
-
   return (
     <div className="relative">
-      <Link
-        href={isLocked ? "#" : url}
-        className={`group block ${isLocked ? "cursor-not-allowed" : ""}`}
-        onClick={handleClick}
+      <motion.div
+        whileHover={!isLocked ? { scale: 1.03, y: -4 } : {}}
+        whileTap={!isLocked ? { scale: 0.98 } : {}}
       >
-        <motion.div
-          whileHover={isLocked ? {} : { scale: 1.05, y: -5 }}
-          whileTap={isLocked ? {} : { scale: 0.98 }}
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className={`relative flex flex-col items-center justify-between gap-4 p-6 border-4 ${
-            isRecommended
-              ? "border-blue-500 ring-4 ring-blue-300"
-              : isCompleted
-              ? "border-blue-200"
-              : isLocked
-              ? "border-gray-300"
-              : "border-blue-300"
-          } ${color} rounded-2xl shadow-lg hover:shadow-2xl ${
-            !isLocked && "hover:border-blue-500"
-          } transition-all duration-300 h-full min-h-[16rem] ${
-            isLocked ? "opacity-60" : ""
-          }`}
+        <Link
+          href={isLocked ? "#" : url}
+          className={`block ${isLocked ? "pointer-events-none" : ""}`}
+          onClick={handleClick}
         >
-          {/* Status Badges - Top Left */}
-          <div className="absolute top-3 left-3 flex flex-col gap-2">
-            {isRecommended && (
-              <div className="flex items-center gap-1 bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold shadow-md">
-                <Sparkles size={14} />
-                <span>Next</span>
-              </div>
-            )}
-            {isLocked && (
-              <div className="flex items-center gap-1 bg-gray-500 text-white px-2 py-1 rounded-full text-xs font-bold">
-                <Lock size={14} />
-                <span>Locked</span>
-              </div>
-            )}
-          </div>
-
-          {/* Mastery Badges - Top Right */}
-          {!isLocked && exerciseMastery.sessionsAtDifficulty > 0 && (
-            <div className="absolute top-3 right-3 flex flex-col items-end gap-2">
-              {/* Mastery Level */}
-              <div
-                className={`flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold shadow-sm ${
-                  masteryColors[exerciseMastery.level]
-                }`}
-              >
-                <span>{exerciseMastery.icon}</span>
-                <span className="capitalize">{exerciseMastery.level}</span>
-              </div>
-
-              {/* Difficulty */}
-              <div
-                className={`px-3 py-1 rounded-full text-xs font-bold shadow-sm ${
-                  difficultyColors[exerciseMastery.difficulty]
-                }`}
-              >
-                <span className="capitalize">{exerciseMastery.difficulty}</span>
-              </div>
-
-              {/* Session Count */}
-              <div className="bg-white text-blue-700 px-3 py-1 rounded-full text-xs font-bold shadow-sm border border-blue-200">
-                {exerciseMastery.sessionsAtDifficulty} session
-                {exerciseMastery.sessionsAtDifficulty !== 1 ? "s" : ""}
-              </div>
+          <div
+            className={`relative rounded-3xl shadow-lg overflow-hidden border-2 transition-all ${
+              isLocked
+                ? "border-gray-300 bg-gray-100 opacity-60"
+                : isCompleted
+                ? "border-blue-300 bg-blue-50"
+                : isRecommended
+                ? "border-blue-500 ring-4 ring-blue-300"
+                : "border-blue-200 hover:border-blue-400"
+            } ${color}`}
+          >
+            {/* Status Badge */}
+            <div className="absolute top-3 right-3 z-10">
+              {isLocked ? (
+                <div className="bg-gray-500 text-white px-3 py-1 rounded-full flex items-center gap-1 text-xs font-semibold">
+                  <Lock className="w-3 h-3" />
+                  Locked
+                </div>
+              ) : isRecommended ? (
+                <div className="bg-blue-500 text-white px-3 py-1 rounded-full flex items-center gap-1 text-xs font-semibold shadow-md">
+                  <Sparkles className="w-3 h-3" />
+                  Next
+                </div>
+              ) : isCompleted ? (
+                <div className="bg-blue-500 text-white px-3 py-1 rounded-full flex items-center gap-1 text-xs font-semibold">
+                  <CheckCircle className="w-3 h-3" />
+                  Completed
+                </div>
+              ) : (
+                <div className="bg-blue-600 text-white px-3 py-1 rounded-full flex items-center gap-1 text-xs font-semibold">
+                  <Play className="w-3 h-3" />
+                  Start
+                </div>
+              )}
             </div>
-          )}
 
-          {/* Icon */}
-          <div className="flex-shrink-0 mt-8">
-            <Image
-              src={imagePath || "/art/flashcards-icon.png"}
-              alt={`${name} icon`}
-              width={150}
-              height={150}
-              className={`object-contain transition-transform duration-300 ${
-                !isLocked && "group-hover:scale-110"
-              } ${isLocked ? "grayscale" : ""}`}
-            />
-          </div>
-
-          {/* Content */}
-          <div className="flex flex-col items-center text-center gap-2 flex-grow justify-end">
-            <h3
-              className={`text-lg md:text-xl font-bold transition-colors ${
-                isLocked
-                  ? "text-gray-500"
-                  : "text-blue-900 group-hover:text-blue-600"
-              }`}
-            >
-              {name}
-            </h3>
-            <p className="text-xs md:text-sm text-gray-600 line-clamp-2">
-              {description}
-            </p>
-          </div>
-
-          {/* Hover indicator */}
-          {!isLocked && (
-            <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
+            {/* Image */}
+            <div className="relative h-40 w-full bg-white/50">
+              <Image
+                src={imagePath || "/art/flashcards-icon.png"}
+                alt={name}
+                fill
+                className="object-contain p-4"
+                priority
+              />
             </div>
-          )}
-        </motion.div>
-      </Link>
+
+            {/* Content */}
+            <div className="p-5 bg-white/80 backdrop-blur-sm">
+              <h3 className="text-xl font-bold text-blue-900 mb-2">{name}</h3>
+              <p className="text-sm text-gray-700 mb-3">{description}</p>
+
+              {/* Progress Info */}
+              {!isLocked && (
+                <div className="flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg">{exerciseMastery.icon}</span>
+                    <div>
+                      <p className="font-semibold text-blue-700 capitalize">
+                        {exerciseMastery.level}
+                      </p>
+                      <p className="text-gray-600">
+                        Avg: {exerciseMastery.avgScore}% •{" "}
+                        {exerciseMastery.difficulty}
+                      </p>
+                    </div>
+                  </div>
+                  {exerciseProgress.attempts > 0 && (
+                    <div className="text-right">
+                      <p className="text-gray-600">
+                        {exerciseProgress.attempts} attempt
+                        {exerciseProgress.attempts > 1 ? "s" : ""}
+                      </p>
+                      {exerciseProgress.score !== null && (
+                        <p className="font-semibold text-blue-700">
+                          Best: {exerciseProgress.score}%
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        </Link>
+      </motion.div>
 
       {/* Warning Message */}
       {showWarning && (
