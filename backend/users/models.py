@@ -1,24 +1,27 @@
-from django. contrib.auth.models import AbstractUser
-from django.db import models
+from django.contrib.auth. models import AbstractUser
+from django. db import models
 
 class User(AbstractUser):
-    """
-    Custom user model that supports both email/password and social auth
-    """
-    # Override username to allow email-based auth
-    username = models.CharField(max_length=150, unique=True, blank=True, null=True)
-    email = models.EmailField(unique=True, db_index=True)
+    """Custom user model supporting email/password and Google OAuth"""
     
-    # Social auth fields
+    # Make email unique and required
+    email = models.EmailField(unique=True, db_index=True)
+    username = models.CharField(max_length=150, unique=True, blank=True, null=True)
+    
+    # OAuth fields
     provider = models.CharField(
-        max_length=50, 
-        blank=True, 
+        max_length=50,
+        blank=True,
         null=True,
-        help_text="OAuth provider (google, facebook, etc.)"
+        choices=[
+            ('email', 'Email'),
+            ('google', 'Google'),
+        ],
+        help_text="Authentication provider"
     )
     provider_id = models.CharField(
-        max_length=255, 
-        blank=True, 
+        max_length=255,
+        blank=True,
         null=True,
         help_text="Unique ID from OAuth provider"
     )
@@ -31,20 +34,28 @@ class User(AbstractUser):
     created_at = models. DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
-    # Use email as the primary identifier
+    # Use email as primary login field
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']  # Required for createsuperuser
+    REQUIRED_FIELDS = []
     
-    class Meta:
+    class Meta: 
         db_table = 'users'
         indexes = [
             models.Index(fields=['email']),
             models.Index(fields=['provider', 'provider_id']),
         ]
     
+    def save(self, *args, **kwargs):
+        # Auto-generate username from email if not provided
+        if not self. username:
+            self.username = self.email.split('@')[0]
+            # Ensure uniqueness
+            base_username = self.username
+            counter = 1
+            while User.objects.filter(username=self.username).exists():
+                self.username = f"{base_username}{counter}"
+                counter += 1
+        super().save(*args, **kwargs)
+    
     def __str__(self):
         return self.email
-    
-    @property
-    def full_name(self):
-        return f"{self.first_name} {self.last_name}".strip() or self.email

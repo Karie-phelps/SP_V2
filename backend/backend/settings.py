@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-)3u7t0h1afa-xz-nz1&2=xr!d+c-^=+(p*)7air9$m!m7w-9v7'
 SECRET_KEY = env('SECRET_KEY')
-DEBUG = env.bool('DEBUG', default=False)
+DEBUG = env.bool('DEBUG', default=True)
 ALLOWED_HOSTS = env. list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -143,9 +143,10 @@ CORS_ALLOWED_ORIGINS = env.list('CORS_ALLOWED_ORIGINS', default=[
     'http://localhost:3000',
     'http://127.0.0.1:3000',
 ])
+CORS_ALLOW_CREDENTIALS = True
 
 # Google OAuth
-GOOGLE_CLIENT_ID = env('GOOGLE_CLIENT_ID')
+GOOGLE_CLIENT_ID = env('GOOGLE_CLIENT_ID', default='')
 GOOGLE_CLIENT_SECRET = env('GOOGLE_CLIENT_SECRET')
 
 

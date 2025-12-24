@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import { AuthProvider } from "@/contexts/AuthContext";
 import "./globals.css";
 import { LearningProgressProvider } from "@/contexts/LearningProgressContext";
 import { ReviewDeckProvider } from "@/contexts/ReviewDeckProvider";
@@ -33,9 +34,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} bg-gray-200`}>
-        <LearningProgressProvider>
-          <ReviewDeckProvider>{children}</ReviewDeckProvider>
-        </LearningProgressProvider>
+        <AuthProvider>
+          <LearningProgressProvider>
+            <ReviewDeckProvider>{children}</ReviewDeckProvider>
+          </LearningProgressProvider>
+        </AuthProvider>
       </body>
     </html>
   );
