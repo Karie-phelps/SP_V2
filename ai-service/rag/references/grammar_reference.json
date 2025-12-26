@@ -831,6 +831,142 @@
             "difficulty_level": "Beginner"
             }
         ]
+    },
+    {
+    "source": "Balarila ng Wikang Pambansa (Lope K. Santos, KWF)",
+    "url": "https://kwf.gov.ph/wp-content/uploads/Balarila-ng-Wikang-Pambansa-1.pdf",
+    "topic": "Comprehensive Filipino Grammar (Balarila ng Wikang Pambansa)",
+    "grammar_sections": [
+        {
+            "section_name": "Introduction & Alphabet",
+            "rules": [
+                {
+                "name": "Filipino Alphabet (Abakada)",
+                "description": "The Filipino alphabet used in Balarila is the traditional Abakada with 20 letters, reflecting sound-to-letter correspondence characteristic of early Filipino orthography. (Later expanded in modern orthography.)",
+                "examples": ["A, B, K, D, E, G, H, I, L, M, N, NG, O, P, R, S, T, U, W, Y"],
+                "common_errors": "Using English alphabet order and letters without regard to Filipino phonology.",
+                "difficulty_level": "Beginner"
+                }
+            ]
+        },
+        {
+            "section_name": "Phonology and Orthography",
+            "rules": [
+                {
+                "name": "Basic Filipino Sound System",
+                "description": "Filipino sounds include vowels (a, e, i, o, u) and consonants, with special consideration for *ng* as a digraph representing /ŋ/.",
+                "examples": null,
+                "common_errors": "Pronouncing *ng* incorrectly as separate letters.",
+                "difficulty_level": "Beginner"
+                }
+            ]
+        },
+        {
+            "section_name": "Bahagi ng Pananalita (Parts of Speech)",
+            "rules": [
+                {
+                "name": "Pangngalan (Noun)",
+                "description": "Names of persons, places, things, and ideas; marked by case markers like *ang, ng, sa* depending on function in the sentence.",
+                "examples": [
+                    {"Filipino": "Ang bata", "English": "The child"},
+                    {"Filipino": "Aklat ng guro", "English": "Teacher’s book"}
+                ],
+                "common_errors": "Mixing up case markers due to English assumptions.",
+                "difficulty_level": "Intermediate"
+                },
+                {
+                "name": "Panghalip (Pronoun)",
+                "description": "Pronouns that substitute for nouns; include personal (ako, ikaw, siya), possessive (akin, iyo), and demonstrative (ito, iyon).",
+                "examples": ["ako, mo, kami, ito, iyon"],
+                "common_errors": "Using subject pronouns in place of object pronouns incorrectly.",
+                "difficulty_level": "Intermediate"
+                },
+                {
+                "name": "Pandiwa (Verb)",
+                "description": "Verbs indicating action or state; marked with affixes for focus and aspect (e.g., *mag-, um-, in-*).",
+                "examples": [
+                    {"Root": "kain", "Actor Focus Past": "kumain", "Future": "kakain"},
+                    {"Root": "aral", "Completed": "nag-aral", "Ongoing": "nag-aaral"}
+                ],
+                "common_errors": "Incorrect affix choice (e.g., *magkain* vs *kumain*).",
+                "difficulty_level": "Advanced"
+                },
+                {
+                "name": "Panguri (Adjective)",
+                "description": "Modifiers of nouns, often preceding the noun and agreeing with it in focus and emphasis.",
+                "examples": ["maganda (beautiful)", "maliit (small)"],
+                "common_errors": "Placing adjectives after nouns due to English influence.",
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Pangawing (Linker)",
+                "description": "Linkers like *-ng* and *na* that connect modifiers to words.",
+                "examples": ["maliit na bahay", "maganda-ng tanawin"],
+                "common_errors": "Omitting linkers in compound expressions.",
+                "difficulty_level": "Intermediate"
+                }
+            ]
+        },
+        {
+            "section_name": "Mga Panlapi (Affixes) & Pagbuo ng Salita",
+            "rules": [
+                {
+                "name": "Affixation in Verb Conjugation",
+                "description": "Affixes change verb focus and aspect; actor focus (e.g., *um*, *mag*), object focus (e.g., *-in*), and locative focus (e.g., *i-*).",
+                "examples": [
+                    {"actor focus": "bumasa", "object focus": "basahin"},
+                    {"actor focus": "umiyak", "object focus": "iyakin"}
+                ],
+                "common_errors": "Applying incorrect affixes across focus categories.",
+                "difficulty_level": "Advanced"
+                },
+                {
+                "name": "Derivational Affixes",
+                "description": "Affixes that form nouns or adjectives from roots (e.g., *ka-*, *pag-*).",
+                "examples": ["kagandahan (beauty)", "pag-ibig (love)"],
+                "common_errors": "Misplacing derived forms due to English morphological assumptions.",
+                "difficulty_level": "Intermediate"
+                }
+            ]
+        },
+        {
+            "section_name": "Pagbuo ng Pangungusap (Sentence Structure)",
+            "rules": [
+                {
+                "name": "Basic Word Order",
+                "description": "Typical Filipino sentences are predicate-first (Verb-Subject-Object) though other orders are grammatically possible.",
+                "examples": [
+                    {"Filipino": "Kumain si Ana ng mangga.", "English": "Ana ate a mango."},
+                    {"Filipino": "Maganda ang tanawin.", "English": "The scenery is beautiful."}
+                ],
+                "common_errors": "Directly applying English SVO order.",
+                "difficulty_level": "Intermediate"
+                },
+                {
+                "name": "Use of *ay* Construction",
+                "description": "The *ay* inversion creates emphasis or formality (*Si Juan ay guro*).",
+                "examples": ["Si Juan ay guro."],
+                "common_errors": "Overusing *ay* in casual speech.",
+                "difficulty_level": "Intermediate"
+                }
+            ]
+        },
+        {
+            "section_name": "Mga Batayang Tuntunin sa Aspekto at Panahon (Aspect & Tense)",
+            "rules": [
+                {
+                "name": "Aspect over Tense",
+                "description": "Filipino emphasizes aspect (completed, incompleted, contemplated) rather than English-style past/present/future.",
+                "examples": [
+                    {"Filipino": "Umaalala", "English": "Remembering (ongoing)"},
+                    {"Filipino": "Umalala", "English": "Remembered (completed)"}
+                ],
+                "common_errors": "Labeling Filipino forms with strict tense terms instead of aspect.",
+                "difficulty_level": "Advanced"
+                }
+            ]
+        }
+    ]
     }
 ]
 
