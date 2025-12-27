@@ -1,9 +1,9 @@
 export type SrsCardState = {
-  id: number;
-  interval: number;   // days
-  repetition: number; // reps count
-  ease: number;       // ease factor (EF)
-  due: string;        // ISO date when due
+  id: number;          // word ID
+  interval: number;    // days
+  repetition: number;  // reps count (note: was 'repetition' not 'repetitions')
+  ease: number;        // ease factor (EF)
+  due: string;         // ISO date when due
 };
 
 export type SrsGrade = 0 | 1 | 2 | 3 | 4 | 5;
@@ -44,7 +44,13 @@ export function applySm2(
 
   const due = new Date(now.getTime() + interval * DAY_MS).toISOString();
 
-  return { ...state, repetition, ease, interval, due };
+  return { 
+    ...state, 
+    repetition, 
+    ease, 
+    interval, 
+    due 
+  };
 }
 
 export function isDue(state: SrsCardState, now = new Date()): boolean {

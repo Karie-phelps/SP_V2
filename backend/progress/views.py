@@ -3,11 +3,21 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
-from .models import ModuleProgress, ExerciseProgress, PerformanceMetrics
+from django.utils import timezone
+from datetime import timedelta
+from .models import (
+    ModuleProgress, 
+    ExerciseProgress, 
+    PerformanceMetrics,
+    SRSCard,
+    ReviewDeck
+)
 from .serializers import (
     ModuleProgressSerializer,
     ExerciseProgressSerializer,
-    PerformanceMetricsSerializer
+    PerformanceMetricsSerializer,
+    SRSCardSerializer,
+    ReviewDeckSerializer
 )
 
 
@@ -62,14 +72,18 @@ def update_exercise_progress(request, module_name, exercise_type):
         data = request.data
         exercise_progress.status = data.get('status', exercise_progress.status)
         exercise_progress.attempts = data.get('attempts', exercise_progress.attempts)
-        exercise_progress.best_score = data.get('score', exercise_progress.best_score)
-        exercise_progress.last_score = data.get('score', exercise_progress.last_score)
+        
+        if data.get('score') is not None:
+            exercise_progress.last_score = data['score']
+            # Update best score
+            if exercise_progress.best_score is None or data['score'] > exercise_progress.best_score:
+                exercise_progress.best_score = data['score']
+        
         exercise_progress.last_difficulty = data.get('lastDifficulty', exercise_progress.last_difficulty)
         
         if data.get('completedAt'):
             exercise_progress.last_completed_at = data['completedAt']
         if not exercise_progress.first_attempt_at:
-            from django.utils import timezone
             exercise_progress.first_attempt_at = timezone.now()
         
         exercise_progress.save()
@@ -160,15 +174,12 @@ def reset_progress(request, module_name=None):
 @permission_classes([IsAuthenticated])
 def get_srs_cards(request):
     """Get all SRS cards for current user"""
-    from django.utils import timezone
-    
     cards = SRSCard.objects.filter(user=request.user)
     
     # Separate due and all cards
     now = timezone.now()
     due_cards = cards.filter(next_review__lte=now)
     
-    from .serializers import SRSCardSerializer
     return Response({
         'all_cards': SRSCardSerializer(cards, many=True).data,
         'due_cards': SRSCardSerializer(due_cards, many=True).data,
@@ -181,14 +192,11 @@ def get_srs_cards(request):
 @permission_classes([IsAuthenticated])
 def get_due_srs_cards(request):
     """Get only cards due for review"""
-    from django.utils import timezone
-    
     due_cards = SRSCard.objects.filter(
         user=request.user,
         next_review__lte=timezone.now()
     )
     
-    from .serializers import SRSCardSerializer
     return Response({
         'cards': SRSCardSerializer(due_cards, many=True).data,
         'count': due_cards.count()
@@ -199,9 +207,6 @@ def get_due_srs_cards(request):
 @permission_classes([IsAuthenticated])
 def update_srs_card(request, word_id):
     """Update SRS card after review (SM-2 algorithm)"""
-    from django.utils import timezone
-    from datetime import timedelta
-    
     grade = request.data.get('grade', 3)  # 0-5 scale
     
     # Get or create SRS card
@@ -237,7 +242,6 @@ def update_srs_card(request, word_id):
     card.next_review = timezone.now() + timedelta(days=card.interval)
     card.save()
     
-    from .serializers import SRSCardSerializer
     return Response(SRSCardSerializer(card).data)
 
 
@@ -259,7 +263,6 @@ def get_review_deck(request):
     """Get all words in user's review deck"""
     deck = ReviewDeck.objects.filter(user=request.user).order_by('-added_at')
     
-    from .serializers import ReviewDeckSerializer
     return Response({
         'cards': ReviewDeckSerializer(deck, many=True).data,
         'count': deck.count()
@@ -275,7 +278,6 @@ def add_to_review_deck(request, word_id):
         word_id=word_id
     )
     
-    from .serializers import ReviewDeckSerializer
     return Response({
         'card': ReviewDeckSerializer(deck_item).data,
         'created': created
@@ -301,8 +303,6 @@ def remove_from_review_deck(request, word_id):
 @permission_classes([IsAuthenticated])
 def update_review_deck_item(request, word_id):
     """Update review deck item (mark as reviewed)"""
-    from django.utils import timezone
-    
     try:
         deck_item = ReviewDeck.objects.get(
             user=request.user,
@@ -313,7 +313,6 @@ def update_review_deck_item(request, word_id):
         deck_item.times_reviewed += 1
         deck_item.save()
         
-        from .serializers import ReviewDeckSerializer
         return Response(ReviewDeckSerializer(deck_item).data)
         
     except ReviewDeck.DoesNotExist:

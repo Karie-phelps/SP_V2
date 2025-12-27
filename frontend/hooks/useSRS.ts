@@ -22,6 +22,17 @@ function saveToStorage(map: SrsMap) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(map));
 }
 
+// Helper function to convert backend SRS card to frontend format
+function convertBackendCard(backendCard: ProgressAPI.SRSCard): SrsCardState {
+  return {
+    id: backendCard.word_id,
+    repetition: backendCard.repetitions,
+    ease: backendCard.easiness_factor,
+    interval: backendCard.interval,
+    due: backendCard.next_review,
+  };
+}
+
 export function useSRS(allIds: number[]) {
   const { user, tokens } = useAuth();
   const [store, setStore] = useState<SrsMap>({});
@@ -55,21 +66,13 @@ export function useSRS(allIds: number[]) {
       // Convert backend format to frontend format
       const backendStore: SrsMap = {};
       response.all_cards.forEach((card) => {
-        backendStore[card.word_id] = {
-          wordId: card.word_id,
-          repetitions: card.repetitions,
-          easinessFactor: card.easiness_factor,
-          interval: card.interval,
-          nextReview: new Date(card.next_review),
-        };
+        backendStore[card.word_id] = convertBackendCard(card);
       });
 
       // Add missing cards (words that exist but don't have SRS data yet)
-      let needsSync = false;
       for (const id of allIds) {
         if (!backendStore[id]) {
           backendStore[id] = initSrsCard(id);
-          needsSync = true;
         }
       }
 
@@ -81,6 +84,17 @@ export function useSRS(allIds: number[]) {
       
       // Fallback to localStorage
       const localStore = loadFromStorage();
+      
+      // Ensure all words have cards
+      let changed = false;
+      for (const id of allIds) {
+        if (!localStore[id]) {
+          localStore[id] = initSrsCard(id);
+          changed = true;
+        }
+      }
+      
+      if (changed) saveToStorage(localStore);
       setStore(localStore);
     } finally {
       setIsLoading(false);
@@ -117,14 +131,12 @@ export function useSRS(allIds: number[]) {
         // Update with backend response (in case of drift)
         setStore((prev) => ({
           ...prev,
-          [id]: {
-            wordId: backendCard.word_id,
-            repetitions: backendCard.repetitions,
-            easinessFactor: backendCard.easiness_factor,
-            interval: backendCard.interval,
-            nextReview: new Date(backendCard.next_review),
-          },
+          [id]: convertBackendCard(backendCard),
         }));
+        
+        // Save updated version to localStorage
+        const updatedStore = { ...store, [id]: convertBackendCard(backendCard) };
+        saveToStorage(updatedStore);
       } catch (error) {
         console.error("Failed to update SRS card on backend:", error);
         // Keep the optimistic update even if backend fails
