@@ -1,8 +1,10 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { useAuth } from "./AuthContext";
+import * as ProgressAPI from "@/lib/api/progress";
 
-// Types
+// Types (keep existing types)
 export type ModuleType =
   | "vocabulary"
   | "grammar"
@@ -30,7 +32,7 @@ export interface ExerciseProgress {
   attempts: number;
   lastDifficulty: "easy" | "medium" | "hard";
   errorTags: string[];
-  performanceHistory: PerformanceMetrics[]; // NEW
+  performanceHistory: PerformanceMetrics[];
 }
 
 export interface ModuleProgress {
@@ -51,12 +53,15 @@ export interface AllModulesProgress {
 
 interface LearningProgressContextType {
   progress: AllModulesProgress;
+  isLoading: boolean;
+  error: string | null;
   updateProgress: (
     module: ModuleType,
     exercise: ExerciseType,
     data: Partial<ExerciseProgress>
-  ) => void;
-  resetProgress: (module?: ModuleType) => void;
+  ) => Promise<void>;
+  resetProgress: (module?: ModuleType) => Promise<void>;
+  syncProgress: () => Promise<void>;
   getModuleProgress: (module: ModuleType) => number;
   getOverallProgress: () => number;
   getNextRecommended: (module: ModuleType) => ExerciseType | null;
@@ -69,14 +74,14 @@ interface LearningProgressContextType {
     module: ModuleType,
     exercise: ExerciseType,
     metrics: PerformanceMetrics
-  ) => void;
+  ) => Promise<void>;
   getPerformanceHistory: (
     module: ModuleType,
     exercise: ExerciseType
   ) => PerformanceMetrics[];
 }
 
-// Default exercise state
+// Default states (keep existing defaults)
 const defaultExerciseProgress: ExerciseProgress = {
   status: "locked",
   score: null,
@@ -84,10 +89,9 @@ const defaultExerciseProgress: ExerciseProgress = {
   attempts: 0,
   lastDifficulty: "easy",
   errorTags: [],
-  performanceHistory: [], // NEW
+  performanceHistory: [],
 };
 
-// Default module state
 const defaultModuleProgress: ModuleProgress = {
   flashcards: { ...defaultExerciseProgress, status: "available" },
   quiz: { ...defaultExerciseProgress },
@@ -95,7 +99,6 @@ const defaultModuleProgress: ModuleProgress = {
   lastAccessedAt: null,
 };
 
-// Default all modules
 const defaultProgress: AllModulesProgress = {
   vocabulary: { ...defaultModuleProgress },
   grammar: { ...defaultModuleProgress },
@@ -114,40 +117,120 @@ export function LearningProgressProvider({
 }: {
   children: React.ReactNode;
 }) {
+  const { user, tokens } = useAuth();
   const [progress, setProgress] = useState<AllModulesProgress>(defaultProgress);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Load from localStorage on mount
-  useEffect(() => {
-    const stored = localStorage.getItem("learning-progress");
-    if (stored) {
-      try {
-        setProgress(JSON.parse(stored));
-      } catch (e) {
-        console.error("Failed to load progress:", e);
+  // Map backend exercise names to frontend names
+  const exerciseTypeMap: Record<ExerciseType, string> = {
+    flashcards: "flashcards",
+    quiz: "quiz",
+    "fill-blanks": "fill-blanks",
+  };
+
+  // Convert backend data to frontend format
+  const convertBackendToFrontend = (
+    backendModules: ProgressAPI.ModuleProgress[]
+  ): AllModulesProgress => {
+    const frontendProgress = { ...defaultProgress };
+
+    backendModules.forEach((module) => {
+      const moduleKey = module.module as ModuleType;
+      if (moduleKey in frontendProgress) {
+        const moduleProgress: ModuleProgress = {
+          flashcards: { ...defaultExerciseProgress, status: "available" },
+          quiz: { ...defaultExerciseProgress },
+          "fill-blanks": { ...defaultExerciseProgress },
+          lastAccessedAt: module.last_accessed_at,
+        };
+
+        // Map exercises
+        module.exercises.forEach((exercise) => {
+          const exerciseKey = exercise.exercise_type as ExerciseType;
+          if (exerciseKey in moduleProgress) {
+            moduleProgress[exerciseKey] = {
+              status: exercise.status as ExerciseStatus,
+              score: exercise.last_score,
+              completedAt: exercise.last_completed_at,
+              attempts: exercise.attempts,
+              lastDifficulty: exercise.last_difficulty as any,
+              errorTags: [],
+              performanceHistory: exercise.performance_history.map((p) => ({
+                difficulty: p.difficulty as any,
+                score: p.score,
+                missedLowFreq: p.missed_low_freq,
+                similarChoiceErrors: p.similar_choice_errors,
+                timestamp: p.timestamp,
+              })),
+            };
+          }
+        });
+
+        frontendProgress[moduleKey] = moduleProgress;
       }
+    });
+
+    return frontendProgress;
+  };
+
+  // Load progress from backend on mount or when user changes
+  const syncProgress = async () => {
+    if (!user || !tokens) {
+      setProgress(defaultProgress);
+      setIsLoading(false);
+      return;
     }
-  }, []);
 
-  // Save to localStorage whenever progress changes
+    try {
+      setIsLoading(true);
+      setError(null);
+      const backendModules = await ProgressAPI.getAllProgress();
+      const convertedProgress = convertBackendToFrontend(backendModules);
+      setProgress(convertedProgress);
+
+      // Also save to localStorage as backup
+      localStorage.setItem(
+        "learning-progress-backup",
+        JSON.stringify(convertedProgress)
+      );
+    } catch (err: any) {
+      console.error("Failed to load progress from backend:", err);
+      setError(err.message);
+
+      // Fallback to localStorage
+      const backup = localStorage.getItem("learning-progress-backup");
+      if (backup) {
+        try {
+          setProgress(JSON.parse(backup));
+        } catch {
+          setProgress(defaultProgress);
+        }
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
-    localStorage.setItem("learning-progress", JSON.stringify(progress));
-  }, [progress]);
+    syncProgress();
+  }, [user?.id]); // Reload when user changes
 
-  // Update exercise progress
-  const updateProgress = (
+  // Update progress with optimistic update + backend sync
+  const updateProgress = async (
     module: ModuleType,
     exercise: ExerciseType,
     data: Partial<ExerciseProgress>
   ) => {
+    // Optimistic update (update UI immediately)
     setProgress((prev) => {
       const moduleProgress = { ...prev[module] };
-
       moduleProgress[exercise] = {
         ...moduleProgress[exercise],
         ...data,
       };
 
-      // Sequential unlock logic within module
+      // Sequential unlock logic
       if (exercise === "flashcards" && data.status === "completed") {
         moduleProgress.quiz.status = "available";
       }
@@ -160,7 +243,7 @@ export function LearningProgressProvider({
         [module]: moduleProgress,
       };
 
-      // Check if module is now completed - only check exercise properties
+      // Check if module is completed
       const exercises: ExerciseType[] = ["flashcards", "quiz", "fill-blanks"];
       const isModuleComplete = exercises.every(
         (ex) => moduleProgress[ex].status === "completed"
@@ -182,25 +265,43 @@ export function LearningProgressProvider({
 
       return updated;
     });
+
+    // Sync to backend
+    if (user && tokens) {
+      try {
+        await ProgressAPI.updateExerciseProgress(
+          module,
+          exerciseTypeMap[exercise],
+          {
+            status: data.status,
+            score: data.score || undefined,
+            attempts: data.attempts,
+            completedAt: data.completedAt || undefined,
+            lastDifficulty: data.lastDifficulty,
+          }
+        );
+      } catch (err) {
+        console.error("Failed to sync progress to backend:", err);
+        // Could show a toast notification here
+      }
+    }
   };
 
-  // NEW: Add performance metrics
-  const addPerformanceMetrics = (
+  // Add performance metrics
+  const addPerformanceMetrics = async (
     module: ModuleType,
     exercise: ExerciseType,
     metrics: PerformanceMetrics
   ) => {
+    // Optimistic update
     setProgress((prev) => {
       const moduleProgress = { ...prev[module] };
       const exerciseProgress = { ...moduleProgress[exercise] };
 
-      // Add to history
       exerciseProgress.performanceHistory = [
         ...exerciseProgress.performanceHistory,
         metrics,
       ];
-
-      // Update difficulty and error tags
       exerciseProgress.lastDifficulty = metrics.difficulty;
 
       moduleProgress[exercise] = exerciseProgress;
@@ -210,30 +311,53 @@ export function LearningProgressProvider({
         [module]: moduleProgress,
       };
     });
-  };
 
-  // NEW: Get performance history
-  const getPerformanceHistory = (
-    module: ModuleType,
-    exercise: ExerciseType
-  ): PerformanceMetrics[] => {
-    return progress[module][exercise].performanceHistory || [];
-  };
-
-  // Reset progress
-  const resetProgress = (module?: ModuleType) => {
-    if (module) {
-      setProgress((prev) => ({
-        ...prev,
-        [module]: { ...defaultModuleProgress },
-      }));
-    } else {
-      setProgress(defaultProgress);
-      localStorage.removeItem("learning-progress");
+    // Sync to backend
+    if (user && tokens) {
+      try {
+        await ProgressAPI.updateExerciseProgress(
+          module,
+          exerciseTypeMap[exercise],
+          {
+            lastDifficulty: metrics.difficulty,
+            performanceMetrics: {
+              difficulty: metrics.difficulty,
+              score: metrics.score,
+              missedLowFreq: metrics.missedLowFreq,
+              similarChoiceErrors: metrics.similarChoiceErrors,
+              errorTags: [],
+            },
+          }
+        );
+      } catch (err) {
+        console.error("Failed to add performance metrics:", err);
+      }
     }
   };
 
-  // Get module completion percentage
+  // Reset progress
+  const resetProgress = async (module?: ModuleType) => {
+    if (user && tokens) {
+      try {
+        await ProgressAPI.resetProgress(module);
+        await syncProgress(); // Reload from backend
+      } catch (err) {
+        console.error("Failed to reset progress:", err);
+      }
+    } else {
+      // Offline mode
+      if (module) {
+        setProgress((prev) => ({
+          ...prev,
+          [module]: { ...defaultModuleProgress },
+        }));
+      } else {
+        setProgress(defaultProgress);
+      }
+    }
+  };
+
+  // Keep all existing helper functions (getModuleProgress, getOverallProgress, etc.)
   const getModuleProgress = (module: ModuleType): number => {
     const moduleData = progress[module];
     const exercises = [
@@ -247,9 +371,8 @@ export function LearningProgressProvider({
     return Math.round((completed / 3) * 100);
   };
 
-  // Get overall completion percentage
   const getOverallProgress = (): number => {
-    const totalExercises = 12; // 4 modules * 3 exercises
+    const totalExercises = 12;
     const moduleTypes: ModuleType[] = [
       "vocabulary",
       "grammar",
@@ -270,7 +393,6 @@ export function LearningProgressProvider({
     return Math.round((completedExercises / totalExercises) * 100);
   };
 
-  // Get next recommended exercise
   const getNextRecommended = (module: ModuleType): ExerciseType | null => {
     const moduleData = progress[module];
     if (moduleData.flashcards.status !== "completed") return "flashcards";
@@ -279,7 +401,6 @@ export function LearningProgressProvider({
     return null;
   };
 
-  // Check if user can access exercise
   const canAccessExercise = (
     module: ModuleType,
     exercise: ExerciseType
@@ -287,7 +408,6 @@ export function LearningProgressProvider({
     return progress[module][exercise].status !== "locked";
   };
 
-  // Check if module is completed
   const isModuleCompleted = (module: ModuleType): boolean => {
     const moduleData = progress[module];
     return (
@@ -297,12 +417,10 @@ export function LearningProgressProvider({
     );
   };
 
-  // Get recommended module
   const getRecommendedModule = (): ModuleType => {
     return progress.recommendedModule;
   };
 
-  // Mark module as accessed
   const markModuleAccessed = (module: ModuleType) => {
     setProgress((prev) => ({
       ...prev,
@@ -313,7 +431,6 @@ export function LearningProgressProvider({
     }));
   };
 
-  // Get recommendation reason
   const getModuleRecommendationReason = (module: ModuleType): string => {
     const moduleProgress = getModuleProgress(module);
     const isRecommended = progress.recommendedModule === module;
@@ -338,12 +455,22 @@ export function LearningProgressProvider({
     return "Available";
   };
 
+  const getPerformanceHistory = (
+    module: ModuleType,
+    exercise: ExerciseType
+  ): PerformanceMetrics[] => {
+    return progress[module][exercise].performanceHistory || [];
+  };
+
   return (
     <LearningProgressContext.Provider
       value={{
         progress,
+        isLoading,
+        error,
         updateProgress,
         resetProgress,
+        syncProgress,
         getModuleProgress,
         getOverallProgress,
         getNextRecommended,
@@ -361,7 +488,6 @@ export function LearningProgressProvider({
   );
 }
 
-// Custom hook
 export function useLearningProgress() {
   const context = useContext(LearningProgressContext);
   if (!context) {

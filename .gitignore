@@ -1,6 +1,8 @@
 # Virtual environments
 venv/
 **/venv/
+virtenv/
+**/virtenv/
 
 # Env files
 .env

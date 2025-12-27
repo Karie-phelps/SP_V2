@@ -1,13 +1,15 @@
 "use client";
 
-import { useEffect, useMemo, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import * as ProgressAPI from "@/lib/api/progress";
 import { initSrsCard, isDue, applySm2, type SrsCardState, type SrsGrade } from "@/utils/srs";
 
 const STORAGE_KEY = "vocab-srs-v1";
 
 type SrsMap = Record<number, SrsCardState>;
 
-function load(): SrsMap {
+function loadFromStorage(): SrsMap {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     return raw ? JSON.parse(raw) : {};
@@ -16,46 +18,125 @@ function load(): SrsMap {
   }
 }
 
-function save(map: SrsMap) {
+function saveToStorage(map: SrsMap) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(map));
 }
 
 export function useSRS(allIds: number[]) {
+  const { user, tokens } = useAuth();
   const [store, setStore] = useState<SrsMap>({});
+  const [isLoading, setIsLoading] = useState(true);
   const prevIdsRef = useRef<string>("");
 
+  // Load SRS data from backend or localStorage
+  const syncSRS = async () => {
+    if (!user || !tokens) {
+      // Load from localStorage if not authenticated
+      const localStore = loadFromStorage();
+      let changed = false;
+      
+      for (const id of allIds) {
+        if (!localStore[id]) {
+          localStore[id] = initSrsCard(id);
+          changed = true;
+        }
+      }
+      
+      if (changed) saveToStorage(localStore);
+      setStore(localStore);
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+      const response = await ProgressAPI.getAllSRSCards();
+      
+      // Convert backend format to frontend format
+      const backendStore: SrsMap = {};
+      response.all_cards.forEach((card) => {
+        backendStore[card.word_id] = {
+          wordId: card.word_id,
+          repetitions: card.repetitions,
+          easinessFactor: card.easiness_factor,
+          interval: card.interval,
+          nextReview: new Date(card.next_review),
+        };
+      });
+
+      // Add missing cards (words that exist but don't have SRS data yet)
+      let needsSync = false;
+      for (const id of allIds) {
+        if (!backendStore[id]) {
+          backendStore[id] = initSrsCard(id);
+          needsSync = true;
+        }
+      }
+
+      setStore(backendStore);
+      saveToStorage(backendStore); // Backup to localStorage
+      
+    } catch (error) {
+      console.error("Failed to load SRS data from backend:", error);
+      
+      // Fallback to localStorage
+      const localStore = loadFromStorage();
+      setStore(localStore);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
-    // Create stable string representation of IDs
     const idsKey = allIds.sort((a, b) => a - b).join(",");
     
-    // Only run if IDs actually changed
     if (idsKey === prevIdsRef.current) return;
     prevIdsRef.current = idsKey;
 
-    const m = load();
-    let changed = false;
-    for (const id of allIds) {
-      if (!m[id]) {
-        m[id] = initSrsCard(id);
-        changed = true;
-      }
-    }
-    if (changed) save(m);
-    setStore(m);
-  }, [allIds]);
+    syncSRS();
+  }, [allIds, user?.id]);
 
-  const dueIds = useMemo(() => {
-    const now = new Date();
-    return allIds.filter((id) => store[id] && isDue(store[id], now));
-  }, [allIds, store]);
+  const dueIds = allIds.filter((id) => store[id] && isDue(store[id], new Date()));
 
-  const grade = (id: number, g: SrsGrade) => {
+  const grade = async (id: number, g: SrsGrade) => {
+    const currentCard = store[id] ?? initSrsCard(id);
+    const updatedCard = applySm2(currentCard, g);
+
+    // Optimistic update
     setStore((prev) => {
-      const next = { ...prev, [id]: applySm2(prev[id] ?? initSrsCard(id), g) };
-      save(next);
+      const next = { ...prev, [id]: updatedCard };
+      saveToStorage(next);
       return next;
     });
+
+    // Sync to backend
+    if (user && tokens) {
+      try {
+        const backendCard = await ProgressAPI.updateSRSCard(id, g);
+        
+        // Update with backend response (in case of drift)
+        setStore((prev) => ({
+          ...prev,
+          [id]: {
+            wordId: backendCard.word_id,
+            repetitions: backendCard.repetitions,
+            easinessFactor: backendCard.easiness_factor,
+            interval: backendCard.interval,
+            nextReview: new Date(backendCard.next_review),
+          },
+        }));
+      } catch (error) {
+        console.error("Failed to update SRS card on backend:", error);
+        // Keep the optimistic update even if backend fails
+      }
+    }
   };
 
-  return { dueIds, grade, get: (id: number) => store[id] };
+  return { 
+    dueIds, 
+    grade, 
+    get: (id: number) => store[id],
+    isLoading,
+    syncSRS,
+  };
 }
