@@ -171,7 +171,7 @@ class SRSCard(models.Model):
         ]
     
     def __str__(self):
-        return f"User {self.user_id} - Word {self.word_id}"
+        return f"User {self.user.user_id} - Word {self.word_id}"
 
 
 class ReviewDeck(models.Model):

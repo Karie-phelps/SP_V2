@@ -16,7 +16,7 @@ import environ
 
 
 # Initialize environment variables
-env = environ. Env()
+env = environ.Env()
 environ.Env.read_env(os.path.join(Path(__file__).resolve().parent.parent, '.env'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,12 +30,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-)3u7t0h1afa-xz-nz1&2=xr!d+c-^=+(p*)7air9$m!m7w-9v7'
 SECRET_KEY = env('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=True)
-ALLOWED_HOSTS = env. list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
-
-# SECURITY WARNING: don't run with debug turned on in production!
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 
 # Application definition
