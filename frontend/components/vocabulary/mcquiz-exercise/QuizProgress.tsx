@@ -8,7 +8,7 @@ interface QuizProgressProps {
   currentQuestion: number;
   totalQuestions: number;
   answers: (boolean | null)[];
-  wordId: number;
+  wordId: string;
 }
 
 export default function QuizProgress({

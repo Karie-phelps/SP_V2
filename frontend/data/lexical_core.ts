@@ -1,4 +1,4 @@
-lexicon_data = [
+export const vocabularyData = [
     {
         "lemma_id": "LEX-001",
         "lemma": "adhika",
@@ -871,18 +871,6 @@ lexicon_data = [
             "antonyms": ["bahagya", "mahina", "dito", "malapit"]
         }
     },
-    # {
-    #     "lemma_id": "LEX-063",
-    #     "lemma": "ibayo",
-    #     "base_definition": "Sa ",
-    #     "surface_forms": [
-    #         "ibayo",
-    #     ],
-    #     "relations": {
-    #         "synonyms": ["kabila"],
-    #         "antonyms": ["dito", "malapit"]
-    #     }
-    # },
     {
         "lemma_id": "LEX-064",
         "lemma": "kubli",
@@ -1563,7 +1551,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-113",
-        "lemma": "punyagi",
+        "root_word": "punyagi",
         "base_definition": "Ang matinding pagsisikap at tiyaga upang makamit ang isang layunin o tagumpay.",
         "surface_forms": [
             "magpunyagi",
@@ -1577,7 +1565,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-114",
-        "lemma": "gaway",
+        "root_word": "gaway",
         "base_definition": "Isang anyo ng pangkukulam o paggamit ng mahika upang manakit ng kapwa.",
         "surface_forms": [
             "manggagaway",
@@ -1590,7 +1578,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-115",
-        "lemma": "umit",
+        "root_word": "umit",
         "base_definition": "Ang palihim na pagkuha ng maliit na bagay na hindi pagmamay-ari.",
         "surface_forms": [
             "mang-umit",
@@ -1604,7 +1592,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-116",
-        "lemma": "sigo",
+        "root_word": "sigo",
         "base_definition": "Ang pagkakataon o kalagayan ng pagtama sa inaasinta o pagkakamit ng swerte.",
         "surface_forms": [
             "manigo",
@@ -1618,7 +1606,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-117",
-        "lemma": "imot",
+        "root_word": "imot",
         "base_definition": "Ang ugali ng pagiging sakim o ang pagnanais na angkinin ang lahat para sa sarili.",
         "surface_forms": [
             "mapag-imot",
@@ -1631,7 +1619,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-118",
-        "lemma": "layaw",
+        "root_word": "layaw",
         "base_definition": "Ang kalagayan ng pagbibigay ng laya o labis na pagpapabukod sa isang tao.",
         "surface_forms": [
             "mapagpalayaw",
@@ -1644,7 +1632,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-119",
-        "lemma": "pakali",
+        "root_word": "pakali",
         "base_definition": "Ang kakayahan o kalagayan ng pagiging panatag sa isang lugar o sitwasyon.",
         "surface_forms": [
             "mapakali",
@@ -1657,7 +1645,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-120",
-        "lemma": "siil",
+        "root_word": "siil",
         "base_definition": "Ang ugali o kilos ng pagpapahirap o pagmamalabis sa kapwa.",
         "surface_forms": [
             "mapaniil",
@@ -1672,7 +1660,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-121",
-        "lemma": "pukaw",
+        "root_word": "pukaw",
         "base_definition": "Ang paggising sa damdamin o atensyon ng isang tao.",
         "surface_forms": [
             "mapukaw",
@@ -1686,7 +1674,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-122",
-        "lemma": "dilag",
+        "root_word": "dilag",
         "base_definition": "Tumutukoy sa katangiang nakakaakit o maganda sa paningin.",
         "surface_forms": [
             "marilag",
@@ -1700,7 +1688,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-123",
-        "lemma": "dubdob",
+        "root_word": "dubdob",
         "base_definition": "Isang masidhing damdamin o matinding pagnanasa.",
         "surface_forms": [
             "marubdob"
@@ -1712,7 +1700,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-124",
-        "lemma": "tarik",
+        "root_word": "tarik",
         "base_definition": "Tumutukoy sa katarikan o taas ng isang anyong lupa.",
         "surface_forms": [
             "matarik",
@@ -1725,7 +1713,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-125",
-        "lemma": "tayog",
+        "root_word": "tayog",
         "base_definition": "Ang taas ng lipad o kinalalagyan ng isang bagay.",
         "surface_forms": [
             "matayog",
@@ -1739,7 +1727,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-126",
-        "lemma": "tibag",
+        "root_word": "tibag",
         "base_definition": "Ang pagkasira o pagguho ng isang estruktura o pader.",
         "surface_forms": [
             "matibag",
@@ -1753,7 +1741,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-127",
-        "lemma": "tiim",
+        "root_word": "tiim",
         "base_definition": "Pagpapakita ng katapatan o pagiging seryoso sa isang pangako.",
         "surface_forms": [
             "matiim",
@@ -1766,7 +1754,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-128",
-        "lemma": "timyas",
+        "root_word": "timyas",
         "base_definition": "Wagas at dalisay na uri ng pagmamahal o damdamin.",
         "surface_forms": [
             "matimyas",
@@ -1779,7 +1767,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-129",
-        "lemma": "tining",
+        "root_word": "tining",
         "base_definition": "Ang pagkakaroon ng malakas o matinis na tunog.",
         "surface_forms": [
             "matining",
@@ -1792,7 +1780,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-130",
-        "lemma": "matyag",
+        "root_word": "matyag",
         "base_definition": "Ang maingat na pagmamasid o pagbabantay sa isang bagay.",
         "surface_forms": [
             "matyag",
@@ -1806,7 +1794,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-131",
-        "lemma": "muwang",
+        "root_word": "muwang",
         "base_definition": "Ang pagkakaroon ng malay o sapat na kaisipan tungkol sa paligid.",
         "surface_forms": [
             "muwang",
@@ -1819,7 +1807,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-132",
-        "lemma": "binbin",
+        "root_word": "binbin",
         "base_definition": "Ang pagkapigil o pansamantalang paghinto ng isang gawain o biyahe.",
         "surface_forms": [
             "nabinbin",
@@ -1834,7 +1822,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-133",
-        "lemma": "daing",
+        "root_word": "daing",
         "base_definition": "Ang pagpapahayag ng nararamdamang hirap o suliranin sa iba.",
         "surface_forms": [
             "nadaingan",
@@ -1848,7 +1836,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-134",
-        "lemma": "bunsod",
+        "root_word": "bunsod",
         "base_definition": "Ang dahilan o mitsa na nagtulak sa isang pangyayari.",
         "surface_forms": [
             "nagbunsod",
@@ -1862,7 +1850,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-135",
-        "lemma": "dahop",
+        "root_word": "dahop",
         "base_definition": "Ang kalagayan ng matinding kakulangan sa pera o pangangailangan.",
         "surface_forms": [
             "nagdarahop",
@@ -1877,7 +1865,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-136",
-        "lemma": "lipana",
+        "root_word": "lipana",
         "base_definition": "Ang pagiging laganap o kalat ng isang bagay sa maraming dako.",
         "surface_forms": [
             "naglipana",
@@ -1891,7 +1879,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-137",
-        "lemma": "puyos",
+        "root_word": "puyos",
         "base_definition": "Ang pag-aapoy ng damdamin o tindi ng nararamdaman.",
         "surface_forms": [
             "nagpupuyos",
@@ -1904,7 +1892,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-138",
-        "lemma": "samo",
+        "root_word": "samo",
         "base_definition": "Ang mapagpakumbabang paghingi ng pabor o tulong.",
         "surface_forms": [
             "nagsusumamo",
@@ -1919,7 +1907,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-139",
-        "lemma": "gulumi",
+        "root_word": "gulumi",
         "base_definition": "Ang kalagayan ng pagkalito o hindi pagkakaintindi sa sitwasyon.",
         "surface_forms": [
             "nagugulumihanan",
@@ -1932,7 +1920,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-140",
-        "lemma": "hapo",
+        "root_word": "hapo",
         "base_definition": "Matinding pagkapagod na nagreresulta sa mabilis na paghinga.",
         "surface_forms": [
             "nahahapo",
@@ -1946,7 +1934,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-141",
-        "lemma": "hili",
+        "root_word": "hili",
         "base_definition": "Ang pakiramdam ng inggit o pagnanais sa mayroon ang iba.",
         "surface_forms": [
             "nahihili",
@@ -1960,7 +1948,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-142",
-        "lemma": "bulahaw",
+        "root_word": "bulahaw",
         "base_definition": "Ang pag-istorbo sa katahimikan ng isang lugar.",
         "surface_forms": [
             "nakakabulahaw",
@@ -1974,7 +1962,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-143",
-        "lemma": "kintal",
+        "root_word": "kintal",
         "base_definition": "Ang malalim na pagkakaimbak o pagkaka-ukit sa isipan o alaala.",
         "surface_forms": [
             "nakakintal",
@@ -1988,7 +1976,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-144",
-        "lemma": "sulit",
+        "root_word": "sulit",
         "base_definition": "Ang pagpasa o pagtatapos sa isang pagsubok o gawain.",
         "surface_forms": [
             "nakasulit",
@@ -2002,7 +1990,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-145",
-        "lemma": "lugami",
+        "root_word": "lugami",
         "base_definition": "Ang pagkalubog sa hirap o kawalan ng pag-asa.",
         "surface_forms": [
             "nalulugami",
@@ -2016,7 +2004,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-146",
-        "lemma": "bayani",
+        "root_word": "bayani",
         "base_definition": "Ang pag-iral o pagpapakita ng kabayanihan o nangingibabaw na kapangyarihan.",
         "surface_forms": [
             "namayani",
@@ -2030,7 +2018,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-147",
-        "lemma": "utawi",
+        "root_word": "utawi",
         "base_definition": "Ang paglalabas ng mga salita mula sa bibig.",
         "surface_forms": [
             "namutawi",
@@ -2043,7 +2031,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-148",
-        "lemma": "taytay",
+        "root_word": "taytay",
         "base_definition": "Ang tuloy-tuloy na agos o daloy ng likido.",
         "surface_forms": [
             "nanalaytay",
@@ -2056,7 +2044,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-149",
-        "lemma": "nananangan",
+        "root_word": "nananangan",
         "base_definition": "Ang pagkakaroon ng matibay na paniniwala o tiwala.",
         "surface_forms": [
             "nananangan"
@@ -2068,7 +2056,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-150",
-        "lemma": "ahas",
+        "root_word": "ahas",
         "base_definition": "Ang pagpapakita ng tapang o paggawa ng bagay na mapanganib.",
         "surface_forms": [
             "nangahas",
@@ -2081,7 +2069,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-151",
-        "lemma": "nuya",
+        "root_word": "nuya",
         "base_definition": "Ang kilos ng pagkutya o pagpapakita ng hamak sa kapwa.",
         "surface_forms": [
             "nanunuya",
@@ -2095,7 +2083,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-152",
-        "lemma": "suot",
+        "root_word": "suot",
         "base_definition": "Ang pagpasok o paglapos sa isang maliit na espasyo.",
         "surface_forms": [
             "nanuot",
@@ -2109,7 +2097,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-153",
-        "lemma": "bunton",
+        "root_word": "bunton",
         "base_definition": "Ang pagpunta o pagtutuon ng pansin sa isang partikular na panig.",
         "surface_forms": [
             "napabunton",
@@ -2122,7 +2110,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-154",
-        "lemma": "said",
+        "root_word": "said",
         "base_definition": "Ang pagkaubos ng lahat ng laman o suplay.",
         "surface_forms": [
             "nasaid",
@@ -2136,7 +2124,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-155",
-        "lemma": "waglit",
+        "root_word": "waglit",
         "base_definition": "Ang hindi sinasadyang pagkawala ng isang bagay mula sa kinalalagyan nito.",
         "surface_forms": [
             "nawaglit",
@@ -2149,7 +2137,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-156",
-        "lemma": "ngawit",
+        "root_word": "ngawit",
         "base_definition": "Ang pakiramdam ng pagkapagod o pangangawit ng kalamnan dahil sa matagal na posisyon.",
         "surface_forms": [
             "ngawit",
@@ -2162,7 +2150,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-157",
-        "lemma": "ngitngit",
+        "root_word": "ngitngit",
         "base_definition": "Isang matinding bugso ng galit na madalas ay kinikimkim.",
         "surface_forms": [
             "ngitngit",
@@ -2175,7 +2163,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-158",
-        "lemma": "pagak",
+        "root_word": "pagak",
         "base_definition": "Uri ng boses na hindi malinaw, tila may gasgas, o paos.",
         "surface_forms": [
             "pagak"
@@ -2187,7 +2175,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-159",
-        "lemma": "balikwas",
+        "root_word": "balikwas",
         "base_definition": "Ang mabilis na pagbangon o pagbabago ng posisyon ng katawan.",
         "surface_forms": [
             "pagbalikwas",
@@ -2200,7 +2188,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-160",
-        "lemma": "bulay",
+        "root_word": "bulay",
         "base_definition": "Ang malalim na pagsusuri o pag-iisip tungkol sa isang bagay.",
         "surface_forms": [
             "pagbulay-bulayan",
@@ -2213,7 +2201,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-161",
-        "lemma": "datal",
+        "root_word": "datal",
         "base_definition": "Ang pagdating sa isang itinakdang lugar.",
         "surface_forms": [
             "pagdatal",
@@ -2226,7 +2214,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-162",
-        "lemma": "hamok",
+        "root_word": "hamok",
         "base_definition": "Ang pakikipaglaban o pakikipagtunggali sa isang labanan.",
         "surface_forms": [
             "paghamok",
@@ -2239,7 +2227,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-163",
-        "lemma": "himok",
+        "root_word": "himok",
         "base_definition": "Ang mapayapang pakiusap o pangungumbinsi sa iba.",
         "surface_forms": [
             "paghimok",
@@ -2253,7 +2241,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-164",
-        "lemma": "hugpong",
+        "root_word": "hugpong",
         "base_definition": "Ang pagkilos ng pagkakabit o pagdudugtong ng dalawang bahagi.",
         "surface_forms": [
             "paghuhugpong",
@@ -2266,7 +2254,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-165",
-        "lemma": "inog",
+        "root_word": "inog",
         "base_definition": "Ang pag-ikot sa sariling axis o sa paligid ng isang bagay.",
         "surface_forms": [
             "pag-inog",
@@ -2279,7 +2267,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-166",
-        "lemma": "niig",
+        "root_word": "niig",
         "base_definition": "Ang masinsinang pag-uusap o pagsasama ng dalawang tao.",
         "surface_forms": [
             "pagniniig",
@@ -2292,20 +2280,20 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-167",
-        "lemma": "ragasa",
+        "root_word": "ragasa",
         "base_definition": "Ang mabilis at malakas na pagdaloy o pagkilos ng tubig o pangkat ng mga tao.",
         "surface_forms": [
             "pagragasa",
             "rumaragasa"
         ],
         "relations": {
-            "synonyms": ["mabilis na pagdaloy"],
+            "synonyms": ["mabilis na magdaloy"],
             "antonyms": ["marahan", "mahina"]
         }
     },
     {
         "lemma_id": "LEX-168",
-        "lemma": "siil",
+        "root_word": "siil",
         "base_definition": "Ang kilos ng pagmamalupit o pag-ipit sa karapatan at kalayaan ng iba.",
         "surface_forms": [
             "pagsiil",
@@ -2319,7 +2307,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-169",
-        "lemma": "sigasig",
+        "root_word": "sigasig",
         "base_definition": "Ang pagkakaroon ng matinding pagsisikap at tiyaga sa pagtatapos ng isang gawain.",
         "surface_forms": [
             "pagsusumigasig",
@@ -2332,7 +2320,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-170",
-        "lemma": "tangis",
+        "root_word": "tangis",
         "base_definition": "Ang malalim at masidhing pag-iyak na madalas ay dulot ng matinding pait o lungkot.",
         "surface_forms": [
             "pagtangis",
@@ -2346,7 +2334,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-171",
-        "lemma": "tuligsa",
+        "root_word": "tuligsa",
         "base_definition": "Ang pagpapahayag ng matinding pagbatikos, pagsalungat, o pagkondena sa isang tao o ideya.",
         "surface_forms": [
             "pagtuligsa",
@@ -2360,7 +2348,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-172",
-        "lemma": "yaman",
+        "root_word": "yaman",
         "base_definition": "Ang kilos ng pagpapanatili, pag-aalaga, at pagpapalago sa isang mahalagang bagay o katangian.",
         "surface_forms": [
             "pagyamanin",
@@ -2374,7 +2362,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-173",
-        "lemma": "haging",
+        "root_word": "haging",
         "base_definition": "Isang pahayag na hindi direkta o pasaring upang magpahiwatig ng isang mensahe.",
         "surface_forms": [
             "pahaging",
@@ -2388,7 +2376,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-174",
-        "lemma": "himakas",
+        "root_word": "himakas",
         "base_definition": "Ang huling mensahe o pamamaalam bago ang isang mahabang paghihiwalay o bago ang kamatayan.",
         "surface_forms": [
             "pahimakas",
@@ -2401,7 +2389,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-175",
-        "lemma": "pakikibaka",
+        "root_word": "pakikibaka",
         "base_definition": "Ang pakikipaglaban o pakikipagtunggali para sa isang layunin o prinsipyo.",
         "surface_forms": [
             "pakikibaka",
@@ -2415,7 +2403,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-176",
-        "lemma": "salamuha",
+        "root_word": "salamuha",
         "base_definition": "Ang kilos ng pakikipag-ugnayan o pakikihalo sa iba't ibang uri ng tao.",
         "surface_forms": [
             "pakikisalamuha",
@@ -2429,7 +2417,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-177",
-        "lemma": "lalo",
+        "root_word": "lalo",
         "base_definition": "Ang labis na pagmamalaki sa sariling kakayahan o katayuan.",
         "surface_forms": [
             "palalo",
@@ -2443,7 +2431,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-178",
-        "lemma": "taghoy",
+        "root_word": "taghoy",
         "base_definition": "Ang pagpapahayag ng matinding hinagpis o pagluluksa sa pamamagitan ng tunog o pananalita.",
         "surface_forms": [
             "panaghoy",
@@ -2457,7 +2445,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-179",
-        "lemma": "taka",
+        "root_word": "taka",
         "base_definition": "Nangyayari nang may pagitan o hindi madalas.",
         "surface_forms": [
             "panaka-naka",
@@ -2470,7 +2458,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-180",
-        "lemma": "dimdim",
+        "root_word": "dimdim",
         "base_definition": "Ang kalagayan ng pagkakaroon ng malalim na kalungkutan o lihim na dinaramdam.",
         "surface_forms": [
             "panimdim",
@@ -2483,7 +2471,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-181",
-        "lemma": "pasan",
+        "root_word": "pasan",
         "base_definition": "Isang mabigat na tungkulin, problema, o obligasyong kailangang harapin.",
         "surface_forms": [
             "pasanin",
@@ -2497,7 +2485,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-182",
-        "lemma": "tibog",
+        "root_word": "tibog",
         "base_definition": "Isang kasangkapan o paraan upang makahuli ng hayop o kaaway.",
         "surface_forms": [
             "patibog",
@@ -2510,7 +2498,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-183",
-        "lemma": "patnubay",
+        "root_word": "patnubay",
         "base_definition": "Ang pagbibigay ng direksyon o alalay sa isang tao.",
         "surface_forms": [
             "patnubay",
@@ -2524,7 +2512,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-184",
-        "lemma": "payak",
+        "root_word": "payak",
         "base_definition": "Isang bagay na walang halong arte o kumplikadong detalye.",
         "surface_forms": [
             "payak",
@@ -2537,7 +2525,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-185",
-        "lemma": "pedestal",
+        "root_word": "pedestal",
         "base_definition": "Isang plataporma o tungtungan na kinalalagyan ng isang estatwa o mahalagang bagay.",
         "surface_forms": [
             "pedestal"
@@ -2549,7 +2537,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-186",
-        "lemma": "hati",
+        "root_word": "hati",
         "base_definition": "Matinding lungkot na tila naghahati sa puso ng isang tao.",
         "surface_forms": [
             "pighati",
@@ -2563,7 +2551,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-187",
-        "lemma": "tagpi",
+        "root_word": "tagpi",
         "base_definition": "Ang pagsasama ng mga bahagi upang makabuo ng isang kabuuan.",
         "surface_forms": [
             "pinagtagpi",
@@ -2578,7 +2566,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-188",
-        "lemma": "tiyap",
+        "root_word": "tiyap",
         "base_definition": "Ang pagkakataon ng pagkakasabay o pagsasama ng mga pangyayari.",
         "surface_forms": [
             "pinagtiyap",
@@ -2591,7 +2579,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-189",
-        "lemma": "tingkad",
+        "root_word": "tingkad",
         "base_definition": "Ang pagpapasidhi sa kulay o katangian ng isang bagay.",
         "surface_forms": [
             "pinatingkad",
@@ -2604,7 +2592,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-190",
-        "lemma": "pintig",
+        "root_word": "pintig",
         "base_definition": "Ang regular na pagtibok, karaniwan ay sa puso o pulso.",
         "surface_forms": [
             "pintig",
@@ -2617,7 +2605,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-191",
-        "lemma": "pisi",
+        "root_word": "pisi",
         "base_definition": "Isang uri ng tali na gawa sa hinabing sinulid.",
         "surface_forms": [
             "pisi"
@@ -2629,7 +2617,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-192",
-        "lemma": "pudpod",
+        "root_word": "pudpod",
         "base_definition": "Ang pagliit o pagkasira ng isang bagay dahil sa madalas na paggamit.",
         "surface_forms": [
             "pudpod",
@@ -2643,7 +2631,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-193",
-        "lemma": "pugtuin",
+        "root_word": "pugtuin",
         "base_definition": "Ang mabilis na pagputol o paghiwalay sa isang bagay.",
         "surface_forms": [
             "pugtuin",
@@ -2656,7 +2644,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-194",
-        "lemma": "pulido",
+        "root_word": "pulido",
         "base_definition": "Isang gawa na maingat at malinis ang pagkakatapos.",
         "surface_forms": [
             "pulido",
@@ -2670,7 +2658,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-195",
-        "lemma": "pulos",
+        "root_word": "pulos",
         "base_definition": "Binubuo lamang ng iisang uri o walang halong iba.",
         "surface_forms": [
             "pulos"
@@ -2682,7 +2670,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-196",
-        "lemma": "ilanlang",
+        "root_word": "ilanlang",
         "base_definition": "Ang pagkilos ng pag-akyat o paglipad nang mataas sa himpapawid.",
         "surface_forms": [
             "pumailanlang",
@@ -2698,7 +2686,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-197",
-        "lemma": "puna",
+        "root_word": "puna",
         "base_definition": "Ang pagbibigay ng pansin o obserbasyon sa isang bagay o gawi.",
         "surface_forms": [
             "puna",
@@ -2712,7 +2700,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-198",
-        "lemma": "puspos",
+        "root_word": "puspos",
         "base_definition": "Ang pagiging puno, ganap, o lubos ng isang katangian o damdamin.",
         "surface_forms": [
             "puspos",
@@ -2725,7 +2713,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-199",
-        "lemma": "sagisag",
+        "root_word": "sagisag",
         "base_definition": "Isang tanda o representasyon na tumatayo para sa isang ideya o bansa.",
         "surface_forms": [
             "sagisag",
@@ -2738,7 +2726,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-200",
-        "lemma": "said",
+        "root_word": "said",
         "base_definition": "Ang kalagayan ng pagkasaid o pagkaubos ng lahat ng suplay o laman.",
         "surface_forms": [
             "said",
@@ -2752,7 +2740,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-201",
-        "lemma": "salag",
+        "root_word": "salag",
         "base_definition": "Ang pagkilos ng pagpigil o paghaharang sa isang dating o hampas upang maipagtanggol ang sarili.",
         "surface_forms": [
             "salagin",
@@ -2767,7 +2755,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-202",
-        "lemma": "salamisim",
+        "root_word": "salamisim",
         "base_definition": "Isang damdamin ng pag-alala na may halong lungkot at tamis.",
         "surface_forms": [
             "salamisim",
@@ -2780,7 +2768,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-203",
-        "lemma": "samyo",
+        "root_word": "samyo",
         "base_definition": "Ang kaaya-aya at mabangong amoy na nagmumula sa paligid.",
         "surface_forms": [
             "samyo",
@@ -2794,7 +2782,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-204",
-        "lemma": "sapantaha",
+        "root_word": "sapantaha",
         "base_definition": "Ang pagkakaroon ng kutob o hinala tungkol sa isang bagay kahit walang sapat na ebidensya.",
         "surface_forms": [
             "sapantaha",
@@ -2808,7 +2796,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-205",
-        "lemma": "sigwa",
+        "root_word": "sigwa",
         "base_definition": "Isang malakas na unos o bagyong may kasamang malakas na hangin at ulan.",
         "surface_forms": [
             "sigwa",
@@ -2821,7 +2809,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-206",
-        "lemma": "sikdo",
+        "root_word": "sikdo",
         "base_definition": "Ang mabilis at malakas na kabog o tibok ng puso dahil sa kaba o tuwa.",
         "surface_forms": [
             "sikdo",
@@ -2833,23 +2821,9 @@ lexicon_data = [
             "antonyms": ["kalmado", "hinahon"]
         }
     },
-    # {
-    #     "lemma_id": "LEX-207",
-    #     "lemma": "siklot",
-    #     "base_definition": "Ang pagiging api o ang pagkilos ng paghahagis paitaas sa isang bagay.",
-    #     "surface_forms": [
-    #         "siklot",
-    #         "isiniklot",
-    #         "sumiklot"
-    #     ],
-    #     "relations": {
-    #         "synonyms": ["silutin", "api"],
-    #         "antonyms": ["itangi", "pahalagahan"]
-    #     }
-    # },
     {
         "lemma_id": "LEX-208",
-        "lemma": "silakbo",
+        "root_word": "silakbo",
         "base_definition": "Ang biglaang paglabas o pagbulas ng matinding damdamin.",
         "surface_forms": [
             "silakbo",
@@ -2863,7 +2837,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-209",
-        "lemma": "simbuyo",
+        "root_word": "simbuyo",
         "base_definition": "Tumutukoy sa biglaan at matinding pag-usbong o pagsabog ng damdamin na kadalasang nagmumula sa naipong emosyon, lalo na kung dulot ng mga hindi inaasahang pangyayari, at nagpapahiwatig ng padalos-dalos at masidhing tugon o reaksyon.",
         "surface_forms": [
             "simbuyo",
@@ -2876,7 +2850,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-210",
-        "lemma": "sinta",
+        "root_word": "sinta",
         "base_definition": "Isang malalim na pagmamahal o pagtingin sa isang tao.",
         "surface_forms": [
             "sinta",
@@ -2891,7 +2865,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-211",
-        "lemma": "sipat",
+        "root_word": "sipat",
         "base_definition": "Ang pagkilos ng maingat na pagtingin o pag-asinta sa isang target.",
         "surface_forms": [
             "sipatin",
@@ -2906,7 +2880,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-212",
-        "lemma": "siphayo",
+        "root_word": "siphayo",
         "base_definition": "Ang kalagayan ng pagiging api o ang pagtrato nang masama at mapang-insulto.",
         "surface_forms": [
             "siphayo",
@@ -2920,7 +2894,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-213",
-        "lemma": "siyasat",
+        "root_word": "siyasat",
         "base_definition": "Ang masusing pag-aaral, pagsusuri, o pag-imbestiga sa isang bagay.",
         "surface_forms": [
             "siyasat",
@@ -2934,7 +2908,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-214",
-        "lemma": "sambulat",
+        "root_word": "sambulat",
         "base_definition": "Ang biglaang pagputok o pagkakalat ng mga bagay sa paligid.",
         "surface_forms": [
             "sumambulat",
@@ -2948,7 +2922,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-215",
-        "lemma": "samo",
+        "root_word": "samo",
         "base_definition": "Ang mapagpakumbabang paghiling o pagmakaawa.",
         "surface_forms": [
             "sumamo",
@@ -2962,7 +2936,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-216",
-        "lemma": "sukbo",
+        "root_word": "sukbo",
         "base_definition": "Ang pagkilos ng pagbaba o pagkawala sa ilalim ng tubig o lupa.",
         "surface_forms": [
             "sumukbo",
@@ -2976,7 +2950,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-217",
-        "lemma": "susog",
+        "root_word": "susog",
         "base_definition": "Ang pagbabago o pagdaragdag sa isang batas, panukala, o dokumento.",
         "surface_forms": [
             "susog",
@@ -2990,7 +2964,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-218",
-        "lemma": "tala",
+        "root_word": "tala",
         "base_definition": "Maaaring tumukoy sa bituin sa langit o sa listahan ng mga impormasyon.",
         "surface_forms": [
             "tala",
@@ -3004,7 +2978,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-219",
-        "lemma": "talikod",
+        "root_word": "talikod",
         "base_definition": "Ang pag-iwan o pagtalikod sa isang panata, obligasyon, o tao.",
         "surface_forms": [
             "talikdan",
@@ -3019,7 +2993,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-220",
-        "lemma": "tampipi",
+        "root_word": "tampipi",
         "base_definition": "Isang katutubong lalagyan na gawa sa kawayan o yantok para sa mga damit.",
         "surface_forms": [
             "tampipi"
@@ -3031,7 +3005,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-221",
-        "lemma": "tigang",
+        "root_word": "tigang",
         "base_definition": "Ang kalagayan ng pagiging sobrang tuyo, lalo na ang lupa.",
         "surface_forms": [
             "tigang",
@@ -3044,7 +3018,7 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-222",
-        "lemma": "talima",
+        "root_word": "talima",
         "base_definition": "Ang matapat na pagsunod sa isang utos o tagubilin.",
         "surface_forms": [
             "tumalima",
@@ -3056,131 +3030,5 @@ lexicon_data = [
             "synonyms": ["sumunod", "tumupad"],
             "antonyms": ["sumuway", "lumabag"]
         }
-    },
-    # {
-    #     "lemma_id": "LEX-223",
-    #     "lemma": "talaga",
-    #     "base_definition": "Ang pagkilos ng paglalaan o pagtatalaga ng sarili sa isang tungkulin o layunin.",
-    #     "surface_forms": [
-    #         "tumatalaga",
-    #         "italaga",
-    #         "itinalaga",
-    #         "pagtatalaga"
-    #     ],
-    #     "relations": {
-    #         "synonyms": ["naglaan", "itinalaga"],
-    #         "antonyms": ["binawi", "tumanggi"]
-    #     }
-    # },
-    # {
-    #     "lemma_id": "LEX-224",
-    #     "lemma": "umis",
-    #     "base_definition": "Isang tipid na ngiti na madalas ay nagpapakita ng lihim na kagalakan o pangungutya.",
-    #     "surface_forms": [
-    #         "umis",
-    #         "napangumis",
-    #         "pag-umis"
-    #     ],
-    #     "relations": {
-    #         "synonyms": ["ngiti"],
-    #         "antonyms": ["simangot", "pag-iyak"]
-    #     }
-    # },
-    # {
-    #     "lemma_id": "LEX-225",
-    #     "lemma": "usad",
-    #     "base_definition": "Ang mabagal na pagkilos o pag-unlad ng isang bagay o sitwasyon.",
-    #     "surface_forms": [
-    #         "usad",
-    #         "umuusad",
-    #         "pag-usad"
-    #     ],
-    #     "relations": {
-    #         "synonyms": ["pag-unlad", "kilos"],
-    #         "antonyms": ["hinto", "pag-urong"]
-    #     }
-    # },
-    # {
-    #     "lemma_id": "LEX-226",
-    #     "lemma": "utas",
-    #     "base_definition": "Ang pagtatapos, pagwawakas, o pagkamatay ng isang tao o gawain.",
-    #     "surface_forms": [
-    #         "utas",
-    #         "mautas",
-    #         "nag-utas",
-    #         "pagkaka-utas"
-    #     ],
-    #     "relations": {
-    #         "synonyms": ["tapos", "patay"],
-    #         "antonyms": ["simula", "buhay"]
-    #     }
-    # },
-    # {
-    #     "lemma_id": "LEX-227",
-    #     "lemma": "wagayway",
-    #     "base_definition": "Ang paggalaw o pagpalo ng tela o bandila sa ihip ng hangin.",
-    #     "surface_forms": [
-    #         "wagayway",
-    #         "iwagayway",
-    #         "nagwagayway"
-    #     ],
-    #     "relations": {
-    #         "synonyms": ["pakaypay"],
-    #         "antonyms": ["nakatigil", "tahimik"]
-    #     }
-    # },
-    # {
-    #     "lemma_id": "LEX-228",
-    #     "lemma": "wagas",
-    #     "base_definition": "Ang pagkakaroon ng dalisay, tunay, at walang halong dumi na katangian o pag-ibig.",
-    #     "surface_forms": [
-    #         "wagas",
-    #         "kawagasan"
-    #     ],
-    #     "relations": {
-    #         "synonyms": ["dalisay"],
-    #         "antonyms": ["huwad", "marumi", "mapagbalatkayo"]
-    #     }
-    # },
-    # {
-    #     "lemma_id": "LEX-229",
-    #     "lemma": "yao",
-    #     "base_definition": "Ang pag-alis o ang pagpanaw ng isang tao mula sa mundong ito.",
-    #     "surface_forms": [
-    #         "yumao",
-    #         "pumanaw",
-    #         "pagyao"
-    #     ],
-    #     "relations": {
-    #         "synonyms": ["umalis", "pumanaw"],
-    #         "antonyms": ["dumating", "nabuhay"]
-    #     }
-    # },
-    # {
-    #     "lemma_id": "LEX-230",
-    #     "lemma": "yao",
-    #     "base_definition": "Ang pagkilos nang pabalik-balik sa magkakaibang direksyon.",
-    #     "surface_forms": [
-    #         "yao't dito",
-    #         "payaot-dito"
-    #     ],
-    #     "relations": {
-    #         "synonyms": ["paroot-parito"],
-    #         "antonyms": ["nakatigil", "nananatili"]
-    #     }
-    # },
-    # {
-    #     "lemma_id": "LEX-231",
-    #     "lemma": "yurak",
-    #     "base_definition": "Ang pagkilos ng pagtapak nang may paghamak o paglapastangan sa karangalan ng iba.",
-    #     "surface_forms": [
-    #         "yurakan",
-    #         "niyurakan",
-    #         "pagyurak"
-    #     ],
-    #     "relations": {
-    #         "synonyms": ["tapakan", "alipustahin"],
-    #         "antonyms": ["igalang", "dakilain"]
-    #     }
-    # }
+    }
 ]

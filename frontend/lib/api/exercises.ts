@@ -1,11 +1,45 @@
 const AI_SERVICE_URL = process.env.NEXT_PUBLIC_AI_SERVICE_URL || 'http://localhost:8001';
 
-export async function getVocabularyExercises() {
+export interface VocabularyExerciseItem {
+  item_id: string;
+  lemma_id: string;
+  sentence_example_1: string;
+  sentence_example_2: string;
+}
+
+export interface LexiconItem {
+  lemma_id: string;
+  lemma: string;
+  base_definition: string;
+  surface_forms: string[];
+  relations: {
+    synonyms: string[];
+    antonyms: string[];
+  };
+}
+
+export async function getVocabularyExercises(): Promise<VocabularyExerciseItem[]> {
   const response = await fetch(`${AI_SERVICE_URL}/exercises/vocabulary`);
-  return response.json();
+  if (!response.ok) {
+    throw new Error(`Failed to fetch vocabulary exercises: ${response.statusText}`);
+  }
+  const data = await response.json();
+  return data.exercises || [];
+}
+
+export async function getLexiconData(): Promise<LexiconItem[]> {
+  const response = await fetch(`${AI_SERVICE_URL}/exercises/lexicon`);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch lexicon data: ${response.statusText}`);
+  }
+  const data = await response.json();
+  return data.exercises || [];
 }
 
 export async function getGrammarExercises() {
   const response = await fetch(`${AI_SERVICE_URL}/exercises/grammar`);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch grammar exercises: ${response.statusText}`);
+  }
   return response.json();
 }

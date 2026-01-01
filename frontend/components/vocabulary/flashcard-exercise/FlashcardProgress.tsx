@@ -9,7 +9,7 @@ interface FlashcardProgressProps {
   total: number;
   masteredCount: number;
   learningCount: number;
-  wordId: number;
+  wordId: string;
 }
 
 export default function FlashcardProgress({

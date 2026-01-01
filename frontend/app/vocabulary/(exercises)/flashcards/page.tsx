@@ -9,67 +9,145 @@ import FlashcardProgress from "@/components/vocabulary/flashcard-exercise/Flashc
 import FlashcardCompletionModal from "@/components/vocabulary/flashcard-exercise/FlashcardCompletionModal";
 import { useVocabularyProgress } from "@/hooks/useVocabularyProgress";
 import { useLearningProgress } from "@/contexts/LearningProgressContext";
-import { vocabularyData } from "@/data/vocabulary-dataset";
 import { isLowFrequencyWord } from "@/utils/PerformanceTracker";
 import { evaluateUserPerformance } from "@/rules/evaluateUserPerformance";
-import { useSRS } from "@/hooks/useSRS";
+import {
+  getVocabularyExercises,
+  getLexiconData,
+  VocabularyExerciseItem,
+  LexiconItem,
+} from "@/lib/api/exercises";
 
 type CardStatus = "unseen" | "learning" | "mastered";
 
+interface FlashcardData {
+  id: string;
+  lemma_id: string;
+  word: string;
+  meaning: string;
+  example: string;
+}
+
 interface CardState {
-  id: number;
+  id: string;
   status: CardStatus;
-  flips: number; // Track flips
+  flips: number;
 }
 
 export default function FlashcardsPage() {
   const { updateProgress } = useVocabularyProgress();
   const { addPerformanceMetrics, getPerformanceHistory } =
     useLearningProgress();
-  const allIds = vocabularyData.map((w) => w.id);
-  const { dueIds, grade } = useSRS(allIds);
 
-  const [sessionWords, setSessionWords] = useState<typeof vocabularyData>([]);
+  const [sessionWords, setSessionWords] = useState<FlashcardData[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [cardStates, setCardStates] = useState<CardState[]>([]);
   const [showCompletion, setShowCompletion] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Initialize session words on client side only
+  // Initialize session words from AI service
   useEffect(() => {
-    const dueWords = vocabularyData.filter((w) => dueIds.includes(w.id));
-    const base = dueWords.length
-      ? dueWords
-      : [...vocabularyData].sort(() => Math.random() - 0.5).slice(0, 15);
-    const words = base.slice(0, 15);
+    async function loadExercises() {
+      try {
+        setIsLoading(true);
+        const [vocabExercises, lexiconData] = await Promise.all([
+          getVocabularyExercises(),
+          getLexiconData(),
+        ]);
 
-    setSessionWords(words);
-    setCardStates(
-      words.map((word) => ({ id: word.id, status: "unseen", flips: 0 }))
-    );
-  }, []); // Empty dependency array - only run once on mount
+        console.log("📚 Vocabulary Exercises:", vocabExercises.slice(0, 2));
+        console.log("📖 Lexicon Data:", lexiconData.slice(0, 2));
 
-  // Show loading state while initializing
-  if (sessionWords.length === 0) {
+        // Create a lookup map for faster searching
+        const lexiconMap = new Map(
+          lexiconData.map((item: LexiconItem) => [item.lemma_id, item])
+        );
+
+        // Combine vocabulary exercises with lexicon data
+        const combinedData: FlashcardData[] = vocabExercises
+          .map((vocabItem: VocabularyExerciseItem) => {
+            const lexiconEntry = lexiconMap.get(vocabItem.lemma_id);
+
+            if (!lexiconEntry) {
+              console.warn(
+                `⚠️ No lexicon entry found for lemma_id: ${vocabItem.lemma_id}`
+              );
+              return null;
+            }
+
+            return {
+              id: vocabItem.item_id,
+              lemma_id: vocabItem.lemma_id,
+              word: lexiconEntry.lemma,
+              meaning: lexiconEntry.base_definition,
+              example:
+                vocabItem.sentence_example_1 ||
+                vocabItem.sentence_example_2 ||
+                "No example available",
+            };
+          })
+          .filter((item): item is FlashcardData => item !== null); // Remove null entries
+
+        console.log("✅ Combined Data Sample:", combinedData.slice(0, 2));
+
+        if (combinedData.length === 0) {
+          throw new Error("No valid flashcard data available");
+        }
+
+        // Shuffle and select words for session
+        const shuffled = combinedData.sort(() => Math.random() - 0.5);
+        const selected = shuffled.slice(0, Math.min(15, shuffled.length));
+
+        setSessionWords(selected);
+        setCardStates(
+          selected.map((word) => ({
+            id: word.id,
+            status: "unseen" as CardStatus,
+            flips: 0,
+          }))
+        );
+        setError(null);
+      } catch (err) {
+        console.error("❌ Failed to load exercises:", err);
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Failed to load exercises. Please try again."
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadExercises();
+  }, []);
+
+  // Show loading state
+  if (isLoading) {
     return (
-      <div className="h-screen max-h-screen overflow-hidden flex flex-col bg-blue-50">
-        <div className="flex-shrink-0 flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-blue-200">
-          <Link
-            href="/vocabulary"
-            className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back
-          </Link>
-          <div className="text-center flex-1 px-4">
-            <h1 className="text-xl md:text-2xl font-bold text-blue-900">
-              Flashcards Practice
-            </h1>
-          </div>
-          <div className="w-20"></div>
+      <div className="h-screen bg-orange-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-600 mx-auto mb-4"></div>
+          <p className="text-orange-600 font-semibold">Loading flashcards...</p>
         </div>
-        <div className="flex-1 flex items-center justify-center">
-          <div className="text-blue-600">Loading...</div>
+      </div>
+    );
+  }
+
+  // Show error state
+  if (error) {
+    return (
+      <div className="h-screen bg-orange-50 flex items-center justify-center">
+        <div className="text-center max-w-md px-4">
+          <p className="text-red-600 font-semibold mb-4">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700"
+          >
+            Retry
+          </button>
         </div>
       </div>
     );
@@ -120,7 +198,6 @@ export default function FlashcardsPage() {
   };
 
   const handleKnowIt = () => {
-    grade(currentWord.id, 4);
     const newStates = [...cardStates];
     newStates[currentIndex].status = "mastered";
     setCardStates(newStates);
@@ -128,7 +205,6 @@ export default function FlashcardsPage() {
   };
 
   const handleStillLearning = () => {
-    grade(currentWord.id, 2);
     const newStates = [...cardStates];
     if (newStates[currentIndex].status === "unseen") {
       newStates[currentIndex].status = "learning";
@@ -207,7 +283,11 @@ export default function FlashcardsPage() {
     setCurrentIndex(0);
     setIsFlipped(false);
     setCardStates(
-      sessionWords.map((word) => ({ id: word.id, status: "unseen", flips: 0 }))
+      sessionWords.map((word) => ({
+        id: word.id,
+        status: "unseen" as CardStatus,
+        flips: 0,
+      }))
     );
     setShowCompletion(false);
   };
@@ -248,7 +328,7 @@ export default function FlashcardsPage() {
             total={sessionWords.length}
             masteredCount={masteredCount}
             learningCount={learningCount}
-            wordId={currentWord.id}
+            wordId={currentWord.lemma_id}
           />
         </div>
 
@@ -269,7 +349,7 @@ export default function FlashcardsPage() {
                 example={currentWord.example}
                 isFlipped={isFlipped}
                 onFlip={handleFlip}
-                wordId={currentWord.id}
+                wordId={currentWord.lemma_id}
               />
             </motion.div>
           </AnimatePresence>

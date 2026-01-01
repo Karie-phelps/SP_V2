@@ -10,7 +10,7 @@ interface FlashcardProps {
   example: string;
   isFlipped: boolean;
   onFlip: () => void;
-  wordId: number;
+  wordId: string;
 }
 
 interface ParsedEnhancedContent {
