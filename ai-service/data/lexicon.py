@@ -1083,7 +1083,7 @@ lexicon_data = [
             "kinanlungan"
         ],
         "relations": {
-            "synonyms": ["santuwaryo", "silungan", "lagakan"],
+            "synonyms": ["santuwaryo", "silungan"],
             "antonyms": ["panganib", "lantad"]
         }
     },
@@ -1200,11 +1200,11 @@ lexicon_data = [
     },
     {
         "lemma_id": "LEX-087",
-        "lemma": "lagak",
+        "lemma": "lagakan",
         "base_definition": "Isang lugar o sisidlan na pinaglalagyan o iniingatan ng mga bagay.",
         "surface_forms": [
             "lagakan",
-            "lagak",
+            "inilagak",
             "paglalagakan"
         ],
         "relations": {

@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, RotateCcw, ChevronRight, Lightbulb } from "lucide-react";
 import Link from "next/link";
-import QuizQuestion from "@/components/vocabulary/mcquiz-exercise/QuizQuestion";
-import QuizProgress from "@/components/vocabulary/mcquiz-exercise/QuizProgress";
-import QuizCompletionModal from "@/components/vocabulary/mcquiz-exercise/QuizCompletionModal";
+import QuizQuestion from "@/components/vocabulary/closest-meaning-exercise/QuizQuestion";
+import QuizProgress from "@/components/vocabulary/closest-meaning-exercise/QuizProgress";
+import QuizCompletionModal from "@/components/vocabulary/closest-meaning-exercise/QuizCompletionModal";
 import { useVocabularyProgress } from "@/hooks/useVocabularyProgress";
 import { useLearningProgress } from "@/contexts/LearningProgressContext";
 import {
@@ -38,13 +38,23 @@ interface QuizAnswer {
   word: string;
 }
 
-// Helper function to underline a word in a sentence
+// Helper function to underline a word in a sentence (FIXED VERSION)
 function underlineWordInSentence(
   sentence: string,
   wordToUnderline: string
 ): string {
-  // Create a regex that matches the word (case-insensitive, whole word)
-  const regex = new RegExp(`\\b(${wordToUnderline})\\b`, "gi");
+  // Escape special regex characters in the word
+  const escapedWord = wordToUnderline.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+  // Create a case-insensitive regex that matches whole words
+  // Uses positive lookbehind (?<=\s|^) for start of string or space
+  // and positive lookahead (?=\s|$|[.,!?;:]) for end or punctuation
+  const regex = new RegExp(
+    `(?<=\\s|^)(${escapedWord})(?=\\s|$|[.,!?;:])`,
+    "gi"
+  );
+
+  // Replace all occurrences while preserving the original case
   return sentence.replace(regex, "<u>$1</u>");
 }
 
@@ -87,10 +97,15 @@ async function generateQuizQuestionsFromService(): Promise<QuizItem[]> {
         ...(lexiconEntry.surface_forms || []),
       ];
 
-      // Find which word actually appears in the sentence
+      // Find which word actually appears in the sentence (case-insensitive)
       let underlinedWord = lexiconEntry.lemma;
       for (const word of wordsToConsider) {
-        if (sentence.toLowerCase().includes(word.toLowerCase())) {
+        const lowerSentence = sentence.toLowerCase();
+        const lowerWord = word.toLowerCase();
+
+        // Check if the word appears as a whole word in the sentence
+        const wordRegex = new RegExp(`\\b${lowerWord}\\b`, "i");
+        if (wordRegex.test(lowerSentence)) {
           underlinedWord = word;
           break;
         }
@@ -206,7 +221,6 @@ export default function QuizPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Load quiz questions from AI service
   useEffect(() => {
     async function loadQuiz() {
       try {

@@ -7,7 +7,7 @@ import { getLexiconData, LexiconItem } from "@/lib/api/exercises";
 import { getExplanation, ExplainResponse } from "@/lib/api/ai-service";
 import AIChatModal from "./AIChatModal";
 
-interface QuizQuestionProps {
+interface AntonymQuestionProps {
   questionNumber: number;
   totalQuestions: number;
   sentence: string;
@@ -19,7 +19,7 @@ interface QuizQuestionProps {
   showResult: boolean;
 }
 
-export default function QuizQuestion({
+export default function AntonymQuestion({
   questionNumber,
   totalQuestions,
   sentence,
@@ -29,7 +29,7 @@ export default function QuizQuestion({
   selectedAnswer,
   onSelectAnswer,
   showResult,
-}: QuizQuestionProps) {
+}: AntonymQuestionProps) {
   const [explanation, setExplanation] = useState<string>("");
   const [lexiconData, setLexiconData] = useState<LexiconItem | null>(null);
   const [isLoadingExplanation, setIsLoadingExplanation] = useState(false);
@@ -39,7 +39,7 @@ export default function QuizQuestion({
   const showExplanation =
     showResult && selectedAnswer && selectedAnswer !== correctAnswer;
 
-  // Extract the underlined word for AI explanation
+  // Extract the underlined word
   const underlinedWordMatch = sentence.match(/<u>(.*?)<\/u>/);
   const underlinedWord = underlinedWordMatch ? underlinedWordMatch[1] : "";
 
@@ -67,7 +67,7 @@ export default function QuizQuestion({
             const aiPromise = getExplanation({
               mode: "quiz",
               word: underlinedWord,
-              correct: correctAnswer,
+              correct: `Antonym: ${correctAnswer}`,
               selected: selectedAnswer,
             });
 
@@ -88,9 +88,9 @@ export default function QuizQuestion({
 
           // Fallback to simple explanation
           const simpleExplanation = buildSimpleExplanation(
+            underlinedWord,
             correctAnswer,
-            entry.base_definition,
-            entry.relations?.synonyms || []
+            entry.relations?.antonyms || []
           );
           setExplanation(simpleExplanation);
           setIsAIExplanation(false);
@@ -110,15 +110,15 @@ export default function QuizQuestion({
   }, [showExplanation, wordId, underlinedWord, correctAnswer, selectedAnswer]);
 
   const buildSimpleExplanation = (
-    correct: string,
-    meaning: string,
-    synonyms: string[]
+    word: string,
+    antonym: string,
+    allAntonyms: string[]
   ): string => {
-    let explanation = `**Tamang Sagot:** ${correct}\n\n`;
-    explanation += `**Kahulugan:** ${meaning}\n\n`;
+    let explanation = `**Salitang May Salungguhit:** ${word}\n\n`;
+    explanation += `**Tamang Kasalungat:** ${antonym}\n\n`;
 
-    if (synonyms && synonyms.length > 0) {
-      explanation += `**Mga Kasingkahulugan:** ${synonyms.join(", ")}`;
+    if (allAntonyms && allAntonyms.length > 0) {
+      explanation += `**Iba Pang Kasalungat:** ${allAntonyms.join(", ")}`;
     }
 
     return explanation;
@@ -147,12 +147,12 @@ export default function QuizQuestion({
       {/* Question Header */}
       <div className="text-center space-y-2">
         <h2 className="text-xs md:text-sm text-gray-600">
-          Ano ang pinakamalapit sa kahulugan ng salitang may{" "}
-          <u className="decoration-blue-600 decoration-2">salungguhit</u>?
+          Ano ang kasalungat ng salitang may{" "}
+          <u className="decoration-red-600 decoration-2">salungguhit</u>?
         </h2>
-        <div className="bg-blue-100 rounded-xl py-6 border-2 border-blue-300">
+        <div className="bg-red-100 rounded-xl py-6 border-2 border-red-300">
           <p
-            className="text-lg md:text-xl text-blue-900 font-bold leading-relaxed"
+            className="text-lg md:text-xl text-red-900 font-bold leading-relaxed"
             dangerouslySetInnerHTML={{ __html: sentence }}
           />
         </div>
@@ -190,8 +190,8 @@ export default function QuizQuestion({
                       : showWrong
                       ? "bg-red-100 border-red-500"
                       : isSelected
-                      ? "bg-blue-500 text-white"
-                      : "bg-blue-100 text-blue-700"
+                      ? "bg-red-500 text-white"
+                      : "bg-red-100 text-red-700"
                   }`}
                 >
                   <div className="flex items-center justify-between gap-3">
@@ -203,8 +203,8 @@ export default function QuizQuestion({
                           : showWrong
                           ? "bg-red-500 text-white"
                           : isSelected
-                          ? "bg-purple-500 text-white"
-                          : "bg-purple-100 text-purple-700"
+                          ? "bg-orange-500 text-white"
+                          : "bg-orange-100 text-orange-700"
                       }`}
                     >
                       {String.fromCharCode(65 + index)}
@@ -242,17 +242,17 @@ export default function QuizQuestion({
               transition={{ duration: 0.4, ease: "easeOut" }}
               className="w-full lg:flex-[0_0_55%]"
             >
-              <div className="bg-white rounded-2xl shadow-lg border-2 border-purple-200 p-6 h-full flex flex-col">
+              <div className="bg-white rounded-2xl shadow-lg border-2 border-orange-200 p-6 h-full flex flex-col">
                 {/* Header */}
-                <div className="flex items-center gap-2 mb-4 pb-3 border-b border-purple-100">
-                  <div className="p-2 bg-purple-100 rounded-lg">
-                    <Lightbulb className="w-5 h-5 text-purple-600" />
+                <div className="flex items-center gap-2 mb-4 pb-3 border-b border-orange-100">
+                  <div className="p-2 bg-orange-100 rounded-lg">
+                    <Lightbulb className="w-5 h-5 text-orange-600" />
                   </div>
-                  <h3 className="text-lg font-bold text-purple-900">
+                  <h3 className="text-lg font-bold text-orange-900">
                     Explanation
                   </h3>
                   {isAIExplanation && (
-                    <span className="ml-auto text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full">
+                    <span className="ml-auto text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full">
                       AI-Powered
                     </span>
                   )}
@@ -262,7 +262,7 @@ export default function QuizQuestion({
                 <div className="flex-1 mb-4">
                   {isLoadingExplanation ? (
                     <div className="flex flex-col items-center justify-center py-8 space-y-3">
-                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
+                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-600"></div>
                       <p className="text-sm text-gray-600">
                         Loading explanation...
                       </p>
@@ -275,7 +275,7 @@ export default function QuizQuestion({
                 {/* Explain Button */}
                 <button
                   onClick={() => setShowChatModal(true)}
-                  className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all hover:shadow-xl"
+                  className="w-full flex items-center justify-center gap-2 border-2 border-orange-800 text-orange-800 font-semibold py-3 px-6 rounded-lg shadow-lg transition-all hover:shadow-xl"
                 >
                   <MessageCircle className="w-5 h-5" />
                   <span>Ask AI for More Help</span>

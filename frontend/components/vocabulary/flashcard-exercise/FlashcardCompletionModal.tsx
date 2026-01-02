@@ -105,7 +105,7 @@ export default function FlashcardCompletionModal({
               {/* Action Buttons */}
               <div className="flex flex-col gap-3">
                 <Link
-                  href="/vocabulary/quiz"
+                  href="/vocabulary/what-is-its-closest-meaning"
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors text-center"
                 >
                   Continue to Quiz →

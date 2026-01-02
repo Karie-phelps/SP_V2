@@ -124,7 +124,6 @@ Magbigay ng 4 na punto:
 1) Bakit tama ang tamang sagot (gamitin ang kahulugan)
 2) Bakit mali ang napiling sagot (ipaliwanag ang pagkakaiba)
 3) Maikling talang pangbokabularyo o gramatika (isang pangungusap)
-4) Tip para sa mabilis na pagsagot sa pagsusulit (isang pangungusap)
 
 Gumamit ng mga bullet points at panatilihing maikli at malinaw."""
 
@@ -146,7 +145,6 @@ Magbigay ng 4 na punto:
 1) Bakit "{correct}" ang tamang sagot
 2) Ang isinulat ba ay wastong salita? Kung oo, ano ang kahulugan? Kung hindi, sabihin na invalid/mali.
 3) Maikling talang pangbokabularyo o gramatika
-4) Tip para sa mabilis na pagsagot
 
 Gumamit ng mga bullet points at Filipino language."""
 

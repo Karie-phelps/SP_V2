@@ -1,37 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Circle, X, BookmarkCheck, BookmarkPlus } from "lucide-react";
-import { useReviewDeck } from "@/contexts/ReviewDeckProvider";
+import { Check, Circle, X } from "lucide-react";
 
-interface FillBlanksProgressProps {
+interface AntonymProgressProps {
   currentQuestion: number;
   totalQuestions: number;
   answers: (boolean | null)[];
-  id: number;
+  id: string;
 }
 
-export default function FillBlanksProgress({
+export default function AntonymProgress({
   currentQuestion,
   totalQuestions,
   answers,
   id,
-}: FillBlanksProgressProps) {
+}: AntonymProgressProps) {
   const progress = (currentQuestion / totalQuestions) * 100;
   const correctCount = answers.filter((a) => a === true).length;
   const wrongCount = answers.filter((a) => a === false).length;
-  const { addToReviewDeck, removeFromReviewDeck, isInReviewDeck } =
-    useReviewDeck();
-  const inReviewDeck = isInReviewDeck(id);
-
-  const handleToggleReviewDeck = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (inReviewDeck) {
-      removeFromReviewDeck(id);
-    } else {
-      addToReviewDeck(id);
-    }
-  };
 
   return (
     <div className="w-full space-y-4">
@@ -41,9 +28,9 @@ export default function FillBlanksProgress({
           <span className="font-semibold">Progress</span>
           <span className="font-semibold">{Math.round(progress)}%</span>
         </div>
-        <div className="w-full h-2.5 bg-blue-100 rounded-full overflow-hidden">
+        <div className="w-full h-2.5 bg-red-100 rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-gradient-to-r from-blue-400 to-blue-600"
+            className="h-full bg-gradient-to-r from-red-400 to-red-600"
             initial={{ width: 0 }}
             animate={{ width: `${progress}%` }}
             transition={{ duration: 0.5 }}
@@ -80,7 +67,7 @@ export default function FillBlanksProgress({
                 key={index}
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold border-2 transition-all ${
                   isCurrent
-                    ? "border-purple-500 bg-purple-100 text-purple-700 scale-110"
+                    ? "border-orange-500 bg-orange-100 text-orange-700 scale-110"
                     : isCorrect
                     ? "border-green-500 bg-green-100 text-green-700"
                     : isAnswered
@@ -101,25 +88,6 @@ export default function FillBlanksProgress({
             );
           })}
         </div>
-
-        {/* Add to Review Deck Button */}
-        <button
-          onClick={handleToggleReviewDeck}
-          className={`p-2 rounded-lg transition-all ${
-            inReviewDeck
-              ? "bg-purple-600 text-white"
-              : "bg-white text-purple-600 border-2 border-purple-300"
-          } hover:scale-110`}
-          title={
-            inReviewDeck ? "Remove from review deck" : "Add to review deck"
-          }
-        >
-          {inReviewDeck ? (
-            <BookmarkCheck className="w-4 h-4" />
-          ) : (
-            <BookmarkPlus className="w-4 h-4" />
-          )}
-        </button>
       </div>
     </div>
   );

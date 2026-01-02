@@ -5,7 +5,7 @@ import {
   CheckCircle,
   TrendingUp,
   Award,
-  Trophy,
+  Target,
   Sparkles,
   Loader2,
 } from "lucide-react";
@@ -14,21 +14,23 @@ import confetti from "canvas-confetti";
 import { useEffect, useState } from "react";
 import { useLearningProgress } from "@/contexts/LearningProgressContext";
 
-interface FillBlanksCompletionModalProps {
+interface QuizCompletionModalProps {
   isOpen: boolean;
   score: number;
   correctCount: number;
   totalQuestions: number;
   onClose: () => void;
+  onRetake?: () => void;
 }
 
-export default function FillBlanksCompletionModal({
+export default function QuizCompletionModal({
   isOpen,
   score,
   correctCount,
   totalQuestions,
   onClose,
-}: FillBlanksCompletionModalProps) {
+  onRetake,
+}: QuizCompletionModalProps) {
   const { getPerformanceHistory } = useLearningProgress();
   const [showTips, setShowTips] = useState(false);
   const [tips, setTips] = useState<string>("");
@@ -37,10 +39,9 @@ export default function FillBlanksCompletionModal({
   useEffect(() => {
     if (isOpen && score >= 70) {
       confetti({
-        particleCount: 200,
-        spread: 100,
+        particleCount: 150,
+        spread: 80,
         origin: { y: 0.6 },
-        colors: ["#9333ea", "#ec4899", "#06b6d4"],
       });
     }
   }, [isOpen, score]);
@@ -48,7 +49,7 @@ export default function FillBlanksCompletionModal({
   const handleGetTips = async () => {
     setLoadingTips(true);
     try {
-      const history = getPerformanceHistory("vocabulary", "fill-blanks");
+      const history = getPerformanceHistory("vocabulary", "quiz");
       const latestMetrics = history[history.length - 1];
 
       const response = await fetch("/api/tips", {
@@ -76,13 +77,22 @@ export default function FillBlanksCompletionModal({
     }
   };
 
+  const handleRetake = () => {
+    setShowTips(false);
+    setTips("");
+    if (onRetake) {
+      onRetake();
+    } else {
+      window.location.reload();
+    }
+  };
+
   const getPerformanceMessage = () => {
-    if (score === 100) return "🏆 Perfect Score! You're a vocabulary master!";
-    if (score >= 90) return "🌟 Outstanding! Excellent work!";
-    if (score >= 80) return "🎉 Great job! You're doing amazing!";
-    if (score >= 70) return "👍 Good work! Keep practicing!";
-    if (score >= 60) return "💪 Not bad! Review and improve!";
-    return "📚 Keep studying! You'll get better!";
+    if (score >= 90) return "🌟 Outstanding! Perfect mastery!";
+    if (score >= 80) return "🎉 Excellent work! Keep it up!";
+    if (score >= 70) return "👍 Good job! You're doing great!";
+    if (score >= 60) return "💪 Not bad! Review and try again.";
+    return "📚 Keep practicing! You'll improve!";
   };
 
   return (
@@ -123,22 +133,18 @@ export default function FillBlanksCompletionModal({
                   {/* Icon */}
                   <div className="flex justify-center">
                     <div
-                      className={`w-24 h-24 rounded-full flex items-center justify-center ${
-                        score === 100
-                          ? "bg-gradient-to-br from-yellow-400 to-orange-500"
-                          : score >= 80
+                      className={`w-20 h-20 rounded-full flex items-center justify-center ${
+                        score >= 70
                           ? "bg-green-100"
                           : score >= 60
-                          ? "bg-blue-100"
+                          ? "bg-yellow-100"
                           : "bg-red-100"
                       }`}
                     >
-                      {score === 100 ? (
-                        <Trophy className="w-14 h-14 text-white" />
-                      ) : score >= 70 ? (
-                        <CheckCircle className="w-14 h-14 text-green-600" />
+                      {score >= 70 ? (
+                        <CheckCircle className="w-12 h-12 text-green-600" />
                       ) : (
-                        <Award className="w-14 h-14 text-blue-600" />
+                        <Target className="w-12 h-12 text-yellow-600" />
                       )}
                     </div>
                   </div>
@@ -146,10 +152,10 @@ export default function FillBlanksCompletionModal({
                   {/* Title */}
                   <div className="text-center">
                     <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                      {score === 100 ? "Perfect! 🎊" : "Activity Complete! 🎉"}
+                      Quiz Complete!
                     </h2>
                     <p className="text-gray-600">
-                      You've finished all vocabulary exercises!
+                      You've finished the vocabulary quiz.
                     </p>
                   </div>
 
@@ -158,9 +164,9 @@ export default function FillBlanksCompletionModal({
                     <div className="flex items-center justify-between">
                       <span className="text-gray-700 font-medium flex items-center gap-2">
                         <Award className="w-5 h-5 text-blue-600" />
-                        Final Score
+                        Score
                       </span>
-                      <span className="text-3xl font-bold text-blue-600">
+                      <span className="text-2xl font-bold text-blue-600">
                         {score}%
                       </span>
                     </div>
@@ -176,34 +182,18 @@ export default function FillBlanksCompletionModal({
                   </div>
 
                   {/* Performance Message */}
-                  <div
-                    className={`text-center p-4 rounded-xl ${
-                      score >= 80
-                        ? "bg-green-50 border-2 border-green-200"
-                        : score >= 70
-                        ? "bg-blue-50 border-2 border-blue-200"
-                        : "bg-yellow-50 border-2 border-yellow-200"
-                    }`}
-                  >
-                    <p
-                      className={`text-sm font-medium ${
-                        score >= 80
-                          ? "text-green-800"
-                          : score >= 70
-                          ? "text-blue-800"
-                          : "text-yellow-800"
-                      }`}
-                    >
+                  <div className="text-center p-4 bg-blue-50 rounded-xl">
+                    <p className="text-sm text-blue-800 font-medium">
                       {getPerformanceMessage()}
                     </p>
                   </div>
 
                   {/* AI Tips Button */}
-                    {!showTips && (
+                  {!showTips && (
                     <button
                       onClick={handleGetTips}
                       disabled={loadingTips}
-                      className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-pink-500 hover:from-blue-600 hover:to-pink-600 text-white font-semibold py-3 px-6 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {loadingTips ? (
                         <>
@@ -222,22 +212,22 @@ export default function FillBlanksCompletionModal({
                   {/* Action Buttons */}
                   <div className="flex flex-col gap-3 mt-auto">
                     <Link
-                      href="/vocabulary"
+                      href="/vocabulary/antonym-of-the-word"
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors text-center"
                     >
-                      Back to Vocabulary
+                      Continue to next exercise →
                     </Link>
                     <button
-                      onClick={() => window.location.reload()}
+                      onClick={handleRetake}
                       className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-xl transition-colors"
                     >
-                      Practice Again
+                      Retake Quiz
                     </button>
                     <Link
-                      href="/dashboard"
+                      href="/vocabulary"
                       className="w-full text-center text-gray-600 hover:text-gray-800 py-2 text-sm"
                     >
-                      Go to Dashboard
+                      Back to Vocabulary
                     </Link>
                   </div>
                 </div>

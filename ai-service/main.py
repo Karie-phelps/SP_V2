@@ -50,6 +50,13 @@ except ImportError as e:
     print(f"⚠️ Error loading explain handler: {e}")
     handle_explain = None
 
+try:
+    from handlers.redefine import handle_redefine, RedefineRequest, RedefineResponse
+    print("✅ Loaded redefine handler")
+except ImportError as e:
+    print(f"⚠️ Error loading redefine handler: {e}")
+    handle_redefine = None
+
 # Initialize FastAPI
 app = FastAPI(
     title="UPCAT Filipino Reviewer AI Service",
@@ -69,7 +76,7 @@ app.add_middleware(
 )
 
 # ============================================================
-# REQUEST/RESPONSE MODELS (for other endpoints)
+# REQUEST/RESPONSE MODELS (for remaining endpoints)
 # ============================================================
 
 
@@ -83,16 +90,6 @@ class TipsRequest(BaseModel):
 
 class TipsResponse(BaseModel):
     tips: str
-
-
-class RedefineRequest(BaseModel):
-    word: str
-    baseMeaning: str
-    example: str
-
-
-class RedefineResponse(BaseModel):
-    content: str
 
 
 class ConfusablesRequest(BaseModel):
@@ -170,8 +167,23 @@ async def explain(request: ExplainRequest):
     return await handle_explain(request)
 
 
+@app.post("/redefine", response_model=RedefineResponse)
+async def redefine_word(request: RedefineRequest):
+    """
+    Redefine word with multiple perspectives.
+    Delegates to handler in handlers/redefine.py
+    """
+    if not handle_redefine:
+        raise HTTPException(
+            status_code=503,
+            detail="Redefine handler not available"
+        )
+
+    return await handle_redefine(request)
+
+
 # ============================================================
-# OTHER ENDPOINTS (keep existing implementation for now)
+# OTHER ENDPOINTS (tips and confusables - to be refactored later)
 # ============================================================
 
 def tips_prompt(data: dict) -> str:
@@ -209,43 +221,6 @@ async def generate_tips(request: TipsRequest):
 
     except Exception as e:
         print(f"Error in /tips: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-def redefine_prompt(data: dict) -> str:
-    """Generate redefine prompt"""
-    return f"""Rewrite the definition and examples for Filipino word "{data["word"]}".
-
-Base meaning: {data["baseMeaning"]}
-Base example: {data["example"]}
-
-Return:
-- Easy definition (casual, must be in English)
-- Brief formal definition (academic, must be in Filipino)
-- 2 new example sentences (Filipino)
-- 1 short bilingual gloss (Filipino)"""
-
-
-@app.post("/redefine", response_model=RedefineResponse)
-async def redefine_word(request: RedefineRequest):
-    """Redefine word with multiple perspectives"""
-    try:
-        prompt = redefine_prompt(request.dict())
-
-        completion = openai_client.chat.completions.create(
-            model="gpt-4o-mini",
-            temperature=0.2,
-            messages=[
-                {"role": "system", "content": "Return concise teaching content."},
-                {"role": "user", "content": prompt}
-            ]
-        )
-
-        content = completion.choices[0].message.content or ""
-        return RedefineResponse(content=content)
-
-    except Exception as e:
-        print(f"Error in /redefine: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -390,6 +365,8 @@ async def startup_event():
     print(f"✅ Lexicon Data: {len(lexicon_data)} entries loaded")
     print(
         f"✅ Explain Handler: {'Loaded' if handle_explain else 'Not Available'}")
+    print(
+        f"✅ Redefine Handler: {'Loaded' if handle_redefine else 'Not Available'}")
     print("="*60)
     print(f"🌐 Server running on http://localhost:8001")
     print(f"📚 API Docs: http://localhost:8001/docs")

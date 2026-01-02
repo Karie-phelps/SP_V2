@@ -107,7 +107,7 @@ export default function VocabularyPage() {
             description="Test your knowledge with quizzes"
             imagePath="/art/card2.png"
             color="bg-blue-50"
-            url="/vocabulary/quiz"
+            url="/vocabulary/what-is-its-closest-meaning"
             exerciseType="quiz"
           />
           <VocabularyCard
@@ -115,7 +115,7 @@ export default function VocabularyPage() {
             description="Complete sentences with correct words"
             imagePath="/art/card3.png"
             color="bg-green-50"
-            url="/vocabulary/fill-blanks"
+            url="/vocabulary/antonym-of-the-word"
             exerciseType="fill-blanks"
           />
         </div>

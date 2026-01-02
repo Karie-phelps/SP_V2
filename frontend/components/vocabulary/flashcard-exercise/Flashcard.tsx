@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Volume2, Sparkles, BookmarkCheck, BookmarkPlus } from "lucide-react";
 import { useState } from "react";
+import { redefineWord } from "@/lib/api/ai-service";
 
 interface FlashcardProps {
   word: string;
@@ -32,6 +33,7 @@ export default function Flashcard({
   const [enhancedContent, setEnhancedContent] =
     useState<ParsedEnhancedContent | null>(null);
   const [isLoadingEnhanced, setIsLoadingEnhanced] = useState(false);
+  const [enhancementError, setEnhancementError] = useState<string | null>(null);
 
   const handleFlip = () => {
     if (!isAnimating) {
@@ -107,25 +109,31 @@ export default function Flashcard({
   const handleImproveDefinition = async (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsLoadingEnhanced(true);
+    setEnhancementError(null);
 
     try {
-      const response = await fetch("/api/redefine", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          word,
-          baseMeaning: meaning,
-          example,
-        }),
+      console.log("🔄 Requesting enhanced definition from AI service...");
+
+      // Call AI service directly
+      const response = await redefineWord({
+        word,
+        baseMeaning: meaning,
+        example,
       });
 
-      const data = await response.json();
-      if (data.content) {
-        const parsed = parseEnhancedContent(data.content);
+      console.log("✅ Enhanced definition received");
+
+      if (response.content) {
+        const parsed = parseEnhancedContent(response.content);
         setEnhancedContent(parsed);
       }
     } catch (error) {
-      console.error("Failed to fetch enhanced definition:", error);
+      console.error("❌ Failed to fetch enhanced definition:", error);
+      setEnhancementError(
+        error instanceof Error
+          ? error.message
+          : "Failed to enhance definition. Please try again."
+      );
     } finally {
       setIsLoadingEnhanced(false);
     }
@@ -231,6 +239,13 @@ export default function Flashcard({
                     </p>
                   </div>
                 </>
+              )}
+
+              {/* Error Message */}
+              {enhancementError && (
+                <div className="mt-2 p-2 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-xs text-red-600">{enhancementError}</p>
+                </div>
               )}
             </div>
 
