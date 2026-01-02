@@ -239,12 +239,12 @@ vocabulary_data = [
         "sentence_example_1": "Ang ganid na opisyal ay kinuha ang pondo para sa mga mahihirap.",
         "sentence_example_2": "Huwag maging ganid sa kapangyarihan; isipin mo rin ang kapakanan ng nakakarami."
     },
-    {
-        "item_id": "VE-041",
-        "lemma_id": "LEX-041",
-        "sentence_example_1": "Isang malakas na gitla ang nagpatalon sa kaniya mula sa kinauupuan.",
-        "sentence_example_2": "Hindi niya maikubli ang pagkagitla sa kaniyang mukha nang makita ang hindi inaasahang panauhin sa kaniyang pintuan."
-    },
+    # {
+    #     "item_id": "VE-041",
+    #     "lemma_id": "LEX-041",
+    #     "sentence_example_1": "Isang malakas na gitla ang nagpatalon sa kaniya mula sa kinauupuan.",
+    #     "sentence_example_2": "Hindi niya maikubli ang pagkagitla sa kaniyang mukha nang makita ang hindi inaasahang panauhin sa kaniyang pintuan."
+    # },
     {
         "item_id": "VE-042",
         "lemma_id": "LEX-042",
@@ -879,7 +879,7 @@ vocabulary_data = [
         "item_id": "VE-147",
         "lemma_id": "LEX-147",
         "sentence_example_1": "Isang matamis na ngiti ang namutawi sa kanyang mga labi.",
-        "sentence_example_2": "Anumang salitang mutawi sa iyong bibig ay dapat pag-isipang mabuti."
+        "sentence_example_2": "Anumang salitang mamutawi sa iyong bibig ay dapat pag-isipang mabuti."
     },
     {
         "item_id": "VE-148",
