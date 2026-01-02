@@ -1198,5 +1198,995 @@ grammar_data = [
         "fillCorrectAnswer": "karilagan",
         "error_explanation": "Ang pangungusap ay wasto sa balarila.",
         "fill_explanation": "Ang 'karilagan' ay ang pangngalan na tumutukoy sa kagandahan o kadakilaan."
+    },
+    {
+        "item_id": "GE-121",
+        "lemma_id": "LEX-123",
+        "error_sentence": "Ang kanyang marubdob na pananampalataya ang naging gabay niya sa buhay.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ipinakita niya ang ______ ng kanyang pag-ibig sa pamamagitan ng tapat na paglilingkod.",
+        "fillCorrectAnswer": "karubduban",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'karubduban' ay ang pangngalan na tumutukoy sa sidhi o alab ng damdamin."
+    },
+    {
+        "item_id": "GE-122",
+        "lemma_id": "LEX-124",
+        "error_sentence": "Napakatarik ng daan paakyat sa tuktok ng bundok.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang ______ ng bangin ay nakakatakot tingnan mula sa itaas.",
+        "fillCorrectAnswer": "katarikan",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'katarikan' ay ang pangngalan na tumutukoy sa antas ng pagiging hilig."
+    },
+    {
+        "item_id": "GE-123",
+        "lemma_id": "LEX-125",
+        "error_sentence": "Mayroon siyang matayog na pangarap para sa kanyang pamilya.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang agila ay lumilipad nang ______ sa kalangitan.",
+        "fillCorrectAnswer": "matayog",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'matayog' ay isang pang-uri na nangangahulugang mataas."
+    },
+    {
+        "item_id": "GE-124",
+        "lemma_id": "LEX-126",
+        "error_sentence": "Hindi matibag ang kanyang paninindigan sa kabila ng mga pagsubok.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Sinubukan nilang ______ ang kanyang determinasyon, ngunit nabigo sila.",
+        "fillCorrectAnswer": "tibagin",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'tibagin' (gibain) ay ang tamang pandiwa, bagama't wala sa lexicon."
+    },
+    {
+        "item_id": "GE-125",
+        "lemma_id": "LEX-127",
+        "error_sentence": "Ang kanyang matiim na pagtitig ay nagpapahiwatig ng malalim na iniisip.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Isang ______ na panalangin ang kanyang inialay.",
+        "fillCorrectAnswer": "matiim",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'matiim' ay isang pang-uri na nangangahulugang lubos at taimtim."
+    },
+    {
+        "item_id": "GE-126",
+        "lemma_id": "LEX-128",
+        "error_sentence": "Ang matimyas nilang pag-iibigan ay hinahangaan ng marami.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang ______ ng kanyang pagmamahal ay hindi mapapantayan.",
+        "fillCorrectAnswer": "katimyasan",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'katimyasan' ay ang pangngalan na tumutukoy sa kadalisayan o kawagasan."
+    },
+    {
+        "item_id": "GE-127",
+        "lemma_id": "LEX-129",
+        "error_sentence": "Ang matining na tunog ng kampana ay gumising sa buong bayan.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Mayroon siyang ______ na boses kaya't laging naririnig.",
+        "fillCorrectAnswer": "matining",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'matining' ay isang pang-uri na nangangahulugang mataas at malinaw ang tunog."
+    },
+    {
+        "item_id": "GE-128",
+        "lemma_id": "LEX-130",
+        "error_sentence": "Kailangan magmatyag laban sa mga magnanakaw lalo na sa gabi.",
+        "errorCorrectAnswer": "magmatyag laban sa",
+        "fill_sentence": "Ang ______ ay mahalaga upang mapanatili ang kaligtasan.",
+        "fillCorrectAnswer": "pagmamatyag",
+        "error_explanation": "Ang pandiwang 'magmatyag' ay hindi nangangailangan ng pang-ukol na 'laban sa'. Ang tamang parirala ay 'magmatyag para sa' o simpleng 'magmatyag sa mga magnanakaw'.",
+        "fill_explanation": "Ang 'pagmamatyag' ay ang pangngalan na tumutukoy sa kilos ng pagbabantay."
+    },
+    {
+        "item_id": "GE-129",
+        "lemma_id": "LEX-131",
+        "error_sentence": "Mula nang magkaroon siya ng muwang, natuto na siyang tumulong sa gawaing-bahay.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang ______ ng isang bata ay dapat hubugin sa tamang paraan.",
+        "fillCorrectAnswer": "kamuwangan",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'kamuwangan' ay ang pangngalan na tumutukoy sa estado ng pagkakaroon ng kaalaman."
+    },
+    {
+        "item_id": "GE-130",
+        "lemma_id": "LEX-132",
+        "error_sentence": "Nabinbin ang kanyang biyahe dahil sa masamang panahon.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang ______ ng proyekto ay nagdulot ng dagdag na gastos.",
+        "fillCorrectAnswer": "pagkakabinbin",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'pagkakabinbin' ay ang pangngalan na tumutukoy sa estado ng pagkaantala."
+    },
+    {
+        "item_id": "GE-131",
+        "lemma_id": "LEX-133",
+        "error_sentence": "Ang mga daing ng mga mahihirap ay dapat pakinggan ng gobyerno.",
+        "errorCorrectAnswer": "mga daing ng mga mahihirap",
+        "fill_sentence": "Siya ay ______ dahil sa sakit na kanyang nararamdaman.",
+        "fillCorrectAnswer": "dumadaing",
+        "error_explanation": "Ang pag-uulit ng 'mga' ay kalabisan. Ang tamang parirala ay 'Ang daing ng mga mahihirap' o 'Ang mga daing ng mahihirap'.",
+        "fill_explanation": "Ang 'dumadaing' ay ang pandiwang anyo na nangangahulugang nagrereklamo o nagpapahayag ng sakit."
+    },
+    {
+        "item_id": "GE-132",
+        "lemma_id": "LEX-134",
+        "error_sentence": "Ang kahirapan ang nagbunsod sa kanya na mangibang-bansa.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ano ang ______ ng kanyang biglaang pag-alis?",
+        "fillCorrectAnswer": "bunsod",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'bunsod' ay ang pangngalan na tumutukoy sa sanhi o dahilan."
+    },
+    {
+        "item_id": "GE-133",
+        "lemma_id": "LEX-135",
+        "error_sentence": "Maraming pamilya ang nagdarahop dahil sa kawalan ng trabaho.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang ______ ay isang kalagayan na dapat nating labanan.",
+        "fillCorrectAnswer": "pagdarahop",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'pagdarahop' ay ang pangngalan na tumutukoy sa matinding kahirapan."
+    },
+    {
+        "item_id": "GE-134",
+        "lemma_id": "LEX-136",
+        "error_sentence": "Naglipana ang mga pekeng balita sa social media.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Kailangang mag-ingat dahil ______ ang mga magnanakaw sa lugar na iyon.",
+        "fillCorrectAnswer": "naglipana",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'naglipana' ay ang pandiwang anyo na nangangahulugang kumalat sa maraming lugar."
+    },
+    {
+        "item_id": "GE-135",
+        "lemma_id": "LEX-137",
+        "error_sentence": "Nagpupuyos sa galit ang kanyang damdamin.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang ______ sa kanyang dibdib ay mahirap pigilan.",
+        "fillCorrectAnswer": "puyos",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'puyos' ay ang pangngalan para sa matinding pag-aalab ng damdamin."
+    },
+    {
+        "item_id": "GE-136",
+        "lemma_id": "LEX-138",
+        "error_sentence": "Nagsusumamo siya na bigyan pa ng isang pagkakataon.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang kanyang ______ ay tila hindi pinakinggan.",
+        "fillCorrectAnswer": "pagsamo",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'pagsamo' ay ang pangngalan para sa taimtim na pakiusap."
+    },
+    {
+        "item_id": "GE-137",
+        "lemma_id": "LEX-139",
+        "error_sentence": "Nagugulumihanan siya sa kung ano ang dapat gawin.",
+        "errorCorrectAnswer": "sa kung ano",
+        "fill_sentence": "Ang kanyang ______ ay nagdulot ng maling desisyon.",
+        "fillCorrectAnswer": "pagkagulumihanan",
+        "error_explanation": "Ang 'sa' ay hindi kinakailangan bago ang 'kung'. Ang tamang parirala ay 'kung ano ang dapat gawin'.",
+        "fill_explanation": "Ang 'pagkagulumihanan' ay ang pangngalan na tumutukoy sa estado ng pagkalito."
+    },
+    {
+        "item_id": "GE-138",
+        "lemma_id": "LEX-140",
+        "error_sentence": "Nahahapo siya sa dami ng trabahong kailangan tapusin.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang ______ na kanyang nararamdaman ay dulot ng kulang sa tulog.",
+        "fillCorrectAnswer": "kahapuan",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'kahapuan' ay ang pangngalan na tumutukoy sa estado ng matinding pagod."
+    },
+    {
+        "item_id": "GE-139",
+        "lemma_id": "LEX-141",
+        "error_sentence": "Hindi niya maiwasang mahili sa magandang buhay ng kanyang kaibigan.",
+        "errorCorrectAnswer": "maihili sa magandang buhay",
+        "fill_sentence": "Ang kanyang mga alahas ay ______.",
+        "fillCorrectAnswer": "kahili-hili",
+        "error_explanation": "Ang pandiwang 'mahili' ay hindi karaniwang ginagamit. Ang mas tama at natural na gamit ay 'mainggit sa magandang buhay'.",
+        "fill_explanation": "Ang 'kahili-hili' ay isang pang-uri na nangangahulugang kainggit-inggit o kahanga-hanga."
+    },
+    {
+        "item_id": "GE-140",
+        "lemma_id": "LEX-142",
+        "error_sentence": "Nabulahaw ang lahat dahil sa malakas na sigaw.",
+        "errorCorrectAnswer": "dahil sa malakas",
+        "fill_sentence": "Huwag kang ______ habang natutulog ang mga tao.",
+        "fillCorrectAnswer": "bumulahaw",
+        "error_explanation": "Ang 'dahil sa' ay tama, ngunit ang mas angkop na gamitin ay 'sa' lamang, dahil ang 'nabulahaw' ay direktang tumutukoy sa sanhi. Ang tama ay 'Nabulahaw ang lahat sa malakas na sigaw'.",
+        "fill_explanation": "Ang 'bumulahaw' (to make noise) ang tamang pandiwa para sa pangungusap, bagama't wala sa lexicon."
+    },
+    {
+        "item_id": "GE-141",
+        "lemma_id": "LEX-143",
+        "error_sentence": "Nakakintal sa kanyang isipan ang mga alaala ng kanyang kabataan.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Nais niyang ______ sa puso ng kanyang mga anak ang kahalagahan ng katapatan.",
+        "fillCorrectAnswer": "ikintal",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'ikintal' ay ang pandiwang anyo na nangangahulugang iukit o itatak sa isip."
+    },
+    {
+        "item_id": "GE-142",
+        "lemma_id": "LEX-144",
+        "error_sentence": "Sulit ang pagod niya dahil sa nanalo sila sa kompetisyon.",
+        "errorCorrectAnswer": "dahil sa nanalo",
+        "fill_sentence": "Sa tingin mo ba ay ______ ang presyo ng bilihin na ito?",
+        "fillCorrectAnswer": "sulit",
+        "error_explanation": "Ang 'sa' ay hindi kailangan. Ang tamang parirala ay 'dahil nanalo sila'.",
+        "fill_explanation": "Ang 'sulit' ay isang pang-uri na nangangahulugang 'worth it'."
+    },
+    {
+        "item_id": "GE-143",
+        "lemma_id": "LEX-145",
+        "error_sentence": "Nalulugami siya sa kalungkutan dahil sa sunod-sunod na problema.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang ______ ay hindi katapusan; may pag-asa pang bumangon.",
+        "fillCorrectAnswer": "pagkalugami",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'pagkalugami' ay ang pangngalan na tumutukoy sa estado ng pagiging lubog sa problema."
+    },
+    {
+        "item_id": "GE-144",
+        "lemma_id": "LEX-146",
+        "error_sentence": "Namayani ang kapayapaan matapos ang mahabang panahon ng digmaan.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Dapat ______ ang kabutihan laban sa kasamaan.",
+        "fillCorrectAnswer": "mamayani",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'mamayani' ay ang pandiwang anyo na nangangahulugang mangibabaw o manaig."
+    },
+    {
+        "item_id": "GE-145",
+        "lemma_id": "LEX-147",
+        "error_sentence": "Walang salitang namutawi mula sa kanyang bibig dahil sa gulat.",
+        "errorCorrectAnswer": "namutawi mula sa",
+        "fill_sentence": "Sana ay ______ sa kanyang mga labi ang katotohanan.",
+        "fillCorrectAnswer": "mamutawi",
+        "error_explanation": "Ang 'mula' ay hindi kinakailangan. Ang 'namutawi sa kanyang bibig' ay sapat na at mas wasto.",
+        "fill_explanation": "Ang 'mamutawi' ay ang pandiwang anyo na nangangahulugang lumabas mula sa bibig."
+    },
+    {
+        "item_id": "GE-146",
+        "lemma_id": "LEX-148",
+        "error_sentence": "Nananaytay sa kanyang mga ugat ang dugong bayani.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang pagmamahal sa bayan ay dapat ______ sa dugo ng bawat Pilipino.",
+        "fillCorrectAnswer": "manalaytay",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'manalaytay' ay ang pandiwang anyo na nangangahulugang dumaloy."
+    },
+    {
+        "item_id": "GE-147",
+        "lemma_id": "LEX-149",
+        "error_sentence": "Siya ay nananangan sa mga pangako ng Diyos.",
+        "errorCorrectAnswer": "pangako ng Diyos",
+        "fill_sentence": "Habang may buhay, tayo ay dapat ______ sa pag-asa.",
+        "fillCorrectAnswer": "manangan",
+        "error_explanation": "Bagama't karaniwan, ang mas wastong gamit ay 'nananangan sa pangako'. Ang 'mga' ay hindi laging kailangan kung ang konsepto ng 'pangako' ay pangkalahatan.",
+        "fill_explanation": "Ang 'manangan' (manalig) ay ang tamang pandiwa, bagama't wala sa lexicon."
+    },
+    {
+        "item_id": "GE-148",
+        "lemma_id": "LEX-150",
+        "error_sentence": "Sino ang nangahas na suwayin ang utos ng hari?",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang kanyang ______ na harapin ang panganib ay hinangaan ng lahat.",
+        "fillCorrectAnswer": "pangangahas",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'pangangahas' ay ang pangngalan para sa kilos ng paglakas-loob."
+    },
+    {
+        "item_id": "GE-149",
+        "lemma_id": "LEX-151",
+        "error_sentence": "Ang kanyang nanunuyang ngiti ay nagpapahiwatig ng hindi maganda.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang ______ sa kapwa ay hindi dapat gawin.",
+        "fillCorrectAnswer": "panunuya",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'panunuya' ay ang pangngalan para sa kilos ng pangungutya."
+    },
+    {
+        "item_id": "GE-150",
+        "lemma_id": "LEX-152",
+        "error_sentence": "Nanuot hanggang sa mga buto ang lamig ng hangin.",
+        "errorCorrectAnswer": "hanggang sa mga buto",
+        "fill_sentence": "Ang sakit ay ______ sa bawat himaymay ng kanyang kalamnan.",
+        "fillCorrectAnswer": "nanunuot",
+        "error_explanation": "Ang 'mga' ay hindi kinakailangan at nagiging kalabisan. Ang pariralang 'hanggang buto' ay isang idyoma na sapat na.",
+        "fill_explanation": "Ang 'nanunuot' ay ang kasalukuyang anyo ng pandiwa na nangangahulugang tumatagos."
+    },
+    {
+        "item_id": "GE-151",
+        "lemma_id": "LEX-153",
+        "error_sentence": "Napabunton ang kanyang atensyon sa bagong dating.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Huwag mong ______ sa akin ang lahat ng sisi.",
+        "fillCorrectAnswer": "ibunton",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'ibunton' ay ang pandiwang anyo na nangangahulugang itutok o isisi."
+    },
+    {
+        "item_id": "GE-152",
+        "lemma_id": "LEX-154",
+        "error_sentence": "Nasaid ang lahat ng kanyang ipon dahil sa biglaang pangangailangan.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Malapit nang ______ ang supply ng tubig sa dam.",
+        "fillCorrectAnswer": "masaid",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'masaid' ay ang pandiwang anyo na nangangahulugang maubos."
+    },
+    {
+        "item_id": "GE-153",
+        "lemma_id": "LEX-155",
+        "error_sentence": "Nawaglit sa isipan niya kung ano ang kanyang dapat gawin.",
+        "errorCorrectAnswer": "niya kung ano ang kanyang",
+        "fill_sentence": "Ingatan mo ang iyong pitaka baka ito ay ______.",
+        "fillCorrectAnswer": "mawaglit",
+        "error_explanation": "May pag-uulit ng panghalip. Ang mas maayos ay 'Nawaglit sa kanyang isipan kung ano ang dapat gawin' o 'Nawaglit sa isipan niya ang dapat gawin'.",
+        "fill_explanation": "Ang 'mawaglit' ay ang pandiwang anyo na nangangahulugang mawala."
+    },
+    {
+        "item_id": "GE-154",
+        "lemma_id": "LEX-156",
+        "error_sentence": "Nangangawit ang kanyang kamay sa katatagal ng pagsusulat.",
+        "errorCorrectAnswer": "sa katatagal",
+        "fill_sentence": "Nakaramdam siya ng ______ sa kanyang balikat.",
+        "fillCorrectAnswer": "ngawit",
+        "error_explanation": "Ang 'katatagal' ay hindi tamang anyo. Ang wastong salita ay 'sa katagalan' o mas simple, 'sa tagal'.",
+        "fill_explanation": "Ang 'ngawit' ay ang pangngalan para sa pakiramdam ng pagod sa kalamnan."
+    },
+    {
+        "item_id": "GE-155",
+        "lemma_id": "LEX-157",
+        "error_sentence": "Nagngingitngit siya sa galit ngunit hindi siya makapagsalita.",
+        "errorCorrectAnswer": "ngunit hindi siya makapagsalita",
+        "fill_sentence": "Ang ______ sa kanyang dibdib ay parang sasabog na.",
+        "fillCorrectAnswer": "ngitngit",
+        "error_explanation": "Hindi na kailangan ulitin ang 'siya'. Ang 'ngunit hindi makapagsalita' ay sapat na.",
+        "fill_explanation": "Ang 'ngitngit' ay ang pangngalan para sa matinding galit."
+    },
+    {
+        "item_id": "GE-156",
+        "lemma_id": "LEX-158",
+        "error_sentence": "Ang kanyang boses ay naging pagak dahil sa paninigarilyo.",
+        "errorCorrectAnswer": "naging pagak",
+        "fill_sentence": "Naging ______ ang kanyang boses matapos ang mahabang pagkanta.",
+        "fillCorrectAnswer": "pagak",
+        "error_explanation": "Ang 'pagak' ay isang pang-uri. Ang 'naging' ay hindi kinakailangan. Ang mas wasto ay 'Naging pagak ang kanyang boses' o simpleng 'Pagak ang kanyang boses'.",
+        "fill_explanation": "Ang 'pagak' ay isang pang-uri na naglalarawan sa boses na paos."
+    },
+    {
+        "item_id": "GE-157",
+        "lemma_id": "LEX-159",
+        "error_sentence": "Bumalikwas siya mula sa kama nang marinig ang alarm.",
+        "errorCorrectAnswer": "mula sa kama",
+        "fill_sentence": "Ang kanyang mabilis na ______ ay nagpagulat sa lahat.",
+        "fillCorrectAnswer": "pagbalikwas",
+        "error_explanation": "Ang tamang pang-ukol para sa 'kama' sa kontekstong ito ay 'sa'. Ang wastong parirala ay 'sa kama'.",
+        "fill_explanation": "Ang 'pagbalikwas' ay ang pangngalan para sa mabilis na pagbangon."
+    },
+    {
+        "item_id": "GE-158",
+        "lemma_id": "LEX-160",
+        "error_sentence": "Kailangan mong pagbulay-bulayan ang iyong mga desisyon sa buhay.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Siya ay ______ sa isang tahimik na sulok.",
+        "fillCorrectAnswer": "nagbubulay-bulay",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'nagbubulay-bulay' ay ang pandiwang anyo na nangangahulugang malalim na nag-iisip."
+    },
+    {
+        "item_id": "GE-159",
+        "lemma_id": "LEX-161",
+        "error_sentence": "Inaabangan nila ang pagdatal ng bagong taon.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Sa wakas, ______ na ang araw na hinihintay ng lahat.",
+        "fillCorrectAnswer": "dumatal",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'dumatal' ay ang pandiwang anyo na nangangahulugang dumating."
+    },
+    {
+        "item_id": "GE-160",
+        "lemma_id": "LEX-162",
+        "error_sentence": "Handa siyang makipaghamok para sa kanyang mga prinsipyo.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang ______ sa kaaway ay hindi biro.",
+        "fillCorrectAnswer": "paghamok",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'paghamok' ay ang pangngalan para sa pakikipaglaban."
+    },
+    {
+        "item_id": "GE-161",
+        "lemma_id": "LEX-163",
+        "error_sentence": "Hinimok niya ang kanyang mga kaibigan upang sumali sa clean-up drive.",
+        "errorCorrectAnswer": "kaibigan upang sumali",
+        "fill_sentence": "Ang ______ sa mga tao na magbago ay isang mahirap na gawain.",
+        "fillCorrectAnswer": "paghimok",
+        "error_explanation": "Ang pandiwang 'himukin' ay sinusundan ng pang-angkop na '-ng'. Ang tamang parirala ay 'kaibigang sumali'.",
+        "fill_explanation": "Ang 'paghimok' ay ang pangngalan para sa kilos ng pangungumbinsi."
+    },
+    {
+        "item_id": "GE-162",
+        "lemma_id": "LEX-164",
+        "error_sentence": "Ang paghuhugpong ng dalawang magkaibang kultura ay maaaring maging maganda.",
+        "errorCorrectAnswer": "dalawang magkaibang kultura",
+        "fill_sentence": "Kailangan mong ______ ang dalawang piraso ng tela.",
+        "fillCorrectAnswer": "hugpungan",
+        "error_explanation": "Ang 'magkaiba' ay sapat na upang ipakita ang pagkakaiba. Ang 'dalawa' ay nagiging kalabisan. Ang tamang parirala ay 'ng magkaibang kultura'.",
+        "fill_explanation": "Ang 'hugpungan' ay ang pandiwang anyo na nangangahulugang dugtungan."
+    },
+    {
+        "item_id": "GE-163",
+        "lemma_id": "LEX-165",
+        "error_sentence": "Ang mundo ay umiinog sa paligid ng araw.",
+        "errorCorrectAnswer": "sa paligid ng",
+        "fill_sentence": "Ang ______ ng buhay ay patuloy kahit anong mangyari.",
+        "fillCorrectAnswer": "pag-inog",
+        "error_explanation": "Ang pandiwang 'umiinog' ay nangangailangan ng tuwirang layon. Ang tamang parirala ay 'umiinog sa araw'.",
+        "fill_explanation": "Ang 'pag-inog' ay ang pangngalan para sa pag-ikot."
+    },
+    {
+        "item_id": "GE-164",
+        "lemma_id": "LEX-166",
+        "error_sentence": "Ang pagniniig ng mag-asawa ay mahalaga para sa kanilang relasyon.",
+        "errorCorrectAnswer": "mahalaga para sa",
+        "fill_sentence": "Sila ay ______ sa ilalim ng puno ng mangga.",
+        "fillCorrectAnswer": "nagniniig",
+        "error_explanation": "Ang tamang pang-ukol ay 'sa'. Ang wastong parirala ay 'mahalaga sa kanilang relasyon'.",
+        "fill_explanation": "Ang 'nagniniig' (nagsasama nang masinsinan) ang tamang pandiwa, bagama't wala sa lexicon."
+    },
+    {
+        "item_id": "GE-165",
+        "lemma_id": "LEX-167",
+        "error_sentence": "Rumaragasa ang baha sa mga lansangan ng siyudad.",
+        "errorCorrectAnswer": "lansangan ng siyudad",
+        "fill_sentence": "Ang ______ ng galit na tao ay mahirap pigilan.",
+        "fillCorrectAnswer": "pagragasa",
+        "error_explanation": "Ang 'siyudad' ay hiram na salita. Ang mas angkop na gamitin ay 'lungsod'. Ang tamang parirala ay 'lansangan ng lungsod'.",
+        "fill_explanation": "Ang 'pagragasa' ay ang pangngalan para sa mabilis at malakas na pagdaloy."
+    },
+    {
+        "item_id": "GE-166",
+        "lemma_id": "LEX-168",
+        "error_sentence": "Ang pagsiil sa karapatan ng iba ay labag sa batas.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Hindi dapat ______ ang maliliit at mahihina.",
+        "fillCorrectAnswer": "siilin",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'siilin' ay ang pandiwang anyo na nangangahulugang supilin o apihin."
+    },
+    {
+        "item_id": "GE-167",
+        "lemma_id": "LEX-169",
+        "error_sentence": "Ang kanyang pagsusumigasig sa trabaho ay nagbunga ng promosyon.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Siya ay isang ______ na mag-aaral.",
+        "fillCorrectAnswer": "masigasig",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'masigasig' ay isang pang-uri na nangangahulugang masipag at matiyaga."
+    },
+    {
+        "item_id": "GE-168",
+        "lemma_id": "LEX-170",
+        "error_sentence": "Ang kanyang pagtangis ay umabot hanggang sa kabilang kwarto.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Siya ay ______ nang malaman ang sinapit ng kanyang kaibigan.",
+        "fillCorrectAnswer": "tumangis",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'tumangis' ay ang pandiwang anyo na nangangahulugang umiyak nang malalim."
+    },
+    {
+        "item_id": "GE-169",
+        "lemma_id": "LEX-171",
+        "error_sentence": "Tinuligsa ng mga kritiko ang bagong pelikula dahil sa ito'y mabagal.",
+        "errorCorrectAnswer": "dahil sa ito'y mabagal",
+        "fill_sentence": "Ang ______ sa gobyerno ay karapatan ng bawat mamamayan sa isang demokrasya.",
+        "fillCorrectAnswer": "pagtuligsa",
+        "error_explanation": "Ang 'dahil sa' at 'ito'y' ay hindi magkasamang ginagamit. Ang tama ay 'dahil ito'y mabagal' o 'dahil sa pagiging mabagal nito'.",
+        "fill_explanation": "Ang 'pagtuligsa' ay ang pangngalan para sa kilos ng pagbatikos."
+    },
+    {
+        "item_id": "GE-170",
+        "lemma_id": "LEX-172",
+        "error_sentence": "Dapat nating pagyamanin ang ating kultura at tradisyon.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Siya ay ______ ng kanyang mga magulang ng magandang edukasyon.",
+        "fillCorrectAnswer": "pinayaman",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'pinayaman' dito ay nangangahulugang binigyan o pinagkalooban."
+    },
+    {
+        "item_id": "GE-171",
+        "lemma_id": "LEX-173",
+        "error_sentence": "May pahaging siya tungkol sa kanyang plano na pag-alis.",
+        "errorCorrectAnswer": "plano na pag-alis",
+        "fill_sentence": "Hindi niya direkta itong sinabi, sa halip ay ______ lamang.",
+        "fillCorrectAnswer": "nagpahaging",
+        "error_explanation": "Ang pang-angkop na 'na' ay hindi tama. Ang 'pag-alis' ay anyong pangngalan na. Ang tamang parirala ay 'plano ng pag-alis' o 'planong umalis'.",
+        "fill_explanation": "Ang 'nagpahaging' ay ang pandiwang anyo na nangangahulugang nagparamdam o nagpahiwatig."
+    },
+    {
+        "item_id": "GE-172",
+        "lemma_id": "LEX-174",
+        "error_sentence": "Ang kanyang huling tula ay isang pahimakas para sa kanyang mga minamahal.",
+        "errorCorrectAnswer": "pahimakas para sa",
+        "fill_sentence": "Bago siya umalis, siya ay ______ sa kanyang pamilya.",
+        "fillCorrectAnswer": "nagpahimakas",
+        "error_explanation": "Ang tamang pang-ukol ay 'sa'. Ang wastong parirala ay 'pahimakas sa kanyang mga minamahal'.",
+        "fill_explanation": "Ang 'nagpahimakas' ay ang pandiwang anyo na nangangahulugang nagpaalam."
+    },
+    {
+        "item_id": "GE-173",
+        "lemma_id": "LEX-175",
+        "error_sentence": "Ang pakikibaka para sa kalayaan ay hindi madali.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Sila ay ______ laban sa pang-aapi.",
+        "fillCorrectAnswer": "nakibaka",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'nakibaka' ay ang pandiwang anyo na nangangahulugang nakipaglaban."
+    },
+    {
+        "item_id": "GE-174",
+        "lemma_id": "LEX-176",
+        "error_sentence": "Mahalaga ang pakikisalamuha sa iba upang matuto ng mga bagong bagay.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Huwag kang matakot na ______ sa mga taong hindi mo kilala.",
+        "fillCorrectAnswer": "makisalamuha",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'makisalamuha' ay ang pandiwang anyo na nangangahulugang makipag-ugnayan."
+    },
+    {
+        "item_id": "GE-175",
+        "lemma_id": "LEX-177",
+        "error_sentence": "Ang pagiging palalo ay hindi isang magandang katangian.",
+        "errorCorrectAnswer": "isang magandang katangian",
+        "fill_sentence": "Ang kanyang ______ ay nagdulot sa kanya ng maraming kaaway.",
+        "fillCorrectAnswer": "kapalaluan",
+        "error_explanation": "Ang 'isang' ay hindi kinakailangan dahil ang 'katangian' ay pangkalahatang konsepto. Ang mas wasto ay 'ay hindi magandang katangian'.",
+        "fill_explanation": "Ang 'kapalaluan' ay ang pangngalan para sa kayabangan."
+    },
+    {
+        "item_id": "GE-176",
+        "lemma_id": "LEX-178",
+        "error_sentence": "Ang panaghoy ng ina ay narinig sa buong kabahayan.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Siya ay ______ sa pagkawala ng kanyang alaga.",
+        "fillCorrectAnswer": "nananaghoy",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'nananaghoy' ay ang pandiwang anyo na nangangahulugang nagluluksa."
+    },
+    {
+        "item_id": "GE-177",
+        "lemma_id": "LEX-179",
+        "error_sentence": "Panaka-naka lang siyang bumisita sa kanyang mga magulang.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang ulan ay ______ bumubuhos ngayong araw.",
+        "fillCorrectAnswer": "panaka-naka",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'panaka-naka' ay isang pang-abay na nangangahulugang may pagitan."
+    },
+    {
+        "item_id": "GE-178",
+        "lemma_id": "LEX-180",
+        "error_sentence": "May panimdim sa kanyang mga mata habang nakatingin sa malayo.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang kanyang ______ ay hindi niya maipaliwanag.",
+        "fillCorrectAnswer": "panimdim",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'panimdim' ay ang pangngalan para sa lihim na kalungkutan."
+    },
+    {
+        "item_id": "GE-179",
+        "lemma_id": "LEX-181",
+        "error_sentence": "Ang mga pasanin sa buhay ay siyang nagpapatatag sa atin.",
+        "errorCorrectAnswer": "ay siyang nagpapatatag",
+        "fill_sentence": "Siya ang ______ ng lahat ng problema ng kanyang pamilya.",
+        "fillCorrectAnswer": "pumasan",
+        "error_explanation": "Ang 'ay' at 'siyang' ay parehong ginagamit bilang pananda ng ayos ng pangungusap; ito'y kalabisan. Ang tama ay 'ay nagpapatatag' o 'ang siyang nagpapatatag'.",
+        "fill_explanation": "Ang 'pumasan' (to carry a burden) ang tamang pandiwa, bagama't wala sa lexicon."
+    },
+    {
+        "item_id": "GE-180",
+        "lemma_id": "LEX-182",
+        "error_sentence": "Ang patibong ay inilagay upang mahuli ang mabangis na hayop.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Nahulog siya sa ______ ng kanyang mga kaaway.",
+        "fillCorrectAnswer": "patibong",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'patibong' ay isang pangngalan para sa bitag."
+    },
+    {
+        "item_id": "GE-181",
+        "lemma_id": "LEX-183",
+        "error_sentence": "Kailangan natin ng patnubay galing sa mas nakakaalam.",
+        "errorCorrectAnswer": "galing sa",
+        "fill_sentence": "Siya ay ______ ng kanyang mga magulang sa kanyang mga desisyon.",
+        "fillCorrectAnswer": "pinapatnubayan",
+        "error_explanation": "Ang tamang pang-ukol ay 'mula'. Ang wastong parirala ay 'mula sa mas nakakaalam'.",
+        "fill_explanation": "Ang 'pinapatnubayan' ay ang pandiwang anyo na nangangahulugang ginagabayan."
+    },
+    {
+        "item_id": "GE-182",
+        "lemma_id": "LEX-184",
+        "error_sentence": "Mas gusto niya ang payak na pamumuhay sa probinsya.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang ______ ng kanyang disenyo ay kahanga-hanga.",
+        "fillCorrectAnswer": "kapayakan",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'kapayakan' ay ang pangngalan para sa pagiging simple."
+    },
+    {
+        "item_id": "GE-183",
+        "lemma_id": "LEX-185",
+        "error_sentence": "Ang estatwa ay nakatayo sa isang mataas na pedestal.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Huwag mong ilagay ang sinuman sa isang ______ dahil lahat ay nagkakamali.",
+        "fillCorrectAnswer": "pedestal",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'pedestal' ay ginagamit din sa metaporikal na paraan para sa labis na paghanga."
+    },
+    {
+        "item_id": "GE-184",
+        "lemma_id": "LEX-186",
+        "error_sentence": "Naramdaman niya ang matinding pighati sa pagkawala ng kanyang kaibigan.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang ______ ay hindi madaling malampasan.",
+        "fillCorrectAnswer": "pighati",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'pighati' ay ang pangngalan para sa matinding lungkot."
+    },
+    {
+        "item_id": "GE-185",
+        "lemma_id": "LEX-187",
+        "error_sentence": "Ang kanyang buhay ay parang pinagtagpi-tagping kwento ng tagumpay at kabiguan.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang kumot ay ______ mula sa iba't ibang retaso ng tela.",
+        "fillCorrectAnswer": "pinagtagpi-tagpi",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'pinagtagpi-tagpi' ay tumutukoy sa pagsasama-sama ng iba't ibang piraso."
+    },
+    {
+        "item_id": "GE-186",
+        "lemma_id": "LEX-188",
+        "error_sentence": "Tila pinagtiyap ng tadhana ang kanilang pagkikita.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang kanilang ______ ay isang magandang pagkakataon.",
+        "fillCorrectAnswer": "pagkakatiyap",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'pagkakatiyap' (pagkakataon) ang tamang pangngalan, bagama't wala sa lexicon."
+    },
+    {
+        "item_id": "GE-187",
+        "lemma_id": "LEX-189",
+        "error_sentence": "Pinatingkad ng ilaw ang matingkad na kulay ng kanyang damit.",
+        "errorCorrectAnswer": "matingkad na kulay",
+        "fill_sentence": "Ang kanyang pulang buhok ay ______ sa lahat.",
+        "fillCorrectAnswer": "matingkad",
+        "error_explanation": "Ang pariralang 'matingkad na kulay' ay may kalabisan. Ang 'kulay' ay hindi na kailangan dahil ang 'matingkad' ay naglalarawan na ng katangian ng kulay.",
+        "fill_explanation": "Ang 'matingkad' ay isang pang-uri na nangangahulugang masidhi ang kulay."
+    },
+    {
+        "item_id": "GE-188",
+        "lemma_id": "LEX-190",
+        "error_sentence": "Ang pintig ng kanyang puso ay bumibilis sa tuwing nakikita niya ito.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang buhay ay parang ______ ng puso, may pagtaas at pagbaba.",
+        "fillCorrectAnswer": "pintig",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'pintig' ay ang pangngalan para sa tibok."
+    },
+    {
+        "item_id": "GE-189",
+        "lemma_id": "LEX-191",
+        "error_sentence": "Ginamit niya ang pisi para sa itali ang mga kahoy.",
+        "errorCorrectAnswer": "para sa itali",
+        "fill_sentence": "Ang ______ ay dapat maging matibay upang hindi maputol.",
+        "fillCorrectAnswer": "pisi",
+        "error_explanation": "Ang tamang pang-ugnay ay 'upang'. Ang pandiwang 'itali' ay dapat nasa anyong pawatas. Ang tamang parirala ay 'upang itali'.",
+        "fill_explanation": "Ang 'pisi' ay ang pangngalan para sa sinulid na tali."
+    },
+    {
+        "item_id": "GE-190",
+        "lemma_id": "LEX-192",
+        "error_sentence": "Pudpod na ang tsinelas niya sa kalalakad.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Kailangan mo nang palitan ang gulong ng iyong sasakyan dahil ______ na ito.",
+        "fillCorrectAnswer": "pudpod",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'pudpod' ay isang pang-uri na nangangahulugang gasgas o sira na dahil sa gamit."
+    },
+    {
+        "item_id": "GE-191",
+        "lemma_id": "LEX-193",
+        "error_sentence": "Nais niyang pugtuin na ang kanilang ugnayan dahil sa panloloko.",
+        "errorCorrectAnswer": "pugtuin na",
+        "fill_sentence": "Mahirap ______ ang isang matibay na samahan.",
+        "fillCorrectAnswer": "pugtuin",
+        "error_explanation": "Ang 'na' ay hindi kinakailangan at hindi natural sa pandiwang 'pugtuin'. Ang tamang parirala ay 'Nais niyang pugtuin ang...'.",
+        "fill_explanation": "Ang 'pugtuin' ay ang pandiwang anyo na nangangahulugang putulin."
+    },
+    {
+        "item_id": "GE-192",
+        "lemma_id": "LEX-194",
+        "error_sentence": "Ang kanyang trabaho ay laging pulido at malinis.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Isang ______ na pagkakagawa ang ipinakita ng karpintero.",
+        "fillCorrectAnswer": "pulido",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'pulido' ay isang pang-uri na nangangahulugang maingat at malinis ang pagkakagawa."
+    },
+    {
+        "item_id": "GE-193",
+        "lemma_id": "LEX-195",
+        "error_sentence": "Ang laman ng kahon ay pulos mga lumang laruan.",
+        "errorCorrectAnswer": "pulos mga lumang",
+        "fill_sentence": "Ang kanyang sinasabi ay ______ kasinungalingan.",
+        "fillCorrectAnswer": "pulos",
+        "error_explanation": "Ang 'pulos' (o puro) at 'mga' ay parehong nagpapahiwatig ng maramihan (plural), kaya ito ay kalabisan. Ang tama ay 'pulos lumang laruan'.",
+        "fill_explanation": "Ang 'pulos' ay isang pang-uri na nangangahulugang puro."
+    },
+    {
+        "item_id": "GE-194",
+        "lemma_id": "LEX-196",
+        "error_sentence": "Pumailanlang sa himpapawid ang saranggola.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang kanyang pangarap ay ______ na parang agila.",
+        "fillCorrectAnswer": "pumailanlang",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'pumailanlang' ay ang pandiwang anyo na nangangahulugang lumipad nang mataas."
+    },
+    {
+        "item_id": "GE-195",
+        "lemma_id": "LEX-197",
+        "error_sentence": "Huwag mong punahin ang pagkakamali ng iba kung ikaw man ay mayroon din.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang kanyang ______ ay nakatulong upang mapabuti ang aking trabaho.",
+        "fillCorrectAnswer": "puna",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'puna' ay ang pangngalan para sa obserbasyon o komento."
+    },
+    {
+        "item_id": "GE-196",
+        "lemma_id": "LEX-198",
+        "error_sentence": "Puspos ng kagalakan ang kanyang puso dahil sa magandang balita.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang kanyang buhay ay ______ ng pagpapala.",
+        "fillCorrectAnswer": "puspos",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'puspos' ay isang pang-uri na nangangahulugang puno o ganap."
+    },
+    {
+        "item_id": "GE-197",
+        "lemma_id": "LEX-199",
+        "error_sentence": "Ang watawat ay ang sagisag ng ating kalayaan.",
+        "errorCorrectAnswer": "ay ang sagisag",
+        "fill_sentence": "Ang kalapati ay ______ ng kapayapaan.",
+        "fillCorrectAnswer": "sumasagisag",
+        "error_explanation": "Ang 'ay' at 'ang' ay parehong pananda. Ang paggamit ng dalawa ay kalabisan. Ang tama ay 'ay sagisag' o 'ang sagisag'.",
+        "fill_explanation": "Ang 'sumasagisag' ay ang pandiwang anyo na nangangahulugang kumakatawan o sumisimbolo."
+    },
+    {
+        "item_id": "GE-198",
+        "lemma_id": "LEX-200",
+        "error_sentence": "Ang kanyang pasensya ay malapit nang masaid.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang baon niyang tubig ay ______ na.",
+        "fillCorrectAnswer": "said",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'said' ay isang pang-uri na nangangahulugang ubos na."
+    },
+    {
+        "item_id": "GE-199",
+        "lemma_id": "LEX-201",
+        "error_sentence": "Sinalag niya ang malakas na suntok ng kanyang kalaban.",
+        "errorCorrectAnswer": "suntok ng kanyang",
+        "fill_sentence": "Kailangan mong ______ ang mga akusasyon laban sa iyo.",
+        "fillCorrectAnswer": "salagin",
+        "error_explanation": "Ang tamang pagbaybay ay 'kanyang'. Ang 'kanyang' ay panghalip paari (possessive pronoun).",
+        "fill_explanation": "Ang 'salagin' ay ang pandiwang anyo na nangangahulugang ipagtanggol o harangin."
+    },
+    {
+        "item_id": "GE-200",
+        "lemma_id": "LEX-202",
+        "error_sentence": "May salamisim sa kanyang puso sa tuwing umuulan.",
+        "errorCorrectAnswer": "puso sa tuwing",
+        "fill_sentence": "Ang ______ ng nakaraan ay mahirap kalimutan.",
+        "fillCorrectAnswer": "salamisim",
+        "error_explanation": "Ang 'sa' ay hindi kinakailangan. Ang 'tuwing' ay sapat na bilang pang-abay na pamanahon (adverb of time). Ang tamang parirala ay 'puso tuwing umuulan'.",
+        "fill_explanation": "Ang 'salamisim' ay isang pangngalan para sa nostalhikong damdamin."
+    },
+    {
+        "item_id": "GE-201",
+        "lemma_id": "LEX-203",
+        "error_sentence": "Sumamyo sa buong silid ang bango ng mga bulaklak.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang ______ ng nilulutong adobo ay nakakagutom.",
+        "fillCorrectAnswer": "samyo",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'samyo' ay ang pangngalan para sa kaaya-ayang amoy."
+    },
+    {
+        "item_id": "GE-202",
+        "lemma_id": "LEX-204",
+        "error_sentence": "Ang kanyang sapantaha ay sa huli nagkatotoo.",
+        "errorCorrectAnswer": "ay sa huli",
+        "fill_sentence": "Mayroon siyang ______ na may masamang mangyayari.",
+        "fillCorrectAnswer": "sapantaha",
+        "error_explanation": "Ang ayos ng mga salita ay hindi natural. Ang mas wastong ayos ay 'ay nagkatotoo sa huli'.",
+        "fill_explanation": "Ang 'sapantaha' ay ang pangngalan para sa hinala."
+    },
+    {
+        "item_id": "GE-203",
+        "lemma_id": "LEX-205",
+        "error_sentence": "Isang malakas na sigwa ang tumama sa kanilang lugar.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang buhay ay parang dagat, minsan ay kalmado, minsan ay ______.",
+        "fillCorrectAnswer": "masigwa",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'masigwa' ay isang pang-uri na nangangahulugang maunos o may bagyo."
+    },
+    {
+        "item_id": "GE-204",
+        "lemma_id": "LEX-206",
+        "error_sentence": "Sumisikdo ang kanyang dibdib sa kaba.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang ______ ng kanyang puso ay hindi mapakali.",
+        "fillCorrectAnswer": "paninikdo",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'paninikdo' ay ang pangngalan para sa mabilis na pagtibok ng puso."
+    },
+    {
+        "item_id": "GE-205",
+        "lemma_id": "LEX-208",
+        "error_sentence": "Sumilakbo ang galit niya noong nakita ang panloloko.",
+        "errorCorrectAnswer": "noong nakita",
+        "fill_sentence": "Ang ______ ng apoy ay mabilis na kumalat.",
+        "fillCorrectAnswer": "silakbo",
+        "error_explanation": "Ang tamang pang-ugnay ay 'nang'. Ang 'nang' ay ginagamit para sa oras o paraan, habang ang 'noong' ay para sa tiyak na petsa o panahon. Ang tama ay 'nang makita'.",
+        "fill_explanation": "Ang 'silakbo' ay ang pangngalan para sa biglaang pagsiklab."
+    },
+    {
+        "item_id": "GE-206",
+        "lemma_id": "LEX-209",
+        "error_sentence": "Ang simbuyo ng kanyang damdamin ay mahirap na kontrolin.",
+        "errorCorrectAnswer": "mahirap na kontrolin",
+        "fill_sentence": "Isang ______ na pagnanasa ang kanyang naramdaman.",
+        "fillCorrectAnswer": "masimbuyo",
+        "error_explanation": "Ang pang-angkop na 'na' ay hindi kailangan. Ang tamang parirala ay 'mahirap kontrolin'.",
+        "fill_explanation": "Ang 'masimbuyo' ay isang pang-uri na nangangahulugang matindi o marubdob."
+    },
+    {
+        "item_id": "GE-207",
+        "lemma_id": "LEX-210",
+        "error_sentence": "Ikaw ang aking sinta, ang aking irog.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang dalawang ______ ay nagsumpaan ng walang hanggang pag-ibig.",
+        "fillCorrectAnswer": "magsinta",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'magsinta' ay tumutukoy sa dalawang taong nagmamahalan."
+    },
+    {
+        "item_id": "GE-208",
+        "lemma_id": "LEX-211",
+        "error_sentence": "Sinipat niya ang target bago iputok ang baril.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Kailangan mong ______ mabuti ang sitwasyon bago magdesisyon.",
+        "fillCorrectAnswer": "sipatin",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'sipatin' ay ang pandiwang anyo na nangangahulugang tingnan nang maigi."
+    },
+    {
+        "item_id": "GE-209",
+        "lemma_id": "LEX-212",
+        "error_sentence": "Ang siphayo na kanyang dinanas ay nagpatatag sa kanya.",
+        "errorCorrectAnswer": "siphayo na kanyang dinanas",
+        "fill_sentence": "Hindi siya nagpatalo kahit siya ay ______ ng tadhana.",
+        "fillCorrectAnswer": "siniphayo",
+        "error_explanation": "Ang pang-angkop na 'na' ay dapat '-ng' dahil ang 'siphayo' ay nagtatapos sa patinig. Ang tamang parirala ay 'Ang siphayong kanyang dinanas'.",
+        "fill_explanation": "Ang 'siniphayo' ay ang pandiwang anyo na nangangahulugang inapi o binigo."
+    },
+    {
+        "item_id": "GE-210",
+        "lemma_id": "LEX-213",
+        "error_sentence": "Ang pagsisiyasat sa kaso ay isinasagawa na ng mga pulis.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Kailangan mong ______ ang lahat ng anggulo ng problema.",
+        "fillCorrectAnswer": "siyasatin",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'siyasatin' ay ang pandiwang anyo na nangangahulugang suriin o imbestigahan."
+    },
+    {
+        "item_id": "GE-211",
+        "lemma_id": "LEX-214",
+        "error_sentence": "Sumambulat ang balita tungkol sa kanyang pagbibitiw.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang bulkan ay ______ at nagbuga ng abo.",
+        "fillCorrectAnswer": "sumambulat",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'sumambulat' ay ang pandiwang anyo na nangangahulugang sumabog."
+    },
+    {
+        "item_id": "GE-212",
+        "lemma_id": "LEX-215",
+        "error_sentence": "Ang kanyang pagsamo ay tila dininig ng langit.",
+        "errorCorrectAnswer": "tila dininig",
+        "fill_sentence": "Siya ay ______ na patawarin sa kanyang mga kasalanan.",
+        "fillCorrectAnswer": "nagsusumamo",
+        "error_explanation": "Ang ayos ng mga salita ay hindi natural. Ang mas wastong ayos ay 'tila dininig' o 'ay tila dininig'.",
+        "fill_explanation": "Ang 'nagsusumamo' ay ang pandiwang anyo na nangangahulugang nakikiusap nang taimtim."
+    },
+    {
+        "item_id": "GE-213",
+        "lemma_id": "LEX-216",
+        "error_sentence": "Sumukbo siya sa ilalim ng tubig para magtago.",
+        "errorCorrectAnswer": "para magtago",
+        "fill_sentence": "Ang araw ay ______ na sa kanluran.",
+        "fillCorrectAnswer": "sumusukbo",
+        "error_explanation": "Ang tamang pang-ugnay na dapat gamitin para sa layunin (purpose) ay 'upang'. Ang wastong parirala ay 'upang magtago'.",
+        "fill_explanation": "Ang 'sumusukbo' (lumulubog) ay ang tamang pandiwa, bagama't wala sa lexicon."
+    },
+    {
+        "item_id": "GE-214",
+        "lemma_id": "LEX-217",
+        "error_sentence": "May panukalang susog sa konstitusyon.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Kailangang ______ ang lumang batas upang umangkop sa kasalukuyang panahon.",
+        "fillCorrectAnswer": "susugan",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'susugan' ay ang pandiwang anyo na nangangahulugang baguhin o amyendahan."
+    },
+    {
+        "item_id": "GE-215",
+        "lemma_id": "LEX-218",
+        "error_sentence": "Ang mga tala sa langit ay nagsisilbing gabay sa mga mandaragat.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Siya ay gumawa ng ______ ng mga dapat niyang gawin.",
+        "fillCorrectAnswer": "talaan",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'talaan' ay ang pangngalan para sa listahan."
+    },
+    {
+        "item_id": "GE-216",
+        "lemma_id": "LEX-219",
+        "error_sentence": "Huwag mong talikdan ang iyong mga responsibilidad.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Siya ay ______ sa kanyang mga pangako.",
+        "fillCorrectAnswer": "tumalikod",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'tumalikod' ay ang pandiwang anyo na nangangahulugang umalis o hindi tumupad."
+    },
+    {
+        "item_id": "GE-217",
+        "lemma_id": "LEX-220",
+        "error_sentence": "Ang kanyang mga damit ay nakasalansan sa loob ng kanyang tampipi.",
+        "errorCorrectAnswer": "ng kanyang tampipi",
+        "fill_sentence": "Nagdala siya ng isang ______ na puno ng mga damit para sa kanyang paglalakbay.",
+        "fillCorrectAnswer": "tampipi",
+        "error_explanation": "Hindi na kailangan ang 'kanyang' dahil malinaw na sa konteksto. Ang 'sa loob ng tampipi' ay sapat na.",
+        "fill_explanation": "Ang 'tampipi' ay ang pangngalan para sa katutubong lalagyan ng damit."
+    },
+    {
+        "item_id": "GE-218",
+        "lemma_id": "LEX-221",
+        "error_sentence": "Ang tigang na lupa ay nangangailangan ng tubig.",
+        "errorCorrectAnswer": "No error",
+        "fill_sentence": "Ang kanyang lalamunan ay ______ dahil sa uhaw.",
+        "fillCorrectAnswer": "natigang",
+        "error_explanation": "Ang pangungusap ay wasto sa balarila.",
+        "fill_explanation": "Ang 'natigang' ay ang pandiwang anyo na nangangahulugang natuyo."
+    },
+    {
+        "item_id": "GE-219",
+        "lemma_id": "LEX-222",
+        "error_sentence": "Dapat tumalima sa batas ang lahat ng mga mamamayan.",
+        "errorCorrectAnswer": "lahat ng mga mamamayan",
+        "fill_sentence": "Siya ay ______ sa utos ng kanyang pinuno.",
+        "fillCorrectAnswer": "tumalima",
+        "error_explanation": "Ang 'lahat' at 'mga' ay parehong nagpapahiwatig ng maramihan (plural), kaya't ito ay kalabisan (redundant). Ang tama ay 'ang lahat ng mamamayan' o 'ang mga mamamayan'.",
+        "fill_explanation": "Ang 'tumalima' ay ang pandiwang anyo na nangangahulugang sumunod."
     }
 ]

@@ -2103,199 +2103,225 @@ lexicon_data = [
     {
         "lemma_id": "LEX-147",
         "lemma": "mutawi",
-        "base_definition": "Ang paglalabas ng mga salita mula sa bibig.",
+        "base_definition": "Bigla o kusang paglabas ng mga salita mula sa bibig, kadalasan nang hindi lubusang pinag-iisipan.",
         "surface_forms": [
+            "mutawi",
             "namutawi",
             "mamutawi"
         ],
         "relations": {
-            "synonyms": ["lumabas", "sinabi"],
-            "antonyms": ["nanahimik", "itinago"]
+            "synonyms": ["lumabas-sa-bibig", "nasambit", "binigkas"],
+            "antonyms": ["nanahimik", "itinago-sa-sarili"]
         }
     },
     {
         "lemma_id": "LEX-148",
         "lemma": "taytay",
-        "base_definition": "Ang tuloy-tuloy na agos o daloy ng likido.",
+        "base_definition": "Maliit o pansamantalang tulay na gawa sa kahoy, kawayan, o iba pang materyales upang daanan sa ibabaw ng tubig o hukay.",
         "surface_forms": [
-            "nanalaytay",
-            "taytay"
+            "taytay",
+            "mga taytay"
         ],
         "relations": {
-            "synonyms": ["dumaloy"],
-            "antonyms": ["huminto", "natuyo"]
+            "synonyms": ["maliit-na-tulay", "tawiran"],
+            "antonyms": ["bangin", "walang-tawiran"]
         }
     },
     {
         "lemma_id": "LEX-149",
-        "lemma": "nananangan",
-        "base_definition": "Ang pagkakaroon ng matibay na paniniwala o tiwala.",
+        "lemma": "tangan",
+        "base_definition": "Mahigpit na pagkakapit o pag-asa sa isang bagay, tao, o paniniwala bilang sandigan.",
         "surface_forms": [
-            "nananangan"
+            "tangan",
+            "tumanang",
+            "nananangan",
+            "pagtangan",
+            "manangan"
         ],
         "relations": {
-            "synonyms": ["nanalig", "umaasa"],
-            "antonyms": ["nawalan ng pag-asa", "nagduda"]
+            "synonyms": ["umasa", "sumandig", "sumandig-sa"],
+            "antonyms": ["bumitaw", "nawalan-ng-pag-asa", "tumalikod"]
         }
     },
     {
         "lemma_id": "LEX-150",
-        "lemma": "ahas",
-        "base_definition": "Ang pagpapakita ng tapang o paggawa ng bagay na mapanganib.",
+        "lemma": "mangahas",
+        "base_definition": "Gumawa ng isang bagay na may kaakibat na panganib o hirap dahil sa tapang o lakas-ng-loob.",
         "surface_forms": [
+            "mangahas",
             "nangahas",
             "pangangahas"
         ],
         "relations": {
-            "synonyms": ["naglakas-loob"],
-            "antonyms": ["natakot", "naduwag"]
+            "synonyms": ["naglakas-loob", "sumubok-sa-panganib"],
+            "antonyms": ["naduwag", "umatras", "natakot"]
         }
     },
     {
         "lemma_id": "LEX-151",
-        "lemma": "nuya",
-        "base_definition": "Ang kilos ng pagkutya o pagpapakita ng hamak sa kapwa.",
+        "lemma": "tuya",
+        "base_definition": "Pagkilos o pananalitang nanlalait, nang-uuyam, o nagpapababa sa dangal ng kapwa.",
         "surface_forms": [
+            "tuya",
+            "manuya",
             "nanunuya",
-            "nanuya",
+            "natuya",
             "panunuya"
         ],
         "relations": {
-            "synonyms": ["nanghahamal"],
-            "antonyms": ["pumupuri", "humahanga"]
+            "synonyms": ["pang-uyam", "pang-aalipusta", "pangungutya"],
+            "antonyms": ["papuri", "paghangang-tapat", "pagpupuri"]
         }
     },
     {
         "lemma_id": "LEX-152",
         "lemma": "suot",
-        "base_definition": "Ang pagpasok o paglapos sa isang maliit na espasyo.",
+        "base_definition": "Pagpasok o paglapos nang malalim sa loob ng isang bagay o espasyo, gaya ng lamig o amoy na tumatagos.",
         "surface_forms": [
+            "suot",
             "nanuot",
-            "pagsusuot",
-            "nanunoot"
+            "nanunoot",
+            "pagsuot"
         ],
         "relations": {
-            "synonyms": ["tumagos"],
-            "antonyms": ["humaharang", "tumalbog"]
+            "synonyms": ["tumagos", "sumuot", "lumusot"],
+            "antonyms": ["humarang", "tumalbog", "hindi-pumasok"]
         }
     },
     {
         "lemma_id": "LEX-153",
         "lemma": "bunton",
-        "base_definition": "Ang pagpunta o pagtutuon ng pansin sa isang partikular na panig.",
+        "base_definition": "Tambak o sama-samang tumpok ng mga bagay; sa talinghaga, maaaring tumukoy sa pag-ukol o pag-ipon ng damdamin o sisi sa isang tao.",
         "surface_forms": [
-            "napabunton",
-            "ibunton"
+            "bunton",
+            "ibunton",
+            "binunton",
+            "nabunton",
+            "pagbubunton"
         ],
         "relations": {
-            "synonyms": ["napabaling"],
-            "antonyms": ["umalis", "lumayo"]
+            "synonyms": ["tumpok", "tambak"],
+            "antonyms": ["pagkakahiwa-hiwalay", "kalat"]
         }
     },
     {
         "lemma_id": "LEX-154",
         "lemma": "said",
-        "base_definition": "Ang pagkaubos ng lahat ng laman o suplay.",
+        "base_definition": "Kalagayan o kilos ng ganap na pagkaubos ng laman, suplay, o lakas.",
         "surface_forms": [
+            "said",
             "nasaid",
             "masasaid",
-            "pananaid"
+            "pananaid",
+            "pagkasaid"
         ],
         "relations": {
-            "synonyms": ["nasimot"],
-            "antonyms": ["puno", "sagana", "madami"]
+            "synonyms": ["nasimot", "naubos", "sagad"],
+            "antonyms": ["puno", "sagana", "labis"]
         }
     },
     {
         "lemma_id": "LEX-155",
         "lemma": "waglit",
-        "base_definition": "Ang hindi sinasadyang pagkawala ng isang bagay mula sa kinalalagyan nito.",
+        "base_definition": "Hindi sinasadyang pagkawala ng isang bagay mula sa dating kinalalagyan o pangangalaga.",
         "surface_forms": [
+            "waglit",
             "nawaglit",
             "mawaglit"
         ],
         "relations": {
-            "synonyms": ["nawala"],
-            "antonyms": ["nahanap", "nakita"]
+            "synonyms": ["nawala", "naligaw"],
+            "antonyms": ["nahanap", "nakita", "nanatili"]
         }
     },
     {
         "lemma_id": "LEX-156",
         "lemma": "ngawit",
-        "base_definition": "Ang pakiramdam ng pagkapagod o pangangawit ng kalamnan dahil sa matagal na posisyon.",
+        "base_definition": "Pakiramdam ng paninigas o kirot ng kalamnan dahil sa matagal na pagkakawesto o pagod.",
         "surface_forms": [
             "ngawit",
-            "nangangawit"
+            "nangangawit",
+            "pangangawit"
         ],
         "relations": {
-            "synonyms": ["ngalay"],
-            "antonyms": ["maginhawa", "pahinga"]
+            "synonyms": ["ngalay", "pagod-ng-kalamnan"],
+            "antonyms": ["ginhawa-ng-katawan", "nakapahinga"]
         }
     },
     {
         "lemma_id": "LEX-157",
         "lemma": "ngitngit",
-        "base_definition": "Isang matinding bugso ng galit na madalas ay kinikimkim.",
+        "base_definition": "Matinding galit o poot na kadalasang kinikimkim at hindi agad ipinahahayag.",
         "surface_forms": [
             "ngitngit",
-            "nagngingitngit"
+            "nagngingitngit",
+            "pangngingitngit"
         ],
         "relations": {
-            "synonyms": ["masidhi", "matinding galit", "galaiti"],
-            "antonyms": ["katuwaan", "payapa"]
+            "synonyms": ["galaiti", "matinding-galit", "poot"],
+            "antonyms": ["katuwaan", "pagpapatawad", "paghinahon"]
         }
     },
     {
         "lemma_id": "LEX-158",
         "lemma": "pagak",
-        "base_definition": "Uri ng boses na hindi malinaw, tila may gasgas, o paos.",
+        "base_definition": "Boses o tunog na paos, may gasgas, at hindi ganap na malinaw.",
         "surface_forms": [
-            "pagak"
+            "pagak",
+            "napagak",
+            "pagkapagak"
         ],
         "relations": {
-            "synonyms": ["garalgal na boses"],
-            "antonyms": ["malinaw", "malamyos"]
+            "synonyms": ["paos", "garalgal-na-boses"],
+            "antonyms": ["malinaw-na-boses", "matining", "malamyos"]
         }
     },
     {
         "lemma_id": "LEX-159",
         "lemma": "balikwas",
-        "base_definition": "Ang mabilis na pagbangon o pagbabago ng posisyon ng katawan.",
+        "base_definition": "Mabilis at biglaang pagbangon o pagbabago ng posisyon ng katawan; sa talinghaga, paglayo sa dati nang gawi.",
         "surface_forms": [
-            "pagbalikwas",
-            "bumalikwas"
+            "balikwas",
+            "bumalikwas",
+            "pagbalikwas"
         ],
         "relations": {
-            "synonyms": ["pagbaligtad", "paglipat ng posisyon"],
-            "antonyms": ["paghiga", "pananatili"]
+            "synonyms": ["pagbaligtad", "pagpihit", "pagbangon"],
+            "antonyms": ["paghiga", "pananatili-sa-puwesto"]
         }
     },
     {
         "lemma_id": "LEX-160",
-        "lemma": "bulay",
-        "base_definition": "Ang malalim na pagsusuri o pag-iisip tungkol sa isang bagay.",
+        "lemma": "bulay-bulay",
+        "base_definition": "Malalim na pag-iisip o pagmumuni-muni tungkol sa isang bagay o karanasan.",
         "surface_forms": [
+            "bulay-bulay",
             "pagbulay-bulayan",
+            "magbulay-bulay",
             "nagbubulay-bulay"
         ],
         "relations": {
-            "synonyms": ["pagnilaynilayan"],
-            "antonyms": ["pagpapabaya", "kawalan ng malay"]
+            "synonyms": ["pagnilay-nilay", "pagmumuni-muni"],
+            "antonyms": ["pagpapabaya", "kawalan-ng-pag-iisip"]
         }
     },
     {
         "lemma_id": "LEX-161",
         "lemma": "datal",
-        "base_definition": "Ang pagdating sa isang itinakdang lugar.",
+        "base_definition": "Pagdating o pag-abot sa isang takdang oras, lugar, o kalagayan.",
         "surface_forms": [
+            "datal",
             "pagdatal",
             "dumatal"
         ],
         "relations": {
-            "synonyms": ["pagdating"],
-            "antonyms": ["paglisan", "pag-alis"]
+            "synonyms": ["pagdating", "pag-abot"],
+            "antonyms": ["pag-alis", "paglisan"]
         }
     },
+
+    # ---- EXISTING ENTRIES CONTINUE UNCHANGED FROM LEX-162 ONWARD ----
+
     {
         "lemma_id": "LEX-162",
         "lemma": "hamok",
@@ -2905,20 +2931,6 @@ lexicon_data = [
             "antonyms": ["kalmado", "hinahon"]
         }
     },
-    # {
-    #     "lemma_id": "LEX-207",
-    #     "lemma": "siklot",
-    #     "base_definition": "Ang pagiging api o ang pagkilos ng paghahagis paitaas sa isang bagay.",
-    #     "surface_forms": [
-    #         "siklot",
-    #         "isiniklot",
-    #         "sumiklot"
-    #     ],
-    #     "relations": {
-    #         "synonyms": ["silutin", "api"],
-    #         "antonyms": ["itangi", "pahalagahan"]
-    #     }
-    # },
     {
         "lemma_id": "LEX-208",
         "lemma": "silakbo",
@@ -2936,7 +2948,7 @@ lexicon_data = [
     {
         "lemma_id": "LEX-209",
         "lemma": "simbuyo",
-        "base_definition": "Tumutukoy sa biglaan at matinding pag-usbong o pagsabog ng damdamin na kadalasang nagmumula sa naipong emosyon, lalo na kung dulot ng mga hindi inaasahang pangyayari, at nagpapahiwatig ng padalos-dalos at masidhing tugon o reaksyon.",
+        "base_definition": "Tumutukoy sa biglaan at matinding pag-usbong o pagsabog ng damdamin na kadalasang nagmumula sa naipong emosyon, lalo na kung dulot ng mga hindi inaasahang pangyayari, at na[...]",
         "surface_forms": [
             "simbuyo",
             "masimbuyo"
