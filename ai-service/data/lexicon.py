@@ -302,7 +302,6 @@ lexicon_data = [
         "base_definition": "Anumang bagay o kalagayan na humahadlang o pumipigil sa pag-usad o pagtupad ng isang layunin.",
         "surface_forms": [
             "balakid",
-            "mga balakid"
         ],
         "relations": {
             "synonyms": ["harang", "sagabal", "hadlang"],
@@ -331,7 +330,7 @@ lexicon_data = [
         "base_definition": "Itim na bilog sa gitna ng mata kung saan pumapasok ang liwanag; maari ring gamiting metapora sa paningin o alaala.",
         "surface_forms": [
             "balintataw",
-            "mga balintataw"
+            "balintataw"
         ],
         "relations": {
             "synonyms": [],

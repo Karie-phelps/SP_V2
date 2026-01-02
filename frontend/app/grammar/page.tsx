@@ -74,20 +74,20 @@ export default function GrammarPage() {
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           <GrammarCard
-            name="Error Identification"
-            description="Identify grammatical errors in sentences"
-            imagePath="/art/grammar-icon1.png"
-            color="bg-red-50"
-            url="/grammar/error-identification"
-            exerciseType="error-identification"
-          />
-          <GrammarCard
             name="Sentence Correction"
             description="Choose the correctly written sentence"
             imagePath="/art/grammar-icon1.png"
             color="bg-blue-50"
             url="/grammar/sentence-correction"
             exerciseType="sentence-correction"
+          />
+          <GrammarCard
+            name="Error Identification"
+            description="Identify grammatical errors in sentences"
+            imagePath="/art/grammar-icon1.png"
+            color="bg-red-50"
+            url="/grammar/error-identification"
+            exerciseType="error-identification"
           />
           <GrammarCard
             name="Fill-in-the-Blanks"

@@ -1,0 +1,2930 @@
+[
+  {
+    "lemma": "adhika",
+    "part_of_speech": "pangngalan",
+    "definition": "Isang malalim na hangarin o mithiin na sinasadya at pinagsisikapang makamtan.",
+    "usage": "Kadalasang ginagamit sa pormal at seryosong usapan, panitikan, talumpati, at mga sanaysay na tumatalakay sa mga pangarap, layunin sa buhay, at paglilingkod sa bayan o kapwa.",
+    "example": "Ang aking adhika ay makatulong sa kapwa.",
+    "example_gloss": "My aspiration is to help others.",
+    "extra_examples": [
+      "Isang marangal na adhika ang magsilbi sa bayan nang walang hinihintay na kapalit.",
+      "Ang bawat bayani ay may iisang adhika: ang kalayaan ng Pilipinas."
+    ],
+    "synonyms": ["hangarin", "mithiin", "layunin"],
+    "antonyms": ["kawalang-layunin", "kawalang-direksiyon"],
+    "tags": ["abstrakto", "pormal", "akademiko"],
+    "exam_tips": "Iugnay ang 'adhika' sa mga salitang 'layunin' at 'mithiin'. Madalas itong lumabas sa mga tanong na may kinalaman sa panitikan, kasaysayan, at mga talumpati ng mga bayani."
+  },
+  {
+    "lemma": "agam-agam",
+    "part_of_speech": "pangngalan",
+    "definition": "Kalagayan ng pagdududa o kawalan ng katiyakan sa isang bagay, pasiya, o kinabukasan.",
+    "usage": "Ginagamit sa pagpapahayag ng panloob na pag-aalala, pag-aalinlangan, o kawalan ng kumpiyansa. Karaniwan sa mga personal na pag-uusap at sa panitikan upang ipakita ang kalagayang mental ng isang tauhan.",
+    "example": "Mayroon akong agam-agam sa desisyong gagawin ko sa susunod na linggo.",
+    "example_gloss": "I have doubts about the decision I will make next week.",
+    "extra_examples": [
+      "Huwag kang magkaroon ng agam-agam dahil sigurado akong magtatagumpay ka.",
+      "Napuno ng agam-agam ang kanyang puso nang hindi umuwi ang anak sa tamang oras."
+    ],
+    "synonyms": ["alinlangan", "pagdududa"],
+    "antonyms": ["katiyakan", "tiwala", "paniniwala"],
+    "tags": ["emosyon", "personal", "abstrakto"],
+    "exam_tips": "Ang 'agam-agam' ay katulad ng 'pag-aalinlangan' o 'pagdududa'. Ito ay negatibong damdamin na may kaugnayan sa kawalan ng katiyakan."
+  },
+  {
+    "lemma": "akma",
+    "part_of_speech": "pandiwa/pang-uri",
+    "definition": "Angkop o nararapat sa isang kalagayan, gamit, o layunin.",
+    "usage": "Ginagamit bilang pandiwa (umakma, iakma) o pang-uri (akma) upang ilarawan ang pagiging bagay, tama, o angkop ng isang bagay, salita, o kilos sa isang partikular na sitwasyon o konteksto.",
+    "example": "Ang kaniyang suot ay akma para sa pormal na okasyong dadaluhan natin.",
+    "example_gloss": "Her attire is appropriate for the formal occasion we will attend.",
+    "extra_examples": [
+      "Hindi akma ang iyong mga salita sa sitwasyong ating kinakaharap ngayon.",
+      "Kailangang iakma ang kurikulum sa pangangailangan ng mga mag-aaral ngayon."
+    ],
+    "synonyms": ["angkop", "tama", "bagay"],
+    "antonyms": ["hindi angkop", "hindi bagay", "salungat"],
+    "tags": ["paglalarawan", "praktikal", "pang-araw-araw"],
+    "exam_tips": "Tandaan na ang 'akma' ay nangangahulugang 'fit' o 'appropriate'. Madalas gamitin sa paghahambing kung bagay ba o hindi ang isang bagay sa sitwasyon."
+  },
+  {
+    "lemma": "alab",
+    "part_of_speech": "pangngalan",
+    "definition": "Matinding init o ningas; maari ring tumukoy sa masidhing damdamin o sigasig.",
+    "usage": "Ginagamit sa literal na kahulugan para sa apoy, at sa metaporikal na paraan para sa matinding damdamin tulad ng pag-ibig, galit, o pagkamakabayan.",
+    "example": "Punong-puno ng alab ang kaniyang puso sa paglilingkod sa bayan.",
+    "example_gloss": "His heart is full of fervor in serving the country.",
+    "extra_examples": [
+      "Muling nag-alab ang kaniyang pagnanais na matuto matapos makita ang tagumpay ng kaibigan.",
+      "Ang alab ng apoy ay mabilis na kumalat sa buong kabahayan."
+    ],
+    "synonyms": ["ningas", "sigla", "sidhi"],
+    "antonyms": ["lamig", "panghihina"],
+    "tags": ["abstrakto", "emosyon", "metapora"],
+    "exam_tips": "Ang 'alab' ay may dalawang kahulugan: literal na apoy at matinding damdamin. Hanapin ang konteksto sa pangungusap para malaman kung alin ang tinutukoy."
+  },
+  {
+    "lemma": "alibugha",
+    "part_of_speech": "pang-uri/pangngalan",
+    "definition": "Taong walang ingat at walang pakundangan sa paggastos o paggamit ng yaman; gastador at pabaya.",
+    "usage": "Karaniwang ginagamit bilang pang-uri upang ilarawan ang isang tao na iresponsable, lalo na sa pera. Kilala ito dahil sa talinghaga ng 'alibughang anak' sa Bibliya.",
+    "example": "Nagsisi ang alibughang anak sa kaniyang mga maling ginawa noong nakaraan.",
+    "example_gloss": "The prodigal son repented for his past mistakes.",
+    "extra_examples": [
+      "Ang kaniyang alibughang pamumuhay ang naging dahilan ng pagkaubos ng kaniyang minanang kayamanan.",
+      "Pinagsabihan ng ama ang kanyang alibughang anak na magbago na."
+    ],
+    "synonyms": ["gastador", "pabaya", "iresponsable"],
+    "antonyms": ["matipid", "masinop", "responsable"],
+    "tags": ["negatibo", "pag-uugali", "klasiko"],
+    "exam_tips": "Madalas na iugnay sa parabulang 'Ang Alibughang Anak'. Ang 'alibugha' ay tumutukoy sa isang taong waldas at iresponsable sa yaman."
+  },
+  {
+    "lemma": "alindog",
+    "part_of_speech": "pangngalan",
+    "definition": "Likas na ganda o kaakit-akit na anyo, kilos, o dating ng isang tao o bagay.",
+    "usage": "Pampanitikan at pormal na salita para sa 'ganda' o 'kariktan'. Ginagamit upang ilarawan ang isang kaakit-akit na katangian na hindi lamang pisikal.",
+    "example": "Marami ang nabighani sa taglay niyang alindog noong gabing iyon.",
+    "example_gloss": "Many were captivated by the charm she possessed that night.",
+    "extra_examples": [
+      "Ipinakita niya ang kaniyang alindog sa pamamagitan ng kaniyang matalinong pananalita.",
+      "Ang alindog ng lawa ay dinarayo ng maraming turista."
+    ],
+    "synonyms": ["ganda", "kariktan", "akit"],
+    "antonyms": ["kapangitan", "pangit"],
+    "tags": ["pampanitikan", "positibo", "paglalarawan"],
+    "exam_tips": "Ang 'alindog' ay isang mas malalim at pormal na katumbas ng 'ganda' o 'charm'. Hindi lamang ito tungkol sa pisikal na anyo."
+  },
+  {
+    "lemma": "alintana",
+    "part_of_speech": "pandiwa",
+    "definition": "Pagbibigay-pansin o pagsasaalang-alang sa isang bagay, karaniwang sa kabila ng hirap o panganib.",
+    "usage": "Madalas gamitin sa negatibong anyo ('hindi alintana') upang ipahiwatig ang pagwawalang-bahala sa isang hadlang o hirap upang maipagpatuloy ang isang gawain.",
+    "example": "Hindi niya alintana ang matinding pagod basta matapos lamang ang trabaho.",
+    "example_gloss": "He does not mind the extreme fatigue as long as the job gets done.",
+    "extra_examples": [
+      "Kahit na umuulan, hindi alintana ng mga bata ang lamig habang naglalaro sa kalsada.",
+      "Hindi inalintana ng bayani ang panganib para iligtas ang mga tao."
+    ],
+    "synonyms": ["pansin", "lingunin", "isalang-alang"],
+    "antonyms": ["pagwawalang-bahala", "kawalang-pakialam"],
+    "tags": ["pag-uugali", "determinasyon", "pang-araw-araw"],
+    "exam_tips": "Tandaan na kadalasan itong ginagamit sa pariralang 'hindi alintana', na nangangahulugang 'to not mind' o 'to disregard' a difficulty."
+  },
+  {
+    "lemma": "alitan",
+    "part_of_speech": "pangngalan",
+    "definition": "Hindi pagkakasundo o pagtatalo sa pagitan ng mga tao o pangkat.",
+    "usage": "Ginagamit upang tumukoy sa anumang uri ng hindi pagkakaunawaan, mula sa simpleng bangayan hanggang sa malalaking sigalot. Ito ay mas pormal kaysa sa salitang 'away'.",
+    "example": "Nagkaroon ng munting alitan ang magkapitbahay dahil sa ingay ng aso.",
+    "example_gloss": "The neighbors had a small dispute because of the dog's noise.",
+    "extra_examples": [
+      "Dapat nating iwasan ang anumang alitan upang mapanatili ang kapayapaan sa ating komunidad.",
+      "Ang alitan sa lupa ay nauwi sa demandahan."
+    ],
+    "synonyms": ["away", "sigalot", "bangayan"],
+    "antonyms": ["pagkakasundo", "kapayapaan"],
+    "tags": ["interpersonal", "negatibo", "sosyal"],
+    "exam_tips": "Ang 'alitan' ay isang pormal na salita para sa 'away' o 'dispute'. Ito ay resulta ng hindi pagkakasundo."
+  },
+  {
+    "lemma": "aliw",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Kasiyahang nagbibigay-ginhawa o kagaanan ng loob, lalo na sa gitna ng lungkot o pagod.",
+    "usage": "Ginagamit bilang pangngalan (aliw) o pandiwa (aliwin, umaliw) na tumutukoy sa pagbibigay ng saya, libangan, o ginhawa sa isang taong malungkot o nababagabag.",
+    "example": "Naghahanap siya ng aliw sa panonood ng mga lumang pelikula.",
+    "example_gloss": "He is looking for comfort in watching old movies.",
+    "extra_examples": [
+      "Ang pagbabasa ng mga tula ay nagbibigay ng aliw sa kaniyang malungkot na puso.",
+      "Sinubukan niyang aliwin ang umiiyak na bata."
+    ],
+    "synonyms": ["ligaya", "saya", "aliw-aliw"],
+    "antonyms": ["lungkot", "kalungkutan", "pighati"],
+    "tags": ["emosyon", "positibo", "libangan"],
+    "exam_tips": "Ang 'aliw' ay nangangahulugang 'comfort' o 'entertainment'. Ang pandiwang 'aliwin' ay 'to comfort' o 'to entertain'."
+  },
+  {
+    "lemma": "alpas",
+    "part_of_speech": "pandiwa/pangngalan",
+    "definition": "Pagkawala o pagkaligtas mula sa pagkakahawak, pagkakagapos, o mahirap na kalagayan.",
+    "usage": "Isang pampanitikan at matalinghagang salita para sa paglaya. Ginagamit upang ilarawan ang pagtakas mula sa literal na pagkakakulong o mula sa metaporikal na 'tanikala' ng kahirapan, kalungkutan, atbp.",
+    "example": "Nais niyang maka-alpas sa tanikala ng kahirapang kaniyang kinagisnan.",
+    "example_gloss": "He wants to break free from the chains of poverty he was born into.",
+    "extra_examples": [
+      "Sa wakas ay nakaalpas din ang ibon mula sa kaniyang kulungan.",
+      "Ang pagpapatawad ay isang paraan upang makaalpas sa bigat ng nakaraan."
+    ],
+    "synonyms": ["hulagpos", "makawala", "makaalpas"],
+    "antonyms": ["pagkakagapos", "pagkabilanggo", "maipit"],
+    "tags": ["pampanitikan", "metapora", "paglaya"],
+    "exam_tips": "Iugnay ang 'alpas' sa ideya ng 'paglaya' o 'pagtakas' (break free). Ito ay mas malalim at pampanitikan kaysa sa 'makawala'."
+  },
+  {
+    "lemma": "alsa",
+    "part_of_speech": "pandiwa/pangngalan",
+    "definition": "Pag-angat o pagtaas mula sa dating kinalalagyan; maaari ring tumukoy sa pag-aalsa o paghihimagsik.",
+    "usage": "May dalawang pangunahing gamit: literal na pag-angat (pag-alsa ng tinapay) at sosyal o politikal na pag-aaklas (pag-aalsa laban sa pamahalaan).",
+    "example": "Ang mabilis na pag-alsa ng masa ay nagdulot ng pagbabago sa pamahalaan.",
+    "example_gloss": "The rapid uprising of the masses brought about a change in government.",
+    "extra_examples": [
+      "Kailangang mas mabilis ang pag-alsa ng tinapay bago ito ilagay sa hurno.",
+      "Umalsa ang kanyang balahibo dahil sa takot."
+    ],
+    "synonyms": ["angat", "taas", "pag-aaklas", "paghihimagsik"],
+    "antonyms": ["baba", "pagbagsak", "paglupaypay"],
+    "tags": ["sosyal", "politikal", "literal"],
+    "exam_tips": "Alamin ang konteksto upang matukoy kung ito ay tumutukoy sa literal na pag-angat (tulad ng sa pagluluto) o sa isang rebelyon."
+  },
+  {
+    "lemma": "ambag",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Ibinibigay na tulong, bahagi, o handog bilang kabahagi sa isang layunin o proyekto.",
+    "usage": "Ginagamit sa konteksto ng pagbibigay sa isang kolektibong gawain o layunin. Ito ay katumbas ng 'kontribusyon'. Maaaring tumukoy sa pera, gamit, oras, o ideya.",
+    "example": "Malaki ang ambag ng bawat isa sa tagumpay ng aming proyekto.",
+    "example_gloss": "Everyone's contribution was significant to the success of our project.",
+    "extra_examples": [
+      "Ang bawat barya ay mahalagang ambag para sa pagpapatayo ng bagong silid-aklatan.",
+      "Nag-ambag siya ng kanyang mga ideya sa pulong."
+    ],
+    "synonyms": ["kontribusyon", "tulong", "bigay"],
+    "antonyms": ["pagkakait", "pagdamot"],
+    "tags": ["sosyal", "kooperasyon", "pang-araw-araw"],
+    "exam_tips": "'Ambag' at 'kontribusyon' ay magkasingkahulugan. Ito ay ang iyong ibinabahagi para sa isang grupo o layunin."
+  },
+  {
+    "lemma": "aplaya",
+    "part_of_speech": "pangngalan",
+    "definition": "Bahaging mababa at patag sa tabi ng dagat o anyong-tubig; dalampasigan.",
+    "usage": "Isang mas pormal o rehiyonal na salita para sa 'dalampasigan' o 'beach'. Karaniwang ginagamit sa panitikan o sa mga lugar na may impluwensyang Espanyol.",
+    "example": "Kay sarap maglakad sa aplaya habang pinagmamasdan ang paglubog ng araw.",
+    "example_gloss": "It feels so good to walk on the shore while watching the sunset.",
+    "extra_examples": [
+      "Nagtipon-tipon ang mga mangingisda sa aplaya upang ayusin ang kanilang mga lambat.",
+      "Maraming resort ang matatagpuan sa kahabaan ng aplaya."
+    ],
+    "synonyms": ["dalampasigan", "baybayin", "pampang"],
+    "antonyms": ["kabundukan", "kaloob-looban"],
+    "tags": ["lugar", "kalikasan", "rehiyonal"],
+    "exam_tips": "Ang 'aplaya' ay isang Espanyol na hiram na salita (playa) na nangangahulugang 'beach' o 'dalampasigan'."
+  },
+  {
+    "lemma": "aruga",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Pag-aalaga at pag-aaruga na may malasakit at pagmamahal, lalo na sa bata o mahina.",
+    "usage": "Tumutukoy sa isang uri ng pag-aalaga na may kasamang pagmamahal at proteksyon. Mas malalim ito kaysa sa simpleng 'alaga'.",
+    "example": "Ang aruga ng isang ina ay walang kapantay sa buong mundo.",
+    "example_gloss": "A mother's loving care is unparalleled in the whole world.",
+    "extra_examples": [
+      "Laki siya sa aruga ng kaniyang lolo at lola kaya napakamagalang niyang bata.",
+      "Inaruga niya ang sugatang ibon hanggang sa ito ay gumaling."
+    ],
+    "synonyms": ["alaga", "pag-aaruga", "pagkandili"],
+    "antonyms": ["pagpapabaya", "pagpapahirap"],
+    "tags": ["emosyon", "pamilya", "positibo"],
+    "exam_tips": "Ang 'aruga' ay higit pa sa 'alaga'; ito ay 'care' na may 'love and affection' (pagkandili)."
+  },
+  {
+    "lemma": "atupag",
+    "part_of_speech": "pandiwa",
+    "definition": "Maglaan ng oras o pagsisikap para sa isang gawain o tungkulin; pagtuunan ng pansin.",
+    "usage": "Ginagamit sa konteksto ng pagiging abala o pagbibigay-pokus sa isang partikular na gawain. Madalas itong pandiwa ('atupagin', 'inaatupag').",
+    "example": "Dapat nating atupagin ang mga mahahalagang gawaing pampaaralan.",
+    "example_gloss": "We should focus on the important school activities.",
+    "extra_examples": [
+      "Huwag mong atupagin ang mga bagay na walang kabuluhan sa iyong buhay.",
+      "Ano ang iyong inaatupag at tila lagi kang abala?"
+    ],
+    "synonyms": ["tuparin", "gampanan", "asikasuhin", "isagawa"],
+    "antonyms": ["pagpapabaya", "pagkakaligtaan"],
+    "tags": ["gawain", "responsibilidad", "pang-araw-araw"],
+    "exam_tips": "Ang 'atupagin' ay katumbas ng 'asikasuhin' o 'pagtuunan ng pansin'. Ito ay ang gawain na iyong pinagkakaabalahan."
+  },
+  {
+    "lemma": "bagabag",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Kalagayan ng matinding pag-aalala o hindi mapalagay na damdamin.",
+    "usage": "Tumutukoy sa isang mabigat at hindi mapakaling pakiramdam dulot ng problema o pag-aalala. Mas matindi ito kaysa sa simpleng 'alala'.",
+    "example": "Nagdulot ng bagabag sa kaniyang isipan ang balitang narinig.",
+    "example_gloss": "The news he heard caused disturbance in his mind.",
+    "extra_examples": [
+      "Hindi siya makatulog dahil sa bagabag na nararamdaman tungkol sa kaniyang trabaho.",
+      "Binabagabag siya ng kanyang konsensya."
+    ],
+    "synonyms": ["pag-aalala", "abalang-isip"],
+    "antonyms": ["katahimikan", "kapanatagan"],
+    "tags": ["emosyon", "negatibo", "abstrakto"],
+    "exam_tips": "Ang 'bagabag' ay 'intense worry' o 'anxiety'. Ang pandiwa nito ay 'binabagabag' (to be bothered/worried by something)."
+  },
+  {
+    "lemma": "bahid",
+    "part_of_speech": "pangngalan",
+    "definition": "Maliit na tanda, marka, o bakas na naiiwan sa isang bagay; maari ring tumukoy sa bahagyang pag-iral ng isang katangian, gaya ng bahid ng duda.",
+    "usage": "Ginagamit sa literal na kahulugan para sa maliliit na dumi o mantsa, at sa metaporikal na paraan para sa bakas ng isang katangian o damdamin (hal. bahid ng dugo, bahid ng kasamaan).",
+    "example": "Walang bahid ng dumi ang kaniyang puting kasuotan.",
+    "example_gloss": "There is no trace of dirt on his white clothing.",
+    "extra_examples": [
+      "Ang kaniyang dangal ay walang bahid ng anumang katiwalian o kasalanan.",
+      "May bahid ng pag-aalinlangan sa kanyang mga sinabi."
+    ],
+    "synonyms": ["bakas", "mantsa"],
+    "antonyms": ["kalinisan", "kawalan-ng-marka"],
+    "tags": ["literal", "metapora", "paglalarawan"],
+    "exam_tips": "Ang 'bahid' ay isang 'trace' o 'stain'. Maaari itong maging pisikal na marka o isang maliit na palatandaan ng isang abstract na konsepto."
+  },
+  {
+    "lemma": "bakahin",
+    "part_of_speech": "pandiwa",
+    "definition": "Mariing tutulan, salungatin, o kondenahin ang isang paniniwala, gawain, o panukala.",
+    "usage": "Isang pormal at matapang na salita para sa 'labanan' o 'kontrahin', partikular na sa konteksto ng ideya, prinsipyo, o sistema.",
+    "example": "Kailangang bakahin ang anumang uri ng korapsyon sa ating lipunan.",
+    "example_gloss": "We need to fight any form of corruption in our society.",
+    "extra_examples": [
+      "Magkaisa tayong bakahin ang mga maling paniniwala na humahadlang sa ating pag-unlad.",
+      "Binaka ng mga repormista ang mga hindi makatarungang patakaran."
+    ],
+    "synonyms": ["labanan", "kondenahin", "salungatin"],
+    "antonyms": ["suportahan", "sang-ayunan"],
+    "tags": ["pormal", "politikal", "sosyal", "pagkilos"],
+    "exam_tips": "Ang 'bakahin' ay isang mas malakas na termino para sa 'labanan' (to fight against), lalo na kung ang nilalabanan ay isang ideya o sistema."
+  },
+  {
+    "lemma": "baklas",
+    "part_of_speech": "pandiwa/pangngalan",
+    "definition": "Pag-alis o pagtanggal ng nakakabit o nakakakabit na bahagi ng isang bagay.",
+    "usage": "Tumutukoy sa proseso ng pag-dismantle o pagtanggal ng isang bagay na nakakabit, tulad ng pader, bakod, o makina. Karaniwang ginagamit sa konstruksyon o pagkukumpuni.",
+    "example": "Napilitan silang baklasin ang lumang bakod upang makagawa ng bago.",
+    "example_gloss": "They were forced to dismantle the old fence to build a new one.",
+    "extra_examples": [
+      "Kailangang baklasin ang makina upang makita kung nasaan ang sira.",
+      "Nagkaroon ng operasyong-baklas ng mga iligal na istruktura sa tabing-ilog."
+    ],
+    "synonyms": ["tanggalin", "alisin", "hugutin"],
+    "antonyms": ["buuin", "ikabit"],
+    "tags": ["praktikal", "konstruksyon", "gawain"],
+    "exam_tips": "Ang 'baklasin' ay nangangahulugang 'to dismantle' o 'to forcibly remove'. Ito ay ang kabaligtaran ng 'ikabit' o 'buuin'."
+  },
+  {
+    "lemma": "balakid",
+    "part_of_speech": "pangngalan",
+    "definition": "Anumang bagay o kalagayan na humahadlang o pumipigil sa pag-usad o pagtupad ng isang layunin.",
+    "usage": "Isang pormal na salita para sa 'hadlang' o 'sagabal'. Ginagamit upang ilarawan ang anumang pumipigil sa pag-abot ng isang pangarap o pagkumpleto ng isang gawain.",
+    "example": "Ang kaniyang kapansanan ay hindi naging balakid sa kaniyang mga pangarap.",
+    "example_gloss": "His disability did not become an obstacle to his dreams.",
+    "extra_examples": [
+      "Maraming balakid ang ating kakaharapin, ngunit hindi tayo dapat sumuko.",
+      "Inalis ng gobyerno ang mga balakid sa pagnenegosyo sa bansa."
+    ],
+    "synonyms": ["harang", "sagabal", "hadlang"],
+    "antonyms": ["daan", "kaluwagan", "pagkakataon"],
+    "tags": ["pormal", "negatibo", "abstrakto"],
+    "exam_tips": "'Balakid', 'hadlang', at 'sagabal' ay magkakasingkahulugan. Ito ay tumutukoy sa 'obstacle' o 'hindrance'."
+  },
+  {
+    "lemma": "balangkas",
+    "part_of_speech": "pangngalan",
+    "definition": "Pangkalahatang ayos o estruktura ng isang plano, akda, talumpati, o kaisipan.",
+    "usage": "Ginagamit sa akademiko at pormal na konteksto para tumukoy sa 'outline' o 'framework' ng isang sulatin, plano, o proyekto. Mahalaga ito sa pag-oorganisa ng mga ideya bago ang pinal na pagsulat o paggawa.",
+    "example": "Gumawa muna siya ng balangkas bago isinulat ang buong kuwento.",
+    "example_gloss": "He/She first created an outline before writing the whole story.",
+    "extra_examples": [
+      "Ang balangkas ng bagong gusali ay kitang-kita na mula sa malayo.",
+      "Ayon sa balangkas ng programa, magkakaroon ng talumpati ang pangulo sa simula."
+    ],
+    "synonyms": ["banghay", "estruktura"],
+    "antonyms": ["kaguluhan", "kawalan-ng-ayos"],
+    "tags": ["akademiko", "pormal", "pagpaplano", "istruktura"],
+    "exam_tips": "Tandaan na ang 'balangkas' ay katumbas ng 'outline' o 'framework'. Ito ang plano o 'skeleton' ng isang sulatin, proyekto, o istruktura."
+  },
+  {
+    "lemma": "balintataw",
+    "part_of_speech": "pangngalan",
+    "definition": "Itim na bilog sa gitna ng mata kung saan pumapasok ang liwanag; maaari ring gamiting metapora sa paningin o alaala.",
+    "usage": "Isang pampanitikan at teknikal na termino para sa 'pupil' ng mata. Madalas gamitin sa mga tula at malikhaing pagsulat bilang metapora para sa pananaw o 'bintana ng kaluluwa'.",
+    "example": "Bahagyang lumaki ang kaniyang balintataw dahil sa kawalan ng liwanag.",
+    "example_gloss": "His/Her pupil slightly dilated due to the lack of light.",
+    "extra_examples": [
+      "Mula sa kaniyang balintataw ay makikita ang takot at pangamba.",
+      "Nakatitig siya, at sa kanyang mga balintataw ay nasasalamin ang papalubog na araw."
+    ],
+    "synonyms": [],
+    "antonyms": ["puti-ng-mata"],
+    "tags": ["pampanitikan", "metapora", "katawan", "teknikal"],
+    "exam_tips": "Ang 'balintataw' ay ang 'pupil' ng mata. Sa mga pagsusulit sa panitikan, hanapin ang metaporikal na kahulugan nito na may kinalaman sa paningin, damdamin, o alaala."
+  },
+  {
+    "lemma": "balisa",
+    "part_of_speech": "pang-uri",
+    "definition": "Kalagayan ng pagkabalisa o hindi mapakali dahil sa pag-aalala o tensiyon.",
+    "usage": "Ginagamit upang ilarawan ang isang taong hindi mapalagay, ninenerbiyos, o labis na nag-aalala. Karaniwan sa pang-araw-araw na usapan at sa paglalarawan ng damdamin ng tauhan.",
+    "example": "Nabalisa siya nang malamang hindi pa dumarating ang kaniyang mga anak.",
+    "example_gloss": "She became anxious when she learned her children had not yet arrived.",
+    "extra_examples": [
+      "Naglakad-lakad siya sa labas dahil sa labis na pagkabalisa sa resulta ng pagsusulit.",
+      "Huwag kang maging balisa; darating din ang tulong."
+    ],
+    "synonyms": ["naliligalig", "aburido", "kabado"],
+    "antonyms": ["kalmado", "panatag"],
+    "tags": ["emosyon", "negatibo", "pang-araw-araw"],
+    "exam_tips": "Ang 'balisa' ay katumbas ng 'anxious' o 'restless'. Ito ay isang pakiramdam ng pag-aalala na nagiging sanhi ng hindi pagkakapakali."
+  },
+  {
+    "lemma": "banaag",
+    "part_of_speech": "pangngalan/pang-uri",
+    "definition": "Bahagyang liwanag o aninag na bahagya lamang nakikita; maari ring tumukoy sa kaunting palatandaan ng isang bagay gaya ng pag-asa.",
+    "usage": "Ginagamit sa paglalarawan ng mahinang liwanag (e.g., mula sa buwan o kandila) at bilang metapora para sa isang maliit na palatandaan ng pag-asa, pag-unawa, o anumang positibong bagay sa gitna ng kahirapan.",
+    "example": "May banaag ng pag-asa sa kaniyang mga mata sa kabila ng pagsubok.",
+    "example_gloss": "There is a glimmer of hope in his/her eyes despite the challenges.",
+    "extra_examples": [
+      "Nababanaag sa langit ang papalapit na bukang-liwayway.",
+      "Sa dilim, may nabanaag siyang anino ng isang tao."
+    ],
+    "synonyms": ["aninag", "bahagyang liwanag"],
+    "antonyms": ["lubos-na-dilim", "di-nakikita"],
+    "tags": ["pampanitikan", "metapora", "paglalarawan", "liwanag"],
+    "exam_tips": "Iugnay ang 'banaag' sa 'faint light' o 'glimmer'. Madalas itong gamitin sa pariralang 'banaag ng pag-asa'."
+  },
+  {
+    "lemma": "banas",
+    "part_of_speech": "pang-uri/pangngalan",
+    "definition": "Matinding init, lalo na ang nakakainis o nakapapagod na init ng panahon.",
+    "usage": "Isang kolokyal at pang-araw-araw na termino para sa 'maalinsangan' o 'mainit na panahon' (sultry heat). Ginagamit din upang ipahayag ang pakiramdam ng pagka-irita dahil sa init.",
+    "example": "Mabanas ang panahon ngayon kaya't masarap maligo sa dagat.",
+    "example_gloss": "The weather is sultry today, so it's nice to swim at the sea.",
+    "extra_examples": [
+      "Hindi ako makapag-isip nang maayos dahil sa sobrang banas sa loob ng silid.",
+      "Nababanas ako sa init, buksan mo nga ang bentilador."
+    ],
+    "synonyms": ["mainit", "nakababagot-na-init"],
+    "antonyms": ["malamig", "maginaw"],
+    "tags": ["kolokyal", "klima", "pakiramdam", "pang-araw-araw"],
+    "exam_tips": "Ang 'banas' ay tumutukoy sa 'sultry' o 'humid heat'. Ito ay mas matindi kaysa sa simpleng 'init'."
+  },
+  {
+    "lemma": "bigkis",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Pagkakatali o pagkakabigkis ng mga bagay; maari ring tumukoy sa ugnayan o pagkakaisa ng mga tao.",
+    "usage": "Ginagamit sa literal na paraan para sa isang tali na nagbubuklod ng mga bagay (e.g., bigkis ng kahoy) at sa metaporikal na kahulugan para sa pagkakaisa o matibay na ugnayan (e.g., bigkis ng pamilya).",
+    "example": "Mahigpit ang bigkis sa kanyang mga kamay kaya hindi siya agad nakawala.",
+    "example_gloss": "The tie on his/her hands was tight, so he/she could not get free immediately.",
+    "extra_examples": [
+      "Bigkisin mo nang maayos ang mga kahoy upang hindi magkahiwa-hiwalay habang dinadala.",
+      "Ang pagmamahalan ang nagsisilbing bigkis ng aming pamilya."
+    ],
+    "synonyms": ["tali", "pagbuklod", "ugnayan", "pagbuklurin"],
+    "antonyms": ["palayain", "kalagin", "ihiwalay", "paghiwalayin"],
+    "tags": ["literal", "metapora", "pagkakaisa", "pamilya"],
+    "exam_tips": "Tandaan ang dalawang kahulugan: (1) pisikal na tali, at (2) metaporikal na ugnayan o pagkakaisa. Ang pandiwang 'bigkisin' ay nangangahulugang 'itali' o 'pagbuklurin'."
+  },
+  {
+    "lemma": "bihag",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Taong nahuli o nabilanggo ng kaaway; maari ring tumukoy sa pagiging lubos na naaakit o napapasunod.",
+    "usage": "Ginagamit sa konteksto ng digmaan o krimen para sa isang 'hostage' o 'captive'. Sa romantiko o pampanitikang paraan, nangangahulugan itong 'nabihag ang puso' o pagiging captivated.",
+    "example": "Naging bihag ng mga mananakop ang maraming mamamayan noong panahon ng digmaan.",
+    "example_gloss": "Many citizens became captives of the invaders during the war.",
+    "extra_examples": [
+      "Siya ay tila bihag ng sariling takot kaya hindi niya magawang ipaglaban ang kanyang mga pangarap.",
+      "Nabihag niya ang aking puso sa una pa lang naming pagkikita."
+    ],
+    "synonyms": ["bilanggo", "preso", "dakip"],
+    "antonyms": ["malaya", "kawala", "pinalaya"],
+    "tags": ["digmaan", "krimen", "pampanitikan", "romantiko"],
+    "exam_tips": "Ang 'bihag' ay 'captive'. Mayroon itong literal na kahulugan (bilanggo) at metaporikal na kahulugan (nabihag ang puso)."
+  },
+  {
+    "lemma": "bihasa",
+    "part_of_speech": "pang-uri",
+    "definition": "May mataas na antas ng kaalaman o kasanayan sa isang larangan.",
+    "usage": "Isang pormal na salita para sa 'sanay' o 'eksperto'. Ginagamit upang ilarawan ang isang tao na may malawak na karanasan at galing sa isang partikular na gawain o disiplina.",
+    "example": "Bihasa na siya sa pagluluto ng iba't ibang pagkaing Pilipino.",
+    "example_gloss": "He/She is already skilled in cooking various Filipino dishes.",
+    "extra_examples": [
+      "Kailangan natin ng isang taong bihasa sa paggamit ng mga bagong teknolohiya.",
+      "Ang kanyang kabihasaan sa batas ay hinahangaan ng marami."
+    ],
+    "synonyms": ["eksperto", "sanay", "dalubhasa"],
+    "antonyms": ["baguhan", "walang-kasanayan"],
+    "tags": ["pormal", "kasanayan", "trabaho", "positibo"],
+    "exam_tips": "'Bihasa', 'sanay', at 'dalubhasa' ay halos magkasingkahulugan. Ang 'bihasa' ay tumutukoy sa pagiging 'skilled' o 'expert' dahil sa karanasan."
+  },
+  {
+    "lemma": "binabagtas",
+    "part_of_speech": "pandiwa",
+    "definition": "Kasalukuyang tinutungo o nilalakbay ang isang daan, lugar, o bahagi.",
+    "usage": "Isang pormal at pampanitikang salita para sa 'paglalakbay sa' o 'pagdaan sa'. Karaniwang ginagamit sa mga kuwento ng paglalakbay o paglalarawan ng isang paglalakbay.",
+    "example": "Binabagtas nila ang mahabang daan patungo sa kabundukan.",
+    "example_gloss": "They are traversing the long road towards the mountains.",
+    "extra_examples": [
+      "Habang binabagtas ang ilog, nakakita sila ng mga kakaibang uri ng ibon.",
+      "Binagtas niya ang maputik na landas upang makarating sa kanyang patutunguhan."
+    ],
+    "synonyms": ["tinutungo", "nilalakbay"],
+    "antonyms": ["palayo", "layuan"],
+    "tags": ["pampanitikan", "pormal", "paglalakbay", "kilos"],
+    "exam_tips": "Ang 'bagtasin' ay nangangahulugang 'to traverse' o 'to journey through'. Ito ay isang masining na paraan ng pagsasabi ng 'dumaan sa'."
+  },
+  {
+    "lemma": "biyaya",
+    "part_of_speech": "pangngalan",
+    "definition": "Kaloob o pagpapalang tinatanggap nang walang hinihinging kapalit, kadalasan mula sa Diyos o kapalaran.",
+    "usage": "Ginagamit sa kontekstong espiritwal o relihiyoso, at sa pangkalahatan, para sa anumang magandang bagay na natanggap na itinuturing na isang 'blessing' o regalo.",
+    "example": "Ang bawat bagong umaga ay isang biyaya na dapat nating ipagpasalamat.",
+    "example_gloss": "Every new morning is a blessing that we should be thankful for.",
+    "extra_examples": [
+      "Ang ulan ay isang malaking biyaya para sa mga magsasakang natutuyuan ng pananim.",
+      "Isang biyaya ang pagkakaroon ng mga tunay na kaibigan."
+    ],
+    "synonyms": ["grasya", "basbas", "pagpapala"],
+    "antonyms": ["kapinsalaan", "parusa"],
+    "tags": ["relihiyon", "espiritwal", "positibo", "pang-araw-araw"],
+    "exam_tips": "Ang 'biyaya' ay katumbas ng 'blessing' o 'grace'. Ito ay isang positibong kaloob na dapat ipagpasalamat."
+  },
+  {
+    "lemma": "balisbis",
+    "part_of_speech": "pandiwa",
+    "definition": "Pagdaloy o pag-agos nang mabilis at tuluy-tuloy, kadalasan para sa tubig o luha.",
+    "usage": "Isang pampanitikan at naglalarawang salita para sa mabilis na pagdaloy ng likido. Madalas gamitin para sa luha, pawis, o tubig sa sapa.",
+    "example": "Bumalisbis ang mga luha sa kaniyang pisngi nang mabasa ang sulat.",
+    "example_gloss": "Tears flowed down his/her cheeks upon reading the letter.",
+    "extra_examples": [
+      "Ang pawis ay bumalisbis sa kaniyang noo dahil sa tindi ng pagtatrabaho sa ilalim ng araw.",
+      "Naririnig ko ang pagbalisbis ng tubig mula sa batis."
+    ],
+    "synonyms": ["dumaloy", "umagos"],
+    "antonyms": ["nanatili", "kalmado", "huminto"],
+    "tags": ["pampanitikan", "paglalarawan", "kilos", "kalikasan"],
+    "exam_tips": "Ang 'bumalisbis' ay isang masining na paraan ng pagsasabi ng 'umagos' o 'dumaloy', lalo na para sa luha, pawis, o maliit na agos ng tubig."
+  },
+  {
+    "lemma": "dagitab",
+    "part_of_speech": "pangngalan",
+    "definition": "Maliit at mabilis na kislap ng apoy o elektrisidad; maaari ring tumukoy sa kuryente mismo.",
+    "usage": "Isang luma o pampanitikang salita para sa 'elektrisidad' o 'kislap' (spark). Ginagamit na ngayon sa mas pormal o teknikal na konteksto.",
+    "example": "Ang kislap ng dagitab sa kalangitan ay nagbabala ng paparating na bagyo.",
+    "example_gloss": "The flash of electricity in the sky warned of an approaching storm.",
+    "extra_examples": [
+      "Salamat sa dagitab, maliwanag ang ating mga kalsada kahit sa kalagitnaan ng gabi.",
+      "Pinag-aaralan sa agham kung paano nalilikha ang dagitab."
+    ],
+    "synonyms": ["kislap", "elektrisidad"],
+    "antonyms": ["kadiliman", "kawalan-ng-kuryente"],
+    "tags": ["pampanitikan", "agham", "luma", "kalikasan"],
+    "exam_tips": "Ang 'dagitab' ay isang lumang salita para sa 'elektrisidad' (electricity). Maaari din itong mangahulugang 'spark' o 'flash'."
+  },
+  {
+    "lemma": "dalisdis",
+    "part_of_speech": "pangngalan",
+    "definition": "Pahilig o pababang bahagi ng lupa o daan, gaya ng gilid ng burol o bundok.",
+    "usage": "Ginagamit upang ilarawan ang isang 'slope' o 'incline' sa isang anyong lupa. Karaniwan sa mga paglalarawan ng kalikasan at heograpiya.",
+    "example": "Napakatarik ng dalisdis na kailangang akyatin ng mga manlalakbay.",
+    "example_gloss": "The slope that the travelers need to climb is very steep.",
+    "extra_examples": [
+      "Maingat silang bumaba sa dalisdis ng bundok upang hindi madulas.",
+      "Gumulong ang bato pababa sa dalisdis."
+    ],
+    "synonyms": ["libis", "pahilig-na-daang-baba"],
+    "antonyms": ["patag", "kapatagan"],
+    "tags": ["heograpiya", "kalikasan", "lugar", "paglalarawan"],
+    "exam_tips": "Ang 'dalisdis' ay katumbas ng 'slope' sa Ingles. Ito ay ang pahilig na bahagi ng isang bundok o burol."
+  },
+  {
+    "lemma": "daluyong",
+    "part_of_speech": "pangngalan",
+    "definition": "Malakas at pabugsong pagtaas o pag-agos ng tubig; maaari ring gamiting talinghaga sa sunod-sunod o matitinding suliranin.",
+    "usage": "Ginagamit para sa malalaking alon o 'tidal wave'. Sa metaporikal na paraan, tumutukoy ito sa matitinding pagsubok o problema ('daluyong ng buhay').",
+    "example": "Hinarap nila ang daluyong ng buhay nang may katatagan at pananampalataya.",
+    "example_gloss": "They faced the waves of life with fortitude and faith.",
+    "extra_examples": [
+      "Nagdulot ng malaking pinsala ang daluyong ng dagat sa mga kabahayan sa tabing-dagat.",
+      "Isang daluyong ng mga tao ang sumalubong sa kanilang idolo."
+    ],
+    "synonyms": ["alon", "bugso", "suliranin"],
+    "antonyms": ["katahimikan", "paghinahon"],
+    "tags": ["pampanitikan", "metapora", "kalikasan", "sakuna"],
+    "exam_tips": "Ang 'daluyong' ay 'storm surge' o 'huge wave'. Tandaan din ang metaporikal na kahulugan nito: 'sunod-sunod na mabibigat na problema'."
+  },
+  {
+    "lemma": "delubyo",
+    "part_of_speech": "pangngalan",
+    "definition": "Malawak at matinding kapinsalaan dulot ng sakuna o trahedya, lalo na ng baha.",
+    "usage": "Isang hiram na salitang Espanyol (diluvio) na tumutukoy sa 'deluge' o 'great flood'. Ginagamit para sa malawakang sakuna na may matinding pinsala.",
+    "example": "Nag-iwan ng matinding delubyo ang nagdaang baha sa kanilang lalawigan.",
+    "example_gloss": "The past flood left a great catastrophe in their province.",
+    "extra_examples": [
+      "Tila isang delubyo ang nangyari nang pumutok ang bulkan sa kabilang bayan.",
+      "Binabalaan ang mga tao na maghanda para sa paparating na delubyo."
+    ],
+    "synonyms": ["sakuna", "kalamidad", "malaking-baha"],
+    "antonyms": ["kaayusan", "kaligtasan"],
+    "tags": ["sakuna", "kalamidad", "hiram-na-salita", "negatibo"],
+    "exam_tips": "Ang 'delubyo' ay hango sa salitang Espanyol para sa 'great flood' (deluge). Ito ay tumutukoy sa isang malawakang sakuna o kalamidad."
+  },
+  {
+    "lemma": "dilag",
+    "part_of_speech": "pangngalan",
+    "definition": "Likas na kagandahan o kaakit-akit na anyo, kadalasang tumutukoy sa isang magandang dalaga.",
+    "usage": "Isang pampanitikan at pormal na salita para sa isang magandang babae ('beauty' o 'maiden'). Maaari ring tumukoy sa mismong katangian ng kagandahan.",
+    "example": "Taglay niya ang dilag na hindi kumukupas sa paglipas ng panahon.",
+    "example_gloss": "She possesses a beauty that does not fade with the passing of time.",
+    "extra_examples": [
+      "Hinangaan ng lahat ang dilag at talino ng kinatawan ng aming barangay.",
+      "Ang mga dilag ng nayon ay sumali sa patimpalak."
+    ],
+    "synonyms": ["ganda", "mutya"],
+    "antonyms": ["kapangitan", "pangit"],
+    "tags": ["pampanitikan", "pormal", "paglalarawan", "positibo"],
+    "exam_tips": "Ang 'dilag' ay isang pormal at pampanitikang salita para sa 'beauty' o 'magandang dalaga'. Ito ay mas malalim kaysa sa 'ganda'."
+  },
+  {
+    "lemma": "dusta",
+    "part_of_speech": "pandiwa/pang-uri",
+    "definition": "Paglapastangan o matinding kawalan ng paggalang; paghamak sa dangal ng isang tao.",
+    "usage": "Isang malakas at pormal na salita na nangangahulugang 'pag-alipusta' o 'paghamak'. Ang pandiwang anyo nito ay 'dustahin'.",
+    "example": "Huwag mong hayaang ang iyong pagkatao ay dinudusta ng iba.",
+    "example_gloss": "Do not let your identity be scorned by others.",
+    "extra_examples": [
+      "Masakit para sa kaniya na makitang dinudusta ang kaniyang pamilya nang dahil lamang sa kahirapan.",
+      "Ang pagdusta sa mahihirap ay isang kasalanan sa mata ng Diyos."
+    ],
+    "synonyms": ["hamakin", "lapastanganin", "alipusta"],
+    "antonyms": ["igalang", "pahalagahan"],
+    "tags": ["pormal", "negatibo", "sosyal", "moralidad"],
+    "exam_tips": "Ang 'dusta' ay isang matinding anyo ng pang-aapi o paghamak (to scorn, to degrade). Ang 'dustahin' ay nangangahulugang 'api-hin' o 'hamakin'."
+  },
+  {
+    "lemma": "dulog",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Paraan o hakbang ng pagharap, paglapit, o pagtalakay sa isang bagay o suliranin.",
+    "usage": "Ginagamit sa akademiko at pormal na konteksto bilang katumbas ng 'approach' sa Ingles. Ang pandiwang 'dumulog' ay nangangahulugang 'lumapit' para humingi ng tulong o magreklamo.",
+    "example": "Dumulog siya sa barangay upang ireklamo ang nawawalang gamit.",
+    "example_gloss": "He/She went to the barangay to report the missing item.",
+    "extra_examples": [
+      "Maraming mamamayan ang dumulog sa opisina ng alkalde para humingi ng tulong medikal.",
+      "Kailangan natin ng bagong dulog upang masolusyunan ang problemang ito."
+    ],
+    "synonyms": ["lapit", "pamamaraan", "hakbang", "approach"],
+    "antonyms": ["palayo", "iwas", "pagtalikod"],
+    "tags": ["akademiko", "pormal", "solusyon", "sosyal"],
+    "exam_tips": "May dalawang gamit: (1) Bilang pangngalan, 'dulog' = 'approach'. (2) Bilang pandiwa, 'dumulog' = 'lumapit para humingi ng tulong o magreklamo'."
+  },
+  {
+    "lemma": "eskaparate",
+    "part_of_speech": "pangngalan",
+    "definition": "Salaming lalagyan o bintana ng tindahan na pinaglalagyan o ipinapakita ang paninda.",
+    "usage": "Hiram na salitang Espanyol (escaparate) para sa 'display window' o 'showcase' ng isang tindahan. Karaniwang ginagamit sa konteksto ng pamimili at komersyo.",
+    "example": "Nakatanghal sa eskaparate ang pinakamagagandang sapatos sa tindahan.",
+    "example_gloss": "The most beautiful shoes in the store are displayed in the showcase.",
+    "extra_examples": [
+      "Tumitigil ang mga bata sa harap ng eskaparate upang tingnan ang mga bagong laruan.",
+      "Nilinis ng tindera ang salamin ng eskaparate."
+    ],
+    "synonyms": ["aparador", "display case"],
+    "antonyms": ["imbakan", "bodega"],
+    "tags": ["hiram-na-salita", "komersyo", "pang-araw-araw"],
+    "exam_tips": "Ang 'eskaparate' ay galing sa Espanyol at nangangahulugang 'display window' ng isang tindahan."
+  },
+  {
+    "lemma": "ganid",
+    "part_of_speech": "pang-uri",
+    "definition": "Taong labis ang pagnanasa sa yaman o kapangyarihan, at hindi alintana ang kapakanan ng iba.",
+    "usage": "Isang matinding negatibong paglalarawan sa isang taong 'sakim' o 'sobrang makasarili'. Mas matindi pa ito kaysa sa 'gahaman'.",
+    "example": "Ang ganid na opisyal ay kinuha ang pondo para sa mga mahihirap.",
+    "example_gloss": "The greedy official took the funds for the poor.",
+    "extra_examples": [
+      "Huwag maging ganid sa kapangyarihan; isipin mo rin ang kapakanan ng nakakarami.",
+      "Dahil sa kanyang kaganiran, nawalan siya ng mga kaibigan."
+    ],
+    "synonyms": ["gahaman", "suwapang"],
+    "antonyms": ["mapagbigay", "kontento"],
+    "tags": ["negatibo", "pag-uugali", "moralidad", "politika"],
+    "exam_tips": "Ang 'ganid' ay isang masidhing anyo ng 'kasakiman' (greed). Ito ay naglalarawan ng isang taong handang manakit ng iba para sa sariling kapakinabangan."
+  },
+  {
+    "lemma": "guni-guni",
+    "part_of_speech": "pangngalan",
+    "definition": "Larawan o pangyayaring likha lamang ng isip; bunga ng imahinasyon o maling akala.",
+    "usage": "Ginagamit upang ilarawan ang mga bagay na hindi totoo at produkto lamang ng isip, tulad ng mga multo, maling akala, o paranoia.",
+    "example": "Ang nakikita mo ay guni-guni lamang dulot ng iyong matinding pagod.",
+    "example_gloss": "What you are seeing is just a hallucination caused by your extreme fatigue.",
+    "extra_examples": [
+      "Huwag kang magpadala sa iyong mga masasamang guni-guni; maging positibo ka sa buhay.",
+      "Ang mga kuwento tungkol sa multo sa lumang bahay ay pawang guni-guni lamang."
+    ],
+    "synonyms": ["pantasya", "imahinasyon", "haka-haka"],
+    "antonyms": ["katotohanan", "realidad"],
+    "tags": ["abstrakto", "sikolohikal", "negatibo"],
+    "exam_tips": "Ang 'guni-guni' ay tumutukoy sa 'imagination' o 'hallucination'. Ito ay mga bagay na nasa isip lamang at hindi totoo."
+  },
+  {
+    "lemma": "gunita",
+    "part_of_speech": "pangngalan",
+    "definition": "Alaala o pagbabalik-tanaw sa isang pangyayari o karanasan.",
+    "usage": "Isang pormal at pampanitikang salita para sa 'alaala'. Ginagamit sa paglalarawan ng mga nakaraang karanasan.",
+    "example": "Nananatili sa kanyang gunita ang araw ng pagtatapos.",
+    "example_gloss": "The memory of graduation day remains in her mind.",
+    "extra_examples": [
+      "Masarap gunitain ang mga masasayang sandali noong ating kabataan.",
+      "Ang lumang litrato ay nagbalik ng maraming gunita."
+    ],
+    "synonyms": ["alaala", "alalahanin", "balikan"],
+    "antonyms": ["limutin", "kalimutan"],
+    "tags": ["pampanitikan", "emosyon", "abstrakto"],
+    "exam_tips": "'Gunita' at 'alaala' ay magkasingkahulugan (memory). Ang pandiwang 'gunitain' ay nangangahulugang 'to reminisce' o 'to recall'."
+  },
+  {
+    "lemma": "hagibis",
+    "part_of_speech": "pangngalan",
+    "definition": "Mabilis at malakas na pagdaan o paggalaw, karaniwang tumutukoy sa hangin, sasakyan, o anumang bagay na dumaraan nang matindi.",
+    "usage": "Ginagamit upang ilarawan ang napakabilis na paggalaw na lumilikha ng tunog, tulad ng humaharurot na sasakyan o malakas na ihip ng hangin.",
+    "example": "Dumaan ang hagibis ng hangin na nagpabagsak sa mga punongkahoy.",
+    "example_gloss": "The rush of the wind passed by, causing the trees to fall.",
+    "extra_examples": [
+      "Ang hagibis ng motorsiklo sa kalsada ay nagdulot ng kaba sa mga naglalakad.",
+      "Narinig ko ang hagibis ng isang mabilis na sasakyan sa labas."
+    ],
+    "synonyms": ["harurot", "bilis"],
+    "antonyms": ["bagal", "paghinay"],
+    "tags": ["kilos", "tunog", "bilis", "deskriptibo"],
+    "exam_tips": "Iugnay ang 'hagibis' sa konsepto ng 'sobrang bilis' na may kasamang tunog (whoosh, whiz). Halos katulad ito ng 'harurot'."
+  },
+  {
+    "lemma": "hagikhik",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Mahinang pagtawa na karaniwang pigil, pabulong, o patago.",
+    "usage": "Ginagamit upang ilarawan ang isang uri ng pagtawa na pigil, mahina, at tila nahihiya o nagtatago. Ito ay kaiba sa malakas na halakhak.",
+    "example": "Narinig ko ang kaniyang hagikhik sa loob ng silid-aklatan.",
+    "example_gloss": "I heard her giggle inside the library.",
+    "extra_examples": [
+      "Ang hagikhik ng mga bata habang naghahabulan ay nagbibigay ng saya sa buong bahay.",
+      "Hindi niya mapigilan ang paghagikhik habang nanonood ng nakakatawang pelikula."
+    ],
+    "synonyms": ["pagtawa", "mahinang tawa", "ngisi"],
+    "antonyms": ["halakhak", "katahimikan", "seryosidad"],
+    "tags": ["tunog", "emosyon", "kilos", "deskriptibo"],
+    "exam_tips": "Ang 'hagikhik' ay katumbas ng 'giggle' sa Ingles. Ito ay isang mahina at pigil na tawa, kabaligtaran ng malakas na 'halakhak'."
+  },
+  {
+    "lemma": "halas",
+    "part_of_speech": "pangngalan",
+    "definition": "Maliit na galos o gasgas sa balat; maaari ring tumukoy sa kilos o pananalitang walang kahinhinan, depende sa konteksto.",
+    "usage": "Ginagamit sa literal na kahulugan bilang minor na sugat sa balat. Mayroon din itong konotasyon ng 'pagiging magaslaw' o 'kawalang-ingat' sa kilos.",
+    "example": "May mga halas siya sa braso matapos dumaan sa makapal na damuhan.",
+    "example_gloss": "He has scratches on his arm after passing through thick grass.",
+    "extra_examples": [
+      "Iwasan ang mga salitang may kahalasan upang hindi makasakit ng damdamin ng kapwa.",
+      "Nagkaroon siya ng halas sa binti dahil sa pagkakadapa."
+    ],
+    "synonyms": ["galos", "sugat", "gasgas"],
+    "antonyms": ["walang-galos", "malinis-na-balat", "kahinhinan"],
+    "tags": ["katawan", "medikal", "pag-uugali"],
+    "exam_tips": "Pangunahing kahulugan nito ay 'scratch' o 'minor wound'. Tandaan din ang pangalawang kahulugan nito na 'coarseness' o 'crassness' (kahalasan)."
+  },
+  {
+    "lemma": "halaw",
+    "part_of_speech": "pang-uri/pandiwa",
+    "definition": "Kinuha o hinango mula sa ibang pinagmulan, gaya ng akda, ideya, o kuwento.",
+    "usage": "Ginagamit sa akademiko at sining upang ipahiwatig na ang isang gawa ay adaptasyon, hango, o inspirasyon mula sa ibang akda.",
+    "example": "Ang kaniyang ulat ay halaw sa isang tanyag na librong pangkasaysayan.",
+    "example_gloss": "Her report is adapted from a famous historical book.",
+    "extra_examples": [
+      "Ang kuwentong ito ay halaw sa tunay na buhay ng isang bayani sa aming bayan.",
+      "Hinahalaw ng mga bagong manunulat ang estilo ng mga naunang makata."
+    ],
+    "synonyms": ["hango", "adaptado", "kinuha"],
+    "antonyms": ["orihinal", "likha"],
+    "tags": ["akademiko", "sining", "pagsulat"],
+    "exam_tips": "Ang 'halaw' ay katumbas ng 'adapted from' o 'derived from'. Ipinapahiwatig nito na ang isang gawa ay hindi 100% orihinal kundi may pinagbatayan."
+  },
+  {
+    "lemma": "hamig",
+    "part_of_speech": "pandiwa",
+    "definition": "Proseso ng pagtitipon o pagkakalap ng mga bagay, impormasyon, o yaman mula sa iba't ibang pinagkukunan; maaari ring tumukoy sa pag-angkin.",
+    "usage": "Ginagamit sa konteksto ng pagkolekta o pagkuha ng maraming bagay, parangal, o yaman. Mayroon itong konotasyon ng pag-sweep o pag-gather para sa sarili.",
+    "example": "Sinikap niyang hamigin ang lahat ng mga nakakalat na gamit sa sahig.",
+    "example_gloss": "He tried to gather all the scattered items on the floor.",
+    "extra_examples": [
+      "Malaki ang kaniyang hinamig na premyo mula sa sinalihang paligsahan sa pagsusulat.",
+      "Hinahamig ng kandidato ang boto ng mga mamamayan."
+    ],
+    "synonyms": ["tipunin", "kabigin", "kalapin"],
+    "antonyms": ["iwaksi", "ipamahagi", "ikalat"],
+    "tags": ["kilos", "pagkolekta", "kompetisyon"],
+    "exam_tips": "Ang 'hamigin' ay nangangahulugang 'to gather' o 'to sweep up', lalo na sa konteksto ng pagkapanalo ng mga parangal o premyo (humamig ng parangal)."
+  },
+  {
+    "lemma": "hapit",
+    "part_of_speech": "pang-uri",
+    "definition": "Masikip na pagkakadikit o pagkakahawak; karaniwang tumutukoy sa damit na dikit na dikit sa katawan o sa mahigpit na tali.",
+    "usage": "Ginagamit upang ilarawan ang damit na 'body-fitting' o 'tight', o anumang bagay na mahigpit ang pagkakabit.",
+    "example": "Ang suot niyang damit ay masyadong hapit sa kaniyang katawan.",
+    "example_gloss": "The dress she is wearing is too tight on her body.",
+    "extra_examples": [
+      "Kailangang hapit ang pagkakatali ng lubid upang hindi ito madaling kumalag.",
+      "Naramdaman niya ang hapit na yakap ng kanyang ina."
+    ],
+    "synonyms": ["mahigpit", "masikip"],
+    "antonyms": ["kaluwagan", "maluwag"],
+    "tags": ["deskriptibo", "damit", "pisikal"],
+    "exam_tips": "Ang 'hapit' ay katumbas ng 'tight-fitting'. Madaling tandaan kung iisipin ang masikip na damit o mahigpit na tali."
+  },
+  {
+    "lemma": "hatol",
+    "part_of_speech": "pangngalan",
+    "definition": "Pinal na pasiya o desisyon, lalo na sa usaping legal o moral.",
+    "usage": "Karaniwang ginagamit sa kontekstong legal (court verdict) ngunit maaari ring gamitin sa pagbibigay ng personal na desisyon o judgment.",
+    "example": "Matatag ang naging hatol ng hukom sa kasong isinampa laban sa kaniya.",
+    "example_gloss": "The judge's verdict on the case filed against him was firm.",
+    "extra_examples": [
+      "Huwag tayong agad magbigay ng hatol sa isang tao nang hindi nalalaman ang buong katotohanan.",
+      "Hinihintay ng buong bayan ang hatol sa kontrobersyal na kaso."
+    ],
+    "synonyms": ["pasya", "desisyon", "berdikto"],
+    "antonyms": ["alinlangan", "kawalan-ng-desisyon"],
+    "tags": ["legal", "pormal", "desisyon"],
+    "exam_tips": "Ang 'hatol' ay katumbas ng 'verdict' o 'judgment'. Madalas itong iugnay sa korte at mga hukom."
+  },
+  {
+    "lemma": "hibla",
+    "part_of_speech": "pangngalan",
+    "definition": "Manipis na sinulid o pinong bahagi ng isang materyal, gaya ng tela o buhok.",
+    "usage": "Ginagamit upang tukuyin ang mga indibidwal na 'strand' o 'fiber' ng isang materyal, tulad ng sinulid, buhok, o hibla ng halaman.",
+    "example": "Maingat niyang hinabi ang bawat hibla ng tela upang makabuo ng magandang disenyo.",
+    "example_gloss": "She carefully wove each fiber of the cloth to create a beautiful design.",
+    "extra_examples": [
+      "Ang mga hibla ng kaniyang buhok ay tila ginto sa ilalim ng sikat ng araw.",
+      "Ang hibla ng abaka ay ginagamit sa paggawa ng matibay na lubid."
+    ],
+    "synonyms": ["sinulid", "himaymay", "fiber"],
+    "antonyms": ["buo", "makapal"],
+    "tags": ["materyal", "deskriptibo", "maliit"],
+    "exam_tips": "Ang 'hibla' ay katumbas ng 'fiber' o 'strand'. Ito ay ang pinakamaliit na yunit ng isang sinulid, tela, o buhok."
+  },
+  {
+    "lemma": "hikahos",
+    "part_of_speech": "pang-uri/pangngalan",
+    "definition": "Kalagayan ng matinding kakulangan, lalo na sa salapi o kabuhayan; lubhang kahirapan.",
+    "usage": "Isang pormal at malalim na salita para sa matinding kahirapan o karukhaan.",
+    "example": "Sa kabila ng kanilang hikahos na pamumuhay, hindi sila nawawalan ng pag-asa.",
+    "example_gloss": "Despite their impoverished life, they do not lose hope.",
+    "extra_examples": [
+      "Maraming pamilya ang naghihikahos dahil sa kawalan ng sapat na trabaho sa probinsya.",
+      "Ang kahikahusan ay isa sa mga suliraning panlipunan na dapat tugunan."
+    ],
+    "synonyms": ["dukha", "hirap", "kapos", "dalita"],
+    "antonyms": ["maykaya", "masagana", "mayaman"],
+    "tags": ["sosyal", "ekonomiya", "negatibo", "pormal"],
+    "exam_tips": "Ang 'hikahos' ay isang mas matinding antas ng 'kahirapan'. Ito ay nangangahulugang 'extreme poverty' o 'destitute'."
+  },
+  {
+    "lemma": "hinagap",
+    "part_of_speech": "pangngalan",
+    "definition": "Isang palagay, hula, o hinalang walang sapat na batayan; maaaring bunga lamang ng guniguni.",
+    "usage": "Ginagamit upang ipahayag ang isang ideya o pag-iisip tungkol sa isang bagay na hindi pa nangyayari o hindi tiyak, katulad ng 'slightest idea' o 'inkling'.",
+    "example": "Wala sa aking hinagap na magkakatuluyan ang dalawang magkababatang iyon.",
+    "example_gloss": "I never had the slightest idea that those two childhood friends would end up together.",
+    "extra_examples": [
+      "Ang kaniyang mga hinagap tungkol sa hinaharap ay punong-puno ng pangarap at ambisyon.",
+      "Wala siyang hinagap sa panganib na naghihintay sa kanya."
+    ],
+    "synonyms": ["haka-haka", "palagay", "suspetsa", "waring"],
+    "antonyms": ["katibayan", "katiyakan"],
+    "tags": ["abstrakto", "pampanitikan", "isipan"],
+    "exam_tips": "Karaniwang ginagamit sa negatibong anyo ('walang hinagap') upang ipahiwatig na 'had no idea at all'. Ito ay isang ideya na hindi pa tiyak."
+  },
+  {
+    "lemma": "hinagpis",
+    "part_of_speech": "pangngalan",
+    "definition": "Matinding lungkot o dalamhati na madalas ipinahahayag sa panaghoy o pag-iyak.",
+    "usage": "Isang malalim na salita para sa 'grief' o 'sorrow'. Ginagamit para sa sakit na nararamdaman dahil sa isang malaking kawalan o kabiguan.",
+    "example": "Ramdam ng lahat ang kaniyang matinding hinagpis nang mawala ang kaniyang alagang aso.",
+    "example_gloss": "Everyone felt her intense grief when her pet dog was lost.",
+    "extra_examples": [
+      "Naglabas siya ng hinagpis sa pamamagitan ng pagsulat ng mga malulungkot na tula.",
+      "Ang pagpanaw ng kanyang ina ay nagdulot ng di-maipaliwanag na hinagpis."
+    ],
+    "synonyms": ["panaghoy", "pighati", "himutok", "dalamhati"],
+    "antonyms": ["ligaya", "katuwaan", "galak"],
+    "tags": ["emosyon", "negatibo", "pampanitikan", "malalim"],
+    "exam_tips": "Ang 'hinagpis' ay isang napakalalim na lungkot (grief), mas matindi kaysa 'lumbay'. Madalas itong iugnay sa pagpanaw o malaking kawalan."
+  },
+  {
+    "lemma": "hindik",
+    "part_of_speech": "pangngalan",
+    "definition": "Biglaang pagkagulat o pagkataranta na nagiging sanhi ng biglang pagkilos o pag-atras.",
+    "usage": "Ginagamit upang ilarawan ang isang biglaang matinding takot o gulat na nagdudulot ng pisikal na reaksyon (pag-atras, pag-igkas).",
+    "example": "Isang malakas na hindik ang naramdaman niya nang makita ang anino sa dilim.",
+    "example_gloss": "He felt a strong sense of terror when he saw the shadow in the dark.",
+    "extra_examples": [
+      "Napasigaw siya sa hindik matapos ang biglaang pagyanig ng lupa.",
+      "Ang kanyang mukha ay nagpakita ng matinding pagkahindik."
+    ],
+    "synonyms": ["gulat", "sindak", "hilakbot"],
+    "antonyms": ["kahinahunan", "kapanatagan"],
+    "tags": ["emosyon", "takot", "biglaan"],
+    "exam_tips": "Ang 'hindik' ay isang uri ng 'gulat' na may kasamang 'takot' (terror/horror). Ito ay isang biglaan at matinding reaksyon."
+  },
+  {
+    "lemma": "hiyas",
+    "part_of_speech": "pangngalan",
+    "definition": "Bagay na may mataas na halaga o kagandahan, tulad ng bato o alahas; maaari ring tumukoy sa isang taong itinuturing na mahalaga at kagalang-galang.",
+    "usage": "Ginagamit sa literal na kahulugan para sa mga 'gem' o 'jewel', at sa metaporikal na paraan para sa isang taong may mahalagang katangian (hal. hiyas ng pamilya).",
+    "example": "Itinuturing niyang hiyas ng kaniyang buhay ang kaniyang mga anak.",
+    "example_gloss": "He considers his children as the jewels of his life.",
+    "extra_examples": [
+      "Ang mga hiyas na suot ng reyna ay nagmula pa sa kaniyang mga ninuno.",
+      "Ang katapatan ay isang hiyas na dapat ingatan."
+    ],
+    "synonyms": ["kayamanan", "alahas", "karangalan"],
+    "antonyms": ["basura", "kahihiyan"],
+    "tags": ["materyal", "metapora", "positibo", "halaga"],
+    "exam_tips": "Tandaan ang dalawang kahulugan: literal na 'jewel' at metaporikal na 'treasure' (isang mahalagang tao o katangian)."
+  },
+  {
+    "lemma": "hulagpos",
+    "part_of_speech": "pandiwa",
+    "definition": "Makawala mula sa pagkakahawak, pagkakatali, o pagkakakulong.",
+    "usage": "Isang pampanitikang salita na naglalarawan ng paglaya o pag-eskapo mula sa isang bagay na pumipigil, pisikal man (tali) o emosyonal (kalungkutan).",
+    "example": "Sinikap niyang humulagpos mula sa pagkakasakal ng kaniyang malungkot na nakaraan.",
+    "example_gloss": "She tried to break free from the stranglehold of her sad past.",
+    "extra_examples": [
+      "Ang ibon ay biglang humulagpos mula sa hawla at lumipad patungo sa kagubatan.",
+      "Nahirapan siyang humulagpos sa mahigpit na pagkakahawak ng magnanakaw."
+    ],
+    "synonyms": ["makalaya", "makawala", "umalpas"],
+    "antonyms": ["makulong", "maipit", "mapigilan"],
+    "tags": ["pampanitikan", "kilos", "paglaya"],
+    "exam_tips": "Ang 'hulagpos' ay katulad ng 'alpas' at 'makawala'. Ipinapahiwatig nito ang paglaya mula sa isang bagay na mahigpit na nakahawak o pumipigil."
+  },
+  {
+    "lemma": "humpay",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Pagpigil o pansamantalang pagtigil ng kilos o pangyayari.",
+    "usage": "Karaniwang ginagamit sa negatibong anyo ('walang humpay') upang ipahiwatig na ang isang bagay ay tuloy-tuloy at hindi tumitigil.",
+    "example": "Wala siyang humpay sa pagtatrabaho upang maibigay ang lahat ng kailangan ng pamilya.",
+    "example_gloss": "He works without stopping to provide for all the family's needs.",
+    "extra_examples": [
+      "Ang walang humpay na ulan ay nagdulot ng baha sa mabababang bahagi ng lungsod.",
+      "Sana ay humumpay na ang kanyang pag-iyak."
+    ],
+    "synonyms": ["tigil", "paghinto", "patid"],
+    "antonyms": ["tuloy", "pagpapatuloy"],
+    "tags": ["kilos", "oras", "abstrakto"],
+    "exam_tips": "Madalas itong makita sa pariralang 'walang humpay', na nangangahulugang 'non-stop' o 'continuous'. Ang 'humpay' mismo ay nangangahulugang 'stop' o 'pause'."
+  },
+  {
+    "lemma": "hutukin",
+    "part_of_speech": "pandiwa",
+    "definition": "Pagbaluktot, paghubog, o pag-akay sa isang bagay o tao patungo sa isang partikular na direksiyon o anyo.",
+    "usage": "Ginagamit sa literal na paghubog ng isang materyal (tulad ng bakal) at sa metaporikal na paghubog sa ugali o isipan ng isang tao (lalo na ng bata).",
+    "example": "Kailangang hutukin ang mga kabataan sa tamang asal habang sila ay bata pa.",
+    "example_gloss": "The youth must be molded with good character while they are still young.",
+    "extra_examples": [
+      "Madaling hutukin ang kawayan kung ito ay dadaan sa tamang proseso ng pag-init.",
+      "Hinutok siya ng kanyang mga magulang na maging isang responsableng mamamayan."
+    ],
+    "synonyms": ["hulmahin", "baluktutin", "hubugin"],
+    "antonyms": ["pabayaan", "hayaan", "ituwid"],
+    "tags": ["kilos", "metapora", "edukasyon"],
+    "exam_tips": "Ang 'hutukin' ay nangangahulugang 'to mold' o 'to shape'. Maaari itong pisikal na paghubog o paghubog ng pagkatao."
+  },
+  {
+    "lemma": "huwad",
+    "part_of_speech": "pang-uri",
+    "definition": "Hindi tunay; peke o ginaya lamang.",
+    "usage": "Ginagamit upang ilarawan ang mga bagay na peke (pera, dokumento) o mga damdamin at pagkatao na hindi totoo (pagkukunwari).",
+    "example": "Huwag kang maniwala sa kaniyang mga salita dahil ang kaniyang mga pangako ay huwad.",
+    "example_gloss": "Do not believe his words because his promises are false.",
+    "extra_examples": [
+      "Natuklasan ng mga awtoridad na huwad ang mga dokumentong ipinrisinta ng lalaki.",
+      "Ang kanyang ngiti ay huwad at pilit lamang."
+    ],
+    "synonyms": ["peke", "palsipikado", "panggap"],
+    "antonyms": ["tunay", "orihinal", "totoo"],
+    "tags": ["negatibo", "deskriptibo", "pag-uugali"],
+    "exam_tips": "Ang 'huwad' ay katumbas ng 'fake' o 'counterfeit'. Madali itong tandaan dahil ito ang kabaligtaran ng 'tunay' o 'orihinal'."
+  },
+  {
+    "lemma": "balibag",
+    "part_of_speech": "pandiwa",
+    "definition": "Paghagis o pagtapon ng isang bagay nang malakas at pabigla.",
+    "usage": "Ginagamit para sa kilos ng marahas na paghahagis. Madalas na may kasamang damdamin ng galit o pagkainis.",
+    "example": "Sa tindi ng galit, ibinalibag niya ang kaniyang telepono sa sahig.",
+    "example_gloss": "In the height of anger, he slammed his phone on the floor.",
+    "extra_examples": [
+      "Nakita kong ibinalibag ng bata ang kaniyang mga laruan dahil sa pagtatampo.",
+      "Huwag mong ibalibag ang iyong bag pagdating sa bahay."
+    ],
+    "synonyms": ["ihagis", "itapon", "ipukol"],
+    "antonyms": ["ingatan", "alagaan", "ilapag"],
+    "tags": ["kilos", "marahas", "emosyon"],
+    "exam_tips": "Ang 'ibalibag' ay hindi lang basta 'ihagis'; ito ay 'to throw forcefully' o 'to slam'. May diin ito sa lakas at biglaang kilos."
+  },
+  {
+    "lemma": "ibayo",
+    "part_of_speech": "pang-uri/pang-abay/pangngalan",
+    "definition": "Pagiging higit o mas masidhi kaysa dati; maaari ring tumukoy sa kabilang dako o kabilang panig ng isang hangganan.",
+    "usage": "May dalawang gamit: (1) bilang pang-abay na nangangahulugang 'higit pa' o 'mas lalo' (ibayong pag-iingat), at (2) bilang pangngalan na tumutukoy sa 'kabilang panig' (sa ibayo ng ilog).",
+    "example": "Kailangang magpakita ng ibayong pagsisikap ang mga mag-aaral upang makapasa sa darating na board exam.",
+    "example_gloss": "The students need to show extra effort to pass the upcoming board exam.",
+    "extra_examples": [
+      "Ang aming kamag-anak ay naninirahan sa ibayo ng ilog.",
+      "Nagpatupad ang gobyerno ng ibayong paghihigpit sa mga byahe."
+    ],
+    "synonyms": ["matindi", "higit pa", "kabila"],
+    "antonyms": ["bahagya", "mahina", "dito", "malapit"],
+    "tags": ["abstrakto", "lugar", "paglalarawan"],
+    "exam_tips": "Alamin ang dalawang kahulugan: 'extra/more' (e.g., ibayong ingat) at 'the other side' (e.g., sa ibayo ng dagat). Ang gamit ay matutukoy batay sa konteksto."
+  },
+  {
+    "lemma": "kubli",
+    "part_of_speech": "pang-uri/pandiwa",
+    "definition": "Nakatago at hindi madaling makita o mahalata; lihim o lingid sa kaalaman ng nakararami.",
+    "usage": "Ginagamit bilang pang-uri (nakakubli) para ilarawan ang isang bagay na nakatago, o bilang pandiwa (ikubli, magkubli) na nangangahulugang itago o magtago. Mas pormal ito kaysa sa salitang 'tago'.",
+    "example": "Hindi niya magawang ikubli ang kaniyang tunay na nararamdaman para sa kaniya.",
+    "example_gloss": "He/She cannot hide his/her true feelings for him/her.",
+    "extra_examples": [
+      "Ikinubli ng makapal na ulap ang ganda ng nagniningning na buwan.",
+      "May isang kubling pagnanasa siyang maging isang manunulat."
+    ],
+    "synonyms": ["tago", "lihim", "lingid"],
+    "antonyms": ["lantad", "hayag", "labas", "kita"],
+    "tags": ["paglalarawan", "kilos", "pormal", "lihim"],
+    "exam_tips": "Ang 'kubli' ay nangangahulugang 'hidden' o 'concealed'. Ang pandiwang 'ikubli' ay 'to hide'. Tandaan na ito ay mas pormal na bersyon ng 'tago'."
+  },
+  {
+    "lemma": "ilag",
+    "part_of_speech": "pandiwa/pangngalan",
+    "definition": "Umiwas o lumayo upang maiwasan ang panganib, tama, o anumang ayaw maranasan.",
+    "usage": "Karaniwang ginagamit bilang pandiwa (umilag) na tumutukoy sa isang mabilis na kilos ng pag-iwas sa isang paparating na bagay o panganib, tulad ng suntok o nahuhulog na bagay.",
+    "example": "Mabilis siyang umilag nang may bumagsak na sanga mula sa puno.",
+    "example_gloss": "He/She quickly dodged when a branch fell from the tree.",
+    "extra_examples": [
+      "Ang pag-ilag sa mga negatibong impluwensya ay mahalaga para sa ikabubuti ng sarili.",
+      "Sanay na sa boksing kaya mabilis siyang umilag sa mga atake."
+    ],
+    "synonyms": ["umiwas", "umilag", "lumayo"],
+    "antonyms": ["lumapit", "sumuong"],
+    "tags": ["kilos", "depensa", "pang-araw-araw", "pag-iwas"],
+    "exam_tips": "Ang 'umilag' ay katumbas ng 'to dodge'. Ito ay isang partikular na uri ng pag-iwas na mabilis at karaniwang ginagawa upang hindi matamaan."
+  },
+  {
+    "lemma": "suklob",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Isang takip na inilalagay sa ibabaw o palibot ng isang bagay upang ito ay maprotektahan o maitago.",
+    "usage": "Ginagamit bilang pangngalan para sa isang takip (cover/lid) o bilang pandiwa (isuklob) na nangangahulugang takpan o pagtakpan ang isang bagay.",
+    "example": "Siguraduhin mong nakalapat ang suklob ng kawali upang hindi agad lumabas ang init at mabilis na maluto ang ulam.",
+    "example_gloss": "Make sure the lid of the pan is fitted so that the heat does not escape and the dish cooks quickly.",
+    "extra_examples": [
+      "Isinuklob niya ang sumbrero upang hindi mainitan ang kaniyang ulo.",
+      "Ginamit niya ang malaking dahon bilang pansamantalang suklob sa pagkain."
+    ],
+    "synonyms": ["takip", "sapot", "balot"],
+    "antonyms": ["alis", "bukas", "lantad"],
+    "tags": ["gamit", "pagluluto", "proteksyon", "praktikal"],
+    "exam_tips": "Ang 'suklob' ay isang takip o 'lid'. Ang pandiwang 'isuklob' ay 'to cover something with a lid'. Ito ay karaniwang ginagamit sa konteksto ng pagluluto o pagprotekta sa isang bagay."
+  },
+  {
+    "lemma": "tampok",
+    "part_of_speech": "pang-uri/pandiwa",
+    "definition": "Nakalagay o naipapakita sa paraang madaling mapansin; kilala o binibigyang-diin.",
+    "usage": "Ginagamit bilang pang-uri (tampok) para sa isang bagay na 'featured' o 'prominent', o bilang pandiwa (itampok) na nangangahulugang 'to feature' o 'to highlight'. Karaniwan sa media, sining, at mga pagtatanghal.",
+    "example": "Sa bawat pagtitipon, siya ang laging tampok dahil sa kanyang galing sa pagsayaw.",
+    "example_gloss": "In every gathering, he/she is always the highlight because of his/her dancing skills.",
+    "extra_examples": [
+      "Layunin ng programa na itampok ang mga talento ng mga batang Pilipino.",
+      "Ang pelikulang ito ay tampok ang mga kilalang artista."
+    ],
+    "synonyms": ["kilala", "sikat", "ipakita", "itanghal", "highlight"],
+    "antonyms": ["kubli", "lingid", "ikubli", "itago"],
+    "tags": ["sining", "media", "pagtatanghal", "positibo"],
+    "exam_tips": "Ang 'tampok' ay katumbas ng 'featured' o 'highlight'. Kung pandiwa, 'itampok' ay 'to feature'. Madalas gamitin sa mga anunsyo ng pelikula, palabas, o kaganapan."
+  },
+  {
+    "lemma": "kaaliwaswasan",
+    "part_of_speech": "pangngalan",
+    "definition": "Katiwalian, gawaing masama, o anomalya lalo na sa loob ng isang institusyon o sistema.",
+    "usage": "Isang pormal at matinding salita para sa 'katiwalian' o 'kalokohan'. Ginagamit ito para tumukoy sa mga iregularidad, korapsyon, o masasamang gawain sa isang organisasyon, gobyerno, o sistema.",
+    "example": "Hindi magtatagal at mabubunyag din ang lahat ng kaaliwaswasan sa loob ng opisina.",
+    "example_gloss": "It won't be long before all the anomalies inside the office are exposed.",
+    "extra_examples": [
+      "Marami ang nagalit nang malaman ang kaaliwaswasang nangyayari sa pondo ng bayan.",
+      "Ang pagsugpo sa kaaliwaswasan sa pamahalaan ang kanyang pangunahing plataporma."
+    ],
+    "synonyms": ["kalokohan", "katiwalian", "anomalya"],
+    "antonyms": ["katiwasayan", "katapatan", "kawastuhan"],
+    "tags": ["pormal", "negatibo", "politika", "sosyal"],
+    "exam_tips": "Ang 'kaaliwaswasan' ay isang malakas na salita para sa 'anomaly' o 'corruption'. Ito ay tumutukoy sa mga gawaing tiwali o mali sa loob ng isang sistema."
+  },
+  {
+    "lemma": "balintuna",
+    "part_of_speech": "pangngalan/pang-uri",
+    "definition": "Pahayag, pangyayari, o sitwasyon na may magkasalungat na katangian o resulta; maaring nakakatawa o nakapagtataka dahil taliwas sa inaasahan.",
+    "usage": "Katumbas ng salitang 'irony' o 'paradox'. Ginagamit upang ilarawan ang isang sitwasyon kung saan ang nangyari ay kabaligtaran ng inaasahan o ng nararapat.",
+    "example": "Isang balintuna na siya ang nahuli gayong siya ang pinakamabilis.",
+    "example_gloss": "It's an irony that he/she was the last one when he/she is the fastest.",
+    "extra_examples": [
+      "Ang buhay ay puno ng kabalintunaan na kung minsan ay mahirap intindihin.",
+      "Isang mabalintunang pangyayari na ang bumbero ay takot sa apoy."
+    ],
+    "synonyms": ["ironya", "paradoksa", "kabaliktaran"],
+    "antonyms": ["katotohanan", "katuwiran", "lohikal"],
+    "tags": ["pampanitikan", "akademiko", "abstrakto", "lohika"],
+    "exam_tips": "Ang 'balintuna' ay ang Filipino term para sa 'irony' o 'paradox'. Ito ay isang sitwasyon na salungat sa inaasahan."
+  },
+  {
+    "lemma": "gimbal",
+    "part_of_speech": "pangngalan",
+    "definition": "Matinding pagkabigla o pagkagitla dahil sa nakapanlulumong o nakakatakot na pangyayari.",
+    "usage": "Ginagamit upang ipahayag ang matinding 'shock' o 'horror' na dulot ng isang masamang balita o nakakatakot na pangyayari. Madalas gamitin ang anyong 'kagimbal-gimbal'.",
+    "example": "Nagdulot ng kagimbal-gimbal na balita ang aksidenteng naganap sa kanto.",
+    "example_gloss": "The accident that happened on the corner brought shocking news.",
+    "extra_examples": [
+      "Kagimbal ang sinapit ng mga biktima sa kamay ng mga masasamang loob.",
+      "Naramdaman niya ang gimbal sa kanyang dibdib nang makita ang sunog."
+    ],
+    "synonyms": ["sindak", "gulat", "gulantang"],
+    "antonyms": ["kalmado", "panatag", "payapa"],
+    "tags": ["emosyon", "negatibo", "matindi", "balita"],
+    "exam_tips": "Ang 'gimbal' ay katumbas ng 'horror' o 'shock'. Ang 'kagimbal-gimbal' ay isang pang-uri na nangangahulugang 'horrifying' o 'shocking'."
+  },
+  {
+    "lemma": "magiting",
+    "part_of_speech": "pang-uri",
+    "definition": "May katangiang matapang, marangal, at handang magsakripisyo, lalo na sa harap ng panganib.",
+    "usage": "Isang pormal at marangal na salita para sa 'matapang'. Ginagamit ito para sa mga bayani, sundalo, o sinumang nagpakita ng pambihirang tapang at kabayanihan.",
+    "example": "Ang kanyang magiting na pag-uugali sa gitna ng panganib ay kahanga-hanga.",
+    "example_gloss": "His/Her brave demeanor in the midst of danger is admirable.",
+    "extra_examples": [
+      "Ang kaniyang kagitingan ay naging inspirasyon sa buong komunidad.",
+      "Ginugunita natin ang mga magigiting na bayani ng ating lahi."
+    ],
+    "synonyms": ["dakila", "matapang", "matigasin-loob"],
+    "antonyms": ["kaduwagan", "kahinaan"],
+    "tags": ["pormal", "positibo", "pag-uugali", "kabayanihan"],
+    "exam_tips": "Ang 'magiting' ay higit pa sa 'matapang'; ito ay 'brave' na may kasamang 'dangal' (honor) at 'kabayanihan' (heroism). Ang pangngalan nito ay 'kagitingan' (bravery/heroism)."
+  },
+  {
+    "lemma": "halili",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Taong pumapalit o sumasalo sa tungkulin o posisyon ng iba.",
+    "usage": "Ginagamit sa konteksto ng pagpapalit o 'succession' sa isang posisyon o tungkulin. Ang pangngalan ay 'kahalili' (successor) at ang pandiwa ay 'humalili' (to succeed/replace).",
+    "example": "Naghahanap pa ang kumpanya ng kahalili para sa posisyong iniwan ng dating manager.",
+    "example_gloss": "The company is still looking for a successor for the position left by the former manager.",
+    "extra_examples": [
+      "Ang kaniyang anak ang magsisilbing kahalili niya sa pagpapatakbo ng negosyo.",
+      "Sino ang hahalili sa trono kapag bumaba na sa pwesto ang hari?"
+    ],
+    "synonyms": ["pumalit", "kapalit", "kahalili"],
+    "antonyms": ["orihinal", "nauna", "pinaghalilian"],
+    "tags": ["pormal", "trabaho", "politika", "organisasyon"],
+    "exam_tips": "Ang 'kahalili' ay katumbas ng 'successor' o 'replacement'. Ang 'humalili' ay 'to take the place of' someone."
+  },
+  {
+    "lemma": "kahungkagan",
+    "part_of_speech": "pangngalan",
+    "definition": "Kalagayan ng pagiging hungkag o walang laman, maaaring tumukoy sa damdamin, buhay, o nilalaman.",
+    "usage": "Isang pampanitikang salita na tumutukoy sa 'emptiness' o 'hollowness'. Ginagamit ito para ilarawan ang pakiramdam ng kawalan ng saysay o laman, sa emosyonal o pisikal na aspeto.",
+    "example": "Ramdam niya ang kahungkagan ng kaniyang puso matapos siyang iwan ng mahal sa buhay.",
+    "example_gloss": "He/She felt the emptiness of his/her heart after being left by a loved one.",
+    "extra_examples": [
+      "Huwag mong hayaang mapuno ng kahungkagan ang iyong isipan; magbasa ka ng mga aklat.",
+      "Ang kahungkagan ng silid ay nagpapahiwatig na matagal na itong hindi tinitirhan."
+    ],
+    "synonyms": ["kapagkawalang-laman", "kawalan-ng-saysay", "kawalan-ng-laman"],
+    "antonyms": ["kabuuan", "kasapatan", "bunga"],
+    "tags": ["pampanitikan", "abstrakto", "emosyon", "negatibo"],
+    "exam_tips": "Ang 'kahungkagan' ay 'emptiness'. Ang salitang ugat nito ay 'hungkag', na nangangahulugang 'hollow' o 'empty'."
+  },
+  {
+    "lemma": "kaibuturan",
+    "part_of_speech": "pangngalan",
+    "definition": "Pinakaubod o pinakaloob na bahagi; maaaring tumukoy sa pisikal na gitna o sa pinakamalalim na damdamin o kalooban.",
+    "usage": "Ginagamit upang tukuyin ang 'pinakaloob' o 'core' ng isang bagay. Madalas gamitin sa pariralang 'kaibuturan ng puso' upang ipahiwatig ang pinakamalalim at pinakatapat na damdamin.",
+    "example": "Mula sa kaibuturan ng aking puso, nais kitang pasalamatan sa iyong tulong.",
+    "example_gloss": "From the bottom of my heart, I want to thank you for your help.",
+    "extra_examples": [
+      "Sinisikap niyang unawain ang problema mula sa kaibuturan nito.",
+      "Naramdaman niya hanggang sa kaibuturan ng kanyang kaluluwa ang sakit."
+    ],
+    "synonyms": ["kaibuturan-ng-loob", "pinakaloob", "ubod"],
+    "antonyms": ["labas", "ibabaw", "panlabas"],
+    "tags": ["pormal", "pampanitikan", "abstrakto", "emosyon"],
+    "exam_tips": "Ang 'kaibuturan' ay nangangahulugang 'the very core' o 'the deepest part'. Karaniwang ginagamit sa pariralang 'kaibuturan ng puso' para sa 'sincerity'."
+  },
+  {
+    "lemma": "kalag",
+    "part_of_speech": "pandiwa",
+    "definition": "Pagluwag o pagtanggal sa pagkakatali o pagkakabit; maaari ring tumukoy sa kalagayan ng pagkakalagot.",
+    "usage": "Isang pandiwa na nangangahulugang 'tanggalin ang tali' o 'palayain' mula sa pagkakagapos. Ang anyo nito ay 'kalagin'.",
+    "example": "Ang pagkalag sa mga maling paniniwala ay simula ng tunay na pagbabago.",
+    "example_gloss": "Untying from wrong beliefs is the start of true change.",
+    "extra_examples": [
+      "Mabilis niyang kinalag ang tali ng sapatos upang makapagpalit ng tsinelas.",
+      "Kalagin mo ang aso mula sa pagkakatali nito."
+    ],
+    "synonyms": ["alisin", "luwagan", "kalasin"],
+    "antonyms": ["itali", "higpitan"],
+    "tags": ["kilos", "praktikal", "paglaya"],
+    "exam_tips": "Ang 'kalagin' ay nangangahulugang 'to untie' o 'to unfasten'. Ito ang direktang kasalungat ng 'itali'."
+  },
+  {
+    "lemma": "kaligkig",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Panginginig ng katawan, lalo na dahil sa lamig o matinding pakiramdam.",
+    "usage": "Ginagamit upang ilarawan ang kilos ng panginginig ('shivering') dahil sa lamig o takot. Ang pandiwang anyo nito ay 'kinakaligkig'.",
+    "example": "Isang matinding kaligkig ang naramdaman niya dahil sa sobrang lamig ng panahon.",
+    "example_gloss": "He/She felt an intense shiver because of the very cold weather.",
+    "extra_examples": [
+      "Nakita kong kinakaligkig ang bata kaya agad ko siyang binalot ng kumot.",
+      "Kinilig siya at bahagyang kinakiligkig nang makita ang kanyang idolo."
+    ],
+    "synonyms": ["panginginig", "pagnginig"],
+    "antonyms": ["pagpayapa", "paghinahon"],
+    "tags": ["kilos", "pakiramdam", "paglalarawan", "katawan"],
+    "exam_tips": "Ang 'kaligkig' o 'kinakaligkig' ay 'shivering'. Ito ay panginginig na dulot ng lamig o kung minsan ay matinding takot o kilig."
+  },
+  {
+    "lemma": "kaliluhan",
+    "part_of_speech": "pangngalan",
+    "definition": "Matinding pagtataksil o kawalang-katapatan sa tiwala o tungkulin.",
+    "usage": "Isang pormal at pampanitikang salita para sa 'pagtataksil' o 'treachery'. Ginagamit para sa malalaking kasalanan ng paglabag sa tiwala. Ang pang-uri nito ay 'lilo'.",
+    "example": "Ang kaliluhan ng isipan ay maaaring magdulot ng maling desisyon sa buhay.",
+    "example_gloss": "The treachery of the mind can lead to wrong decisions in life.",
+    "extra_examples": [
+      "Sinisikap niyang iwaksi ang kaliluhan upang manatiling tapat sa kaniyang tungkulin.",
+      "Ang pagtataksil sa bayan ay isang gawaing lilo."
+    ],
+    "synonyms": ["pagtataksil", "kawalang-katapatan"],
+    "antonyms": ["katapatan", "pagiging-tapat"],
+    "tags": ["pormal", "pampanitikan", "negatibo", "moralidad"],
+    "exam_tips": "Ang 'kaliluhan' ay 'treachery' o 'betrayal'. Ang taong gumagawa nito ay tinatawag na 'lilo' (treacherous)."
+  },
+  {
+    "lemma": "kanlungan",
+    "part_of_speech": "pangngalan",
+    "definition": "Lugar o taong pinagsisilungan para sa proteksiyon, aliw, o pag-ahon mula sa panganib at hirap.",
+    "usage": "Isang pormal at pampanitikang salita para sa 'silungan' o 'refuge'. Maaari itong tumukoy sa isang pisikal na lugar o sa isang tao na nagbibigay ng proteksyon at kapanatagan.",
+    "example": "Ang simbahan ay naging kanlungan ng mga taong nawalan ng tahanan dahil sa bagyo.",
+    "example_gloss": "The church became a refuge for the people who lost their homes due to the storm.",
+    "extra_examples": [
+      "Humanap sila ng masisilungan na magsisilbing kanlungan sa gitna ng malakas na ulan.",
+      "Para sa kanya, ang yakap ng ina ang kanyang kanlungan."
+    ],
+    "synonyms": ["silungan", "santuwaryo", "refuge"],
+    "antonyms": ["panganib", "pagpapaalis"],
+    "tags": ["pormal", "pampanitikan", "lugar", "proteksyon"],
+    "exam_tips": "Ang 'kanlungan' ay 'refuge' o 'shelter'. Ito ay isang lugar (o tao) na nagbibigay ng kaligtasan at proteksyon."
+  },
+  {
+    "lemma": "kapalaluan",
+    "part_of_speech": "pangngalan",
+    "definition": "Labis na pag-iisip na nakahihigit ang sarili sa iba; kayabangan o pagmamataas.",
+    "usage": "Isang pormal na salita para sa 'kayabangan' o 'pride' sa negatibong kahulugan. Ang pang-uri nito ay 'palalo'.",
+    "example": "Ang kaniyang kapalaluan ang naging dahilan kung bakit marami ang lumalayo sa kaniya.",
+    "example_gloss": "His/Her arrogance was the reason why many people distanced themselves from him/her.",
+    "extra_examples": [
+      "Huwag kang magpalalo sa iyong nakamit na tagumpay; manatiling mapagkumbaba.",
+      "Ang kapalaluan ay isa sa mga pitong nakamamatay na kasalanan."
+    ],
+    "synonyms": ["kayabangan", "pagmamataas", "arogansya"],
+    "antonyms": ["pagpapakumbaba", "kababaang-loob"],
+    "tags": ["pormal", "pag-uugali", "negatibo", "moralidad"],
+    "exam_tips": "Ang 'kapalaluan' ay 'arrogance' o 'pride'. Ang taong mayroon nito ay tinatawag na 'palalo'. Ito ay ang kabaligtaran ng 'pagpapakumbaba' (humility)."
+  },
+  {
+    "lemma": "kapararakan",
+    "part_of_speech": "pangngalan",
+    "definition": "Kabuluhan, saysay, o dahilan kung bakit may halaga ang isang bagay o ginagawa.",
+    "usage": "Ginagamit upang tukuyin ang 'purpose', 'meaning', o 'value' ng isang bagay. Madalas itong gamitin sa negatibong anyo na 'walang kapararakan' (meaningless/pointless).",
+    "example": "Wala itong kapararakan kung hindi mo rin naman gagamitin sa kabutihan.",
+    "example_gloss": "This is pointless if you will not use it for good.",
+    "extra_examples": [
+      "Sinisikap niyang bigyan ng kapararakan ang bawat araw sa pamamagitan ng pagtulong.",
+      "Ano ang kapararakan ng lahat ng ating pinaghirapan kung hahantong lang sa wala?"
+    ],
+    "synonyms": ["kabuluhan", "saysay", "kahulugan"],
+    "antonyms": ["kawalang-kabuluhan", "kawalang-saysay"],
+    "tags": ["abstrakto", "pilosopiya", "pormal"],
+    "exam_tips": "Ang 'kapararakan' ay 'point' o 'purpose'. Mas madaling tandaan ang kahulugan nito sa pariralang 'walang kapararakan', na nangangahulugang 'pointless' o 'senseless'."
+  },
+  {
+    "lemma": "kapatiran",
+    "part_of_speech": "pangngalan",
+    "definition": "Samahan o ugnayan ng mga taong nagkakaisa sa isang layunin o interes; maaaring pormal na organisasyon o di‑pormal na samahan.",
+    "usage": "Katumbas ng 'brotherhood' o 'fraternity'. Tumutukoy ito sa isang grupo na may matibay na ugnayan dahil sa iisang layunin, paniniwala, o pinagmulan.",
+    "example": "Malakas ang ugnayan ng bawat miyembro sa loob ng kanilang kapatiran.",
+    "example_gloss": "The bond of each member within their brotherhood is strong.",
+    "extra_examples": [
+      "Ang kapatiran ng mga manunulat ay nagtipon-tipon upang talakayin ang panitikan.",
+      "Sumali siya sa isang kapatiran sa kolehiyo."
+    ],
+    "synonyms": ["samahan", "brotherhood", "organisasyon"],
+    "antonyms": ["pagkakawatak-watak", "kawalan-ng-ugnayan"],
+    "tags": ["sosyal", "organisasyon", "grupo"],
+    "exam_tips": "Ang 'kapatiran' ay mula sa salitang 'kapatid' (sibling) at nangangahulugang 'brotherhood' o 'fraternity'."
+  },
+  {
+    "lemma": "katiwalian",
+    "part_of_speech": "pangngalan",
+    "definition": "Gawaing labag sa batas o etika, lalo na sa pamahalaan o institusyon, upang magkaroon ng hindi makatarungang pakinabang.",
+    "usage": "Isang pormal na termino para sa 'korapsyon' o 'anomalya'. Tumutukoy ito sa mga ilegal o hindi etikal na gawain, lalo na ng mga taong nasa kapangyarihan.",
+    "example": "Dapat nating labanan ang anumang uri ng katiwalian sa ating pamahalaan.",
+    "example_gloss": "We must fight any form of corruption in our government.",
+    "extra_examples": [
+      "Ang tiwaling opisyal ay agad na inimbestigahan dahil sa nawawalang pondo.",
+      "Isiniwalat ng peryodista ang mga katiwalian sa ahensya."
+    ],
+    "synonyms": ["korapsiyon", "anomalya", "panlalamang"],
+    "antonyms": ["katapatan", "integridad", "kawastuhan"],
+    "tags": ["politika", "negosyo", "pormal", "negatibo"],
+    "exam_tips": "Ang 'katiwalian' ay ang pormal na salita para sa 'corruption'. Ang taong gumagawa nito ay 'tiwali'."
+  },
+  {
+    "lemma": "katuwang",
+    "part_of_speech": "pangngalan",
+    "definition": "Taong tumutulong o kasama sa isang gawain, tungkulin, o layunin.",
+    "usage": "Katumbas ng salitang 'partner' o 'assistant'. Tumutukoy ito sa isang tao na kasama mong gumagawa o tumutulong sa iyo sa isang partikular na gawain, negosyo, o maging sa buhay.",
+    "example": "Kailangan ko ng katuwang sa pagbubuhat ng mabibigat na kahon na ito.",
+    "example_gloss": "I need a partner in lifting these heavy boxes.",
+    "extra_examples": [
+      "Sila ang magkatuwang sa pagpapalaki ng kanilang limang anak.",
+      "Ang bise-presidente ang katuwang ng presidente sa pamamahala ng bansa."
+    ],
+    "synonyms": ["kasama", "katulong", "kaagapay"],
+    "antonyms": ["kalaban", "kontra"],
+    "tags": ["sosyal", "trabaho", "relasyon", "pang-araw-araw"],
+    "exam_tips": "Ang 'katuwang' ay 'partner'. Ito ay higit pa sa 'katulong' (helper) dahil ipinapahiwatig nito ang pagiging kapantay sa isang gawain."
+  },
+  {
+    "lemma": "kubkob",
+    "part_of_speech": "pandiwa",
+    "definition": "Palibutan o sakluban ang isang lugar o tao, karaniwang sa konteksto ng atake o paghuli.",
+    "usage": "Isang terminong pang-militar o pandigma na katumbas ng 'to besiege' o 'to surround'. Ginagamit kapag ang isang lugar ay pinaliligiran ng mga kaaway upang sugpuin o hulihin ang mga nasa loob.",
+    "example": "Kinubkob ng mga sundalo ang kuta ng mga rebelde sa kabundukan.",
+    "example_gloss": "The soldiers besieged the rebel's fortress in the mountains.",
+    "extra_examples": [
+      "Ang buong bayan ay tila kinubkob ng dilim dahil sa pagkawala ng kuryente.",
+      "Pinlano nila ang pagkubkob sa kampo ng mga kalaban sa madaling araw."
+    ],
+    "synonyms": ["palibutan", "sakluban", "siege"],
+    "antonyms": ["palayain", "lisanin"],
+    "tags": ["digmaan", "militar", "kilos", "pormal"],
+    "exam_tips": "Ang 'kubkubin' ay nangangahulugang 'to besiege' o 'to corner' sa pamamagitan ng pagpapalibot dito. Karaniwang ginagamit sa konteksto ng labanan."
+  },
+  {
+    "lemma": "kislap",
+    "part_of_speech": "pangngalan",
+    "definition": "Maliit at biglaang sinag ng liwanag; maaari ring tumukoy sa ningning sa mata o ekspresyon ng damdamin.",
+    "usage": "Ginagamit para sa mabilis at panandaliang liwanag (sparkle, glint). Karaniwan ding ginagamit sa metaporikal na paraan upang ilarawan ang 'ningning' sa mga mata na nagpapahiwatig ng saya o talino.",
+    "example": "Ang kislap ng mga bituin ay nagbibigay ng ganda sa gabing madilim.",
+    "example_gloss": "The sparkle of the stars adds beauty to the dark night.",
+    "extra_examples": [
+      "Nakita ko ang kislap ng saya sa kaniyang mga mata nang tanggapin ang regalo.",
+      "Ang kislap ng kanyang alahas ay agaw-pansin."
+    ],
+    "synonyms": ["ningning", "kinang", "siklab"],
+    "antonyms": ["dilim", "kawalan-ng-liwanag"],
+    "tags": ["liwanag", "deskriptibo", "pampanitikan", "metapora"],
+    "exam_tips": "Ang 'kislap' ay katumbas ng 'sparkle' o 'glint'. Tandaan ang dalawang gamit nito: ang literal na kislap (tulad ng bituin) at ang metaporikal na kislap (sa mata)."
+  },
+  {
+    "lemma": "kudyapi",
+    "part_of_speech": "pangngalan",
+    "definition": "Isang tradisyonal na instrumentong de-kuwerdas ng ilang pangkat-etniko sa Pilipinas.",
+    "usage": "Ginagamit upang tukuyin ang isang partikular na instrumentong pangmusika sa Pilipinas na may dalawang kuwerdas at hugis-bangka. Karaniwan sa mga talakayan tungkol sa kultura at sining ng Pilipinas.",
+    "example": "Ang tunog ng kudyapi ay tila isang oyayi na nagpapatulog sa mga bata.",
+    "example_gloss": "The sound of the kudyapi is like a lullaby that puts children to sleep.",
+    "extra_examples": [
+      "Bihasa ang matanda sa pagtugtog ng kudyapi na kaniyang minana pa sa kaniyang lolo.",
+      "Ang kudyapi ay isang mahalagang bahagi ng kultura ng mga Lumad."
+    ],
+    "synonyms": ["instrumentong de-kuwerdas"],
+    "antonyms": [],
+    "tags": ["kultura", "musika", "tradisyonal", "sining"],
+    "exam_tips": "Ang 'kudyapi' ay isang spesipikong Filipino stringed instrument. Iugnay ito sa kultura, tradisyon, at musikang etniko ng Pilipinas."
+  },
+  {
+    "lemma": "lagak",
+    "part_of_speech": "pandiwa",
+    "definition": "Paglalagay o pag-iimbak ng isang bagay sa isang lugar; maaari ring tumukoy sa idine-depositong pera o tiwala.",
+    "usage": "Isang pormal na salita para sa 'paglalagay'. Ginagamit sa konteksto ng pagdedeposito ng pera sa bangko ('ilagak ang pera'), paglalagay ng tiwala, o paglalagay ng isang mahalagang bagay sa isang ligtas na lugar.",
+    "example": "Maingat niyang inilagak ang kaniyang tiwala sa kaniyang matalik na kaibigan.",
+    "example_gloss": "He/She carefully placed his/her trust in his/her best friend.",
+    "extra_examples": [
+      "Ang lagakan ng mga lumang dokumento ay matatagpuan sa silong ng gusali.",
+      "Inilagak niya ang korona sa ulo ng nanalong reyna."
+    ],
+    "synonyms": ["itanghal", "ideposito", "ilagay"],
+    "antonyms": ["bawiin", "kunin", "alisin"],
+    "tags": ["pormal", "pananalapi", "kilos", "abstrakto"],
+    "exam_tips": "Ang 'ilagak' ay isang pormal na paraan ng pagsasabi ng 'ilagay' o 'ideposito'. Karaniwang ginagamit para sa mga mahahalagang bagay tulad ng pera, tiwala, o kapangyarihan."
+  },
+  {
+    "lemma": "lamikmik",
+    "part_of_speech": "pangngalan",
+    "definition": "Tahimik at payapang sandali o pakiramdam na nagbibigay-lugod at katahimikan ng isip.",
+    "usage": "Isang pampanitikan at malalim na salita na tumutukoy sa isang estado ng 'serene tranquility' o 'peaceful bliss'. Hindi ito simpleng katahimikan kundi katahimikan na may kasamang kasiyahan at kapayapaan ng loob.",
+    "example": "Kay sarap maranasan ang lamikmik ng buhay sa gitna ng katahimikan ng kalikasan.",
+    "example_gloss": "It is so wonderful to experience the serene bliss of life amidst the tranquility of nature.",
+    "extra_examples": [
+      "Naghahanap siya ng lamikmik upang makapag-isip-isip ng kaniyang mga susunod na hakbang.",
+      "Ang lamikmik ng gabi ay sinira ng malakas na kulog."
+    ],
+    "synonyms": ["kapayapaan", "katahimikan", "ginhawa"],
+    "antonyms": ["kaguluhan", "gulo", "ingay"],
+    "tags": ["pampanitikan", "emosyon", "kalikasan", "positibo"],
+    "exam_tips": "Ang 'lamikmik' ay hindi lang 'tahimik'; ito ay 'serenity' o 'tranquility' na may kasamang pakiramdam ng kaligayahan. Isang napakapositibong salita."
+  },
+  {
+    "lemma": "lamyos",
+    "part_of_speech": "pangngalan",
+    "definition": "Banayad at kaaya-ayang tunog o haplos, tulad ng malambing na tinig o simoy ng hangin.",
+    "usage": "Ginagamit upang ilarawan ang isang bagay na 'gentle and pleasant' sa pandama, partikular sa pandinig (malamyos na tinig) o pandamdam (malamyos na haplos/hangin).",
+    "example": "Ang lamyos ng kaniyang pananalita ay nakapagpapahinahon sa mga galit na tao.",
+    "example_gloss": "The gentleness of his/her speech calms angry people.",
+    "extra_examples": [
+      "Nararamdaman ko ang lamyos ng hangin habang naglalakad sa tabi ng dagat.",
+      "Ang malamyos niyang tinig ay perpekto para sa mga awit ng pag-ibig."
+    ],
+    "synonyms": ["malambing", "banayad", "kaaya-aya"],
+    "antonyms": ["magaspang", "matalim", "mabagsik"],
+    "tags": ["deskriptibo", "tunog", "pakiramdam", "positibo"],
+    "exam_tips": "Ang 'lamyos' (o 'malamyos') ay nangangahulugang 'gentle and pleasant', karaniwan para sa tunog (voice) o haplos (touch/breeze). Ito ay katumbas ng 'caress' sa Ingles."
+  },
+  {
+    "lemma": "lansag",
+    "part_of_speech": "pandiwa",
+    "definition": "Paghimay, pagbuwag, o pagwasak sa isang buo o estruktura.",
+    "usage": "Ginagamit para sa pag-dismantle o pag-abolish ng isang bagay na naka-organisa, tulad ng isang grupo, sistema, o istruktura. Mas malakas ang implikasyon nito kaysa 'baklas'.",
+    "example": "Napilitan silang lansagin ang lumang estruktura upang bigyang-daan ang bagong parke.",
+    "example_gloss": "They were forced to dismantle the old structure to make way for the new park.",
+    "extra_examples": [
+      "Nilansag ng mga pulis ang grupo ng mga magnanakaw sa loob ng isang operasyon.",
+      "Layunin ng kilusan na lansagin ang tiwaling sistema ng pamahalaan."
+    ],
+    "synonyms": ["buwagin", "wasakin", "tanggalin"],
+    "antonyms": ["buoin", "itayo", "isaayos"],
+    "tags": ["kilos", "negatibo", "organisasyon", "istruktura"],
+    "exam_tips": "Ang 'lansagin' ay katumbas ng 'to dismantle' o 'to abolish'. Ginagamit ito hindi lang para sa pisikal na istruktura kundi pati na rin sa mga grupo at sistema."
+  },
+  {
+    "lemma": "lapa",
+    "part_of_speech": "pandiwa",
+    "definition": "Pagkain o pagsamsam nang mabangis o walang awa, karaniwang ng hayop sa kaniyang biktima.",
+    "usage": "Ginagamit upang ilarawan ang marahas na pagkain ng isang hayop sa kanyang biktima (to devour). Maaari ring gamitin sa metaporikal na paraan para sa marahas na paninira o pag-atake.",
+    "example": "Ang mga gutom na leon ay agad na nilapa ang kanilang huli sa kagubatan.",
+    "example_gloss": "The hungry lions immediately devoured their prey in the forest.",
+    "extra_examples": [
+      "Masakit makita ang isang inosenteng hayop na nilalapa ng mas malakas na nilalang.",
+      "Tila nilapa ng apoy ang buong kabahayan sa loob lamang ng ilang minuto."
+    ],
+    "synonyms": ["lamunin", "sakmalin", "sibsibin"],
+    "antonyms": ["mahabag", "alagaan"],
+    "tags": ["kilos", "marahas", "hayop", "kalikasan"],
+    "exam_tips": "Ang 'lapain' ay 'to devour'. Ito ay isang marahas na paraan ng pagkain na madalas iugnay sa mga mababangis na hayop."
+  },
+  {
+    "lemma": "libak",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Panlilibak o panlalait sa kapwa, kadalasan sa paraang nakasasakit ng dignidad.",
+    "usage": "Ginagamit para sa kilos ng 'pangungutya' o 'panlalait' na may layuning maliitin o hiyain ang isang tao. Ang 'panlilibak' ay isang matinding anyo ng pang-iinsulto.",
+    "example": "Huwag mong libakin ang iyong kapwa base lamang sa kaniyang panlabas na anyo.",
+    "example_gloss": "Do not mock your fellow person based only on his/her external appearance.",
+    "extra_examples": [
+      "Ang panlilibak sa iba ay hindi nagpapakita ng magandang asal at pagkatao.",
+      "Nilibak siya ng kanyang mga kaklase dahil sa kanyang lumang sapatos."
+    ],
+    "synonyms": ["lait", "uyam", "panlalait", "kutya"],
+    "antonyms": ["papuri", "pagpupuri", "paggalang"],
+    "tags": ["negatibo", "sosyal", "pag-uugali", "berbal"],
+    "exam_tips": "Ang 'libak' ay katumbas ng 'mockery' o 'scorn'. Ang pandiwang 'libakin' ay 'to mock' o 'to ridicule'."
+  },
+  {
+    "lemma": "liderato",
+    "part_of_speech": "pangngalan",
+    "definition": "Kakayahan o istilo ng pamumuno; paraan ng paggabay sa isang grupo o organisasyon.",
+    "usage": "Isang hiram na salitang Espanyol na tumutukoy sa 'leadership'. Ginagamit sa pormal na konteksto tulad ng politika, negosyo, at organisasyon.",
+    "example": "Ang kaniyang maayos na liderato ay nagdala ng kaayusan sa kanilang barangay.",
+    "example_gloss": "His/Her good leadership brought order to their barangay.",
+    "extra_examples": [
+      "Hinahanap ng organisasyon ang isang tao na may matatag na liderato at prinsipyo.",
+      "Pinag-aaralan sa klase ang iba't ibang uri ng liderato."
+    ],
+    "synonyms": ["pamumuno", "pangunguna"],
+    "antonyms": ["kawalan-ng-pamumuno", "kaguluhan"],
+    "tags": ["hiram-na-salita", "politika", "negosyo", "pormal"],
+    "exam_tips": "Ang 'liderato' ay ang salitang Filipino para sa 'leadership'. Galing ito sa salitang 'lider'."
+  },
+  {
+    "lemma": "ligwak",
+    "part_of_speech": "pandiwa",
+    "definition": "Pagkawala o pagkabigo ng isang pagkakataon o planong sana’y magtatagumpay; minsan ding tumutukoy sa pagtapon.",
+    "usage": "Ginagamit sa kolokyal na paraan para sa pagkaalis o pagkabigo sa isang kompetisyon o trabaho ('naligwak sa contest'). Maaari ring mangahulugang pagtapon o pag-aksaya.",
+    "example": "Naligwak ang kaniyang pagkakataon na manalo dahil sa isang pagkakamali.",
+    "example_gloss": "His/Her chance to win was wasted because of one mistake.",
+    "extra_examples": [
+      "Kailangang mag-ingat upang hindi maligwak sa pinapasukang trabaho.",
+      "Huwag mong iligwak ang natirang pagkain."
+    ],
+    "synonyms": ["sayangin", "mawalan-ng-tsansa", "matanggal", "maaksaya"],
+    "antonyms": ["mapakinabangan", "magtagumpay", "manatili"],
+    "tags": ["kolokyal", "kompetisyon", "negatibo"],
+    "exam_tips": "Ang 'naligwak' ay karaniwang nangangahulugang 'na-eliminate' o 'natanggal' sa isang kompetisyon o trabaho. Ito rin ay pwedeng mangahulugang 'nasayang'."
+  },
+  {
+    "lemma": "lipol",
+    "part_of_speech": "pandiwa",
+    "definition": "Ganap na pag-ubos o pagwasak sa isang grupo, bagay, o kalagayan.",
+    "usage": "Isang matinding salita para sa 'pag-ubos' o 'pagwasak' ng isang bagay nang buo. Ginagamit sa konteksto ng digmaan, pagpuksa sa peste, o pag-alis ng isang masamang bagay.",
+    "example": "Layunin ng mga magsasaka na lipulin ang mga peste na sumisira sa kanilang pananim.",
+    "example_gloss": "The farmers' goal is to exterminate the pests that are destroying their crops.",
+    "extra_examples": [
+      "Nilipol ng malakas na bagyo ang mga kabahayan sa tabing-dagat.",
+      "Ang programa ay naglalayong lipulin ang katiwalian sa pamahalaan."
+    ],
+    "synonyms": ["ubusin", "puksain", "wasakin"],
+    "antonyms": ["iligtas", "ingatan", "panatilihin"],
+    "tags": ["kilos", "marahas", "negatibo", "ganap"],
+    "exam_tips": "Ang 'lipulin' ay katumbas ng 'to exterminate' o 'to annihilate'. Ito ay nagpapahiwatig ng kumpletong pagwasak o pag-ubos."
+  },
+  {
+    "lemma": "lagaslas",
+    "part_of_speech": "pangngalan",
+    "definition": "Tuloy-tuloy at mayamungmong tunog ng umaagos na tubig o ng mga dahon sa hangin.",
+    "usage": "Isang onomatopoeia o salitang-tunog na naglalarawan sa 'rustling' o 'rushing sound' ng tubig, dahon, o hangin. Ginagamit sa mga deskriptibo at pampanitikang akda.",
+    "example": "Ang lumalagaslas na tubig sa batis ay nakapagbibigay ng kapanatagan sa isip.",
+    "example_gloss": "The rushing sound of the water in the stream brings peace of mind.",
+    "extra_examples": [
+      "Narinig ko ang lumalagaslas na agos ng tubig mula sa kalayuan.",
+      "Ang lagaslas ng mga dahon ay hudyat ng malakas na hangin."
+    ],
+    "synonyms": ["agos", "daloy", "dagundong-ng-tubig"],
+    "antonyms": ["katahimikan", "walang-ingos"],
+    "tags": ["tunog", "kalikasan", "deskriptibo", "pampanitikan"],
+    "exam_tips": "Ang 'lagaslas' ay isang salitang pantunog (onomatopoeia). Iugnay ito sa tunog ng umaagos na tubig o mga dahon na hinahangin."
+  },
+  {
+    "lemma": "lawig",
+    "part_of_speech": "pandiwa",
+    "definition": "Paglawak o pagtagal ng panahon, buhay, o saklaw ng isang bagay.",
+    "usage": "Ginagamit sa anyong 'lumawig' (to be extended/prolonged) o 'pinalawig' (was extended). Maaaring tumukoy sa haba ng buhay, panahon, o deadline.",
+    "example": "Sana ay lumawig pa ang iyong buhay upang mas marami ka pang matulungan.",
+    "example_gloss": "I hope your life will be prolonged so you can help more people.",
+    "extra_examples": [
+      "Pinalawig ng guro ang oras para sa pagsusulit dahil sa hirap ng mga tanong.",
+      "Ang paglawig ng kanyang panunungkulan ay inaprubahan ng komite."
+    ],
+    "synonyms": ["haba", "pagpapahaba", "pagtagal"],
+    "antonyms": ["pag-ikli", "pagputol", "pagwakas"],
+    "tags": ["oras", "kilos", "abstrakto"],
+    "exam_tips": "Ang 'lumawig' ay 'to be prolonged'. Ang 'pinalawig' ay 'was extended'. Iugnay ito sa pagpapahaba ng oras o panahon."
+  },
+  {
+    "lemma": "lumbay",
+    "part_of_speech": "pangngalan/pang-uri",
+    "definition": "Malalim na kalungkutan o dalamhati.",
+    "usage": "Isang pormal at pampanitikang salita para sa 'lungkot'. Ginagamit upang ilarawan ang isang estado ng 'sadness' o 'melancholy'.",
+    "example": "Isang matinding lumbay ang bumalot sa kaniya nang pumanaw ang kaniyang ina.",
+    "example_gloss": "A deep sadness enveloped him/her when his/her mother passed away.",
+    "extra_examples": [
+      "Ang malumbay na awitin ay nagpaalala sa kaniya ng kaniyang malungkot na nakaraan.",
+      "Puno ng lumbay ang kanyang mga mata."
+    ],
+    "synonyms": ["kalungkutan", "pangungulila", "pighati"],
+    "antonyms": ["galak", "tuwa", "katuwaan"],
+    "tags": ["emosyon", "pampanitikan", "negatibo", "malalim"],
+    "exam_tips": "Ang 'lumbay' ay isang mas malalim at mas pormal na salita para sa 'lungkot' (sadness/melancholy). Ang pang-uri nito ay 'malumbay'."
+  },
+  {
+    "lemma": "lumi",
+    "part_of_speech": "pangngalan",
+    "definition": "Pakiramdam ng bigat ng loob, lungkot, o pangungulila; madalas ginagamit sa mas pormal o makata na wika.",
+    "usage": "Isang napakalalim at pampanitikang salita para sa isang uri ng 'melancholy' na may kasamang pangungulila at bigat ng dibdib. Bihira itong gamitin sa pang-araw-araw na usapan.",
+    "example": "Nalulumi siya sa tuwing naaalala ang mga panahong siya ay nag-iisa.",
+    "example_gloss": "He/She feels melancholy whenever he/she remembers the times he/she was alone.",
+    "extra_examples": [
+      "Ang lumi na nararamdaman niya ay dulot ng pangungulila sa kaniyang pamilya.",
+      "May lumi sa kanyang mga tula tungkol sa pag-ibig na nawala."
+    ],
+    "synonyms": ["pangungulila", "kalumbayan", "pagkabigo-ng-loob"],
+    "antonyms": ["gaan-ng-loob", "kagaanan", "kasiyahan"],
+    "tags": ["pampanitikan", "emosyon", "malalim", "bihira"],
+    "exam_tips": "Ang 'lumi' ay isang bihirang gamiting salita para sa isang napakalalim na uri ng kalungkutan (melancholy), na kadalasang may kaugnayan sa pangungulila."
+  },
+  {
+    "lemma": "lisan",
+    "part_of_speech": "pandiwa",
+    "definition": "Umalis o lumayo sa isang lugar; maaari ring tumukoy sa pagpanaw.",
+    "usage": "Isang pormal at pampanitikang salita para sa 'umalis'. Ang pandiwa ay 'lumisan' (umalis) o 'lisanin' (iwanan ang isang lugar).",
+    "example": "Mabigat ang kaniyang loob nang lumisan siya sa bayang kaniyang kinalakhan.",
+    "example_gloss": "His/Her heart was heavy when he/she left the town where he/she grew up.",
+    "extra_examples": [
+      "Marami ang nalungkot nang mabalitaang lilisan na ang tanyag na guro sa paaralan.",
+      "Huwag mong lisanin ang iyong mga tungkulin."
+    ],
+    "synonyms": ["umalis", "umalis-sa", "umalis-mula-sa", "lumayo"],
+    "antonyms": ["dumating", "manatili", "mamalagi"],
+    "tags": ["pampanitikan", "pormal", "kilos", "pag-alis"],
+    "exam_tips": "Ang 'lumisan' ay isang pormal na katumbas ng 'umalis' (to leave). Ang 'lisanin' ay 'to leave a place'."
+  },
+  {
+    "lemma": "lunduyan",
+    "part_of_speech": "pangngalan",
+    "definition": "Lugar na pinagmumulan o pinagtitipunan ng isang bagay, tulad ng kalakalan, kultura, o karunungan.",
+    "usage": "Isang pormal at pampanitikang salita na tumutukoy sa 'sentro' o 'pinagmulan' (cradle, center).",
+    "example": "Ang Maynila ay dating lunduyan ng kalakalan at kultura.",
+    "example_gloss": "Manila was once the center of trade and culture.",
+    "extra_examples": [
+      "Ang silid-aklatan ang nagsisilbing lunduyan ng karunungan para sa mga mag-aaral.",
+      "Itinuturing ang kanilang bayan bilang lunduyan ng mga magigiting na bayani."
+    ],
+    "synonyms": ["pinagmulan", "sentro", "duyan"],
+    "antonyms": ["wakas", "kawalan"],
+    "tags": ["pampanitikan", "pormal", "lugar", "abstrakto"],
+    "exam_tips": "Ang 'lunduyan' ay nangangahulugang 'center' o 'cradle' ng isang bagay (e.g., lunduyan ng sibilisasyon). Ito ay ang pinakasentro o pinagmulan."
+  },
+  {
+    "lemma": "lungayngay",
+    "part_of_speech": "pang-uri",
+    "definition": "Pagkabayang o pagkalaylay ng bahagi ng katawan o bagay dahil sa pagod, panghihina, o kawalan ng sigla.",
+    "usage": "Ginagamit upang ilarawan ang isang bagay na nakalaylay o nakabagsak dahil sa panghihina, tulad ng ulo ng isang inaantok na tao o nalantang bulaklak.",
+    "example": "Napansin ng guro ang lungayngay na ulo ng mag-aaral dahil sa puyat.",
+    "example_gloss": "The teacher noticed the student's drooping head due to lack of sleep.",
+    "extra_examples": [
+      "Lungayngay ang mga bulaklak sa pasimano matapos ang matinding sikat ng araw.",
+      "Dahil sa sobrang pagod, siya ay naupong lungayngay sa isang tabi."
+    ],
+    "synonyms": ["laylay", "lupaypay", "bagsak"],
+    "antonyms": ["tindig", "tayô", "matikas"],
+    "tags": ["deskriptibo", "pisikal", "hina"],
+    "exam_tips": "Ang 'lungayngay' ay nangangahulugang 'drooping' o 'limp'. Iugnay ito sa imahe ng isang nalantang halaman o isang taong sobrang pagod o inaantok."
+  },
+  {
+    "lemma": "lunsaran",
+    "part_of_speech": "pangngalan",
+    "definition": "Lugar na pinagmumulan o pinagdadaungan ng mga sasakyang pandagat; maaari ring tumukoy sa panimulang pook ng isang gawain.",
+    "usage": "Ginagamit sa literal na kahulugan bilang 'daungan' o 'pantalan' (port/dock). Sa metaporikal na kahulugan, ito ay ang 'launching pad' o panimulang punto para sa isang proyekto o karera.",
+    "example": "Ang lunsaran ng mga barko ay punong-puno ng mga kargamento mula sa ibang bansa.",
+    "example_gloss": "The port for ships is full of cargo from other countries.",
+    "extra_examples": [
+      "Maagang nagtungo ang mga mangingisda sa lunsaran upang ihanda ang kanilang mga lambat.",
+      "Ang patimpalak na ito ang naging lunsaran ng kanyang karera sa pagkanta."
+    ],
+    "synonyms": ["daungan", "pantalan", "panimulang-lugar", "launchpad"],
+    "antonyms": ["pagtatapos", "hantungan"],
+    "tags": ["lugar", "transportasyon", "metapora"],
+    "exam_tips": "May dalawang kahulugan: literal na 'port/dock' at metaporikal na 'launching pad'. Parehong tumutukoy sa isang simula o pinagmulan."
+  },
+  {
+    "lemma": "lupaypay",
+    "part_of_speech": "pang-uri",
+    "definition": "Lubhang pagod at nanghihina na para bang nawalan ng lakas ang katawan o loob.",
+    "usage": "Ginagamit upang ilarawan ang estado ng matinding pagod o 'exhaustion', kung saan ang katawan ay tila bagsak at walang lakas.",
+    "example": "Lupaypay ang katawan ng atleta matapos ang mahabang marathon.",
+    "example_gloss": "The athlete's body was exhausted after the long marathon.",
+    "extra_examples": [
+      "Nanlupaypay ang kanyang loob nang mabalitaang hindi siya nakapasa sa pagsusulit.",
+      "Pagdating sa bahay, lupaypay siyang humiga sa kama."
+    ],
+    "synonyms": ["hingal", "hina", "bagsak-ang-katawan", "pagod-na-pagod"],
+    "antonyms": ["masigla", "maliksi", "malusog"],
+    "tags": ["deskriptibo", "pakiramdam", "hina", "negatibo"],
+    "exam_tips": "Ang 'lupaypay' ay 'exhausted' o 'limp due to fatigue'. Ito ay mas matindi kaysa sa simpleng 'pagod'."
+  },
+  {
+    "lemma": "luwalhati",
+    "part_of_speech": "pangngalan",
+    "definition": "Matinding karangalan, tagumpay, o kaluwalhatian na karaniwang bunga ng pagsisikap o kabayanihan.",
+    "usage": "Isang pormal at malalim na salita para sa 'glory' o 'honor'. Ginagamit sa konteksto ng malaking tagumpay, kabayanihan, o espiritwal na estado.",
+    "example": "Isang maluwalhati na pagtatapos ang ipinagdiwang ng mga mag-aaral.",
+    "example_gloss": "The students celebrated a glorious graduation.",
+    "extra_examples": [
+      "Ang kanyang sakripisyo ay nagbunga ng luwalhati para sa kanyang buong pamilya.",
+      "Nakamit ng koponan ang luwalhati ng pagiging kampeon."
+    ],
+    "synonyms": ["karangalan", "dangal", "tagumpay", "kaluwalhatian"],
+    "antonyms": ["kahihiyan", "kabiguan"],
+    "tags": ["pormal", "pampanitikan", "positibo", "tagumpay"],
+    "exam_tips": "Ang 'luwalhati' ay katumbas ng 'glory'. Ito ay nauugnay sa karangalan, tagumpay, at kadakilaan. Ang pang-uri nito ay 'maluwalhati'."
+  },
+  {
+    "lemma": "maalwan",
+    "part_of_speech": "pang-uri",
+    "definition": "Maginhawa at hindi gaanong mabigat o mahirap; maaaring tumukoy sa biyahe, gawain, o pamumuhay.",
+    "usage": "Ginagamit upang ilarawan ang isang sitwasyon, gawain, o pamumuhay na 'comfortable', 'easy', o 'convenient'. Ito ay nagpapahiwatig ng kagaanan at kawalan ng sagabal.",
+    "example": "Naging maalwan ang biyahe namin dahil walang trapiko sa kalsada.",
+    "example_gloss": "Our trip became easy/convenient because there was no traffic on the road.",
+    "extra_examples": [
+      "Nais ng magulang na magkaroon ng maalwan na buhay ang kanilang mga anak.",
+      "Mas maalwan ang trabaho ngayon dahil sa tulong ng mga bagong makina."
+    ],
+    "synonyms": ["maginhawa", "madali", "kampante"],
+    "antonyms": ["mabigat", "mahirap", "masikip"],
+    "tags": ["deskriptibo", "sitwasyon", "positibo", "pang-araw-araw"],
+    "exam_tips": "Ang 'maalwan' ay katumbas ng 'comfortable' o 'convenient'. Ang pangngalan nito ay 'kaalwanan' (comfort/convenience). Ito ang kabaligtaran ng 'mahirap'."
+  },
+  {
+    "lemma": "apuhap",
+    "part_of_speech": "pandiwa",
+    "definition": "Paghahanap o paghagilap sa pamamagitan ng pagkapâ, lalo na sa dilim o sa isip.",
+    "usage": "Ginagamit sa anyong 'apuhapin' (to grope for). Ito ay tumutukoy sa kilos ng paghahanap sa isang bagay gamit ang kamay nang hindi nakikita, o sa paghahanap ng tamang salita sa isipan.",
+    "example": "Sinubukan niyang apuhapin ang susi sa loob ng kanyang madilim na bag.",
+    "example_gloss": "He/She tried to grope for the key inside his/her dark bag.",
+    "extra_examples": [
+      "Hirap siyang maapuhap ang tamang salita para ipaliwanag ang kanyang nararamdaman.",
+      "Inaapuhap niya ang switch ng ilaw sa dilim."
+    ],
+    "synonyms": ["kapain", "hanapin-sa-dilim", "suriin"],
+    "antonyms": ["talikuran", "ipagwalang-bahala"],
+    "tags": ["kilos", "paghahanap", "metapora"],
+    "exam_tips": "Ang 'apuhapin' ay 'to grope for' o 'to search by feeling'. Tandaan ang dalawang gamit: literal na pagkapâ at metaporikal na paghahanap ng salita o ideya."
+  },
+  {
+    "lemma": "bulas",
+    "part_of_speech": "pangngalan/pang-uri",
+    "definition": "Lusog at husay ng paglaki ng katawan o halaman; maayos na hubog at lakas.",
+    "usage": "Ginagamit bilang pang-uri (mabulas) upang ilarawan ang isang tao na may malusog at matipunong pangangatawan (robust, well-built) o isang halaman na malago.",
+    "example": "Mabulas ang pangangatawan ng binate dahil sa araw-araw na pagtatrabaho sa bukid.",
+    "example_gloss": "The young man's physique is robust due to daily work in the farm.",
+    "extra_examples": [
+      "Kitang-kita ang kabulasan ng mga pananim matapos ang masaganang ulan.",
+      "Ang kanyang alagang manok ay mabulas at handa nang isabong."
+    ],
+    "synonyms": ["malusog", "matipuno", "masigla-ang-tubo"],
+    "antonyms": ["payat", "mahina", "hindi-maganda-ang-tubo"],
+    "tags": ["deskriptibo", "kalusugan", "pangangatawan", "positibo"],
+    "exam_tips": "Ang 'mabulas' ay 'robust' o 'well-built' para sa tao, at 'lush' o 'thriving' para sa halaman. Ito ay nagpapahiwatig ng kalusugan at kalakasan."
+  },
+  {
+    "lemma": "mabuway",
+    "part_of_speech": "pang-uri",
+    "definition": "Hindi matatag o madaling matinag; ginagamit sa lakad, bagay, o pundasyon.",
+    "usage": "Katumbas ng 'unsteady' o 'unstable'. Ginagamit upang ilarawan ang isang bagay na umuuga, hindi balanse, o madaling gumuho, tulad ng tulay, desisyon, o paninindigan.",
+    "example": "Mabuway ang kanyang paglakad dahil sa tinamong sugat sa binti.",
+    "example_gloss": "His/Her walking is unsteady because of the wound on his/her leg.",
+    "extra_examples": [
+      "Ang mabuway na pundasyon ng gusali ay nagdulot ng pangamba sa mga residente.",
+      "Huwag kang gumawa ng desisyon kung mabuway pa ang iyong pag-iisip."
+    ],
+    "synonyms": ["uyog", "hindi-matatag", "ngalngal"],
+    "antonyms": ["matatag", "matibay", "matatag-ang-tindig"],
+    "tags": ["deskriptibo", "negatibo", "kalagayan", "istruktura"],
+    "exam_tips": "Ang 'mabuway' ay nangangahulugang 'unstable' o 'shaky'. Ito ang direktang kasalungat ng 'matatag'."
+  },
+  {
+    "lemma": "gitla",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Biglaang pagkagulat o pagkatigagal dahil sa isang di-inaasahang pangyayari.",
+    "usage": "Ginagamit bilang pandiwa (nagitla) para sa biglaang pagkagulat o 'startled'. Ito ay mas matindi kaysa 'gulat' at nagpapahiwatig ng biglaang pagtigil o pag-react.",
+    "example": "Nagitla ang lahat nang biglang bumukas nang malakas ang pinto.",
+    "example_gloss": "Everyone was startled when the door suddenly opened loudly.",
+    "extra_examples": [
+      "Isang nakagigitlang balita ang bumungad sa kanya sa telebisyon.",
+      "Sa kanyang pagkagitla, nabitawan niya ang hawak na baso."
+    ],
+    "synonyms": ["gulat", "sindak", "pagkagulat"],
+    "antonyms": ["kahinahunan", "kapanatagan"],
+    "tags": ["emosyon", "reaksyon", "biglaan"],
+    "exam_tips": "Ang 'nagitla' ay 'was startled'. Ito ay isang mabilis at biglaang reaksyon ng pagkagulat."
+  },
+  {
+    "lemma": "kamal",
+    "part_of_speech": "pandiwa",
+    "definition": "Pag-iipon o pagkalap ng maraming bagay, lalo na ng kayamanan o ari-arian.",
+    "usage": "Ginagamit sa anyong 'magkamal' (to amass). Ito ay tumutukoy sa pag-iipon ng malaking halaga ng isang bagay, karaniwan ay pera o yaman, at madalas may negatibong konotasyon ng kasakiman.",
+    "example": "Nagkamal ng malaking kayamanan ang negosyante dahil sa kanyang pagsisikap.",
+    "example_gloss": "The businessman amassed great wealth because of his hard work.",
+    "extra_examples": [
+      "Huwag mong hangarin ang magkamal ng salapi sa masamang paraan.",
+      "Pinagsusumikapan niyang magkamal ng kaalaman sa iba't ibang larangan."
+    ],
+    "synonyms": ["mag-ipon", "mag-impok", "mangolekta"],
+    "antonyms": ["magwaldas", "ubusin", "magpakawala"],
+    "tags": ["kilos", "pananalapi", "negosyo"],
+    "exam_tips": "Ang 'magkamal' ay 'to amass' o mag-ipon nang marami, lalo na ng yaman. Tandaan na maaari itong magkaroon ng negatibong kahulugan (kasakiman)."
+  },
+  {
+    "lemma": "kasangkapan",
+    "part_of_speech": "pangngalan",
+    "definition": "Bagay o kagamitan na ginagamit upang magawa ang isang gawain o tungkulin.",
+    "usage": "Isang pangkalahatang termino para sa 'tools', 'equipment', o 'implements'. Maaari ring gamitin sa metaporikal na paraan (kasangkapan sa pagbabago).",
+    "example": "Ang edukasyon ay isang mahalagang kasangkapan upang labanan ang kahirapan.",
+    "example_gloss": "Education is an important tool to fight poverty.",
+    "extra_examples": [
+      "Inihanda na ng karpintero ang lahat ng kanyang kasangkapan.",
+      "Ginamit siyang kasangkapan ng mga pulitiko para sa kanilang sariling interes."
+    ],
+    "synonyms": ["kagamitan", "aparato", "instrumento"],
+    "antonyms": ["walang-kagamitan", "kakulangan"],
+    "tags": ["bagay", "trabaho", "praktikal", "metapora"],
+    "exam_tips": "Ang 'kasangkapan' ay katumbas ng 'tools' o 'equipment'. Tandaan na mayroon itong literal at metaporikal na gamit."
+  },
+  {
+    "lemma": "punyagi",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Masidhing pagsisikap at pagtitiyaga upang makamit ang isang layunin.",
+    "usage": "Ginagamit bilang pangngalan (pagpupunyagi) o pandiwa (magpunyagi) para tukuyin ang 'perseverance' o 'persistent effort'. Ito ay isang positibong salita na nagpapahiwatig ng determinasyon.",
+    "example": "Kailangan nating magpunyagi upang makamit ang ating mga pangarap sa buhay.",
+    "example_gloss": "We need to persevere to achieve our dreams in life.",
+    "extra_examples": [
+      "Ang kanyang pagpupunyagi ay nagbunga ng mataas na parangal sa paaralan.",
+      "Sa kabila ng maraming pagsubok, patuloy siyang nagpupunyagi."
+    ],
+    "synonyms": ["pagsisikap", "pagpupursige", "pagtitiyaga"],
+    "antonyms": ["pagkawalang-bahala", "pagsuko"],
+    "tags": ["positibo", "pag-uugali", "abstrakto", "inspirasyon"],
+    "exam_tips": "Ang 'pagpupunyagi' ay 'perseverance'. Ito ay ang patuloy na pagsisikap sa kabila ng mga hadlang. Ang taong gumagawa nito ay 'mapagpunyagi'."
+  },
+  {
+    "lemma": "manggagaway",
+    "part_of_speech": "pangngalan",
+    "definition": "Taong pinaniniwalaang gumagamit ng mahika o kulam upang magdulot ng sakit o kapahamakan.",
+    "usage": "Isang termino sa alamat at kulturang-bayan para sa isang taong nagsasagawa ng masamang mahika, katulad ng 'mangkukulam' o 'sorcerer'.",
+    "example": "Ayon sa mga kuwentong-bayan, may manggagaway na naninirahan sa dulo ng baryo.",
+    "example_gloss": "According to folktales, there is a sorcerer living at the edge of the village.",
+    "extra_examples": [
+      "Pinaniniwalaan nilang ang kanyang pagkakasakit ay dulot ng panggagaway.",
+      "Kinatatakutan ng mga tao ang bahay ng matandang manggagaway."
+    ],
+    "synonyms": ["mangkukulam", "salamangkero-sa-masama"],
+    "antonyms": ["manggagamot", "albularyo"],
+    "tags": ["kultura", "alamat", "negatibo", "tao"],
+    "exam_tips": "Ang 'manggagaway' ay katumbas ng 'evil sorcerer' o 'witch'. Ito ay nauugnay sa 'kulam' (witchcraft). Huwag ipagkamali sa 'manggagamot' (healer)."
+  },
+  {
+    "lemma": "umit",
+    "part_of_speech": "pandiwa",
+    "definition": "Kumuha nang palihim ng bagay na pag-aari ng iba; magnakaw ng kaunti.",
+    "usage": "Isang kolokyal na salita para sa 'pagnanakaw' ng maliliit na bagay o halaga (to filch, to pilfer). Ang anyo nito ay 'umit' o 'nang-umit'.",
+    "example": "Nang-umit siya ng barya sa pitaka ng kanyang kapatid upang ibili ng kendi.",
+    "example_gloss": "He/She filched a coin from his/her sibling's wallet to buy candy.",
+    "extra_examples": [
+      "Ang pag-umit, maliit man o malaki, ay itinuturing pa ring pagnanakaw.",
+      "Mahilig siyang umit ng pagkain mula sa ref."
+    ],
+    "synonyms": ["magnakaw", "dumampot-nang-ligaw"],
+    "antonyms": ["magbalik", "magbigay", "umamin"],
+    "tags": ["kilos", "kolokyal", "negatibo"],
+    "exam_tips": "Ang 'umit' ay pagnanakaw ng maliit na bagay (to filch). Ito ay hindi kasing-tindi ng 'magnakaw'."
+  },
+  {
+    "lemma": "sigo",
+    "part_of_speech": "pandiwa",
+    "definition": "Pagkakatama nang eksakto sa pakay, gaya ng pana o bala sa target; maaari ring tumukoy sa pagkakatama sa pagkakataon.",
+    "usage": "Isang bihirang salita na ginagamit sa anyong 'manigo' (to hit the mark). Katumbas ito ng 'sumapol' o 'tumama nang eksakto'.",
+    "example": "Nanigo ang kanyang pana sa gitna ng target sa unang subok pa lamang.",
+    "example_gloss": "His arrow hit the center of the target on the very first try.",
+    "extra_examples": [
+      "Sana ay manigo ang iyong lakad ngayong araw upang makuha mo ang trabaho.",
+      "Ang kanyang hula ay nanigo sa nanalong numero."
+    ],
+    "synonyms": ["tumama", "sumapol", "umabot-sa"],
+    "antonyms": ["sumala", "sumablay"],
+    "tags": ["bihira", "kilos", "tagumpay", "tiyempo"],
+    "exam_tips": "Ang 'manigo' ay isang mas pormal o lumang salita para sa 'to hit the mark' o 'tumama nang sakto'. Ang kasalungat nito ay 'sumala' (to miss)."
+  },
+  {
+    "lemma": "imot",
+    "part_of_speech": "pandiwa",
+    "definition": "Magdamot o magkulang sa pagbabahagi; magpigil sa pagbibigay ng dapat na ibahagi.",
+    "usage": "Ginagamit sa anyong 'mag-imot' (to be stingy) o 'mapag-imot' (stingy). Ito ay pag-uugali ng pagiging madamot o kuripot.",
+    "example": "Ang mapag-imot na ugali ay hindi nagugustuhan ng kanyang mga kasamahan.",
+    "example_gloss": "The stingy attitude is disliked by his/her colleagues.",
+    "extra_examples": [
+      "Dahil sa pag-iimot sa pagkain, wala siyang naibahagi sa kanyang mga kalaro.",
+      "Huwag kang mag-imot ng kaalaman sa iyong kapwa."
+    ],
+    "synonyms": ["magdamot", "kuripot", "maramot"],
+    "antonyms": ["magbahagi", "magbigay", "mapagbigay"],
+    "tags": ["pag-uugali", "negatibo", "sosyal"],
+    "exam_tips": "Ang 'mapag-imot' ay 'stingy' o 'selfish'. Ito ay kasingkahulugan ng 'madamot' at 'kuripot'."
+  },
+  {
+    "lemma": "layaw",
+    "part_of_speech": "pangngalan/pang-uri",
+    "definition": "Sobrang paglulubog sa sarap at aliw na kulang sa disiplina; pagiging masyadong paborito o kinukunsinti.",
+    "usage": "Ginagamit bilang pangngalan (layaw) para sa 'luxury' o 'being spoiled'. Ang pang-uri ay 'palayaw' (spoiled). Ito ay tumutukoy sa pagbibigay ng lahat ng gusto na nagreresulta sa kawalan ng disiplina.",
+    "example": "Laking layaw ang bata kaya hindi siya marunong sumunod sa mga utos.",
+    "example_gloss": "The child grew up spoiled, that's why he/she doesn't know how to follow orders.",
+    "extra_examples": [
+      "Masyadong mapagpalayaw ang lolo sa kanyang mga apo.",
+      "Ang buhay na puno ng layaw ay hindi laging nagdudulot ng kaligayahan."
+    ],
+    "synonyms": ["luho", "malabis-na-pagpapasaya", "pagkunsinti"],
+    "antonyms": ["disiplina", "pagpipigil", "pagpapakasimple"],
+    "tags": ["pag-uugali", "pamilya", "negatibo"],
+    "exam_tips": "Ang 'layaw' ay ang estado ng pagiging 'spoiled'. Ang taong lumaki dito ay 'laking-layaw' o 'palayaw'."
+  },
+  {
+    "lemma": "mapakali",
+    "part_of_speech": "pandiwa",
+    "definition": "Kalagayan ng hindi mapirmi o hindi matahimik; pakiramdam na tila may alalahanin o dapat gawin.",
+    "usage": "Karaniwang ginagamit sa negatibong anyo na 'hindi mapakali' (restless, fidgety) upang ilarawan ang isang tao na hindi mapanatag o hindi mapirme sa isang lugar dahil sa kaba, pag-aalala, o pagkasabik.",
+    "example": "Hindi siya mapakali sa upuan habang naghihintay ng resulta ng operasyon.",
+    "example_gloss": "He/She is restless in his/her seat while waiting for the operation's result.",
+    "extra_examples": [
+      "Napapakali ang kanyang loob nang makitang ligtas na ang kanyang pamilya.",
+      "Bakit hindi ka mapakali diyan?"
+    ],
+    "synonyms": ["balisa", "hindi mapirmi", "kabagabagan"],
+    "antonyms": ["panatag", "payapa", "kalmado"],
+    "tags": ["emosyon", "pakiramdam", "pag-uugali", "negatibo"],
+    "exam_tips": "Ang pariralang 'hindi mapakali' ay katumbas ng 'restless' o 'can't keep still'. Ito ay madalas na senyales ng pagkabalisa o pag-aalala."
+  },
+  {
+    "lemma": "siil",
+    "part_of_speech": "pandiwa",
+    "definition": "Pilit na paghadlang, pag-api, o pagsupil sa karapatan o kalayaan.",
+    "usage": "Isang matinding salita na ginagamit sa anyong 'siilin' (to oppress) o 'sinisiil' (being oppressed). Tumutukoy ito sa pagyurak o pagpigil sa kalayaan at karapatan ng iba.",
+    "example": "Huwag mong hayaang siilin ng iba ang iyong mga karapatan.",
+    "example_gloss": "Do not let others oppress your rights.",
+    "extra_examples": [
+      "Tinuligsa ng madla ang mapaniil na pamamalakad ng pinuno.",
+      "Ang mga mamamayan ay sinisiil sa ilalim ng diktadurya."
+    ],
+    "synonyms": ["pigilin", "supilin", "apiin"],
+    "antonyms": ["palayain", "pahalagahan", "igalang-ang-karapatan"],
+    "tags": ["kilos", "politika", "karapatan", "negatibo"],
+    "exam_tips": "Ang 'siilin' ay 'to oppress'. Ang pang-uri nito ay 'mapaniil' (oppressive). Ito ay isang malakas na salita na may kaugnayan sa paglabag sa karapatang pantao."
+  },
+  {
+    "lemma": "pukaw",
+    "part_of_speech": "pandiwa",
+    "definition": "Gisingin, buhayin, o pagpagin ang damdamin, kamalayan, o atensyon ng isang tao.",
+    "usage": "Ginagamit sa anyong 'pukawin' o 'mapukaw' (to arouse, to awaken, to stir). Ito ay tumutukoy sa paggising ng interes, damdamin, o kamalayan ng isang tao.",
+    "example": "Ang kanyang talumpati ay nakapupukaw ng damdamin at nagbibigay ng inspirasyon.",
+    "example_gloss": "His/Her speech stirs emotions and gives inspiration.",
+    "extra_examples": [
+      "Layunin ng sining na mapukaw ang kamalayan ng mga mamamayan.",
+      "Napukaw ang kanyang interes sa agham dahil sa kanyang guro."
+    ],
+    "synonyms": ["gisingin", "antigin", "isingit-sa-isip"],
+    "antonyms": ["patahimikin", "ipagwalang-bahala"],
+    "tags": ["kilos", "emosyon", "abstrakto", "sining"],
+    "exam_tips": "Ang 'pukawin' ay 'to awaken' o 'to arouse'—hindi lang sa pagtulog, kundi pati sa interes, damdamin, at kamalayan. Ang pang-uri nito ay 'nakapupukaw' (arousing/inspiring)."
+  },
+  {
+    "lemma": "marilag",
+    "part_of_speech": "pang-uri",
+    "definition": "Napakaganda at kahanga-hanga; may karangyaan o kadakilaan sa anyo o tanawin.",
+    "usage": "Isang pampanitikan at pormal na salita para sa 'magnificent' o 'splendid'. Ginagamit ito upang ilarawan ang pambihirang ganda ng isang tao, bagay, o tanawin.",
+    "example": "Isang marilag na tanawin ang bumungad sa amin pag-akyat sa tuktok ng bundok.",
+    "example_gloss": "A magnificent view greeted us upon reaching the mountain's summit.",
+    "extra_examples": [
+      "Hinangaan ng lahat ang karilagan ng dalagang pumarada sa pista.",
+      "Ang palasyo ay napapalibutan ng maririlag na hardin."
+    ],
+    "synonyms": ["dakila", "maganda", "kahanga-hanga", "marikit"],
+    "antonyms": ["pangit", "kapangitan"],
+    "tags": ["deskriptibo", "pampanitikan", "pormal", "positibo"],
+    "exam_tips": "Ang 'marilag' ay isang mas mataas na antas ng 'maganda'; ito ay katumbas ng 'magnificent' o 'splendid'. Ang pangngalan nito ay 'karilagan'."
+  },
+  {
+    "lemma": "marubdob",
+    "part_of_speech": "pang-uri",
+    "definition": "Lubhang masidhi o maalab, lalo na sa damdamin tulad ng pag-ibig, pagnanais, o pananalig.",
+    "usage": "Ginagamit upang ilarawan ang isang damdamin na 'intense', 'fervent', o 'passionate'. Karaniwan itong ginagamit para sa pag-ibig, pagnanasa, o pananampalataya.",
+    "example": "Mayroon siyang marubdob na pagnanasa na makatapos ng pag-aaral sa kabila ng hirap.",
+    "example_gloss": "He/She has a fervent desire to finish his/her studies despite the hardship.",
+    "extra_examples": [
+      "Ipinakita niya ang marubdob na pagmamahal sa bayan sa pamamagitan ng pagseserbisyo.",
+      "Ang kanyang panalangin ay puno ng karubduban."
+    ],
+    "synonyms": ["maalab", "masidhi", "mataimtim"],
+    "antonyms": ["malamig", "walang-gana", "wala-sa-loob"],
+    "tags": ["emosyon", "deskriptibo", "pormal", "positibo"],
+    "exam_tips": "Ang 'marubdob' ay katumbas ng 'passionate' o 'fervent'. Iugnay ito sa matinding damdamin. Ang pangngalan nito ay 'karubduban' (passion/fervor)."
+  },
+  {
+    "lemma": "matarik",
+    "part_of_speech": "pang-uri",
+    "definition": "May sobrang pagkahilig o tarik, gaya ng matataas na daan o gilid ng bundok.",
+    "usage": "Katumbas ng salitang 'steep'. Ginagamit upang ilarawan ang isang lugar na mahirap akyatin o babaan dahil sa taas ng anggulo nito.",
+    "example": "Matarik ang daan patungo sa kweba kaya kailangang mag-ingat ang mga turista.",
+    "example_gloss": "The path to the cave is steep, so tourists need to be careful.",
+    "extra_examples": [
+      "Hindi alintana ng mga magsasaka ang katarikan ng bundok upang makarating sa taniman.",
+      "Kinailangan nila ng lubid para makaakyat sa napakatarik na bahagi ng bundok."
+    ],
+    "synonyms": ["pahilig", "matindig"],
+    "antonyms": ["patag", "banayad"],
+    "tags": ["deskriptibo", "lugar", "kalikasan", "heograpiya"],
+    "exam_tips": "Ang 'matarik' ay nangangahulugang 'steep'. Ito ang kabaligtaran ng 'patag' (flat)."
+  },
+  {
+    "lemma": "matayog",
+    "part_of_speech": "pang-uri",
+    "definition": "Napakataas sa literal na taas o sa antas ng pangarap, adhikain, o pagtingin.",
+    "usage": "Ginagamit upang ilarawan ang isang bagay na napakataas (lofty, towering), tulad ng puno o gusali. Ginagamit din ito sa metaporikal na paraan para sa mga pangarap o ideya na 'noble' o 'ambitious'.",
+    "example": "Matayog ang lipad ng saranggola sa asul na langit.",
+    "example_gloss": "The kite's flight is lofty in the blue sky.",
+    "extra_examples": [
+      "Mayroon siyang matayog na pangarap para sa kanyang kinabukasan.",
+      "Ang matatayog na puno ng niyog ay sumasayaw sa ihip ng hangin."
+    ],
+    "synonyms": ["mataas", "dakila", "ambisyoso"],
+    "antonyms": ["mababa", "mababaw", "payak"],
+    "tags": ["deskriptibo", "pormal", "metapora", "positibo"],
+    "exam_tips": "Ang 'matayog' ay 'lofty' o 'towering'. Tandaan ang dalawang gamit nito: literal na taas (gusali) at metaporikal na taas (pangarap)."
+  },
+  {
+    "lemma": "matibag",
+    "part_of_speech": "pandiwa",
+    "definition": "Magiba o mawasak ang isang bagay na dati’y matatag; sa talinghaga, tumukoy sa paninindigang hindi madaling masira.",
+    "usage": "Ginagamit sa dalawang paraan: literal, para sa paggiba ng isang matibay na istruktura ('tinibag ang pader'); at metaporikal, para sa pagsira sa isang matatag na paninindigan o paniniwala ('hindi matibag ang pananampalataya').",
+    "example": "Hindi matibag ang paninindigan ng bayani kahit harapin pa ang kamatayan.",
+    "example_gloss": "The hero's conviction cannot be destroyed even when facing death.",
+    "extra_examples": [
+      "Tinibag ng mga manggagawa ang lumang pader upang magtayo ng bagong gusali.",
+      "Walang pagsubok ang makatitibag sa kanilang pagmamahalan."
+    ],
+    "synonyms": ["gibain", "wasakin", "pahinaan"],
+    "antonyms": ["patibayin", "palakasin", "itatag"],
+    "tags": ["kilos", "metapora", "istruktura", "paninindigan"],
+    "exam_tips": "Tandaan ang dalawang gamit: literal (to demolish) at metaporikal (to shake/destroy a conviction). Ang 'di-matibag' ay nangangahulugang 'unshakeable' o 'indestructible'."
+  },
+  {
+    "lemma": "matiim",
+    "part_of_speech": "pang-uri",
+    "definition": "Lubos at taimtim; masinsing nakatuon ang isip o damdamin sa isang bagay, tulad ng pangako o titig.",
+    "usage": "Ginagamit upang ilarawan ang isang bagay na 'intense', 'sincere', o 'deeply focused', gaya ng 'matiim na titig' (intense stare) o 'matiim na panalangin' (fervent prayer).",
+    "example": "Isang matiim na pangako ang binitawan niya sa harap ng kanyang mga magulang.",
+    "example_gloss": "He/She made an intense/sincere promise in front of his/her parents.",
+    "extra_examples": [
+      "Nagtiim ang kanyang bagang sa galit nang malaman ang katotohanan.",
+      "Nakita ko ang matiim na pagtutok niya sa kanyang ginagawa."
+    ],
+    "synonyms": ["mataimtim", "masidhi", "seryoso"],
+    "antonyms": ["pababaw", "walang-gana", "pabiro"],
+    "tags": ["deskriptibo", "emosyon", "pormal", "intensidad"],
+    "exam_tips": "Ang 'matiim' ay nagpapahiwatig ng 'intensity' at 'sincerity'. Karaniwang ginagamit kasama ng 'titig', 'pangako', 'panalangin', at 'pag-iisip'."
+  },
+  {
+    "lemma": "matimyas",
+    "part_of_speech": "pang-uri",
+    "definition": "Lubhang wagas, dalisay, at malalim, lalo na sa pag-ibig o damdamin.",
+    "usage": "Isang pampanitikang salita na ginagamit upang ilarawan ang isang damdamin, lalo na ang pag-ibig, na 'pure', 'sincere', at 'heartfelt'.",
+    "example": "Ang matimyas na pag-iibigan nina Romeo at Juliet ay nananatiling tanyag hanggang ngayon.",
+    "example_gloss": "The sincere love between Romeo and Juliet remains famous to this day.",
+    "extra_examples": [
+      "Saksi ang buwan sa katimyasan ng kanyang panunuyo sa dalaga.",
+      "Isang matimyas na pasasalamat ang kanyang ipinaabot sa lahat ng tumulong."
+    ],
+    "synonyms": ["tapat", "dalisay", "wagas", "taimtim"],
+    "antonyms": ["panggap", "huwad", "pakitang-tao"],
+    "tags": ["pampanitikan", "emosyon", "positibo", "pag-ibig"],
+    "exam_tips": "Ang 'matimyas' ay halos palaging tumutukoy sa positibong damdamin tulad ng pag-ibig, pagkakaibigan, o pasasalamat. Ito ay nangangahulugang 'sincere' at 'pure'."
+  },
+  {
+    "lemma": "matining",
+    "part_of_speech": "pang-uri",
+    "definition": "Mataas at malinaw ang tono ng tunog o boses; madaling marinig o tumatagos sa pandinig.",
+    "usage": "Ginagamit upang ilarawan ang isang tunog na may 'high pitch'. Maaaring tumukoy sa boses ng tao, tunog ng kampana, o sipol.",
+    "example": "Matining ang boses ng mang-aawit kaya rinig na rinig ito sa buong plasa.",
+    "example_gloss": "The singer's voice is high-pitched, so it is clearly heard throughout the plaza.",
+    "extra_examples": [
+      "Ang matining na tunog ng kampana ay hudyat na ng pagsisimula ng misa.",
+      "Ayaw niyang pakinggan ang matining na tunog ng preno."
+    ],
+    "synonyms": ["mataas-ang-tinig", "malinaw", "maingay"],
+    "antonyms": ["paos", "mababa-ang-tinig", "malabo"],
+    "tags": ["deskriptibo", "tunog", "pang-araw-araw"],
+    "exam_tips": "Ang 'matining' ay para sa tunog at nangangahulugang 'high-pitched'. Kabaligtaran ito ng 'mababa' o 'malagong' na tunog."
+  },
+  {
+    "lemma": "matyag",
+    "part_of_speech": "pandiwa",
+    "definition": "Mapagbantay at laging nagmamasid sa paligid upang maiwasan ang panganib o makita ang mahalagang pangyayari.",
+    "usage": "Ginagamit bilang pandiwa ('magmatyag') na nangangahulugang 'to observe vigilantly' o 'to keep watch'. Ang 'pagmamatyag' ay ang kilos ng maingat na pagmamasid.",
+    "example": "Kailangang magmatyag ang mga gwardiya upang mapanatili ang seguridad sa loob ng bangko.",
+    "example_gloss": "The guards need to keep watch to maintain security inside the bank.",
+    "extra_examples": [
+      "Ang pagmamatyag sa kilos ng kalaban ay bahagi ng kanilang estratehiya.",
+      "Lihim siyang nagmatyag mula sa malayo."
+    ],
+    "synonyms": ["magbantay", "magmasid", "mag-obserba"],
+    "antonyms": ["pabayaan", "hindi-maingat", "magwalang-bahala"],
+    "tags": ["kilos", "pagmamasid", "seguridad"],
+    "exam_tips": "Ang 'magmatyag' ay hindi simpleng 'tumingin'; ito ay 'to watch carefully and alertly'. Iugnay ito sa salitang 'bantay'."
+  },
+  {
+    "lemma": "muwang",
+    "part_of_speech": "pangngalan",
+    "definition": "Pagkakaroon ng kaalaman o pagkaunawa, lalo na sa murang edad; kamuwangan.",
+    "usage": "Kadalasang ginagamit sa pariralang 'walang muwang' (innocent/naive) o 'magkaroon ng muwang' (to become aware). Tumutukoy ito sa kamalayan o pang-unawa sa mundo.",
+    "example": "Sa kanyang murang edad, wala pa siyang gaanong muwang sa malupit na realidad ng mundo.",
+    "example_gloss": "At his/her young age, he/she still has little awareness of the harsh reality of the world.",
+    "extra_examples": [
+      "Unti-unting nagkaroon ng kamuwangan ang mga mamamayan tungkol sa kanilang mga karapatan.",
+      "Nang magkamuwang siya, natuto siyang tumayo sa sariling mga paa."
+    ],
+    "synonyms": ["kamalayan", "pagkaunawa", "kabatiran", "isip"],
+    "antonyms": ["kamangmangan", "walang-muwang", "inosente"],
+    "tags": ["abstrakto", "kamalayan", "pag-iisip", "pormal"],
+    "exam_tips": "Ang 'muwang' ay katumbas ng 'awareness' o 'consciousness'. Madalas itong gamitin sa konteksto ng paglaki o pag-unlad ng isip ng isang bata."
+  },
+  {
+    "lemma": "nabinbin",
+    "part_of_speech": "pandiwa",
+    "definition": "Paghinto o pagkaantala ng isang bagay na dapat nang naganap o natapos.",
+    "usage": "Ginagamit upang ipahayag na ang isang plano, biyahe, o proseso ay 'na-delay' o 'na-postpone'.",
+    "example": "Nabinbin ang pag-alis ng eroplano dahil sa masamang lagay ng panahon.",
+    "example_gloss": "The plane's departure was delayed due to bad weather conditions.",
+    "extra_examples": [
+      "Ayaw ng alkalde na mabibinbin ang proyekto para sa mga mahihirap.",
+      "Maraming papeles ang nabinbin sa kanyang opisina."
+    ],
+    "synonyms": ["naantala", "naudlot", "nahinto"],
+    "antonyms": ["natuloy", "naipagpatuloy", "natapos-sa-oras"],
+    "tags": ["kilos", "oras", "negatibo", "pang-araw-araw"],
+    "exam_tips": "Ang 'nabinbin' ay direktang katumbas ng 'was delayed' o 'was postponed'."
+  },
+  {
+    "lemma": "daing",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Hinaing o pahayag ng sakit, hirap, o sama ng loob; maaari ring tumukoy sa tunog ng pag-ungol.",
+    "usage": "Bilang pangngalan, ito ay 'complaint' o 'lament'. Bilang pandiwa ('dumaing' o 'dumadaing'), ito ay 'to complain' o 'to moan' dahil sa sakit o hirap.",
+    "example": "Sa panalangin niya idinadaan ang lahat ng kanyang mga daing sa buhay.",
+    "example_gloss": "He/She channels all his/her life's laments through prayer.",
+    "extra_examples": [
+      "Maririnig ang mga dumadaing na pasyente sa loob ng siksikang ospital.",
+      "Ang kanyang daing ay tungkol sa mababang sahod."
+    ],
+    "synonyms": ["hinaing", "reklamo", "panaghoy", "ungol"],
+    "antonyms": ["pasasalamat", "papuri", "kasiyahan"],
+    "tags": ["emosyon", "negatibo", "berbal", "pang-araw-araw"],
+    "exam_tips": "Huwag ipagkamali sa 'daing' na isang uri ng isda. Ang 'daing' (lament) ay may diin sa huling pantig, habang ang isda ay may diin sa unang pantig."
+  },
+  {
+    "lemma": "bunsod",
+    "part_of_speech": "pangngalan",
+    "definition": "Sanhi o dahilan na nagtutulak sa isang pangyayari o kilos.",
+    "usage": "Isang pormal na salita para sa 'dahilan' o 'sanhi'. Karaniwang ginagamit sa pariralang 'bunsod ng...' (brought about by...).",
+    "example": "Ang matinding kahirapan ang nagbunsod sa kanya upang mangibang-bansa.",
+    "example_gloss": "Extreme poverty is what pushed him/her to work abroad.",
+    "extra_examples": [
+      "Ang pagbubunsod ng bagong teknolohiya ay nakatulong sa mabilis na komunikasyon.",
+      "Bunsod ng kanyang pagkabigo, nagpasya siyang magbagong-buhay."
+    ],
+    "synonyms": ["sanhi", "dulot", "ugat", "dahilan"],
+    "antonyms": ["bunga", "kinalabasan", "resulta"],
+    "tags": ["abstrakto", "pormal", "sanhi-at-bunga", "akademiko"],
+    "exam_tips": "Ang 'bunsod' ay tumutukoy sa 'cause' o 'impetus'. Tandaan ang kaibahan nito sa 'bunga' (effect/result)."
+  },
+  {
+    "lemma": "darahop",
+    "part_of_speech": "pang-uri/pandiwa",
+    "definition": "Matinding kahirapan o kakulangan sa mga pangangailangan sa buhay.",
+    "usage": "Isang pormal at matinding salita para sa kahirapan. Ginagamit bilang pandiwa ('nagdarahop') upang ilarawan ang pamumuhay sa 'extreme poverty'.",
+    "example": "Maraming pamilya ang kasalukuyang nagdarahop dahil sa kawalan ng matatag na trabaho.",
+    "example_gloss": "Many families are currently suffering in extreme poverty due to the lack of stable jobs.",
+    "extra_examples": [
+      "Sa kabila ng kanilang pagdarahop, hindi ito naging hadlang upang makapagtapos ng pag-aaral ang lahat ng kanyang mga anak.",
+      "Layunin ng gobyerno na tulungan ang mga pamilyang nagdarahop."
+    ],
+    "synonyms": ["matinding-kahirapan", "lubhang-kapos", "dukha", "hikahos"],
+    "antonyms": ["kasaganaan", "kayamanan", "kaginhawahan"],
+    "tags": ["sosyal", "ekonomiya", "negatibo", "pormal"],
+    "exam_tips": "Ang 'darahop' o 'pagdarahop' ay mas matindi kaysa sa salitang 'hirap'. Ito ay tumutukoy sa 'destitution' o 'extreme poverty'."
+  },
+  {
+    "lemma": "lipana",
+    "part_of_speech": "pandiwa",
+    "definition": "Pagkakalat o pagkalaganap sa maraming lugar, kadalasan ng masasama o di-kanais-nais na bagay.",
+    "usage": "Ginagamit sa anyong 'lumipana' o 'naglipana' upang ilarawan ang pagkalat o pagdami ng isang bagay sa isang lugar (to be widespread, to proliferate), karaniwan ay may negatibong konotasyon.",
+    "example": "Naglipana ang mga maling impormasyon sa social media kaya dapat tayong maging maingat.",
+    "example_gloss": "False information is widespread on social media, so we must be careful.",
+    "extra_examples": [
+      "Noong panahon ng digmaan, lumipana ang takot at gutom sa bawat sulok ng lungsod.",
+      "Kapag madumi ang kapaligiran, naglilipana ang mga daga at ipis."
+    ],
+    "synonyms": ["nagkalat", "laganap", "namuo"],
+    "antonyms": ["nabawasan", "naubos", "napuksa"],
+    "tags": ["kilos", "dami", "negatibo", "pang-araw-araw"],
+    "exam_tips": "Ang 'naglipana' ay nangangahulugang 'widespread' o 'proliferated', at halos palaging ginagamit para sa mga negatibong bagay (e.g., krimen, sakit, maling balita)."
+  },
+  {
+    "lemma": "puyos",
+    "part_of_speech": "pangngalan",
+    "definition": "Matinding pag-aalab ng damdamin, lalo na ng galit o hinanakit.",
+    "usage": "Ginagamit bilang pandiwa ('nagpupuyos') upang ilarawan ang isang napakatinding damdamin, lalo na ang galit, na tila kumukulo sa loob ('seething with anger').",
+    "example": "Nagpupuyos ang kanyang damdamin nang makita ang kawalang-katarungang nangyari.",
+    "example_gloss": "His/Her emotions were seething upon seeing the injustice that happened.",
+    "extra_examples": [
+      "Ang nagpupuyos na galit ng mga tao ay humantong sa isang malaking protesta.",
+      "Sa puyos ng kanyang puso, nais niyang maghiganti."
+    ],
+    "synonyms": ["matinding-galit", "pagkamuhi", "silakbo", "ngitngit"],
+    "antonyms": ["katahimikan-ng-loob", "kapanatagan", "paghinahon"],
+    "tags": ["emosyon", "intensidad", "negatibo", "pampanitikan"],
+    "exam_tips": "Ang 'nagpupuyos' ay isang napakatinding emosyon, karaniwan ay galit. Iugnay ito sa imahe ng apoy o kumukulong bagay."
+  },
+  {
+    "lemma": "samo",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Taimtim na pakiusap o pagmamakaawa, kadalasan sa mas nakatataas o sa Diyos.",
+    "usage": "Ginagamit bilang pandiwa ('sumamo', 'magsusumamo') na nangangahulugang 'to plead' o 'to beg earnestly'. Ang pangngalan nito ay 'pagsamo' (plea).",
+    "example": "Nagsusumamo ang bata sa kanyang ina na huwag siyang iwan sa paaralan.",
+    "example_gloss": "The child is pleading with his/her mother not to leave him/her at school.",
+    "extra_examples": [
+      "Isang taimtim na pagsamo ang ipinaabot ng mga magsasaka sa pamahalaan.",
+      "Sumamo siya sa hukom na bigyan siya ng pangalawang pagkakataon."
+    ],
+    "synonyms": ["pakiusap", "pagmamakaawa", "pagluhog", "himok"],
+    "antonyms": ["pagtanggi", "pag-uutos", "pagmamatigas"],
+    "tags": ["kilos", "berbal", "pormal", "emosyon"],
+    "exam_tips": "Ang 'pagsamo' o 'pagsusumamo' ay mas matindi at mas pormal kaysa sa simpleng 'pakiusap'. Ito ay katumbas ng 'to plead' o 'to beseech'."
+  },
+  {
+    "lemma": "gulumihan",
+    "part_of_speech": "pandiwa",
+    "definition": "Malito nang labis dahil sa maraming iniisip o magulong sitwasyon; hindi malaman ang gagawin.",
+    "usage": "Ginagamit sa anyong 'nagugulumihanan' upang ilarawan ang isang estado ng matinding 'pagkalito' o 'pagkaligalig' (bewilderment/confusion).",
+    "example": "Nagugulumihanan siya kung aling kurso ang dapat niyang kunin sa kolehiyo.",
+    "example_gloss": "He/She is bewildered about which course he/she should take in college.",
+    "extra_examples": [
+      "Huwag kang magulumihanan; sundin mo ang tinitibok ng iyong puso.",
+      "Ang kanyang isip ay nagugulumihanan dahil sa dami ng problema."
+    ],
+    "synonyms": ["malito", "maguluhan", "mawindang", "mataranta"],
+    "antonyms": ["malinawan", "maliwanagan", "makapagpasya"],
+    "tags": ["emosyon", "pag-iisip", "negatibo", "pormal"],
+    "exam_tips": "Ang 'nagugulumihanan' ay isang mas malalim na salita para sa 'nalilito'. Ito ay nagpapahiwatig ng pagkalito na may kasamang pag-aalala o pagkabalisa."
+  },
+  {
+    "lemma": "hapo",
+    "part_of_speech": "pangngalan/pang-uri",
+    "definition": "Matinding pagod ng katawan o isipan matapos ang isang mabigat na gawain.",
+    "usage": "Ginagamit upang ilarawan ang pagod na may kasamang panghihina o 'fatigue'. Maaaring gamitin bilang pangngalan ('pagkahapo') o pandiwa ('nahahapo').",
+    "example": "Nahahapo ang mga manggagawa sa ilalim ng matinding sikat ng araw.",
+    "example_gloss": "The workers are getting exhausted under the intense heat of the sun.",
+    "extra_examples": [
+      "Uminom siya ng tubig upang maibsan ang kanyang pagkahapo matapos ang pagtakbo.",
+      "Ramdam ko ang hapo sa buong katawan pagkatapos ng ehersisyo."
+    ],
+    "synonyms": ["pagod", "pangangalay", "panghihina", "lupaypay"],
+    "antonyms": ["sigla", "kasariwaan", "kalakasan"],
+    "tags": ["pakiramdam", "pisikal", "negatibo", "pang-araw-araw"],
+    "exam_tips": "Ang 'hapo' ay katumbas ng 'fatigue' o 'exhaustion'. Ito ay mas matindi kaysa sa 'pagod' at madalas ay tumutukoy sa pagod ng buong katawan."
+  },
+  {
+    "lemma": "hili",
+    "part_of_speech": "pandiwa",
+    "definition": "Matinding paghanga o pagkaakit sa isang bagay o tao, kadalasang nauuwi sa pagnanais na magkaroon o tularan ito.",
+    "usage": "Ginagamit sa anyong 'nahihili' upang ipahayag ang damdamin ng 'pagkainggit' (envy) ngunit maaaring may mas magaan na konotasyon ng paghanga.",
+    "example": "Nahihili siya sa mga magagandang gamit na nabibili ng kanyang mga kaibigan.",
+    "example_gloss": "He/She is envious of the beautiful things his/her friends can buy.",
+    "extra_examples": [
+      "Ang kahili-hiling buhay ng mga sikat na personalidad ay madalas na hindi totoo sa likod ng camera.",
+      "Huwag kang mahili sa tagumpay ng iba; magsumikap ka para sa sarili mo."
+    ],
+    "synonyms": ["inggit", "paghanga", "pagnanais"],
+    "antonyms": ["walang-pakialam", "pagkamakuntento"],
+    "tags": ["emosyon", "sosyal", "negatibo", "pang-araw-araw"],
+    "exam_tips": "Ang 'nahihili' ay halos katulad ng 'naiinggit' (to be envious). Madalas itong gamitin sa konteksto ng pagnanais sa kung anong mayroon ang iba."
+  },
+  {
+    "lemma": "bulahaw",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Malakas at nakakagambalang ingay o sigaw na sumisira sa katahimikan.",
+    "usage": "Ginagamit upang tukuyin ang isang 'disturbance' o 'commotion' na dulot ng ingay. Ang pandiwang 'mabulahaw' ay maistorbo ng ingay, at 'mangbulahaw' ay ang gumawa ng ingay.",
+    "example": "Nakakabulahaw ang ingay ng mga motorsiklo sa dis-oras ng gabi.",
+    "example_gloss": "The noise of the motorcycles at the dead of night is disturbing.",
+    "extra_examples": [
+      "Huwag nating bulahawin ang katahimikan ng mga taong nagdarasal sa loob ng simbahan.",
+      "Nabulahaw ang buong kapitbahayan dahil sa kanilang malakas na sigawan."
+    ],
+    "synonyms": ["istorbo", "ingay", "gulo", "sigaw"],
+    "antonyms": ["katahimikan", "kapayapaan"],
+    "tags": ["tunog", "negatibo", "pang-araw-araw", "sosyal"],
+    "exam_tips": "Ang 'bulahaw' ay ingay na nakaka-disturb o nakaka-istorbo. Ang 'mabulahaw' ay 'to be disturbed by noise'."
+  },
+  {
+    "lemma": "kintal",
+    "part_of_speech": "pandiwa",
+    "definition": "Iukit o itatak nang malinaw sa isip o puso; manatiling sariwa sa alaala.",
+    "usage": "Ginagamit sa anyong 'ikintal' (to inculcate/imprint) o 'nakakintal' (imprinted). Tumutukoy ito sa isang ideya, aral, o alaala na malalim na nakatanim sa isipan.",
+    "example": "Nakakintal pa rin sa aking isipan ang mga huling payo ng aking lolo.",
+    "example_gloss": "My grandfather's last pieces of advice are still imprinted in my mind.",
+    "extra_examples": [
+      "Layunin ng guro na ikintal ang pagmamahal sa bayan sa puso ng mga kabataan.",
+      "Ang mga aral ng kasaysayan ay dapat manatiling nakakintal sa bawat Pilipino."
+    ],
+    "synonyms": ["itanim-sa-isip", "iukit-sa-alaala", "itatak"],
+    "antonyms": ["kalimutan", "pawiin-sa-isip", "burahin"],
+    "tags": ["abstrakto", "pag-iisip", "alaala", "pormal"],
+    "exam_tips": "Ang 'ikintal' ay 'to imprint' or 'to inculcate' sa isip o puso. Ito ay isang permanenteng marka sa alaala o paniniwala."
+  },
+  {
+    "lemma": "sulit",
+    "part_of_speech": "pang-uri",
+    "definition": "May kapalit o balik na halaga sa ginastos o pinaghirapan; karapat-dapat o sulit sa gastos.",
+    "usage": "Isang karaniwang salita na katumbas ng 'worth it' sa Ingles. Ginagamit upang ilarawan na ang isang bagay, serbisyo, o karanasan ay katumbas o higit pa sa halaga, oras, o pagod na iginugol dito.",
+    "example": "Sulit ang pagod sa pag-akyat ng bundok dahil sa napakagandang tanawin sa tuktok.",
+    "example_gloss": "The exhaustion from climbing the mountain was worth it because of the very beautiful view at the top.",
+    "extra_examples": [
+      "Laking tuwa niya nang malaman niyang nakasulit siya sa bar exam.",
+      "Sulit ang ibinayad namin sa masarap na pagkain."
+    ],
+    "synonyms": ["kapaki-pakinabang", "worth it", "may saysay"],
+    "antonyms": ["sayang", "walang-kabuluhan", "hindi-sulit", "lugi"],
+    "tags": ["kolokyal", "pang-araw-araw", "positibo", "halaga"],
+    "exam_tips": "Ang 'sulit' ay isa sa mga pinakakaraniwang salita sa listahang ito. Ito ay direktang nangangahulugang 'worth it'."
+  },
+  {
+    "lemma": "lugami",
+    "part_of_speech": "pandiwa",
+    "definition": "Lubos na nadadaig o napapailalim ng hirap, lungkot, o pagkatalo.",
+    "usage": "Ginagamit sa anyong 'nalulugami' o 'malugami' upang ilarawan ang isang estado ng pagiging 'overwhelmed by hardship or despair'. Ito ay isang malalim na salita para sa pagkalubog sa problema.",
+    "example": "Nalulugami ang kanyang loob dahil sa sunod-sunod na pagsubok na dumating.",
+    "example_gloss": "His/Her spirit is overwhelmed by the successive trials that have come.",
+    "extra_examples": [
+      "Huwag kang hayaang malugami sa lungkot; laging may pag-asa sa bukas.",
+      "Ang bayan ay nalugami sa kahirapan matapos ang digmaan."
+    ],
+    "synonyms": ["bagsak", "lubog", "talo", "daig"],
+    "antonyms": ["nakakabangon", "nakakalamang", "matagumpay"],
+    "tags": ["emosyon", "negatibo", "pampanitikan", "pormal"],
+    "exam_tips": "Ang 'nalulugami' ay nangangahulugang 'wallowing in' o 'overwhelmed by' (usually something negative like sadness or poverty). Iugnay ito sa imahe ng pagkalubog."
+  },
+  {
+    "lemma": "mayani",
+    "part_of_speech": "pandiwa",
+    "definition": "Mangibabaw o manaig sa bilang o lakas; maging nangingibabaw na kalagayan o katangian.",
+    "usage": "Ginagamit sa anyong 'mamayani' o 'namayani' (to prevail, to dominate). Ito ay tumutukoy sa isang kalagayan, damdamin, o ideya na naging nangingibabaw sa isang lugar o panahon.",
+    "example": "Namayani ang katahimikan sa buong silid nang magsimulang magsalita ang panauhin.",
+    "example_gloss": "Silence prevailed in the whole room when the guest started to speak.",
+    "extra_examples": [
+      "Sa huli, kabutihan ang namayani laban sa kasamaan.",
+      "Hangad niyang mamayani ang pagkakaisa sa kanilang pangkat."
+    ],
+    "synonyms": ["mangibabaw", "manaig", "umiral"],
+    "antonyms": ["mapawi", "magapi", "mapalitan"],
+    "tags": ["pormal", "abstrakto", "kalagayan", "resulta"],
+    "exam_tips": "Ang 'namayani' ay nangangahulugang 'prevailed' o 'dominated'. Madalas itong ginagamit para sa mga abstraktong konsepto tulad ng kapayapaan, katahimikan, o katarungan."
+  },
+  {
+    "lemma": "mutawi",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang paglalabas ng mga salita mula sa bibig.",
+    "usage": "Isang pampanitikang salita na ginagamit sa anyong 'mamutawi' o 'namutawi' (to be uttered). Ito ay tumutukoy sa mga salitang nabigkas o lumabas mula sa bibig ng isang tao, kadalasan sa isang makabuluhang paraan.",
+    "example": "Isang matamis na ngiti ang namutawi sa kanyang mga labi.",
+    "example_gloss": "A sweet smile was uttered/formed on his/her lips.",
+    "extra_examples": [
+      "Walang salitang namutawi sa kanyang bibig dahil sa pagkagulat.",
+      "Anumang salitang mamutawi sa iyong bibig ay dapat pag-isipang mabuti."
+    ],
+    "synonyms": ["lumabas", "sinabi", "bigkasin"],
+    "antonyms": ["nanahimik", "itinago", "kinimkim"],
+    "tags": ["pampanitikan", "bihira", "kilos", "pananalita"],
+    "exam_tips": "Ang 'namutawi' ay isang pormal na paraan ng pagsasabing 'lumabas sa bibig' o 'nasabi'. Iugnay ito sa mga salita, ngiti, o anumang namumutawi sa labi."
+  },
+  {
+    "lemma": "taytay",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang tuloy-tuloy na agos o daloy ng likido, lalo na sa loob ng isang sistema.",
+    "usage": "Karaniwang ginagamit sa anyong 'nanalaytay' (to flow through). Madalas itong tumutukoy sa pagdaloy ng dugo sa mga ugat, ngunit ginagamit din sa metaporikal na paraan para sa lahi o katangian na dumadaloy sa pamilya.",
+    "example": "Nanalaytay sa kanyang mga ugat ang dugong palaban ng kanyang mga ninuno.",
+    "example_gloss": "The fighting blood of his ancestors flows through his veins.",
+    "extra_examples": [
+      "Ang pagmamahal sa sining ay nanalaytay sa kanilang pamilya.",
+      "Ramdam niya ang init na nanalaytay sa kanyang buong katawan."
+    ],
+    "synonyms": ["dumaloy", "umagos"],
+    "antonyms": ["huminto", "natuyo", "namuo"],
+    "tags": ["pampanitikan", "metapora", "biyolohiya"],
+    "exam_tips": "Ang 'nanalaytay' ay 'to flow continuously within a system', tulad ng dugo sa ugat (veins). Tandaan ang metaporikal na gamit nito para sa 'dugo' o lahi. Huwag ipagkamali sa literal na 'taytay' (bridge)."
+  },
+  {
+    "lemma": "nananangan",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang pagkakaroon ng matibay na paniniwala o tiwala.",
+    "usage": "Tumutukoy sa matibay na pagkapit o pagtitiwala sa isang paniniwala, prinsipyo, o pag-asa (to hold on to, to rely on). Ito ay nagpapahiwatig ng pananalig.",
+    "example": "Nananangan siya sa kanyang pananampalataya upang malampasan ang sakit.",
+    "example_gloss": "He/She is holding on to his/her faith to overcome the illness.",
+    "extra_examples": [
+      "Sa gitna ng mga pagsubok, ang pamilyang Pilipino ay nananatiling nananangan sa Diyos.",
+      "Siya ay nananangan sa pangakong binitiwan ng kanyang kaibigan."
+    ],
+    "synonyms": ["nanalig", "umaasa", "kumakapit"],
+    "antonyms": ["nawalan ng pag-asa", "nagduda", "bumitaw"],
+    "tags": ["emosyon", "paniniwala", "pananampalataya", "positibo"],
+    "exam_tips": "Ang 'nananangan' ay 'holding on to' o 'relying on', lalo na sa mga bagay na hindi pisikal tulad ng pag-asa, pananampalataya, o pangako."
+  },
+  {
+    "lemma": "ahas",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang pagpapakita ng tapang o paggawa ng bagay na mapanganib.",
+    "usage": "Ginagamit sa anyong 'mangahas' (to dare) o 'nangahas' (dared). Ito ay tumutukoy sa paglakas ng loob na gawin ang isang bagay na mapanghamon, mapanganib, o labag sa inaasahan.",
+    "example": "Nangahas siyang harapin ang higante upang iligtas ang kanyang baryo.",
+    "example_gloss": "He dared to face the giant to save his village.",
+    "extra_examples": [
+      "Ang kanyang pangangahas na magsalita laban sa pinuno ay naging mitsa ng rebolusyon.",
+      "Sino ang mangangahas na suwayin ang utos ng hari?"
+    ],
+    "synonyms": ["naglakas-loob", "maglakas-loob"],
+    "antonyms": ["natakot", "naduwag", "sumunod"],
+    "tags": ["kilos", "katapangan", "pag-uugali"],
+    "exam_tips": "Ang 'mangahas' ay 'to dare'. Ito ay pagpapakita ng katapangan. Huwag ipagkamali sa pangngalan na 'ahas' (snake), na metaporikal na nangangahulugang 'taksil' (traitor)."
+  },
+  {
+    "lemma": "nuya",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang kilos ng pagkutya o pagpapakita ng hamak sa kapwa.",
+    "usage": "Ginagamit sa anyong 'manuya' (to mock, to scorn) o 'panunuya' (mockery). Ito ay isang paraan ng pang-iinsulto na may halong pagmamaliit.",
+    "example": "Nanunuya ang kanyang tingin habang pinapanood ang pagkakamali ng katunggali.",
+    "example_gloss": "His/Her gaze was mocking while watching the opponent's mistake.",
+    "extra_examples": [
+      "Huwag mong gamitin ang panunuya upang itaas ang iyong sarili.",
+      "Sinagot niya ang tanong nang may panunuya sa kanyang boses."
+    ],
+    "synonyms": ["manghamak", "mangutya", "mang-uyam"],
+    "antonyms": ["pumuri", "humanga", "magbigay-galang"],
+    "tags": ["kilos", "pananalita", "negatibo", "sosyal"],
+    "exam_tips": "Ang 'panunuya' ay 'mockery' o 'sarcasm'. Ang pandiwa nito ay 'manuya' (to mock). Ito ay isang anyo ng pang-aalipusta."
+  },
+  {
+    "lemma": "suot",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang pagpasok o paglapos sa isang maliit na espasyo; tumagos.",
+    "usage": "Ginagamit sa anyong 'sumuot' o 'nanuot' (to penetrate, to seep in). Ito ay tumutukoy sa pagpasok ng isang bagay, tulad ng lamig, sakit, o amoy, hanggang sa kaloob-looban.",
+    "example": "Nanuot hanggang buto ang lamig ng simoy ng hangin ngayong Disyembre.",
+    "example_gloss": "The coldness of the December breeze penetrated to the bones.",
+    "extra_examples": [
+      "Ang bango ng nilulutong ulam ay nanunoot sa bawat sulok ng bahay.",
+      "Nanuot sa kanyang puso ang sakit ng kanilang paghihiwalay."
+    ],
+    "synonyms": ["tumagos", "pumasok", "sumuot"],
+    "antonyms": ["humaharang", "tumalbog", "nanatili sa labas"],
+    "tags": ["kilos", "pakiramdam", "metapora"],
+    "exam_tips": "Ang 'nanuot' ay 'penetrated' or 'seeped in'. Madalas itong gamitin para sa lamig, sakit, at amoy. Huwag itong ipagkamali sa 'suot' na damit (clothing)."
+  },
+  {
+    "lemma": "bunton",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang pagpunta o pagtutuon ng pansin sa isang partikular na panig.",
+    "usage": "Ginagamit sa anyong 'ibunton' (to heap upon, to focus on) o 'napabunton' (was directed to). Ito ay tumutukoy sa paglilipat ng atensyon, sisi, o galit sa isang tao o bagay.",
+    "example": "Sa kanya napabunton ang lahat ng sisi nang mabigo ang kanilang plano.",
+    "example_gloss": "All the blame was directed to him/her when their plan failed.",
+    "extra_examples": [
+      "Huwag mong ibunton sa akin ang galit mo sa iba.",
+      "Napabunton ang atensyon ng lahat sa bagong dating na panauhin."
+    ],
+    "synonyms": ["napabaling", "ipukol", "itutok"],
+    "antonyms": ["ialis", "ikalat", "magwalang-bahala"],
+    "tags": ["kilos", "emosyon", "sosyal"],
+    "exam_tips": "Ang 'ibunton' ay 'to dump' or 'to heap'—karaniwan para sa sisi, galit, o atensyon. Ang 'bunton' bilang pangngalan ay 'heap' o 'pile'."
+  },
+  {
+    "lemma": "said",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang pagkaubos ng lahat ng laman o suplay.",
+    "usage": "Ginagamit sa anyong 'masaid' o 'nasaid' (to be used up, to run out). Ito ay tumutukoy sa ganap na pagkaubos ng isang bagay, tulad ng pera, pasensya, o likas na yaman.",
+    "example": "Nasaid ang lahat ng kanyang ipon matapos ang matagal na pagkakaospital.",
+    "example_gloss": "All of his/her savings were used up after the long hospitalization.",
+    "extra_examples": [
+      "Ang pananaid ng likas na yaman ay banta sa susunod na henerasyon.",
+      "Huwag hintaying masaid ang iyong pasensya bago ka magsalita."
+    ],
+    "synonyms": ["nasimot", "naubos", "natuyo"],
+    "antonyms": ["napuno", "sumagana", "dumami"],
+    "tags": ["kalagayan", "resulta", "negatibo"],
+    "exam_tips": "Ang 'nasaid' ay 'completely used up' o 'ran out'. Ito ay mas matindi kaysa 'naubos' dahil nagpapahiwatig ito ng pag-abot sa pinakailalim na bahagi."
+  },
+  {
+    "lemma": "waglit",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang hindi sinasadyang pagkawala ng isang bagay mula sa kinalalagyan nito.",
+    "usage": "Ginagamit sa anyong 'mawaglit' o 'nawaglit' (to be misplaced, to get lost). Ito ay tumutukoy sa pagkawala ng isang bagay na hindi mo alam kung saan napunta.",
+    "example": "Nawaglit ang aking pitaka habang ako ay namimili sa palengke.",
+    "example_gloss": "My wallet got misplaced while I was shopping at the market.",
+    "extra_examples": [
+      "Sana ay hindi mawaglit sa iyong alaala ang ating mga pinagsamahan.",
+      "Ingatan mo ang iyong cellphone at baka mawaglit."
+    ],
+    "synonyms": ["nawala", "nalimutan kung saan"],
+    "antonyms": ["nahanap", "nakita", "naalala"],
+    "tags": ["kalagayan", "pang-araw-araw", "kilos"],
+    "exam_tips": "Ang 'nawaglit' ay 'was misplaced'. Ito ay naiiba sa 'ninakaw' (was stolen) dahil walang intensyon ng iba na kunin ito."
+  },
+  {
+    "lemma": "ngawit",
+    "part_of_speech": "pangngalan/pang-uri",
+    "definition": "Ang pakiramdam ng pagkapagod o paninigas ng kalamnan dahil sa matagal na posisyon.",
+    "usage": "Ginagamit bilang pangngalan ('ngawit') o pandiwa ('nangangawit') para ilarawan ang 'muscle fatigue' o 'stiffness' mula sa pananatili sa isang posisyon.",
+    "example": "Nangangawit na ang aking mga binti sa matagal na pagtayo sa pila.",
+    "example_gloss": "My legs are already getting tired/stiff from standing in line for a long time.",
+    "extra_examples": [
+      "Ang matagal na pagtitig sa screen ay nagdudulot ng ngawit sa mga mata.",
+      "Naramdaman niya ang ngawit sa kanyang braso matapos magsulat nang matagal."
+    ],
+    "synonyms": ["ngalay", "pagod", "manhid"],
+    "antonyms": ["maginhawa", "relaks", "komportable"],
+    "tags": ["pakiramdam", "pang-araw-araw", "pangangatawan"],
+    "exam_tips": "Ang 'ngawit' ay 'muscle fatigue' o 'stiffness'. Kasingkahulugan ito ng 'ngalay'."
+  },
+  {
+    "lemma": "ngitngit",
+    "part_of_speech": "pangngalan",
+    "definition": "Isang matinding bugso ng galit na madalas ay kinikimkim.",
+    "usage": "Ginagamit bilang pangngalan ('ngitngit') o pandiwa ('nagngingitngit') upang ilarawan ang 'seething anger' o 'fury'. Ito ay galit na pigil ngunit napakatindi.",
+    "example": "Nagngingitngit siya sa galit dahil sa pagtataksil ng kanyang matalik na kaibigan.",
+    "example_gloss": "He/She was seething with anger because of his/her best friend's betrayal.",
+    "extra_examples": [
+      "Ang ngitngit ng kanyang kalooban ay hindi niya maipakita sa ibang tao.",
+      "Ramdam mo ang ngitngit sa kanyang mga salita kahit pilit niyang pinapakalma ang sarili."
+    ],
+    "synonyms": ["matinding galit", "poot", "galaiti"],
+    "antonyms": ["katuwaan", "kapanatagan", "pagpapatawad"],
+    "tags": ["emosyon", "negatibo", "matindi"],
+    "exam_tips": "Ang 'ngitngit' ay isang 'seething' o 'suppressed fury'. Ito ay mas matindi kaysa ordinaryong 'galit'."
+  },
+  {
+    "lemma": "pagak",
+    "part_of_speech": "pang-uri",
+    "definition": "Uri ng boses na hindi malinaw, tila may gasgas, o paos.",
+    "usage": "Ginagamit upang ilarawan ang isang boses na 'hoarse' o 'raspy'. Ito ay tunog na magaspang at hindi kaaya-aya sa pandinig.",
+    "example": "Pagak ang kanyang boses dahil sa matagal na pagsigaw sa entablado.",
+    "example_gloss": "His/Her voice is hoarse because of shouting on stage for a long time.",
+    "extra_examples": [
+      "Isang pagak na tawa ang narinig mula sa matandang nakaupo sa kanto.",
+      "Nagising siya na may pagak na boses matapos magkasakit."
+    ],
+    "synonyms": ["paos", "garalgal", "malat"],
+    "antonyms": ["malinaw", "malamyos", "matining"],
+    "tags": ["deskriptibo", "tunog", "pangangatawan"],
+    "exam_tips": "Ang 'pagak' ay 'hoarse' o 'raspy'. Ito ay kasingkahulugan ng 'paos' at 'malat'."
+  },
+  {
+    "lemma": "balikwas",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang mabilis na pagbangon o pagbabago ng posisyon ng katawan.",
+    "usage": "Ginagamit sa anyong 'bumalikwas' (to spring up, to bolt upright). Ito ay isang biglaan at mabilis na pagbangon mula sa pagkakahiga, kadalasan dahil sa gulat o pagmamadali.",
+    "example": "Bigla siyang bumalikwas mula sa pagkakahiga nang marinig ang malakas na pagsabog.",
+    "example_gloss": "He/She suddenly sprang up from a lying position upon hearing the loud explosion.",
+    "extra_examples": [
+      "Ang pagbalikwas niya sa kama ay tanda na huli na siya sa kanyang klase.",
+      "Napabalikwas siya nang may gumising sa kanya."
+    ],
+    "synonyms": ["pagbangon nang bigla", "pagtalon"],
+    "antonyms": ["paghiga", "pananatili", "paghiga nang dahan-dahan"],
+    "tags": ["kilos", "biglaan", "reaksyon"],
+    "exam_tips": "Ang 'bumalikwas' ay 'to spring up' o 'to bolt upright'. Ito ay isang mabilis na pagbangon mula sa pagkakahiga."
+  },
+  {
+    "lemma": "bulay",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang malalim na pagsusuri o pag-iisip tungkol sa isang bagay.",
+    "usage": "Ginagamit sa anyong 'magbulay-bulay' (to ponder, to contemplate) o 'pagbubulay-bulay' (contemplation). Ito ay tumutukoy sa tahimik at malalim na pag-iisip.",
+    "example": "Nagbubulay-bulay siya sa ilalim ng puno tungkol sa kanyang mga plano sa buhay.",
+    "example_gloss": "He/She is pondering under the tree about his/her plans in life.",
+    "extra_examples": [
+      "Kailangan mong pagbulay-bulayan nang maigi ang desisyong iyong gagawin.",
+      "Ang pagbubulay-bulay ay nakakatulong upang magkaroon ng kaliwanagan ng isip."
+    ],
+    "synonyms": ["magnilay-nilay", "mag-isip-isip", "umunawa"],
+    "antonyms": ["magwalang-bahala", "kumilos nang padalos-dalos"],
+    "tags": ["kilos", "kaisipan", "pilosopiya", "abstrakto"],
+    "exam_tips": "Ang 'magbulay-bulay' ay katumbas ng 'to ponder' o 'to contemplate'. Kasingkahulugan nito ang 'magnilay-nilay'."
+  },
+  {
+    "lemma": "datal",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang pagdating sa isang itinakdang lugar.",
+    "usage": "Isang pampanitikan o pormal na salita na ginagamit sa anyong 'dumatal' (to arrive) o 'pagdatal' (arrival). Ito ay katumbas ng 'dumating'.",
+    "example": "Inaabangan ng lahat ang pagdatal ng mga bayani mula sa kanilang misyon sa ibang bansa.",
+    "example_gloss": "Everyone is awaiting the arrival of the heroes from their mission abroad.",
+    "extra_examples": [
+      "Sa muling pagdatal ng tagsibol, muling mamumukadkad ang mga bulaklak sa hardin.",
+      "Dumatal ang tulong sa mga biktima ng bagyo."
+    ],
+    "synonyms": ["dumating", "sumapit", "pagdating"],
+    "antonyms": ["lumisan", "umalis", "paglisan"],
+    "tags": ["pampanitikan", "pormal", "kilos", "paglalakbay"],
+    "exam_tips": "Ang 'dumatal' ay isang pormal at pampanitikang bersyon ng 'dumating'."
+  },
+  {
+    "lemma": "hamok",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang pakikipaglaban o pakikipagtunggali sa isang labanan.",
+    "usage": "Ginagamit sa anyong 'makipaghamok' (to engage in combat, to battle). Ito ay tumutukoy sa akto ng pakikipaglaban, lalo na sa isang digmaan o matinding away.",
+    "example": "Handa siyang makipaghamok sa anumang pagsubok upang maprotektahan ang kanyang dangal.",
+    "example_gloss": "He/She is ready to battle any challenge to protect his/her honor.",
+    "extra_examples": [
+      "Ang paghamok ng mga kawal sa gitna ng parang ay nagpakita ng kanilang katapangan.",
+      "Hindi siya uurong sa pakikipaghamok para sa katarungan."
+    ],
+    "synonyms": ["makipaglaban", "makipag-away", "makipagtunggali"],
+    "antonyms": ["sumuko", "makipagkasundo", "umayaw"],
+    "tags": ["kilos", "digmaan", "labanan", "pormal"],
+    "exam_tips": "Ang 'makipaghamok' ay isang pormal na salita para sa 'makipaglaban' (to battle)."
+  },
+  {
+    "lemma": "himok",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang mapayapang pakiusap o pangungumbinsi sa iba.",
+    "usage": "Ginagamit sa anyong 'himukin' (to persuade, to urge) o 'paghimok' (persuasion). Ito ay ang kilos ng panghihikayat sa isang tao sa mahinahon na paraan.",
+    "example": "Ginamit ng pinuno ang kanyang galing sa paghimok upang mapagkaisa ang nag-aaway na mga pangkatin.",
+    "example_gloss": "The leader used his/her skill in persuasion to unite the warring factions.",
+    "extra_examples": [
+      "Sinubukan niyang himukin ang kanyang kaibigan na bumalik sa pag-aaral.",
+      "Ang kanyang paghimok ay naging matagumpay."
+    ],
+    "synonyms": ["hikayatin", "kumbinsihin", "pakiusapan"],
+    "antonyms": ["utusan", "pilitin", "pwersahin"],
+    "tags": ["kilos", "pananalita", "sosyal"],
+    "exam_tips": "Ang 'himukin' ay 'to persuade'. Ito ay naiiba sa 'pilitin' (to force) dahil ito ay ginagawa sa mahinahong paraan."
+  },
+  {
+    "lemma": "hugpong",
+    "part_of_speech": "pandiwa/pangngalan",
+    "definition": "Ang pagkilos ng pagkakabit o pagdudugtong ng dalawang bahagi.",
+    "usage": "Ginagamit sa anyong 'hugpungan' (to join, to connect) o 'paghuhugpong' (the act of joining). Ito ay tumutukoy sa pag-uugnay ng dalawa o higit pang mga bagay.",
+    "example": "Ang paghuhugpong ng dalawang kumpanya ay nagresulta sa mas malakas na puwersa sa merkado.",
+    "example_gloss": "The joining of the two companies resulted in a stronger force in the market.",
+    "extra_examples": [
+      "Kailangang tiyakin ang maayos na hugpungan ng mga tubo upang maiwasan ang tagas ng tubig.",
+      "Hugpungan mo ang dalawang pisi upang humaba ito."
+    ],
+    "synonyms": ["dugtong", "pagdugtungin", "kabit"],
+    "antonyms": ["baklasin", "paghiwalayin", "tanggalin"],
+    "tags": ["kilos", "praktikal", "istruktura"],
+    "exam_tips": "Ang 'hugpong' ay 'to join' o 'to connect'. Kasingkahulugan nito ang 'dugtong'."
+  },
+  {
+    "lemma": "inog",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang pag-ikot sa sariling axis o sa paligid ng isang bagay.",
+    "usage": "Ginagamit sa anyong 'uminog' (to revolve, to rotate) o 'pag-inog' (revolution, rotation). Ito ay isang teknikal o pormal na salita para sa pag-ikot.",
+    "example": "Ang buhay ng tao ay patuloy na umiinog sa pagitan ng saya at lumbay.",
+    "example_gloss": "Human life continuously revolves between happiness and sorrow.",
+    "extra_examples": [
+      "Pinag-aaralan ng mga siyentipiko ang pag-inog ng mga planeta sa paligid ng araw.",
+      "Ang mundo ay umiinog sa sarili nitong aksis."
+    ],
+    "synonyms": ["umikot", "pag-ikot"],
+    "antonyms": ["huminto", "manatili"],
+    "tags": ["kilos", "agham", "pormal", "metapora"],
+    "exam_tips": "Ang 'uminog' ay isang pormal na salita para sa 'umikot' (to revolve/rotate). Madalas gamitin sa agham (planeta) at sa mga metaporikal na ideya (buhay)."
+  },
+  {
+    "lemma": "niig",
+    "part_of_speech": "pangngalan",
+    "definition": "Ang masinsinang pag-uusap o pagsasama ng dalawang tao.",
+    "usage": "Isang pampanitikan at pormal na salita. Ang anyong 'pagniniig' ay tumutukoy sa isang 'intimate conversation' o 'communion' sa pagitan ng dalawa o higit pang tao. Maaari rin itong magkaroon ng romantikong konotasyon.",
+    "example": "Masinsinan ang pagniniig ng mag-asawa tungkol sa mahahalagang desisyon para sa kanilang pamilya.",
+    "example_gloss": "The couple had an intimate conversation about important decisions for their family.",
+    "extra_examples": [
+      "Sa ilalim ng liwanag ng buwan, niniig ang dalawang magkasintahan sa tabing-dagat.",
+      "Ang pagniniig ng makata at ng kalikasan ay mababasa sa kanyang mga tula."
+    ],
+    "synonyms": ["pagsasama", "pag-uusap", "komunyon"],
+    "antonyms": ["pag-aaway", "paghihiwalay", "pagkakalayo"],
+    "tags": ["pampanitikan", "pormal", "relasyon", "interaksyon"],
+    "exam_tips": "Ang 'pagniniig' ay tumutukoy sa isang malalim at intimate na ugnayan o pag-uusap. Hindi ito karaniwang ginagamit sa pang-araw-araw na usapan."
+  },
+  {
+    "lemma": "ragasa",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang mabilis at malakas na pagdaloy o pagkilos ng tubig o pangkat ng mga tao.",
+    "usage": "Ginagamit sa anyong 'rumaragasa' o 'pagragasa' upang ilarawan ang isang 'violent rush' o 'surge', karaniwan para sa tubig, malaking grupo ng tao, o malakas na damdamin.",
+    "example": "Nakakatakot ang pagragasa ng baha mula sa bundok dahil sa walang tigil na ulan.",
+    "example_gloss": "The violent rush of the flood from the mountain is frightening due to the non-stop rain.",
+    "extra_examples": [
+      "Rumaragasa ang mga tao sa mall nang magsimula ang inaabangang sale.",
+      "Sinubukan niyang pigilan ang rumaragasang galit sa kanyang dibdib."
+    ],
+    "synonyms": ["mabilis na pagdaloy", "pagdagsa", "pagbulusok"],
+    "antonyms": ["marahan", "mahina", "paghupa"],
+    "tags": ["kilos", "kalikasan", "dami", "intensidad"],
+    "exam_tips": "Iugnay ang 'ragasa' sa imahe ng malakas at mabilis na pag-agos o pagdagsa na mahirap pigilan."
+  },
+  {
+    "lemma": "siil",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Ang kilos ng pagmamalupit o pag-ipit sa karapatan at kalayaan ng iba.",
+    "usage": "Isang pormal na salita. Bilang pangngalan ('pagsiil'), ito ay 'oppression'. Bilang pandiwa ('siilin', 'sinisiil'), ito ay 'to oppress'. Tumutukoy ito sa pagsupil sa kalayaan o karapatan.",
+    "example": "Mariing tinutulan ng mga mamamayan ang anumang anyo ng pagsiil sa kanilang kalayaan.",
+    "example_gloss": "The citizens strongly opposed any form of oppression of their freedom.",
+    "extra_examples": [
+      "Nasiil ang mga pangarap ng kabataan dahil sa matinding kahirapang kanilang naranasan.",
+      "Hindi dapat siilin ang karapatan ng bawat tao na magpahayag ng saloobin."
+    ],
+    "synonyms": ["panunupil", "pagmamalupit", "pag-api"],
+    "antonyms": ["pagkalinga", "pagpapalaya", "paggalang"],
+    "tags": ["pormal", "sosyal", "politikal", "negatibo"],
+    "exam_tips": "Ang 'pagsiil' ay katumbas ng 'oppression'. Ang 'siilin' ay 'to oppress'. Ito ay isang mabigat na salita na may kaugnayan sa karapatang pantao at kalayaan."
+  },
+  {
+    "lemma": "sigasig",
+    "part_of_speech": "pangngalan",
+    "definition": "Ang pagkakaroon ng matinding pagsisikap at tiyaga sa pagtatapos ng isang gawain.",
+    "usage": "Tumutukoy sa 'diligence', 'zeal', o 'enthusiasm' sa paggawa. Ang pang-uring 'masigasig' (diligent/zealous) ay mas karaniwang ginagamit.",
+    "example": "Dahil sa kanyang pagsusumigasig, nakamit niya ang pinakamataas na parangal sa kanilang unibersidad.",
+    "example_gloss": "Because of his diligence, he achieved the highest honor in their university.",
+    "extra_examples": [
+      "Isang masigasig na manggagawa ang kailangan ng kumpanya upang mapabilis ang produksyon.",
+      "Ipinakita niya ang kanyang sigasig sa pag-aaral."
+    ],
+    "synonyms": ["pagsisikap", "punyagi", "tiyaga", "sipag"],
+    "antonyms": ["pagpapabaya", "katamaran", "kawalan-ng-gana"],
+    "tags": ["katangian", "positibo", "trabaho", "pag-aaral"],
+    "exam_tips": "Ang 'sigasig' ay positibong katangian na tumutukoy sa 'diligence' at 'zeal'. Ang 'masigasig' ang pang-uring anyo nito."
+  },
+  {
+    "lemma": "tangis",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Ang malalim at masidhing pag-iyak na madalas ay dulot ng matinding pait o lungkot.",
+    "usage": "Isang pormal o pampanitikang salita para sa pag-iyak. Bilang pandiwa ('tumangis', 'pananangis'), ito ay nangangahulugang 'to weep' o 'to wail'. Ito ay mas matindi kaysa sa ordinaryong pag-iyak.",
+    "example": "Maririnig sa buong baryo ang pagtangis ng ina para sa kanyang nawawalang anak.",
+    "example_gloss": "The mother's wailing for her missing child could be heard throughout the village.",
+    "extra_examples": [
+      "Huwag kang tumangis sa harap ng iyong mga kaaway; ipakita mong ikaw ay matatag.",
+      "Ang kanyang pananangis ay umantig sa puso ng marami."
+    ],
+    "synonyms": ["pagluha", "pag-iyak", "panaghoy", "paghagulgol"],
+    "antonyms": ["pagtawa", "kagalakan", "katuwaan"],
+    "tags": ["emosyon", "negatibo", "pampanitikan", "tunog"],
+    "exam_tips": "Ang 'pagtangis' ay isang malalim na uri ng pag-iyak, katulad ng 'weeping' o 'wailing'. Ito ay mas pormal kaysa sa salitang 'iyak'."
+  },
+  {
+    "lemma": "tuligsa",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang pagpapahayag ng matinding pagbatikos, pagsalungat, o pagkondena sa isang tao o ideya.",
+    "usage": "Ginagamit sa anyong 'tuligsain' o 'tumuligsa' (to denounce, to strongly criticize). Ito ay isang pormal at malakas na salita para sa kritisismo, lalo na sa kontekstong politikal o sosyal.",
+    "example": "Matapang na tinuligsa ng kolumnista ang katiwaliang nagaganap sa loob ng ahensya.",
+    "example_gloss": "The columnist bravely denounced the corruption happening inside the agency.",
+    "extra_examples": [
+      "Ang pagtuligsa sa maling sistema ay isang paraan ng pagpapakita ng pagmamahal sa bayan.",
+      "Maraming grupo ang tumuligsa sa bagong batas."
+    ],
+    "synonyms": ["pagkondena", "pagpuna", "pagbatikos", "pag-atake"],
+    "antonyms": ["papuri", "pagsang-ayon", "pagsuporta"],
+    "tags": ["berbal", "politikal", "sosyal", "pormal", "negatibo"],
+    "exam_tips": "Ang 'tumuligsa' ay mas malakas na salita kaysa 'pumuna'. Ito ay katumbas ng 'to denounce' o 'to strongly condemn'."
+  },
+  {
+    "lemma": "yaman",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang kilos ng pagpapanatili, pag-aalaga, at pagpapalago sa isang mahalagang bagay o katangian.",
+    "usage": "Isang di-karaniwang gamit ng salitang 'yaman'. Bilang pandiwa ('pagyamanin'), ito ay nangangahulugang 'to enrich', 'to cultivate', o 'to make something thrive'.",
+    "example": "Dapat nating pagyamanin ang ating sariling wika at kultura para sa susunod na henerasyon.",
+    "example_gloss": "We should enrich our own language and culture for the next generation.",
+    "extra_examples": [
+      "Pinayaman ng mga karanasan ang kanyang kaalaman sa takbo ng buhay sa lungsod.",
+      "Ang layunin ng seminar ay pagyamanin ang kanilang kakayahan sa pamumuno."
+    ],
+    "synonyms": ["pangalagaan", "palaguin", "paunlarin"],
+    "antonyms": ["pabayaan", "sirain", "aksayahin"],
+    "tags": ["kilos", "abstrakto", "positibo", "kultibasyon"],
+    "exam_tips": "Huwag malito sa pangngalang 'yaman' (wealth). Ang pandiwang 'pagyamanin' ay nangangahulugang 'to enrich' o 'to cultivate' at maaaring gamitin para sa kultura, kaalaman, o talento."
+  },
+  {
+    "lemma": "haging",
+    "part_of_speech": "pangngalan",
+    "definition": "Isang pahayag na hindi direkta o pasaring upang magpahiwatig ng isang mensahe.",
+    "usage": "Ginagamit bilang 'pahaging', na nangangahulugang 'hint' o 'insinuation'. Ito ay isang di-direktang paraan ng pagsasabi ng isang bagay.",
+    "example": "Isang pahaging ang binitawan niya upang malaman kung may seryosong intensyon ang binata.",
+    "example_gloss": "She dropped a hint to find out if the young man had serious intentions.",
+    "extra_examples": [
+      "Huwag mo akong pahagingan; sabihin mo nang direkta ang iyong nararamdaman.",
+      "Nakuha ko ang kanyang pahaging tungkol sa problema."
+    ],
+    "synonyms": ["pasaring", "pahiwatig", "paramdam"],
+    "antonyms": ["tapatan", "direktang sabi", "prangkahan"],
+    "tags": ["berbal", "komunikasyon", "pang-araw-araw", "sosyal"],
+    "exam_tips": "Ang 'pahaging' ay katumbas ng 'hint' o 'insinuation'. Ito ay kabaligtaran ng pagiging direkta o prangka."
+  },
+  {
+    "lemma": "himakas",
+    "part_of_speech": "pangngalan",
+    "definition": "Ang huling mensahe o pamamaalam bago ang isang mahabang paghihiwalay o bago ang kamatayan.",
+    "usage": "Isang pampanitikan at napakapormal na salita. Ginagamit bilang 'pahimakas', na nangangahulugang 'farewell' o 'last words'. Kilala ito dahil sa tula ni Rizal na 'Mi Ultimo Adios' o 'Huling Pahimakas'.",
+    "example": "Ang kanyang tulang 'Huling Pahimakas' ay naglalaman ng kanyang pagmamahal sa tinubuang lupa.",
+    "example_gloss": "His poem 'Last Farewell' contains his love for his motherland.",
+    "extra_examples": [
+      "Nagpahimakas ang sundalo sa kanyang pamilya bago siya tuluyang umalis patungo sa giyera.",
+      "Ang liham ay nagsilbing pahimakas niya sa lahat."
+    ],
+    "synonyms": ["huling pamamaalam", "huling habilin", "adios"],
+    "antonyms": ["pagbati", "pagsalubong"],
+    "tags": ["pampanitikan", "pormal", "pamamaalam", "kamatayan"],
+    "exam_tips": "Iugnay palagi ang 'pahimakas' sa 'huling paalam' o 'farewell'. Ang pinakatanyag na halimbawa nito ay ang huling tula ni Jose Rizal."
+  },
+  {
+    "lemma": "pakikibaka",
+    "part_of_speech": "pangngalan",
+    "definition": "Ang pakikipaglaban o pakikipagtunggali para sa isang layunin o prinsipyo.",
+    "usage": "Tumutukoy sa 'struggle' o 'fight' para sa isang adhikain, karapatan, o kalayaan. Madalas itong gamitin sa kontekstong sosyal o politikal.",
+    "example": "Ang pakikibaka para sa karapatang pantao ay isang laban na hindi dapat sukuan.",
+    "example_gloss": "The struggle for human rights is a fight that should not be given up.",
+    "extra_examples": [
+      "Maraming bayani ang nakibaka upang makamit natin ang kalayaang tinatamasa ngayon.",
+      "Ang kanyang buhay ay isang pakikibaka laban sa kahirapan."
+    ],
+    "synonyms": ["pakikipaglaban", "pakikipagtunggali", "pagsisikap"],
+    "antonyms": ["pagsuko", "pakikipagkasundo", "pagpapabaya"],
+    "tags": ["sosyal", "politikal", "kilos", "pormal"],
+    "exam_tips": "Ang 'pakikibaka' ay 'struggle' na may kasamang 'fighting for a cause'. Ito ay mas malalim kaysa simpleng 'paglalaban'."
+  },
+  {
+    "lemma": "salamuha",
+    "part_of_speech": "pandiwa",
+    "definition": "Ang kilos ng pakikipag-ugnayan o pakikihalo sa iba't ibang uri ng tao.",
+    "usage": "Ginagamit sa anyong 'pakikisalamuha' (socializing, interacting) o 'makisalamuha' (to socialize, to interact). Tumutukoy ito sa pakikipag-ugnayan sa ibang tao sa isang social setting.",
+    "example": "Mahalaga ang maayos na pakikisalamuha sa kapwa upang mapanatili ang kapayapaan sa komunidad.",
+    "example_gloss": "Properly socializing with others is important to maintain peace in the community.",
+    "extra_examples": [
+      "Nakisalamuha ang pangulo sa mga ordinaryong mamamayan upang malaman ang kanilang mga hinaing.",
+      "Mahiyain siyang tao at hirap makisalamuha sa mga hindi niya kakilala."
+    ],
+    "synonyms": ["pakikihalubilo", "pakikipag-ugnayan", "pakikipagkapwa-tao"],
+    "antonyms": ["pag-iisa", "paglayo", "pag-iwas"],
+    "tags": ["sosyal", "interaksyon", "komunikasyon", "pang-araw-araw"],
+    "exam_tips": "Ang 'pakikisalamuha' ay katumbas ng 'socializing' o 'interacting with people'."
+  },
+  {
+    "lemma": "palalo",
+    "part_of_speech": "pang-uri",
+    "definition": "Ang labis na pagmamalaki sa sariling kakayahan o katayuan.",
+    "usage": "Isang negatibong katangian na nangangahulugang 'arrogant' o 'haughty'. Ang pangngalan nito ay 'kapalaluan' (arrogance).",
+    "example": "Ang taong palalo ay madalas na kinamumuhian dahil sa kanyang labis na kayabangan.",
+    "example_gloss": "An arrogant person is often hated because of his/her excessive boastfulness.",
+    "extra_examples": [
+      "Huwag hayaang manaig ang kapalaluan sa iyong puso sa tuwing ikaw ay magtatagumpay.",
+      "Itinuturing siyang palalo ng kanyang mga kasamahan."
+    ],
+    "synonyms": ["hambog", "mayabang", "mapagmataas", "arogante"],
+    "antonyms": ["mababa ang loob", "mapagkumbaba"],
+    "tags": ["katangian", "negatibo", "sosyal", "pormal"],
+    "exam_tips": "Ang 'palalo' ay isang pormal na salita para sa 'mayabang' o 'arrogant'. Ang 'kapalaluan' ay 'arrogance'."
+  },
+  {
+    "lemma": "taghoy",
+    "part_of_speech": "pangngalan/pandiwa",
+    "definition": "Ang pagpapahayag ng matinding hinagpis o pagluluksa sa pamamagitan ng tunog o pananalita.",
+    "usage": "Isang pampanitikang salita para sa 'lament' o 'wail'. Ginagamit sa anyong 'panaghoy' (lamentation) o 'tumaghoy' (to lament). Ito ay mas malalim at mas malungkot kaysa sa 'tangis'.",
+    "example": "Ang panaghoy ng mga naulila ay nagdulot ng labis na lungkot sa lahat ng nakikiramay.",
+    "example_gloss": "The lamentation of the bereaved caused extreme sadness to all those who were sympathizing.",
+    "extra_examples": [
+      "Nananaghoy ang kalikasan dahil sa patuloy na pagkasira ng mga kagubatan.",
+      "Isang malungkot na taghoy ang maririnig sa gabi ng libing."
+    ],
+    "synonyms": ["pagluluksa", "hinagpis", "panambitan", "tangis"],
+    "antonyms": ["katuwaan", "pagdiriwang", "kagalakan"],
+    "tags": ["pampanitikan", "emosyon", "negatibo", "pormal"],
+    "exam_tips": "Ang 'taghoy' o 'panaghoy' ay isang napakalungkot na pagpapahayag ng pighati, katulad ng 'lamentation'. Mas pampanitikan ito kaysa 'iyak' o 'tangis'."
+  },
+  {
+    "lemma": "panaka-naka",
+    "part_of_speech": "pang-abay",
+    "definition": "Nangyayari nang may pagitan o hindi madalas.",
+    "usage": "Isang pang-abay (adverb) na nangangahulugang 'occasionally', 'intermittently', o 'once in a while'.",
+    "example": "Panaka-naka lamang ang pagdating ng mga turista sa liblib na pook na iyon.",
+    "example_gloss": "The arrival of tourists in that remote area is only occasional.",
+    "extra_examples": [
+      "Nakararanas tayo ng panaka-nakang pag-ulan kahit panahon na ng tag-init.",
+      "Panaka-naka siyang umuuwi sa probinsya para dalawin ang kanyang mga magulang."
+    ],
+    "synonyms": ["paminsan-minsan", "madalang", "bihira"],
+    "antonyms": ["palagi", "madalas", "araw-araw"],
+    "tags": ["oras", "dalas", "pang-araw-araw", "pang-abay"],
+    "exam_tips": "Ang 'panaka-naka' ay katumbas ng 'paminsan-minsan' o 'occasionally'. Ito ay salitang inuulit."
+  },
+  {
+    "lemma": "panimdim",
+    "part_of_speech": "pangngalan",
+    "definition": "Ang kalagayan ng pagkakaroon ng malalim na kalungkutan o lihim na dinaramdam.",
+    "usage": "Isang pampanitikan at malalim na salita para sa 'sorrow', 'grief', o 'melancholy' na may kasamang malalim na pag-iisip o pag-aalala.",
+    "example": "Laging may panimdim sa kanyang mga mata tuwing naaalala ang kanyang pumanaw na ina.",
+    "example_gloss": "There is always sorrow in his/her eyes whenever he/she remembers his/her departed mother.",
+    "extra_examples": [
+      "Huwag mong papanimdimin ang iyong sarili sa mga bagay na wala ka nang kontrol.",
+      "Ang kanyang mga tula ay puno ng panimdim."
+    ],
+    "synonyms": ["kalungkutan", "lumbay", "pighati", "dalamhati"],
+    "antonyms": ["kasiyahan", "kagalakan", "kagaanan-ng-loob"],
+    "tags": ["pampanitikan", "emosyon", "negatibo", "pormal"],
+    "exam_tips": "Ang 'panimdim' ay isang malalim na uri ng kalungkutan na may halong pagmumuni-muni o pag-aalala. Mas malalim ito kaysa sa 'lungkot'."
+  },
+  {
+    "lemma": "pasanin",
+    "part_of_speech": "pangngalan",
+    "definition": "Isang mabigat na tungkulin, problema, o obligasyong kailangang harapin.",
+    "usage": "Maaaring literal na 'cargo carried on the shoulder' o, mas karaniwan, isang metaporikal na 'burden' o 'responsibility'.",
+    "example": "Ang pag-aaral ng kanyang mga anak ang pinakamabigat na pasanin ng amang magsasaka.",
+    "example_gloss": "His children's education is the heaviest burden of the farmer-father.",
+    "extra_examples": [
+      "Pasan-pasan niya ang responsibilidad ng pagiging panganay matapos mawala ang kanilang mga magulang.",
+      "Ang utang ay isang mabigat na pasanin sa kanyang balikat."
+    ],
+    "synonyms": ["suliranin", "mabigat na tungkulin", "responsibilidad", "dalahin"],
+    "antonyms": ["kagaanan", "ginhawa", "biyaya"],
+    "tags": ["metapora", "responsibilidad", "problema", "pang-araw-araw"],
+    "exam_tips": "Ang 'pasanin' ay literal na 'something carried on the shoulder', ngunit mas madalas gamitin bilang 'burden' (problema o responsibilidad)."
+  },
+  {
+    "lemma": "patibong",
+    "part_of_speech": "pangngalan",
+    "definition": "Isang kasangkapan o paraan upang makahuli ng hayop o kaaway.",
+    "usage": "Nangangahulugang 'trap' o 'snare'. Maaaring literal na bitag para sa hayop o metaporikal na bitag para sa tao.",
+    "example": "Gumawa sila ng patibong upang mahuli ang mababangis na hayop na sumisira sa kanilang pananim.",
+    "example_gloss": "They made a trap to catch the wild animals that were destroying their crops.",
+    "extra_examples": [
+      "Nahulog siya sa patibong na inihanda ng kanyang mga katunggali sa negosyo.",
+      "Mag-ingat sa mga patibong ng mapanlinlang na tao."
+    ],
+    "synonyms": ["bitag", "silo", "umang"],
+    "antonyms": ["kaligtasan", "laya", "pagtakas"],
+    "tags": ["kasangkapan", "panlilinlang", "pang-araw-araw", "negatibo"],
+    "exam_tips": "Ang 'patibong' ay direktang katumbas ng salitang 'trap' sa Ingles."
+  },
+  {
+    "lemma": "patnubay",
+    "part_of_speech": "pangngalan",
+    "definition": "Ang pagbibigay ng direksyon o alalay sa isang tao.",
+    "usage": "Nangangahulugang 'guidance'. Maaaring tumukoy sa isang taong gumagabay ('Ang aking ama ang aking patnubay') o sa mismong kilos ng paggabay ('Kailangan ko ang iyong patnubay').",
+    "example": "Ang Bibliya ang nagsisilbing patnubay niya sa paggawa ng tama sa araw-araw.",
+    "example_gloss": "The Bible serves as his/her guide in doing what is right every day.",
+    "extra_examples": [
+      "Pinapatnubayan ng mga eksperto ang mga bagong mananaliksik sa kanilang proyekto.",
+      "Humingi siya ng patnubay mula sa kanyang mga magulang."
+    ],
+    "synonyms": ["gabay", "tulong", "payo", "direksyon"],
+    "antonyms": ["balakid", "maling direksyon", "pabayaan"],
+    "tags": ["abstrakto", "gabay", "pormal", "positibo"],
+    "exam_tips": "Ang 'patnubay' ay katumbas ng 'guidance'. Ang 'pumatnubay' ay 'to guide'."
+  },
+  {
+    "lemma": "payak",
+    "part_of_speech": "pang-uri",
+    "definition": "Isang bagay na walang halong arte o kumplikadong detalye.",
+    "usage": "Nangangahulugang 'simple', 'plain', o 'uncomplicated'. Ginagamit upang ilarawan ang pamumuhay, disenyo, pananalita, o istruktura.",
+    "example": "Isang payak na pamumuhay sa lalawigan ang hangad niya pagdating ng kanyang pagtanda.",
+    "example_gloss": "A simple life in the province is what he/she desires when he/she grows old.",
+    "extra_examples": [
+      "Sa kabila ng kanyang yaman, hinahangaan siya dahil sa kanyang kapayakan.",
+      "Ginamit niya ang mga payak na salita upang maintindihan siya ng mga bata."
+    ],
+    "synonyms": ["simple", "ordinaryo", "karaniwan", "walang-palamuti"],
+    "antonyms": ["marangya", "kumplikado", " magarbo"],
+    "tags": ["deskriptibo", "katangian", "pang-araw-araw", "positibo"],
+    "exam_tips": "Ang 'payak' ay direktang katumbas ng 'simple'. Ang pangngalan nito ay 'kapayakan' (simplicity)."
+  },
+  {
+    "lemma": "pedestal",
+    "part_of_speech": "pangngalan",
+    "definition": "Isang plataporma o tungtungan na kinalalagyan ng isang estatwa o mahalagang bagay.",
+    "usage": "Salitang hiram na nangangahulugang 'pedestal'. Ginagamit sa literal na paraan para sa mga estatwa, o sa metaporikal na paraan, 'ilagay sa pedestal', na nangangahulugang labis na paghanga o pagsamba sa isang tao.",
+    "example": "Inilagay nila sa isang mataas na pedestal ang rebulto ng pambansang bayani.",
+    "example_gloss": "They placed the statue of the national hero on a high pedestal.",
+    "extra_examples": [
+      "Huwag mong ilagay sa pedestal ang isang tao dahil lahat tayo ay nagkakamali.",
+      "Ang tropeo ay nakapatong sa isang gintong pedestal."
+    ],
+    "synonyms": ["tuntungan", "patungan", "base"],
+    "antonyms": ["sahig", "kailaliman"],
+    "tags": ["hiram na salita", "bagay", "istruktura", "metapora"],
+    "exam_tips": "Pareho lang ang kahulugan at gamit ng 'pedestal' sa Filipino at Ingles, kabilang na ang metaporikal na paggamit nito ('putting someone on a pedestal')."
+  }
+]

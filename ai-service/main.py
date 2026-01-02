@@ -323,9 +323,24 @@ async def get_lexicon_exercises():
 
 @app.get("/exercises/grammar")
 async def get_grammar_exercises():
-    if not grammar_data:
-        raise HTTPException(status_code=404, detail="Grammar data not loaded")
-    return {"exercises": grammar_data, "count": len(grammar_data)}
+    """Get all grammar exercises"""
+    try:
+        if not grammar_data:
+            raise HTTPException(
+                status_code=404,
+                detail="Grammar data not loaded"
+            )
+
+        return {
+            "success": True,
+            "exercises": grammar_data,
+            "count": len(grammar_data)
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error loading grammar data: {str(e)}"
+        )
 
 
 @app.get("/debug/data-status")
@@ -344,6 +359,21 @@ async def debug_data_status():
 
     try:
         status["grammar"] = {"loaded": True, "count": len(grammar_data)}
+
+        # Count by exercise type
+        error_id_count = len([
+            item for item in grammar_data
+            if item.get("exercise_type") == "error_identification"
+        ])
+        fill_blanks_count = len([
+            item for item in grammar_data
+            if item.get("exercise_type") == "fill_in_the_blanks"
+        ])
+
+        status["grammar"]["by_type"] = {
+            "error_identification": error_id_count,
+            "fill_in_the_blanks": fill_blanks_count
+        }
     except Exception as e:
         status["grammar"] = {"loaded": False, "error": str(e)}
 
@@ -363,6 +393,7 @@ async def startup_event():
     print(f"✅ OpenAI API Key: {'Configured' if api_key else 'Missing'}")
     print(f"✅ Vocabulary Data: {len(vocabulary_data)} words loaded")
     print(f"✅ Lexicon Data: {len(lexicon_data)} entries loaded")
+    print(f"✅ Grammar Data: {len(grammar_data)} exercises loaded")
     print(
         f"✅ Explain Handler: {'Loaded' if handle_explain else 'Not Available'}")
     print(

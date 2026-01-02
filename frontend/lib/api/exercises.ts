@@ -18,6 +18,17 @@ export interface LexiconItem {
   };
 }
 
+export interface GrammarExerciseItem {
+  item_id: string;
+  lemma_id: string;
+  error_sentence: string;
+  errorCorrectAnswer: string;
+  fill_sentence: string;
+  fillCorrectAnswer: string;
+  error_explanation: string;
+  fill_explanation: string;
+}
+
 export async function getVocabularyExercises(): Promise<VocabularyExerciseItem[]> {
   const response = await fetch(`${AI_SERVICE_URL}/exercises/vocabulary`);
   if (!response.ok) {
@@ -36,10 +47,11 @@ export async function getLexiconData(): Promise<LexiconItem[]> {
   return data.exercises || [];
 }
 
-export async function getGrammarExercises() {
+export async function getGrammarExercises(): Promise<GrammarExerciseItem[]> {
   const response = await fetch(`${AI_SERVICE_URL}/exercises/grammar`);
   if (!response.ok) {
     throw new Error(`Failed to fetch grammar exercises: ${response.statusText}`);
   }
-  return response.json();
+  const data = await response.json();
+  return data.exercises || [];
 }

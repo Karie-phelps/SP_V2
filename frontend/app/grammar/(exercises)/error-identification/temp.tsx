@@ -28,131 +28,71 @@ interface ProcessedErrorItem {
   explanation: string;
 }
 
-// Helper function to extract phrases from sentence for distractor generation
-function extractPhrasesFromSentence(
-  sentence: string,
-  correctAnswer: string
-): string[] {
-  // Remove any HTML tags
+// Helper function to extract unique phrases from sentence
+function extractPhrasesFromSentence(sentence: string): string[] {
+  // Remove HTML tags
   const cleanSentence = sentence.replace(/<[^>]*>/g, "");
 
-  // Split by word boundaries (spaces, punctuation)
-  const words = cleanSentence.split(/\s+/).filter((w) => w.length > 0);
+  // Split by common delimiters
+  const words = cleanSentence.split(/[\s,./;:!?]+/).filter((w) => w.length > 0);
 
-  // Generate all possible n-grams (1-word, 2-word, 3-word phrases)
+  // Create phrases (1-3 words)
   const phrases: string[] = [];
 
   for (let i = 0; i < words.length; i++) {
-    // 1-word phrases
-    const word1 = words[i].replace(/[.,;:!?'"()]/g, "");
-    if (word1.length > 2) {
-      phrases.push(word1);
+    // Single word
+    if (words[i].length > 2) {
+      phrases.push(words[i]);
     }
 
-    // 2-word phrases
+    // Two words
     if (i < words.length - 1) {
-      const word2 = words[i + 1].replace(/[.,;:!?'"()]/g, "");
-      phrases.push(`${word1} ${word2}`);
+      phrases.push(`${words[i]} ${words[i + 1]}`);
     }
 
-    // 3-word phrases
+    // Three words
     if (i < words.length - 2) {
-      const word2 = words[i + 1].replace(/[.,;:!?'"()]/g, "");
-      const word3 = words[i + 2].replace(/[.,;:!?'"()]/g, "");
-      phrases.push(`${word1} ${word2} ${word3}`);
+      phrases.push(`${words[i]} ${words[i + 1]} ${words[i + 2]}`);
     }
   }
 
-  // Filter out:
-  // 1. The correct answer itself
-  // 2. Phrases that contain the correct answer
-  // 3. Phrases that are contained in the correct answer
-  // 4. Duplicates
-  const filtered = phrases.filter((phrase) => {
-    const lowerPhrase = phrase.toLowerCase();
-    const lowerCorrect = correctAnswer.toLowerCase();
-
-    return (
-      lowerPhrase !== lowerCorrect &&
-      !lowerPhrase.includes(lowerCorrect) &&
-      !lowerCorrect.includes(lowerPhrase)
-    );
-  });
-
-  // Remove duplicates
-  return Array.from(new Set(filtered));
+  // Remove duplicates and return
+  return Array.from(new Set(phrases));
 }
 
-// Convert grammar items to error identification format with generated distractors
+// Convert grammar items to error identification format
 function convertToErrorFormat(
   items: GrammarExerciseItem[]
 ): ProcessedErrorItem[] {
   return items.map((item) => {
-    const correctAnswer = item.errorCorrectAnswer;
-    const isNoError = correctAnswer.toLowerCase() === "no error";
+    const allPhrases = extractPhrasesFromSentence(item.error_sentence);
 
-    // Extract potential distractor phrases from the sentence
-    const allPhrases = extractPhrasesFromSentence(
-      item.error_sentence,
-      correctAnswer
-    );
-
+    // Shuffle and take 3 random phrases as distractors (if not "No error")
     let choices: string[];
 
-    if (isNoError) {
-      // If correct answer is "No error", generate 3 distractors + "No error"
-      const shuffledPhrases = allPhrases.sort(() => Math.random() - 0.5);
-      let distractors = shuffledPhrases.slice(0, 3);
-
-      // If we don't have enough distractors, pad with generic options
-      const fallbackOptions = [
-        "Hindi Malinaw",
-        "Kulang ang Impormasyon",
-        "Labis ang Salita",
-      ];
-      let fallbackIndex = 0;
-
-      while (distractors.length < 3 && fallbackIndex < fallbackOptions.length) {
-        const fallback = fallbackOptions[fallbackIndex];
-        if (!distractors.includes(fallback)) {
-          distractors.push(fallback);
-        }
-        fallbackIndex++;
-      }
-
-      // Shuffle the 3 distractors, then add "Walang Mali" at the end
-      distractors = distractors.sort(() => Math.random() - 0.5);
-      choices = [...distractors, "Walang Mali"];
+    if (item.errorCorrectAnswer === "No error") {
+      // If no error, generate distractors from sentence
+      const shuffled = allPhrases.sort(() => Math.random() - 0.5);
+      const distractors = shuffled.slice(0, 3);
+      choices = [...distractors, "No error"];
     } else {
-      // If there's an error, generate 2 distractors + correct answer + "No error" at the end
-      const shuffledPhrases = allPhrases.sort(() => Math.random() - 0.5);
-      let distractors = shuffledPhrases.slice(0, 2);
-
-      // If we don't have enough distractors, pad with generic options
-      const fallbackOptions = ["Hindi Malinaw", "Kulang ang Impormasyon"];
-      let fallbackIndex = 0;
-
-      while (distractors.length < 2 && fallbackIndex < fallbackOptions.length) {
-        const fallback = fallbackOptions[fallbackIndex];
-        if (!distractors.includes(fallback)) {
-          distractors.push(fallback);
-        }
-        fallbackIndex++;
-      }
-
-      // Shuffle correct answer with 2 distractors, then add "Walang Mali" at the end
-      const firstThreeChoices = [correctAnswer, ...distractors].sort(
-        () => Math.random() - 0.5
-      );
-      choices = [...firstThreeChoices, "Walang Mali"];
+      // If there's an error, use it as correct answer and generate distractors
+      const distractors = allPhrases
+        .filter((p) => p !== item.errorCorrectAnswer)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 3);
+      choices = [...distractors, item.errorCorrectAnswer];
     }
+
+    // Shuffle choices
+    choices = choices.sort(() => Math.random() - 0.5);
 
     return {
       item_id: item.item_id,
       sentence: item.error_sentence,
       question: "Alin sa mga sumusunod ang may mali sa pangungusap?",
       choices,
-      correct_answer: isNoError ? "Walang Mali" : correctAnswer,
+      correct_answer: item.errorCorrectAnswer,
       explanation: item.error_explanation,
     };
   });
@@ -186,13 +126,8 @@ export default function ErrorIdentificationPage() {
           throw new Error("No grammar exercises available");
         }
 
-        console.log("📚 Loaded grammar exercises:", exercises.length);
-
-        // Convert to error identification format with generated distractors
+        // Convert to error identification format
         const processedItems = convertToErrorFormat(exercises);
-
-        console.log("✅ Processed error items:", processedItems.length);
-        console.log("📝 Sample question:", processedItems[0]);
 
         // Shuffle and select 10 questions
         const shuffled = [...processedItems].sort(() => Math.random() - 0.5);
@@ -216,7 +151,8 @@ export default function ErrorIdentificationPage() {
     loadQuestions();
   }, []);
 
-  // Show loading state
+  // ... rest of the component remains the same (loading states, handlers, etc.)
+
   if (isLoading) {
     return (
       <div className="h-screen bg-red-50 flex flex-col">
@@ -248,7 +184,6 @@ export default function ErrorIdentificationPage() {
     );
   }
 
-  // Show error state
   if (error || errorQuestions.length === 0) {
     return (
       <div className="h-screen bg-red-50 flex flex-col">
@@ -386,7 +321,6 @@ export default function ErrorIdentificationPage() {
 
   return (
     <div className="h-screen bg-red-50 overflow-auto flex flex-col scrollbar-red scrollbar-purple">
-      {/* Header */}
       <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-red-200">
         <Link
           href="/grammar"
@@ -411,7 +345,6 @@ export default function ErrorIdentificationPage() {
         </button>
       </div>
 
-      {/* Main Content */}
       <div className="flex-1 flex flex-col justify-start px-4 md:px-8 py-6 space-y-1 max-w-7xl mx-auto w-full">
         <ErrorProgress
           currentQuestion={currentQuestion}
