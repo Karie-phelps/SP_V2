@@ -6,6 +6,8 @@ urlpatterns = [
     path('all/', views.get_all_progress, name='get_all_progress'),
     path("performance-event/", views.record_lexical_performance,
          name="performance-event"),
+    path("lexical-difficulties/", views.get_lexical_difficulties,
+         name="lexical_difficulties"),
     path('<str:module_name>/', views.get_module_progress,
          name='get_module_progress'),
 

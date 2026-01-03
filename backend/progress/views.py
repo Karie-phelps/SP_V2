@@ -10,7 +10,8 @@ from .models import (
     ExerciseProgress,
     PerformanceMetrics,
     SRSCard,
-    ReviewDeck
+    ReviewDeck,
+    LexicalDifficulty
 )
 from .serializers import (
     ModuleProgressSerializer,
@@ -21,6 +22,7 @@ from .serializers import (
 )
 from .performance_serializers import LexicalPerformanceEventSerializer
 from .services.difficulty import update_lexical_difficulty_for_event
+from .difficulty_serializers import LexicalDifficultySerializer
 
 
 @api_view(["POST"])
@@ -117,6 +119,54 @@ def record_lexical_performance(request):
     )
 
     return Response({"message": "Performance recorded"}, status=status.HTTP_201_CREATED)
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def get_lexical_difficulties(request):
+    """
+    Return current user's lexical difficulty estimates for vocabulary items.
+
+    Response:
+    {
+      "difficulties": [
+        {
+          "lemma_id": "L001",
+          "attempts": 7,
+          "correct": 4,
+          "wrong": 3,
+          "difficulty_score": 0.62
+        },
+        ...
+      ]
+    }
+    """
+
+    user = request.user
+
+    # Optional filtering: only return lemmas with at least N attempts
+    min_attempts = request.query_params.get("min_attempts")
+    try:
+        min_attempts = int(min_attempts) if min_attempts is not None else 1
+    except ValueError:
+        min_attempts = 1
+
+    qs = LexicalDifficulty.objects.filter(
+        user=user, attempts__gte=min_attempts)
+
+    data = [
+        {
+            "lemma_id": ld.lemma_id,
+            "attempts": ld.attempts,
+            "correct": ld.correct,
+            "wrong": ld.wrong,
+            "difficulty_score": ld.difficulty_score,
+        }
+        for ld in qs
+    ]
+
+    serializer = LexicalDifficultySerializer(data, many=True)
+    return Response({"difficulties": serializer.data})
 
 
 @api_view(['GET'])

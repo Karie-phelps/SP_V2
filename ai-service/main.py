@@ -1,9 +1,11 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Optional, List, Dict
 import os
 import sys
+import httpx
+import random
 from dotenv import load_dotenv
 
 # Load environment variables FIRST
@@ -75,9 +77,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+BACKEND_API_URL = os.getenv("BACKEND_API_URL", "http://localhost:8000/api")
+
 # ============================================================
 # REQUEST/RESPONSE MODELS (for remaining endpoints)
 # ============================================================
+
+
+class VocabularyExercisesRequest(BaseModel):
+    user_id: Optional[int] = None
+    # "easy" | "medium" | "hard" | None
+    target_difficulty: Optional[str] = None
+    limit: int = 15
 
 
 class TipsRequest(BaseModel):
@@ -118,6 +129,51 @@ class DetailedHealthResponse(BaseModel):
     openai_key_configured: bool
     vocabulary_data_loaded: bool
     vocabulary_count: Optional[int] = None
+
+
+# ============================================================
+# HELPER FUNCTIONS
+# ============================================================
+
+async def fetch_user_lexical_difficulties(
+    user_id: int, token: Optional[str] = None
+) -> Dict[str, float]:
+    """
+    Call backend /api/progress/lexical-difficulties/ for a given user.
+    Returns a mapping lemma_id -> difficulty_score (float or None).
+    NOTE: You'll need some way to authenticate as that user.
+    For now, this function assumes you pass a JWT access token
+    in the Authorization header when calling ai-service from frontend.
+    """
+    headers = {}
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+
+    url = f"{BACKEND_API_URL}/progress/lexical-difficulties/"
+    async with httpx.AsyncClient(timeout=5.0) as client:
+        resp = await client.get(url, headers=headers)
+        resp.raise_for_status()
+        data = resp.json()
+
+    difficulties = {}
+    for item in data.get("difficulties", []):
+        lemma_id = item["lemma_id"]
+        score = item["difficulty_score"]
+        difficulties[lemma_id] = score
+    return difficulties
+
+
+def bucket_from_score(score: Optional[float]) -> Optional[str]:
+    """
+    Map continuous difficulty_score in [0,1] to 'easy' | 'medium' | 'hard'.
+    """
+    if score is None:
+        return None
+    if score < 0.3:
+        return "easy"
+    if score < 0.6:
+        return "medium"
+    return "hard"
 
 # ============================================================
 # ENDPOINTS
@@ -296,22 +352,111 @@ async def find_confusables(request: ConfusablesRequest):
 # DATA EXERCISE ENDPOINTS
 # ============================================================
 
-@app.get("/exercises/vocabulary")
-async def get_vocabulary_exercises():
+# @app.get("/exercises/vocabulary")
+# async def get_vocabulary_exercises():
+#     try:
+#         if not vocabulary_data:
+#             raise HTTPException(
+#                 status_code=404, detail="No vocabulary data found")
+#         return {
+#             "success": True,
+#             "exercises": vocabulary_data,
+#             "count": len(vocabulary_data)
+#         }
+#     except Exception as e:
+#         raise HTTPException(
+#             status_code=500,
+#             detail=f"Error loading vocabulary data: {str(e)}"
+#         )
+
+
+@app.post("/exercises/vocabulary")
+async def get_vocabulary_exercises_adaptive(
+    request: VocabularyExercisesRequest,
+    authorization: Optional[str] = None,
+):
+    """
+    Adaptive vocabulary exercise selection.
+
+    Request body:
+    {
+      "user_id": 123,                 # optional
+      "target_difficulty": "medium",  # optional: "easy" | "medium" | "hard"
+      "limit": 15
+    }
+
+    Behavior:
+      - If user_id & Authorization (JWT) provided:
+          - fetch per-lemma difficulty from backend
+          - favor items whose difficulty bucket matches target_difficulty
+      - Otherwise:
+          - return a random sample of vocabulary_data (non-adaptive)
+    """
+
+    user_id = request.user_id
+    target_difficulty = request.target_difficulty
+    limit = request.limit
+
+    # Fallback: no adaptivity if no user or no token
+    if user_id is None or authorization is None:
+        # Simple random sample as before
+        items = list(vocabulary_data)
+        random.shuffle(items)
+        return {"exercises": items[:limit]}
+
+    # Extract token from "Bearer <token>"
+    token = None
+    if authorization.lower().startswith("bearer "):
+        token = authorization.split(" ", 1)[1].strip()
+
+    # Fetch user's lexical difficulties from backend
     try:
-        if not vocabulary_data:
-            raise HTTPException(
-                status_code=404, detail="No vocabulary data found")
-        return {
-            "success": True,
-            "exercises": vocabulary_data,
-            "count": len(vocabulary_data)
-        }
-    except Exception as e:
-        raise HTTPException(
-            status_code=500,
-            detail=f"Error loading vocabulary data: {str(e)}"
+        user_difficulties = await fetch_user_lexical_difficulties(
+            user_id=user_id,
+            token=token,
         )
+    except Exception as e:
+        # If backend call fails, degrade gracefully to random
+        print("⚠️ Failed to fetch lexical difficulties:", e)
+        items = list(vocabulary_data)
+        random.shuffle(items)
+        return {"exercises": items[:limit]}
+
+    # Annotate each vocab item with user's difficulty bucket
+    annotated = []
+    for item in vocabulary_data:
+        lemma_id = item.get("lemma_id")
+        score = user_difficulties.get(lemma_id)
+        bucket = bucket_from_score(score)
+        annotated.append((item, bucket))
+
+    # Selection strategy:
+    # - If target_difficulty is provided, prefer items in that bucket.
+    # - If not enough items, backfill with other buckets.
+    if target_difficulty not in {"easy", "medium", "hard"}:
+        target_difficulty = None
+
+    preferred = []
+    others = []
+
+    for item, bucket in annotated:
+        if target_difficulty is not None and bucket == target_difficulty:
+            preferred.append(item)
+        else:
+            others.append(item)
+
+    selected = []
+
+    # Take from preferred first
+    random.shuffle(preferred)
+    selected.extend(preferred[:limit])
+
+    if len(selected) < limit:
+        remaining = limit - len(selected)
+        random.shuffle(others)
+        selected.extend(others[:remaining])
+
+    return {"exercises": selected[:limit]}
 
 
 @app.get("/exercises/lexicon")

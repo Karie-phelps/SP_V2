@@ -38,6 +38,33 @@ export async function getVocabularyExercises(): Promise<VocabularyExerciseItem[]
   return data.exercises || [];
 }
 
+export async function getVocabularyExercisesAdaptive(
+  params: { userId?: number; targetDifficulty?: "easy" | "medium" | "hard"; limit?: number } = {}
+): Promise<VocabularyExerciseItem[]> {
+  const body = {
+    user_id: params.userId ?? null,
+    target_difficulty: params.targetDifficulty ?? null,
+    limit: params.limit ?? 15,
+  };
+
+  const response = await fetch(`${AI_SERVICE_URL}/exercises/vocabulary`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      // Optional: include Authorization if you want ai-service to forward JWT
+      // "Authorization": `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify(body),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch vocabulary exercises: ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  return data.exercises || [];
+}
+
 export async function getLexiconData(): Promise<LexiconItem[]> {
   const response = await fetch(`${AI_SERVICE_URL}/exercises/lexicon`);
   if (!response.ok) {
