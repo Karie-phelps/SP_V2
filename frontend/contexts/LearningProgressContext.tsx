@@ -4,14 +4,20 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import { useAuth } from "./AuthContext";
 import * as ProgressAPI from "@/lib/api/progress";
 
-// Types (keep existing types)
+// Types
 export type ModuleType =
   | "vocabulary"
   | "grammar"
   | "sentence-construction"
   | "reading-comprehension";
 
-export type ExerciseType = "flashcards" | "quiz" | "fill-blanks" | "antonym";
+export type ExerciseType =
+  | "flashcards"
+  | "quiz"
+  | "antonym"
+  | "fill-blanks"
+  | "sentence-correction"
+  | "error-identification";
 
 export type ExerciseStatus =
   | "locked"
@@ -37,12 +43,13 @@ export interface ExerciseProgress {
   performanceHistory: PerformanceMetrics[];
 }
 
-// ✅ ADDED "antonym" to ModuleProgress
 export interface ModuleProgress {
   flashcards: ExerciseProgress;
   quiz: ExerciseProgress;
   "fill-blanks": ExerciseProgress;
   antonym: ExerciseProgress;
+  "sentence-correction": ExerciseProgress;
+  "error-identification": ExerciseProgress;
   lastAccessedAt: string | null;
 }
 
@@ -85,7 +92,6 @@ interface LearningProgressContextType {
   ) => PerformanceMetrics[];
 }
 
-// Default states (keep existing defaults)
 const defaultExerciseProgress: ExerciseProgress = {
   status: "locked",
   score: null,
@@ -96,20 +102,52 @@ const defaultExerciseProgress: ExerciseProgress = {
   performanceHistory: [],
 };
 
-// ✅ ADDED antonym with default progress
-const defaultModuleProgress: ModuleProgress = {
-  flashcards: { ...defaultExerciseProgress, status: "available" },
-  quiz: { ...defaultExerciseProgress },
-  "fill-blanks": { ...defaultExerciseProgress },
-  antonym: { ...defaultExerciseProgress },
-  lastAccessedAt: null,
+// ✅ UPDATED: Different default module progress for vocabulary and grammar
+const createDefaultModuleProgress = (module: ModuleType): ModuleProgress => {
+  if (module === "vocabulary") {
+    // Vocabulary: flashcards is first (available by default)
+    return {
+      flashcards: { ...defaultExerciseProgress, status: "available" },
+      quiz: { ...defaultExerciseProgress },
+      "fill-blanks": { ...defaultExerciseProgress },
+      antonym: { ...defaultExerciseProgress },
+      "sentence-correction": { ...defaultExerciseProgress },
+      "error-identification": { ...defaultExerciseProgress },
+      lastAccessedAt: null,
+    };
+  } else if (module === "grammar") {
+    // ✅ Grammar: sentence-correction is first (available by default)
+    return {
+      flashcards: { ...defaultExerciseProgress },
+      quiz: { ...defaultExerciseProgress },
+      "fill-blanks": { ...defaultExerciseProgress },
+      antonym: { ...defaultExerciseProgress },
+      "sentence-correction": {
+        ...defaultExerciseProgress,
+        status: "available",
+      },
+      "error-identification": { ...defaultExerciseProgress },
+      lastAccessedAt: null,
+    };
+  } else {
+    // Other modules: flashcards is first (available by default)
+    return {
+      flashcards: { ...defaultExerciseProgress, status: "available" },
+      quiz: { ...defaultExerciseProgress },
+      "fill-blanks": { ...defaultExerciseProgress },
+      antonym: { ...defaultExerciseProgress },
+      "sentence-correction": { ...defaultExerciseProgress },
+      "error-identification": { ...defaultExerciseProgress },
+      lastAccessedAt: null,
+    };
+  }
 };
 
 const defaultProgress: AllModulesProgress = {
-  vocabulary: { ...defaultModuleProgress },
-  grammar: { ...defaultModuleProgress },
-  "sentence-construction": { ...defaultModuleProgress },
-  "reading-comprehension": { ...defaultModuleProgress },
+  vocabulary: createDefaultModuleProgress("vocabulary"),
+  grammar: createDefaultModuleProgress("grammar"),
+  "sentence-construction": createDefaultModuleProgress("sentence-construction"),
+  "reading-comprehension": createDefaultModuleProgress("reading-comprehension"),
   recommendedModule: "vocabulary",
   lastCompletedModule: null,
 };
@@ -128,15 +166,15 @@ export function LearningProgressProvider({
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // ✅ ADDED "antonym" to exercise type map
   const exerciseTypeMap: Record<ExerciseType, string> = {
     flashcards: "flashcards",
     quiz: "quiz",
     "fill-blanks": "fill-blanks",
     antonym: "antonym",
+    "sentence-correction": "sentence-correction",
+    "error-identification": "error-identification",
   };
 
-  // Convert backend data to frontend format
   const convertBackendToFrontend = (
     backendModules: ProgressAPI.ModuleProgress[]
   ): AllModulesProgress => {
@@ -145,15 +183,10 @@ export function LearningProgressProvider({
     backendModules.forEach((module) => {
       const moduleKey = module.module as ModuleType;
       if (moduleKey in frontendProgress) {
-        const moduleProgress: ModuleProgress = {
-          flashcards: { ...defaultExerciseProgress, status: "available" },
-          quiz: { ...defaultExerciseProgress },
-          "fill-blanks": { ...defaultExerciseProgress },
-          antonym: { ...defaultExerciseProgress },
-          lastAccessedAt: module.last_accessed_at,
-        };
+        // ✅ Use module-specific defaults
+        const moduleProgress: ModuleProgress =
+          createDefaultModuleProgress(moduleKey);
 
-        // Map exercises
         module.exercises.forEach((exercise) => {
           const exerciseKey = exercise.exercise_type as ExerciseType;
           if (exerciseKey in moduleProgress) {
@@ -182,7 +215,6 @@ export function LearningProgressProvider({
     return frontendProgress;
   };
 
-  // Load progress from backend on mount or when user changes
   const syncProgress = async () => {
     if (!user || !tokens) {
       setProgress(defaultProgress);
@@ -197,7 +229,6 @@ export function LearningProgressProvider({
       const convertedProgress = convertBackendToFrontend(backendModules);
       setProgress(convertedProgress);
 
-      // Also save to localStorage as backup
       localStorage.setItem(
         "learning-progress-backup",
         JSON.stringify(convertedProgress)
@@ -206,7 +237,6 @@ export function LearningProgressProvider({
       console.error("Failed to load progress from backend:", err);
       setError(err.message);
 
-      // Fallback to localStorage
       const backup = localStorage.getItem("learning-progress-backup");
       if (backup) {
         try {
@@ -224,13 +254,11 @@ export function LearningProgressProvider({
     syncProgress();
   }, [user?.id]);
 
-  // Update progress with optimistic update + backend sync
   const updateProgress = async (
     module: ModuleType,
     exercise: ExerciseType,
     data: Partial<ExerciseProgress>
   ) => {
-    // Optimistic update (update UI immediately)
     setProgress((prev) => {
       const moduleProgress = { ...prev[module] };
       moduleProgress[exercise] = {
@@ -238,19 +266,27 @@ export function LearningProgressProvider({
         ...data,
       };
 
-      // ✅ UPDATED: Sequential unlock logic for vocabulary module
       if (module === "vocabulary") {
+        // Vocabulary: flashcards → quiz → antonym
         if (exercise === "flashcards" && data.status === "completed") {
           moduleProgress.quiz.status = "available";
         }
         if (exercise === "quiz" && data.status === "completed") {
           moduleProgress.antonym.status = "available";
         }
-        if (exercise === "antonym" && data.status === "completed") {
+      } else if (module === "grammar") {
+        // Grammar: sentence-correction → error-identification → fill-blanks
+        if (exercise === "sentence-correction" && data.status === "completed") {
+          moduleProgress["error-identification"].status = "available";
+        }
+        if (
+          exercise === "error-identification" &&
+          data.status === "completed"
+        ) {
           moduleProgress["fill-blanks"].status = "available";
         }
       } else {
-        // For other modules, keep the old logic
+        // Other modules: flashcards → quiz → fill-blanks
         if (exercise === "flashcards" && data.status === "completed") {
           moduleProgress.quiz.status = "available";
         }
@@ -264,12 +300,7 @@ export function LearningProgressProvider({
         [module]: moduleProgress,
       };
 
-      // ✅ UPDATED: Check if module is completed (now includes antonym for vocabulary)
-      const exercises: ExerciseType[] =
-        module === "vocabulary"
-          ? ["flashcards", "quiz", "antonym", "fill-blanks"]
-          : ["flashcards", "quiz", "fill-blanks"];
-
+      const exercises = getModuleExercises(module);
       const isModuleComplete = exercises.every(
         (ex) => moduleProgress[ex].status === "completed"
       );
@@ -291,7 +322,6 @@ export function LearningProgressProvider({
       return updated;
     });
 
-    // Sync to backend
     if (user && tokens) {
       try {
         await ProgressAPI.updateExerciseProgress(
@@ -311,13 +341,21 @@ export function LearningProgressProvider({
     }
   };
 
-  // Add performance metrics
+  const getModuleExercises = (module: ModuleType): ExerciseType[] => {
+    if (module === "vocabulary") {
+      return ["flashcards", "quiz", "antonym"];
+    } else if (module === "grammar") {
+      return ["sentence-correction", "error-identification", "fill-blanks"];
+    } else {
+      return ["flashcards", "quiz", "fill-blanks"];
+    }
+  };
+
   const addPerformanceMetrics = async (
     module: ModuleType,
     exercise: ExerciseType,
     metrics: PerformanceMetrics
   ) => {
-    // Optimistic update
     setProgress((prev) => {
       const moduleProgress = { ...prev[module] };
       const exerciseProgress = { ...moduleProgress[exercise] };
@@ -336,7 +374,6 @@ export function LearningProgressProvider({
       };
     });
 
-    // Sync to backend
     if (user && tokens) {
       try {
         await ProgressAPI.updateExerciseProgress(
@@ -359,7 +396,6 @@ export function LearningProgressProvider({
     }
   };
 
-  // Reset progress
   const resetProgress = async (module?: ModuleType) => {
     if (user && tokens) {
       try {
@@ -372,7 +408,7 @@ export function LearningProgressProvider({
       if (module) {
         setProgress((prev) => ({
           ...prev,
-          [module]: { ...defaultModuleProgress },
+          [module]: createDefaultModuleProgress(module),
         }));
       } else {
         setProgress(defaultProgress);
@@ -380,30 +416,20 @@ export function LearningProgressProvider({
     }
   };
 
-  // ✅ UPDATED: getModuleProgress to include antonym for vocabulary
   const getModuleProgress = (module: ModuleType): number => {
     const moduleData = progress[module];
+    const exercises = getModuleExercises(module);
+    const exerciseProgresses = exercises.map((ex) => moduleData[ex]);
 
-    const exercises =
-      module === "vocabulary"
-        ? [
-            moduleData.flashcards,
-            moduleData.quiz,
-            moduleData.antonym,
-            moduleData["fill-blanks"],
-          ]
-        : [moduleData.flashcards, moduleData.quiz, moduleData["fill-blanks"]];
-
-    const completed = exercises.filter(
+    const completed = exerciseProgresses.filter(
       (ex) => ex.status === "completed"
     ).length;
 
     return Math.round((completed / exercises.length) * 100);
   };
 
-  // ✅ UPDATED: getOverallProgress to count antonym
   const getOverallProgress = (): number => {
-    const totalExercises = 15; // 4 exercises for vocabulary, 3 for each of the other 3 modules
+    const totalExercises = 12;
     const moduleTypes: ModuleType[] = [
       "vocabulary",
       "grammar",
@@ -414,10 +440,7 @@ export function LearningProgressProvider({
     let completedExercises = 0;
 
     moduleTypes.forEach((module) => {
-      const exerciseTypes: ExerciseType[] =
-        module === "vocabulary"
-          ? ["flashcards", "quiz", "antonym", "fill-blanks"]
-          : ["flashcards", "quiz", "fill-blanks"];
+      const exerciseTypes = getModuleExercises(module);
 
       exerciseTypes.forEach((exercise) => {
         if (progress[module][exercise].status === "completed") {
@@ -429,18 +452,26 @@ export function LearningProgressProvider({
     return Math.round((completedExercises / totalExercises) * 100);
   };
 
-  // ✅ UPDATED: getNextRecommended to include antonym
   const getNextRecommended = (module: ModuleType): ExerciseType | null => {
     const moduleData = progress[module];
 
-    if (moduleData.flashcards.status !== "completed") return "flashcards";
-    if (moduleData.quiz.status !== "completed") return "quiz";
-
     if (module === "vocabulary") {
+      if (moduleData.flashcards.status !== "completed") return "flashcards";
+      if (moduleData.quiz.status !== "completed") return "quiz";
       if (moduleData.antonym.status !== "completed") return "antonym";
+    } else if (module === "grammar") {
+      if (moduleData["sentence-correction"].status !== "completed")
+        return "sentence-correction";
+      if (moduleData["error-identification"].status !== "completed")
+        return "error-identification";
+      if (moduleData["fill-blanks"].status !== "completed")
+        return "fill-blanks";
+    } else {
+      if (moduleData.flashcards.status !== "completed") return "flashcards";
+      if (moduleData.quiz.status !== "completed") return "quiz";
+      if (moduleData["fill-blanks"].status !== "completed")
+        return "fill-blanks";
     }
-
-    if (moduleData["fill-blanks"].status !== "completed") return "fill-blanks";
 
     return null;
   };
@@ -452,24 +483,11 @@ export function LearningProgressProvider({
     return progress[module][exercise].status !== "locked";
   };
 
-  // ✅ UPDATED: isModuleCompleted to include antonym for vocabulary
   const isModuleCompleted = (module: ModuleType): boolean => {
     const moduleData = progress[module];
+    const exercises = getModuleExercises(module);
 
-    if (module === "vocabulary") {
-      return (
-        moduleData.flashcards.status === "completed" &&
-        moduleData.quiz.status === "completed" &&
-        moduleData.antonym.status === "completed" &&
-        moduleData["fill-blanks"].status === "completed"
-      );
-    }
-
-    return (
-      moduleData.flashcards.status === "completed" &&
-      moduleData.quiz.status === "completed" &&
-      moduleData["fill-blanks"].status === "completed"
-    );
+    return exercises.every((ex) => moduleData[ex].status === "completed");
   };
 
   const getRecommendedModule = (): ModuleType => {

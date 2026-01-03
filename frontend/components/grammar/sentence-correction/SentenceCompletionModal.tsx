@@ -212,10 +212,10 @@ export default function SentenceCompletionModal({
                   {/* Action Buttons */}
                   <div className="flex flex-col gap-3 mt-auto">
                     <Link
-                      href="/grammar/fill-the-blanks"
+                      href="/grammar/error-identification"
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors text-center"
                     >
-                      Continue to Fill-in-the-Blanks →
+                      Continue to Error Identification →
                     </Link>
                     <button
                       onClick={handleRetake}

@@ -1,15 +1,13 @@
 "use client";
 
-import { ArrowLeft, BookOpen } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import VocabularyCard from "@/components/VocabularyCard";
 import ProgressStepper from "./_progress/ProgressStepper";
 import { useVocabularyProgress } from "@/hooks/useVocabularyProgress";
-import { useReviewDeck } from "@/contexts/ReviewDeckProvider";
 
 export default function VocabularyPage() {
   const { getVocabularyMastery } = useVocabularyProgress();
-  const { reviewDeck } = useReviewDeck();
   const mastery = getVocabularyMastery();
 
   const masteryColors = {
@@ -71,32 +69,13 @@ export default function VocabularyPage() {
 
           {/* Progress Stepper */}
           <ProgressStepper />
-
-          {/* Review Deck Link */}
-          {/* {reviewDeck.length > 0 && (
-                <div className="flex justify-center mt-6">
-              <Link
-                href="/vocabulary/review-deck"
-                className="flex items-center gap-3 bg-gradient-to-r from-blue-500 to-pink-500 hover:from-blue-600 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-all hover:scale-105"
-              >
-                <BookOpen className="w-5 h-5" />
-                <div className="text-left">
-                  <p className="text-sm opacity-90">Review Deck</p>
-                  <p className="text-xs opacity-75">
-                    {reviewDeck.length} card{reviewDeck.length !== 1 ? "s" : ""}{" "}
-                    to review
-                  </p>
-                </div>
-              </Link>
-            </div>
-          )} */}
         </div>
 
-        {/* Cards */}
+        {/* Cards - ✅ UPDATED: Only 3 cards now */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           <VocabularyCard
             name="Flashcards"
-            description="Practice with interactive flashcards"
+            description="Learn vocabulary through interactive flashcards"
             imagePath="/art/card1.png"
             color="bg-yellow-50"
             url="/vocabulary/flashcards"
@@ -111,12 +90,12 @@ export default function VocabularyPage() {
             exerciseType="quiz"
           />
           <VocabularyCard
-            name="Fill-in-the-Blanks"
-            description="Complete sentences with correct words"
+            name="Antonym Exercise"
+            description="Practice finding opposite meanings"
             imagePath="/art/card3.png"
-            color="bg-green-50"
+            color="bg-pink-50"
             url="/vocabulary/antonym-of-the-word"
-            exerciseType="fill-blanks"
+            exerciseType="antonym"
           />
         </div>
       </div>

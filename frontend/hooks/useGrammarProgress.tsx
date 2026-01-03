@@ -2,24 +2,15 @@
 
 import { useLearningProgress } from "@/contexts/LearningProgressContext";
 import type {
-  ExerciseProgress as BaseExerciseProgress,
-  ExerciseStatus,
+  ExerciseProgress,
   ExerciseType,
 } from "@/contexts/LearningProgressContext";
 
-type GrammarExerciseType =
-  | "error-identification"
-  | "sentence-correction"
-  | "fill-blanks";
-
-interface ExerciseProgress {
-  status: ExerciseStatus;
-  score?: number | null;
-  completedAt?: string | null;
-  attempts?: number;
-  lastDifficulty?: "easy" | "medium" | "hard";
-  performanceHistory?: any[];
-}
+export type {
+  ExerciseType,
+  ExerciseStatus,
+  ExerciseProgress,
+} from "@/contexts/LearningProgressContext";
 
 export type MasteryLevel =
   | "beginner"
@@ -28,11 +19,11 @@ export type MasteryLevel =
   | "advanced"
   | "master";
 
-interface GrammarMastery {
+export interface GrammarMastery {
   level: MasteryLevel;
-  icon: string;
-  description: string;
   difficulty: "easy" | "medium" | "hard";
+  description: string;
+  icon: string;
 }
 
 export interface ExerciseMastery {
@@ -47,69 +38,108 @@ export function useGrammarProgress() {
   const {
     progress,
     updateProgress: updateLearningProgress,
-    canAccessExercise: canAccessExerciseContext,
+    getModuleProgress,
     getNextRecommended: getNextRecommendedContext,
+    canAccessExercise: canAccessExerciseContext,
   } = useLearningProgress();
 
-  // Map grammar exercise types to the standard exercise types
-  const getStandardExerciseType = (
-    exerciseType: GrammarExerciseType
-  ): ExerciseType => {
-    if (exerciseType === "error-identification") return "flashcards";
-    if (exerciseType === "sentence-correction") return "quiz";
-    return "fill-blanks";
-  };
+  const getGrammarMastery = (): GrammarMastery => {
+    const grammar = progress.grammar;
 
-  const getExerciseProgress = (
-    exerciseType: GrammarExerciseType
-  ): ExerciseProgress => {
-    const standardType = getStandardExerciseType(exerciseType);
-    const exerciseProgress = progress.grammar[standardType];
+    const allHistory = [
+      ...grammar["sentence-correction"].performanceHistory,
+      ...grammar["error-identification"].performanceHistory,
+      ...grammar["fill-blanks"].performanceHistory,
+    ];
+
+    if (allHistory.length === 0) {
+      return {
+        level: "beginner",
+        difficulty: "easy",
+        description: "Start your grammar journey",
+        icon: "🌱",
+      };
+    }
+
+    const difficulties = [
+      grammar["sentence-correction"].lastDifficulty,
+      grammar["error-identification"].lastDifficulty,
+      grammar["fill-blanks"].lastDifficulty,
+    ];
+
+    const currentDiff = difficulties.reduce((max, diff) => {
+      if (diff === "hard") return "hard";
+      if (diff === "medium" && max !== "hard") return "medium";
+      return max;
+    }, "easy" as "easy" | "medium" | "hard");
+
+    const sessionsAtDiff = allHistory.filter(
+      (h) => h.difficulty === currentDiff
+    ).length;
+
+    const scoresAtDiff = allHistory
+      .filter((h) => h.difficulty === currentDiff)
+      .map((h) => h.score);
+
+    const avgScore =
+      scoresAtDiff.length > 0
+        ? scoresAtDiff.reduce((a, b) => a + b, 0) / scoresAtDiff.length
+        : 0;
+
+    if (currentDiff === "hard" && sessionsAtDiff >= 5 && avgScore >= 90) {
+      return {
+        level: "master",
+        difficulty: "hard",
+        description: "Grammar master! Exceptional performance",
+        icon: "👑",
+      };
+    }
+
+    if (currentDiff === "hard" && sessionsAtDiff >= 3) {
+      return {
+        level: "advanced",
+        difficulty: "hard",
+        description: "Tackling advanced grammar with confidence",
+        icon: "🏆",
+      };
+    }
+
+    if (currentDiff === "medium" && sessionsAtDiff >= 3 && avgScore >= 75) {
+      return {
+        level: "proficient",
+        difficulty: "medium",
+        description: "Building strong grammar foundations",
+        icon: "⭐",
+      };
+    }
+
+    if (sessionsAtDiff >= 3 || currentDiff === "medium") {
+      return {
+        level: "developing",
+        difficulty: currentDiff,
+        description: "Making steady progress",
+        icon: "🔧",
+      };
+    }
 
     return {
-      status: exerciseProgress.status,
-      score: exerciseProgress.score,
-      completedAt: exerciseProgress.completedAt,
-      attempts: exerciseProgress.attempts,
-      lastDifficulty: exerciseProgress.lastDifficulty,
-      performanceHistory: exerciseProgress.performanceHistory,
+      level: "beginner",
+      difficulty: "easy",
+      description: "Just getting started",
+      icon: "🐣",
     };
   };
 
-  const updateProgress = (
-    exerciseType: GrammarExerciseType,
-    data: Partial<BaseExerciseProgress>
-  ) => {
-    const standardType = getStandardExerciseType(exerciseType);
-    updateLearningProgress("grammar", standardType, data);
-  };
-
-  const canAccessExercise = (exerciseType: GrammarExerciseType): boolean => {
-    const standardType = getStandardExerciseType(exerciseType);
-    return canAccessExerciseContext("grammar", standardType);
-  };
-
-  const getNextRecommended = (): GrammarExerciseType | null => {
-    const standardType = getNextRecommendedContext("grammar");
-    if (!standardType) return null;
-
-    // Map back to grammar exercise type
-    if (standardType === "flashcards") return "error-identification";
-    if (standardType === "quiz") return "sentence-correction";
-    return "fill-blanks";
-  };
-
   const getExerciseMastery = (exercise: ExerciseProgress): ExerciseMastery => {
-    const currentDiff = exercise.lastDifficulty || "easy";
-    const history = (exercise.performanceHistory || []).filter(
-      (h: any) => h.difficulty === currentDiff
+    const currentDiff = exercise.lastDifficulty;
+    const history = exercise.performanceHistory.filter(
+      (h) => h.difficulty === currentDiff
     );
 
     const sessionsAtDifficulty = history.length;
     const avgScore =
       history.length > 0
-        ? history.reduce((sum: number, h: any) => sum + h.score, 0) /
-          history.length
+        ? history.reduce((sum, h) => sum + h.score, 0) / history.length
         : 0;
 
     let level: MasteryLevel = "beginner";
@@ -142,115 +172,20 @@ export function useGrammarProgress() {
     };
   };
 
-  const getGrammarMastery = (): GrammarMastery => {
-    const grammar = progress.grammar;
-
-    // Aggregate all exercise histories
-    const allHistory = [
-      ...grammar.flashcards.performanceHistory,
-      ...grammar.quiz.performanceHistory,
-      ...grammar["fill-blanks"].performanceHistory,
-    ];
-
-    if (allHistory.length === 0) {
-      return {
-        level: "beginner",
-        icon: "🌱",
-        description: "Just starting your grammar journey",
-        difficulty: "easy",
-      };
-    }
-
-    // Get current difficulty (highest across exercises)
-    const difficulties = [
-      grammar.flashcards.lastDifficulty,
-      grammar.quiz.lastDifficulty,
-      grammar["fill-blanks"].lastDifficulty,
-    ];
-
-    const currentDiff = difficulties.reduce((max, diff) => {
-      if (diff === "hard") return "hard";
-      if (diff === "medium" && max !== "hard") return "medium";
-      return max;
-    }, "easy" as "easy" | "medium" | "hard");
-
-    // Count sessions at current difficulty
-    const sessionsAtDiff = allHistory.filter(
-      (h) => h.difficulty === currentDiff
-    ).length;
-
-    // Average score at current difficulty
-    const scoresAtDiff = allHistory
-      .filter((h) => h.difficulty === currentDiff)
-      .map((h) => h.score);
-
-    const avgScore =
-      scoresAtDiff.length > 0
-        ? scoresAtDiff.reduce((a, b) => a + b, 0) / scoresAtDiff.length
-        : 0;
-
-    // Count completed exercises
-    const completedCount = [
-      grammar.flashcards,
-      grammar.quiz,
-      grammar["fill-blanks"],
-    ].filter((ex) => ex.status === "completed").length;
-
-    // Determine mastery level
-    if (currentDiff === "hard" && sessionsAtDiff >= 5 && avgScore >= 90) {
-      return {
-        level: "master",
-        icon: "👑",
-        description: "Grammar expert!",
-        difficulty: "hard",
-      };
-    }
-
-    if (currentDiff === "hard" && sessionsAtDiff >= 3) {
-      return {
-        level: "advanced",
-        icon: "🎓",
-        description: "Strong grasp of grammar rules",
-        difficulty: "hard",
-      };
-    }
-
-    if (currentDiff === "medium" && sessionsAtDiff >= 3 && avgScore >= 75) {
-      return {
-        level: "proficient",
-        icon: "✍️",
-        description: "Gaining confidence in grammar",
-        difficulty: "medium",
-      };
-    }
-
-    if (
-      sessionsAtDiff >= 3 ||
-      currentDiff === "medium" ||
-      completedCount >= 1
-    ) {
-      return {
-        level: "developing",
-        icon: "📚",
-        description: "Building grammar fundamentals",
-        difficulty: currentDiff,
-      };
-    }
-
-    return {
-      level: "beginner",
-      icon: "🌱",
-      description: "Just starting your grammar journey",
-      difficulty: "easy",
-    };
+  const getExerciseProgress = (exercise: ExerciseType): ExerciseProgress => {
+    return progress.grammar[exercise];
   };
 
   return {
-    getExerciseProgress,
-    updateProgress,
+    progress: progress.grammar,
+    updateProgress: (exercise: ExerciseType, data: Partial<ExerciseProgress>) =>
+      updateLearningProgress("grammar", exercise, data),
+    getOverallProgress: () => getModuleProgress("grammar"),
+    getNextRecommended: () => getNextRecommendedContext("grammar"),
+    canAccessExercise: (exercise: ExerciseType) =>
+      canAccessExerciseContext("grammar", exercise),
     getGrammarMastery,
-    canAccessExercise,
-    getNextRecommended,
     getExerciseMastery,
+    getExerciseProgress,
   };
 }

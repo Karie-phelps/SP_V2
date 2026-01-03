@@ -6,7 +6,6 @@ import type {
   ExerciseType,
 } from "@/contexts/LearningProgressContext";
 
-// Re-export types for backward compatibility
 export type {
   ExerciseType,
   ExerciseStatus,
@@ -47,11 +46,10 @@ export function useVocabularyProgress() {
   const getVocabularyMastery = (): VocabularyMastery => {
     const vocab = progress.vocabulary;
 
-    // Aggregate all exercise histories
     const allHistory = [
       ...vocab.flashcards.performanceHistory,
       ...vocab.quiz.performanceHistory,
-      ...vocab["fill-blanks"].performanceHistory,
+      ...vocab.antonym.performanceHistory,
     ];
 
     if (allHistory.length === 0) {
@@ -63,11 +61,10 @@ export function useVocabularyProgress() {
       };
     }
 
-    // Get current difficulty (highest across exercises)
     const difficulties = [
       vocab.flashcards.lastDifficulty,
       vocab.quiz.lastDifficulty,
-      vocab["fill-blanks"].lastDifficulty,
+      vocab.antonym.lastDifficulty,
     ];
 
     const currentDiff = difficulties.reduce((max, diff) => {
@@ -76,12 +73,10 @@ export function useVocabularyProgress() {
       return max;
     }, "easy" as "easy" | "medium" | "hard");
 
-    // Count sessions at current difficulty
     const sessionsAtDiff = allHistory.filter(
       (h) => h.difficulty === currentDiff
     ).length;
 
-    // Average score at current difficulty
     const scoresAtDiff = allHistory
       .filter((h) => h.difficulty === currentDiff)
       .map((h) => h.score);
@@ -91,7 +86,6 @@ export function useVocabularyProgress() {
         ? scoresAtDiff.reduce((a, b) => a + b, 0) / scoresAtDiff.length
         : 0;
 
-    // Determine mastery level based on sessions and performance
     if (currentDiff === "hard" && sessionsAtDiff >= 5 && avgScore >= 90) {
       return {
         level: "master",
@@ -178,6 +172,10 @@ export function useVocabularyProgress() {
     };
   };
 
+  const getExerciseProgress = (exercise: ExerciseType): ExerciseProgress => {
+    return progress.vocabulary[exercise];
+  };
+
   return {
     progress: progress.vocabulary,
     updateProgress: (exercise: ExerciseType, data: Partial<ExerciseProgress>) =>
@@ -188,5 +186,6 @@ export function useVocabularyProgress() {
       canAccessExerciseContext("vocabulary", exercise),
     getVocabularyMastery,
     getExerciseMastery,
+    getExerciseProgress,
   };
 }

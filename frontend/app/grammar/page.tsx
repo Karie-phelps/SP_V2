@@ -71,13 +71,13 @@ export default function GrammarPage() {
           <ProgressStepper />
         </div>
 
-        {/* Cards */}
+        {/* Cards - ✅ REORDERED: Sentence Correction first */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           <GrammarCard
             name="Sentence Correction"
-            description="Choose the correctly written sentence"
+            description="Learn proper sentence structure through lessons"
             imagePath="/art/grammar-icon1.png"
-            color="bg-blue-50"
+            color="bg-purple-50"
             url="/grammar/sentence-correction"
             exerciseType="sentence-correction"
           />
