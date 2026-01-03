@@ -218,3 +218,34 @@ export async function clearReviewDeck(): Promise<{
     method: 'DELETE',
   });
 }
+
+export type ModuleSlug = "vocabulary" | "grammar" | "sentence-construction";
+export type ExerciseType = "flashcards" | "quiz" | "fill-blanks";
+
+// This matches LexicalPerformanceEventSerializer on the backend
+export interface LexicalPerformanceEvent {
+  module: ModuleSlug;
+  exercise_type: ExerciseType;
+  lemma_id: string;                // from ai-service item
+  correct: boolean;
+  is_near_miss?: boolean;
+  is_confusable_error?: boolean;
+  score?: number;                  // 0–100; can be per-item or per-set
+  difficulty_shown?: "easy" | "medium" | "hard";
+}
+
+/**
+ * Send a single lexical performance event to backend.
+ * Backend endpoint: POST /api/progress/performance-event/
+ */
+export async function recordLexicalPerformance(
+  event: LexicalPerformanceEvent
+): Promise<{ message: string }> {
+  return fetchWithAuth(`${API_URL}/progress/performance-event/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(event),
+  });
+}

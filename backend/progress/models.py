@@ -3,23 +3,25 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+
 class ModuleProgress(models.Model):
     """Track overall module progress for a user"""
-    
+
     MODULE_CHOICES = [
         ('vocabulary', 'Vocabulary'),
         ('grammar', 'Grammar'),
         ('sentence-construction', 'Sentence Construction'),
         ('reading-comprehension', 'Reading Comprehension'),
     ]
-    
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='module_progress')
+
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='module_progress')
     module = models.CharField(max_length=50, choices=MODULE_CHOICES)
-    
+
     # Progress tracking
     completion_percentage = models.IntegerField(default=0)
     last_accessed_at = models.DateTimeField(null=True, blank=True)
-    
+
     # Mastery tracking
     mastery_level = models.CharField(
         max_length=20,
@@ -32,7 +34,7 @@ class ModuleProgress(models.Model):
         ],
         default='beginner'
     )
-    
+
     current_difficulty = models.CharField(
         max_length=10,
         choices=[
@@ -42,11 +44,11 @@ class ModuleProgress(models.Model):
         ],
         default='easy'
     )
-    
+
     # Metadata
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+
     class Meta:
         db_table = 'module_progress'
         unique_together = ('user', 'module')
@@ -54,53 +56,54 @@ class ModuleProgress(models.Model):
             models.Index(fields=['user', 'module']),
             models.Index(fields=['updated_at']),
         ]
-    
+
     def __str__(self):
         return f"{self.user.email} - {self.module} ({self.completion_percentage}%)"
 
 
 class ExerciseProgress(models.Model):
     """Track individual exercise progress"""
-    
+
     EXERCISE_TYPES = [
         ('flashcards', 'Flashcards'),
         ('quiz', 'Quiz'),
         ('fill-blanks', 'Fill in the Blanks'),
     ]
-    
+
     STATUS_CHOICES = [
         ('locked', 'Locked'),
         ('available', 'Available'),
         ('in-progress', 'In Progress'),
         ('completed', 'Completed'),
     ]
-    
+
     module_progress = models.ForeignKey(
         ModuleProgress,
         on_delete=models.CASCADE,
         related_name='exercises'
     )
     exercise_type = models.CharField(max_length=20, choices=EXERCISE_TYPES)
-    
+
     # Progress
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='locked')
+    status = models.CharField(
+        max_length=20, choices=STATUS_CHOICES, default='locked')
     attempts = models.IntegerField(default=0)
     best_score = models.IntegerField(null=True, blank=True)
     last_score = models.IntegerField(null=True, blank=True)
-    
+
     # Difficulty tracking
     last_difficulty = models.CharField(
         max_length=10,
         choices=[('easy', 'Easy'), ('medium', 'Medium'), ('hard', 'Hard')],
         default='easy'
     )
-    
+
     # Metadata
     first_attempt_at = models.DateTimeField(null=True, blank=True)
     last_completed_at = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+
     class Meta:
         db_table = 'exercise_progress'
         unique_together = ('module_progress', 'exercise_type')
@@ -108,32 +111,32 @@ class ExerciseProgress(models.Model):
             models.Index(fields=['module_progress', 'exercise_type']),
             models.Index(fields=['status']),
         ]
-    
+
     def __str__(self):
         return f"{self.module_progress.module} - {self.exercise_type} ({self.status})"
 
 
 class PerformanceMetrics(models.Model):
     """Store detailed performance metrics for each exercise attempt"""
-    
+
     exercise_progress = models.ForeignKey(
         ExerciseProgress,
         on_delete=models.CASCADE,
         related_name='performance_history'
     )
-    
+
     # Metrics
     difficulty = models.CharField(max_length=10)
     score = models.IntegerField()
     missed_low_freq = models.IntegerField(default=0)
     similar_choice_errors = models.IntegerField(default=0)
-    
+
     # Error tags for adaptive learning
     error_tags = models.JSONField(default=list)
-    
+
     # Timestamp
     timestamp = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
         db_table = 'performance_metrics'
         indexes = [
@@ -141,27 +144,28 @@ class PerformanceMetrics(models.Model):
             models.Index(fields=['difficulty']),
         ]
         ordering = ['-timestamp']
-    
+
     def __str__(self):
         return f"{self.exercise_progress} - Score: {self.score}% ({self.timestamp})"
 
 
 class SRSCard(models.Model):
     """Spaced Repetition System tracking for vocabulary"""
-    
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='srs_cards')
+
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='srs_cards')
     word_id = models.IntegerField()  # References vocabulary dataset
-    
+
     # SRS State
     repetitions = models.IntegerField(default=0)
     easiness_factor = models.FloatField(default=2.5)
     interval = models.IntegerField(default=0)  # days
     next_review = models.DateTimeField()
-    
+
     # Metadata
     created_at = models.DateTimeField(auto_now_add=True)
     last_reviewed = models.DateTimeField(auto_now=True)
-    
+
     class Meta:
         db_table = 'srs_cards'
         unique_together = ('user', 'word_id')
@@ -169,28 +173,99 @@ class SRSCard(models.Model):
             models.Index(fields=['user', 'next_review']),
             models.Index(fields=['word_id']),
         ]
-    
+
     def __str__(self):
         return f"User {self.user.user_id} - Word {self.word_id}"
 
 
 class ReviewDeck(models.Model):
     """User's personal review deck of saved words"""
-    
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='review_deck')
+
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='review_deck')
     word_id = models.IntegerField()
-    
+
     # Metadata
     added_at = models.DateTimeField(auto_now_add=True)
     last_reviewed = models.DateTimeField(null=True, blank=True)
     times_reviewed = models.IntegerField(default=0)
-    
+
     class Meta:
         db_table = 'review_deck'
         unique_together = ('user', 'word_id')
         indexes = [
             models.Index(fields=['user', 'added_at']),
         ]
-    
+
     def __str__(self):
         return f"User {self.user_id} - Word {self.word_id}"
+
+
+class LexicalDifficulty(models.Model):
+    """
+    Learner-dependent difficulty estimate for a specific lexical item (lemma).
+    Difficulty is emergent from interaction history, not stored in the lexicon.
+    """
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="lexical_difficulties",
+    )
+    # This should match lemma_id in ai-service/data (lexicon, vocabulary_core, etc.)
+    lemma_id = models.CharField(max_length=50, db_index=True)
+
+    # Observed stats
+    attempts = models.PositiveIntegerField(default=0)
+    correct = models.PositiveIntegerField(default=0)
+    wrong = models.PositiveIntegerField(default=0)
+
+    # Error pattern counts
+    near_miss_count = models.PositiveIntegerField(default=0)
+    confusable_errors = models.PositiveIntegerField(default=0)
+
+    # Rolling difficulty estimate in [0,1], where 0 = easy, 1 = hard
+    difficulty_score = models.FloatField(null=True, blank=True)
+
+    last_seen_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "lexical_difficulty"
+        unique_together = ("user", "lemma_id")
+        indexes = [
+            models.Index(fields=["user", "lemma_id"]),
+            models.Index(fields=["difficulty_score"]),
+            models.Index(fields=["last_seen_at"]),
+        ]
+
+    def __str__(self) -> str:
+        return f"LexicalDifficulty(user={self.user_id}, lemma_id={self.lemma_id}, diff={self.difficulty_score})"
+
+
+class GlobalLexicalStats(models.Model):
+    """
+    Global difficulty estimate aggregated across all learners.
+    Used as a prior for new learners.
+    """
+
+    lemma_id = models.CharField(max_length=50, primary_key=True)
+
+    attempts = models.PositiveIntegerField(default=0)
+    correct = models.PositiveIntegerField(default=0)
+    wrong = models.PositiveIntegerField(default=0)
+
+    # Global difficulty estimate in [0,1], 0=easier, 1=harder
+    difficulty_score = models.FloatField(null=True, blank=True)
+
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = "global_lexical_stats"
+        indexes = [
+            models.Index(fields=["difficulty_score"]),
+            models.Index(fields=["updated_at"]),
+        ]
+
+    def __str__(self) -> str:
+        return f"GlobalLexicalStats(lemma_id={self.lemma_id}, diff={self.difficulty_score})"
