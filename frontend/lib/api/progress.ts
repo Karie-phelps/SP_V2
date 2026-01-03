@@ -220,7 +220,7 @@ export async function clearReviewDeck(): Promise<{
 }
 
 export type ModuleSlug = "vocabulary" | "grammar" | "sentence-construction";
-export type ExerciseType = "flashcards" | "quiz" | "fill-blanks";
+export type ExerciseType = "flashcards" | "quiz" | "fill-blanks" | "antonym";
 
 // This matches LexicalPerformanceEventSerializer on the backend
 export interface LexicalPerformanceEvent {

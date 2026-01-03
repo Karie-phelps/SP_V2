@@ -9,19 +9,17 @@ import AntonymProgress from "@/components/vocabulary/antonym-exercise/AntonymPro
 import AntonymCompletionModal from "@/components/vocabulary/antonym-exercise/AntonymCompletionModal";
 import { useVocabularyProgress } from "@/hooks/useVocabularyProgress";
 import { useLearningProgress } from "@/contexts/LearningProgressContext";
-import { useAuth } from "@/contexts/AuthContext";
 import {
-  getVocabularyExercisesAdaptive,
+  getVocabularyExercises,
   getLexiconData,
-  type VocabularyExerciseItem,
-  type LexiconItem,
+  VocabularyExerciseItem,
+  LexiconItem,
 } from "@/lib/api/exercises";
 import {
   isLowFrequencyWord,
   areSimilarWords,
 } from "@/utils/PerformanceTracker";
 import { evaluateUserPerformance } from "@/rules/evaluateUserPerformance";
-import { reportLexicalItemPerformance } from "@/utils/reportPerformance";
 
 interface AntonymItem {
   id: string;
@@ -30,6 +28,7 @@ interface AntonymItem {
   underlinedWord: string;
   correctAnswer: string;
   options: string[];
+  difficulty: string;
 }
 
 interface AntonymAnswer {
@@ -39,24 +38,33 @@ interface AntonymAnswer {
   word: string;
 }
 
-// Helper function to underline a word in a sentence
+// Helper function to underline a word in a sentence (FIXED VERSION)
 function underlineWordInSentence(
   sentence: string,
   wordToUnderline: string
 ): string {
+  // Escape special regex characters in the word
   const escapedWord = wordToUnderline.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+  // Create a case-insensitive regex that matches whole words
+  // Uses positive lookbehind (?<=\s|^) for start of string or space
+  // and positive lookahead (?=\s|$|[.,!?;:]) for end or punctuation
   const regex = new RegExp(
     `(?<=\\s|^)(${escapedWord})(?=\\s|$|[.,!?;:])`,
     "gi"
   );
+
+  // Replace all occurrences while preserving the original case
   return sentence.replace(regex, "<u>$1</u>");
 }
 
 // Generate antonym questions from AI service data
-async function generateAntonymQuestionsFromService(
-  vocabExercises: VocabularyExerciseItem[],
-  lexiconData: LexiconItem[]
-): Promise<AntonymItem[]> {
+async function generateAntonymQuestionsFromService(): Promise<AntonymItem[]> {
+  const [vocabExercises, lexiconData] = await Promise.all([
+    getVocabularyExercises(),
+    getLexiconData(),
+  ]);
+
   const lexiconMap = new Map(
     lexiconData.map((item: LexiconItem) => [item.lemma_id, item])
   );
@@ -64,6 +72,7 @@ async function generateAntonymQuestionsFromService(
   console.log("📚 Vocab Exercises:", vocabExercises.length);
   console.log("📖 Lexicon Data:", lexiconData.length);
 
+  // Filter items that have antonyms
   const itemsWithAntonyms = vocabExercises.filter((vocabItem) => {
     const lexiconEntry = lexiconMap.get(vocabItem.lemma_id);
     return (
@@ -75,20 +84,25 @@ async function generateAntonymQuestionsFromService(
 
   console.log("🔄 Items with antonyms:", itemsWithAntonyms.length);
 
+  // Generate antonym questions
   const antonymItems: AntonymItem[] = itemsWithAntonyms
     .map((vocabItem: VocabularyExerciseItem) => {
       const lexiconEntry = lexiconMap.get(vocabItem.lemma_id);
+
       if (!lexiconEntry) return null;
 
       const sentence =
         vocabItem.sentence_example_1 || vocabItem.sentence_example_2;
       if (!sentence) return null;
 
+      // Get the antonyms for this word
       const antonyms = lexiconEntry.relations?.antonyms || [];
       if (antonyms.length === 0) return null;
 
+      // Choose the first antonym as the correct answer
       const correctAnswer = antonyms[0];
 
+      // Find which word form appears in the sentence (case-insensitive)
       const wordsToConsider = [
         lexiconEntry.lemma,
         ...(lexiconEntry.surface_forms || []),
@@ -98,6 +112,8 @@ async function generateAntonymQuestionsFromService(
       for (const word of wordsToConsider) {
         const lowerSentence = sentence.toLowerCase();
         const lowerWord = word.toLowerCase();
+
+        // Check if the word appears as a whole word in the sentence
         const wordRegex = new RegExp(`\\b${lowerWord}\\b`, "i");
         if (wordRegex.test(lowerSentence)) {
           underlinedWord = word;
@@ -105,20 +121,25 @@ async function generateAntonymQuestionsFromService(
         }
       }
 
+      // Generate distractors: mix of lemmas and synonyms
       const distractors: string[] = [];
 
+      // Add some random lemmas as distractors
       const otherLexicons = lexiconData.filter(
         (lex: LexiconItem) =>
           lex.lemma_id !== vocabItem.lemma_id &&
           lex.lemma !== correctAnswer &&
           !antonyms.includes(lex.lemma)
       );
+
       const shuffledLexicons = otherLexicons.sort(() => Math.random() - 0.5);
 
+      // Add 2 random lemmas
       for (let i = 0; i < 2 && i < shuffledLexicons.length; i++) {
         distractors.push(shuffledLexicons[i].lemma);
       }
 
+      // Add synonyms from other words as distractors
       const otherSynonyms: string[] = [];
       lexiconData.forEach((lex: LexiconItem) => {
         if (lex.lemma_id !== vocabItem.lemma_id && lex.relations?.synonyms) {
@@ -131,10 +152,13 @@ async function generateAntonymQuestionsFromService(
       });
 
       const shuffledSynonyms = otherSynonyms.sort(() => Math.random() - 0.5);
+
+      // Add 1 synonym if available
       if (shuffledSynonyms.length > 0 && distractors.length < 3) {
         distractors.push(shuffledSynonyms[0]);
       }
 
+      // Ensure we have exactly 3 unique distractors
       const uniqueDistractors = Array.from(new Set(distractors)).slice(0, 3);
       while (uniqueDistractors.length < 3 && shuffledLexicons.length > 0) {
         const randomLex =
@@ -147,10 +171,11 @@ async function generateAntonymQuestionsFromService(
         }
       }
 
-      const allOptions = [correctAnswer, ...uniqueDistractors].sort(
-        () => Math.random() - 0.5
-      );
+      // Shuffle all options
+      const allOptions = [correctAnswer, ...uniqueDistractors];
+      const shuffledOptions = allOptions.sort(() => Math.random() - 0.5);
 
+      // Underline the word in the sentence
       const sentenceWithUnderline = underlineWordInSentence(
         sentence,
         underlinedWord
@@ -162,22 +187,25 @@ async function generateAntonymQuestionsFromService(
         sentence: sentenceWithUnderline,
         underlinedWord,
         correctAnswer,
-        options: allOptions,
+        options: shuffledOptions,
+        difficulty: "medium",
       };
     })
     .filter((item): item is AntonymItem => item !== null);
 
+  console.log("✅ Generated Antonym Items:", antonymItems.length);
+
+  // Shuffle and select 10 questions
   const shuffled = antonymItems.sort(() => Math.random() - 0.5);
   return shuffled.slice(0, Math.min(10, shuffled.length));
 }
 
-export default function AntonymExercisePage() {
-  const { updateProgress, getExerciseProgress } = useVocabularyProgress();
+export default function AntonymPage() {
+  const { updateProgress } = useVocabularyProgress();
   const { addPerformanceMetrics, getPerformanceHistory } =
     useLearningProgress();
-  const { user, tokens } = useAuth();
 
-  const [questions, setQuestions] = useState<AntonymItem[]>([]);
+  const [antonymQuestions, setAntonymQuestions] = useState<AntonymItem[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
@@ -186,85 +214,36 @@ export default function AntonymExercisePage() {
   const [showCompletion, setShowCompletion] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [currentDifficulty, setCurrentDifficulty] = useState<
-    "easy" | "medium" | "hard"
-  >("easy");
 
-  // ✅ Load questions with adaptive difficulty
   useEffect(() => {
-    async function loadQuestions() {
+    async function loadAntonyms() {
       try {
         setIsLoading(true);
+        const questions = await generateAntonymQuestionsFromService();
 
-        const performanceHistory = getPerformanceHistory(
-          "vocabulary",
-          "antonym"
-        );
-        const exerciseProgress = getExerciseProgress("antonym");
-
-        console.log("📊 Antonym Performance History:", performanceHistory);
-        console.log("📈 Antonym Exercise Progress:", exerciseProgress);
-
-        let targetDifficulty: "easy" | "medium" | "hard" = "easy";
-
-        if (performanceHistory.length > 0) {
-          const evaluation = evaluateUserPerformance(performanceHistory);
-          targetDifficulty = evaluation.nextDifficulty;
-          console.log(
-            "🎯 Evaluated Target Difficulty:",
-            targetDifficulty,
-            "| Tags:",
-            evaluation.tags
-          );
-        } else {
-          targetDifficulty = exerciseProgress.lastDifficulty || "easy";
-          console.log("🆕 First Session - Using difficulty:", targetDifficulty);
+        if (questions.length === 0) {
+          throw new Error("No antonym questions available");
         }
 
-        setCurrentDifficulty(targetDifficulty);
-
-        console.log(
-          "🔄 Fetching adaptive antonym exercises with difficulty:",
-          targetDifficulty
-        );
-
-        const [vocabExercises, lexiconData] = await Promise.all([
-          getVocabularyExercisesAdaptive({
-            userId: user?.id,
-            targetDifficulty,
-            limit: 15,
-            accessToken: tokens?.access,
-          }),
-          getLexiconData(),
-        ]);
-
-        console.log("📚 Adaptive Antonym Exercises:", vocabExercises.length);
-
-        const qs = await generateAntonymQuestionsFromService(
-          vocabExercises,
-          lexiconData
-        );
-
-        if (qs.length === 0) {
-          throw new Error("No antonym items available for this difficulty");
-        }
-
-        setQuestions(qs);
-        setAnswers(Array(qs.length).fill(null));
+        setAntonymQuestions(questions);
+        setAnswers(Array(questions.length).fill(null));
         setError(null);
       } catch (err) {
-        console.error("❌ Failed to load antonym items:", err);
+        console.error("Failed to load antonym exercise:", err);
         setError(
           err instanceof Error
             ? err.message
-            : "Failed to load antonym items. Please try again."
+            : "Failed to load antonym exercise. Please try again."
         );
       } finally {
         setIsLoading(false);
       }
     }
-    loadQuestions();
-  }, [user?.id, tokens?.access]);
+
+    loadAntonyms();
+  }, []);
+
+  // ... rest of the component remains the same
 
   // Show loading state
   if (isLoading) {
@@ -283,12 +262,6 @@ export default function AntonymExercisePage() {
             <h1 className="text-xl md:text-2xl font-bold text-red-900">
               Antonym Exercise
             </h1>
-            <p className="text-xs text-gray-500 mt-1">
-              Difficulty:{" "}
-              <span className="font-semibold capitalize">
-                {currentDifficulty}
-              </span>
-            </p>
           </div>
 
           <div className="w-20"></div>
@@ -305,7 +278,7 @@ export default function AntonymExercisePage() {
   }
 
   // Show error state
-  if (error || questions.length === 0) {
+  if (error || antonymQuestions.length === 0) {
     return (
       <div className="h-screen bg-red-50 flex flex-col">
         <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-red-200">
@@ -343,10 +316,14 @@ export default function AntonymExercisePage() {
     );
   }
 
-  const currentAntonym = questions[currentQuestion];
-  const isLastQuestion = currentQuestion === questions.length - 1;
+  const currentAntonym = antonymQuestions[currentQuestion];
+  const isLastQuestion = currentQuestion === antonymQuestions.length - 1;
+  const showExplanation =
+    showResult &&
+    selectedAnswer &&
+    selectedAnswer !== currentAntonym.correctAnswer;
 
-  const handleSelectAnswer = async (answer: string) => {
+  const handleSelectAnswer = (answer: string) => {
     setSelectedAnswer(answer);
     setShowResult(true);
 
@@ -364,34 +341,6 @@ export default function AntonymExercisePage() {
         word: currentAntonym.underlinedWord,
       },
     ]);
-
-    // Error pattern features
-    const lowFreq = isLowFrequencyWord(currentAntonym.underlinedWord);
-    const score = isCorrect ? 100 : 0;
-
-    // ✅ Report lexical performance
-    try {
-      await reportLexicalItemPerformance({
-        module: "vocabulary",
-        exerciseType: "antonym",
-        lemmaId: currentAntonym.lemma_id,
-        correctAnswer: currentAntonym.correctAnswer,
-        userAnswer: answer,
-        difficultyShown: currentDifficulty,
-        score,
-      });
-    } catch (e) {
-      console.error("Failed to record antonym lexical performance", e);
-    }
-
-    // Update metrics with CURRENT difficulty
-    addPerformanceMetrics("vocabulary", "antonym", {
-      score,
-      difficulty: currentDifficulty,
-      missedLowFreq: !isCorrect && lowFreq ? 1 : 0,
-      similarChoiceErrors: !isCorrect ? 1 : 0,
-      timestamp: new Date().toISOString(),
-    });
   };
 
   const handleNext = () => {
@@ -406,8 +355,9 @@ export default function AntonymExercisePage() {
 
   const completeExercise = () => {
     const correctCount = answers.filter((a) => a === true).length;
-    const sessionScore = Math.round((correctCount / questions.length) * 100);
+    const score = Math.round((correctCount / antonymQuestions.length) * 100);
 
+    // Calculate performance metrics
     let missedLowFreq = 0;
     let similarChoiceErrors = 0;
 
@@ -420,32 +370,26 @@ export default function AntonymExercisePage() {
       }
     });
 
-    const finalMetrics = {
+    const history = getPerformanceHistory("vocabulary", "antonym");
+    const currentDifficulty =
+      history.length > 0 ? history[history.length - 1].difficulty : "easy";
+
+    const metrics = {
       difficulty: currentDifficulty,
-      score: sessionScore,
+      score,
       missedLowFreq,
       similarChoiceErrors,
       timestamp: new Date().toISOString(),
     };
 
-    console.log("📊 Antonym Session Completed - Metrics:", finalMetrics);
+    addPerformanceMetrics("vocabulary", "antonym", metrics);
 
-    addPerformanceMetrics("vocabulary", "antonym", finalMetrics);
-
-    const history = getPerformanceHistory("vocabulary", "antonym");
-    const allHistory = [...history, finalMetrics];
+    const allHistory = [...history, metrics];
     const evaluation = evaluateUserPerformance(allHistory);
-
-    console.log(
-      "🎯 Next Antonym Difficulty:",
-      evaluation.nextDifficulty,
-      "| Error Tags:",
-      evaluation.tags
-    );
 
     updateProgress("antonym", {
       status: "completed",
-      score: sessionScore,
+      score,
       completedAt: new Date().toISOString(),
       attempts: (history.length || 0) + 1,
       lastDifficulty: evaluation.nextDifficulty,
@@ -458,24 +402,12 @@ export default function AntonymExercisePage() {
   const resetExercise = async () => {
     try {
       setIsLoading(true);
-      const [vocabExercises, lexiconData] = await Promise.all([
-        getVocabularyExercisesAdaptive({
-          userId: user?.id,
-          targetDifficulty: currentDifficulty,
-          limit: 15,
-          accessToken: tokens?.access,
-        }),
-        getLexiconData(),
-      ]);
-      const qs = await generateAntonymQuestionsFromService(
-        vocabExercises,
-        lexiconData
-      );
-      setQuestions(qs);
+      const questions = await generateAntonymQuestionsFromService();
+      setAntonymQuestions(questions);
       setCurrentQuestion(0);
       setSelectedAnswer(null);
       setShowResult(false);
-      setAnswers(Array(qs.length).fill(null));
+      setAnswers(Array(questions.length).fill(null));
       setDetailedAnswers([]);
       setShowCompletion(false);
     } catch (err) {
@@ -501,12 +433,6 @@ export default function AntonymExercisePage() {
           <h1 className="text-xl md:text-2xl font-bold text-red-900">
             Antonym Exercise
           </h1>
-          <p className="text-xs text-gray-500 mt-1">
-            Difficulty:{" "}
-            <span className="font-semibold capitalize">
-              {currentDifficulty}
-            </span>
-          </p>
         </div>
 
         <button
@@ -522,7 +448,7 @@ export default function AntonymExercisePage() {
       <div className="flex-1 flex flex-col justify-start px-4 md:px-8 py-6 space-y-8 max-w-7xl mx-auto w-full">
         <AntonymProgress
           currentQuestion={currentQuestion}
-          totalQuestions={questions.length}
+          totalQuestions={antonymQuestions.length}
           answers={answers}
           id={currentAntonym.lemma_id}
         />
@@ -537,7 +463,7 @@ export default function AntonymExercisePage() {
         >
           <AntonymQuestion
             questionNumber={currentQuestion + 1}
-            totalQuestions={questions.length}
+            totalQuestions={antonymQuestions.length}
             sentence={currentAntonym.sentence}
             wordId={currentAntonym.lemma_id}
             options={currentAntonym.options}
@@ -574,10 +500,11 @@ export default function AntonymExercisePage() {
       <AntonymCompletionModal
         isOpen={showCompletion}
         score={Math.round(
-          (answers.filter((a) => a === true).length / questions.length) * 100
+          (answers.filter((a) => a === true).length / antonymQuestions.length) *
+            100
         )}
         correctCount={answers.filter((a) => a === true).length}
-        totalQuestions={questions.length}
+        totalQuestions={antonymQuestions.length}
         onClose={() => setShowCompletion(false)}
       />
     </div>

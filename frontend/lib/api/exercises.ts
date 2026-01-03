@@ -1,4 +1,4 @@
-const AI_SERVICE_URL = process.env.NEXT_PUBLIC_AI_SERVICE_URL || 'http://localhost:8001';
+const AI_SERVICE_URL = process.env.NEXT_PUBLIC_AI_SERVICE_URL || "http://localhost:8001";
 
 export interface VocabularyExerciseItem {
   item_id: string;
@@ -38,29 +38,34 @@ export async function getVocabularyExercises(): Promise<VocabularyExerciseItem[]
   return data.exercises || [];
 }
 
-export async function getVocabularyExercisesAdaptive(
-  params: { userId?: number; targetDifficulty?: "easy" | "medium" | "hard"; limit?: number } = {}
-): Promise<VocabularyExerciseItem[]> {
+export async function getVocabularyExercisesAdaptive(params: {
+  userId?: number;
+  targetDifficulty?: "easy" | "medium" | "hard";
+  limit?: number;
+  accessToken?: string; // optional if you want JWT forwarded
+} = {}): Promise<VocabularyExerciseItem[]> {
   const body = {
     user_id: params.userId ?? null,
     target_difficulty: params.targetDifficulty ?? null,
     limit: params.limit ?? 15,
   };
 
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+  };
+  if (params.accessToken) {
+    headers["Authorization"] = `Bearer ${params.accessToken}`;
+  }
+
   const response = await fetch(`${AI_SERVICE_URL}/exercises/vocabulary`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      // Optional: include Authorization if you want ai-service to forward JWT
-      // "Authorization": `Bearer ${accessToken}`,
-    },
+    headers,
     body: JSON.stringify(body),
   });
 
   if (!response.ok) {
     throw new Error(`Failed to fetch vocabulary exercises: ${response.statusText}`);
   }
-
   const data = await response.json();
   return data.exercises || [];
 }
