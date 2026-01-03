@@ -12,14 +12,15 @@ import { useLearningProgress } from "@/contexts/LearningProgressContext";
 import {
   getVocabularyExercises,
   getLexiconData,
-  VocabularyExerciseItem,
-  LexiconItem,
+  type VocabularyExerciseItem,
+  type LexiconItem,
 } from "@/lib/api/exercises";
 import {
   isLowFrequencyWord,
   areSimilarWords,
 } from "@/utils/PerformanceTracker";
 import { evaluateUserPerformance } from "@/rules/evaluateUserPerformance";
+import { reportLexicalItemPerformance } from "@/utils/reportPerformance";
 
 interface AntonymItem {
   id: string;
@@ -28,7 +29,6 @@ interface AntonymItem {
   underlinedWord: string;
   correctAnswer: string;
   options: string[];
-  difficulty: string;
 }
 
 interface AntonymAnswer {
@@ -38,23 +38,16 @@ interface AntonymAnswer {
   word: string;
 }
 
-// Helper function to underline a word in a sentence (FIXED VERSION)
+// Helper function to underline a word in a sentence
 function underlineWordInSentence(
   sentence: string,
   wordToUnderline: string
 ): string {
-  // Escape special regex characters in the word
   const escapedWord = wordToUnderline.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-  // Create a case-insensitive regex that matches whole words
-  // Uses positive lookbehind (?<=\s|^) for start of string or space
-  // and positive lookahead (?=\s|$|[.,!?;:]) for end or punctuation
   const regex = new RegExp(
     `(?<=\\s|^)(${escapedWord})(?=\\s|$|[.,!?;:])`,
     "gi"
   );
-
-  // Replace all occurrences while preserving the original case
   return sentence.replace(regex, "<u>$1</u>");
 }
 
@@ -72,7 +65,6 @@ async function generateAntonymQuestionsFromService(): Promise<AntonymItem[]> {
   console.log("📚 Vocab Exercises:", vocabExercises.length);
   console.log("📖 Lexicon Data:", lexiconData.length);
 
-  // Filter items that have antonyms
   const itemsWithAntonyms = vocabExercises.filter((vocabItem) => {
     const lexiconEntry = lexiconMap.get(vocabItem.lemma_id);
     return (
@@ -84,25 +76,20 @@ async function generateAntonymQuestionsFromService(): Promise<AntonymItem[]> {
 
   console.log("🔄 Items with antonyms:", itemsWithAntonyms.length);
 
-  // Generate antonym questions
   const antonymItems: AntonymItem[] = itemsWithAntonyms
     .map((vocabItem: VocabularyExerciseItem) => {
       const lexiconEntry = lexiconMap.get(vocabItem.lemma_id);
-
       if (!lexiconEntry) return null;
 
       const sentence =
         vocabItem.sentence_example_1 || vocabItem.sentence_example_2;
       if (!sentence) return null;
 
-      // Get the antonyms for this word
       const antonyms = lexiconEntry.relations?.antonyms || [];
       if (antonyms.length === 0) return null;
 
-      // Choose the first antonym as the correct answer
       const correctAnswer = antonyms[0];
 
-      // Find which word form appears in the sentence (case-insensitive)
       const wordsToConsider = [
         lexiconEntry.lemma,
         ...(lexiconEntry.surface_forms || []),
@@ -112,8 +99,6 @@ async function generateAntonymQuestionsFromService(): Promise<AntonymItem[]> {
       for (const word of wordsToConsider) {
         const lowerSentence = sentence.toLowerCase();
         const lowerWord = word.toLowerCase();
-
-        // Check if the word appears as a whole word in the sentence
         const wordRegex = new RegExp(`\\b${lowerWord}\\b`, "i");
         if (wordRegex.test(lowerSentence)) {
           underlinedWord = word;
@@ -121,25 +106,23 @@ async function generateAntonymQuestionsFromService(): Promise<AntonymItem[]> {
         }
       }
 
-      // Generate distractors: mix of lemmas and synonyms
+      // Distractors: other lemmas and synonyms that are NOT antonyms
       const distractors: string[] = [];
 
-      // Add some random lemmas as distractors
       const otherLexicons = lexiconData.filter(
         (lex: LexiconItem) =>
           lex.lemma_id !== vocabItem.lemma_id &&
           lex.lemma !== correctAnswer &&
           !antonyms.includes(lex.lemma)
       );
-
       const shuffledLexicons = otherLexicons.sort(() => Math.random() - 0.5);
 
-      // Add 2 random lemmas
+      // Add up to 2 random lemmas
       for (let i = 0; i < 2 && i < shuffledLexicons.length; i++) {
         distractors.push(shuffledLexicons[i].lemma);
       }
 
-      // Add synonyms from other words as distractors
+      // Add 1 synonym from other words if available
       const otherSynonyms: string[] = [];
       lexiconData.forEach((lex: LexiconItem) => {
         if (lex.lemma_id !== vocabItem.lemma_id && lex.relations?.synonyms) {
@@ -152,13 +135,10 @@ async function generateAntonymQuestionsFromService(): Promise<AntonymItem[]> {
       });
 
       const shuffledSynonyms = otherSynonyms.sort(() => Math.random() - 0.5);
-
-      // Add 1 synonym if available
       if (shuffledSynonyms.length > 0 && distractors.length < 3) {
         distractors.push(shuffledSynonyms[0]);
       }
 
-      // Ensure we have exactly 3 unique distractors
       const uniqueDistractors = Array.from(new Set(distractors)).slice(0, 3);
       while (uniqueDistractors.length < 3 && shuffledLexicons.length > 0) {
         const randomLex =
@@ -171,11 +151,10 @@ async function generateAntonymQuestionsFromService(): Promise<AntonymItem[]> {
         }
       }
 
-      // Shuffle all options
-      const allOptions = [correctAnswer, ...uniqueDistractors];
-      const shuffledOptions = allOptions.sort(() => Math.random() - 0.5);
+      const allOptions = [correctAnswer, ...uniqueDistractors].sort(
+        () => Math.random() - 0.5
+      );
 
-      // Underline the word in the sentence
       const sentenceWithUnderline = underlineWordInSentence(
         sentence,
         underlinedWord
@@ -187,325 +166,248 @@ async function generateAntonymQuestionsFromService(): Promise<AntonymItem[]> {
         sentence: sentenceWithUnderline,
         underlinedWord,
         correctAnswer,
-        options: shuffledOptions,
-        difficulty: "medium",
+        options: allOptions,
       };
     })
     .filter((item): item is AntonymItem => item !== null);
 
-  console.log("✅ Generated Antonym Items:", antonymItems.length);
-
-  // Shuffle and select 10 questions
   const shuffled = antonymItems.sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, Math.min(10, shuffled.length));
+  return shuffled.slice(0, Math.min(15, shuffled.length));
 }
 
-export default function AntonymPage() {
+export default function AntonymExercisePage() {
   const { updateProgress } = useVocabularyProgress();
   const { addPerformanceMetrics, getPerformanceHistory } =
     useLearningProgress();
 
-  const [antonymQuestions, setAntonymQuestions] = useState<AntonymItem[]>([]);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [questions, setQuestions] = useState<AntonymItem[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
-  const [showResult, setShowResult] = useState(false);
-  const [answers, setAnswers] = useState<(boolean | null)[]>([]);
-  const [detailedAnswers, setDetailedAnswers] = useState<AntonymAnswer[]>([]);
+  const [currentAnswer, setCurrentAnswer] = useState<AntonymAnswer | null>(
+    null
+  );
+  const [answers, setAnswers] = useState<AntonymAnswer[]>([]);
   const [showCompletion, setShowCompletion] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function loadAntonyms() {
+    async function loadQuestions() {
       try {
         setIsLoading(true);
-        const questions = await generateAntonymQuestionsFromService();
-
-        if (questions.length === 0) {
-          throw new Error("No antonym questions available");
+        const qs = await generateAntonymQuestionsFromService();
+        if (qs.length === 0) {
+          throw new Error("No antonym items available");
         }
-
-        setAntonymQuestions(questions);
-        setAnswers(Array(questions.length).fill(null));
-        setError(null);
+        setQuestions(qs);
       } catch (err) {
-        console.error("Failed to load antonym exercise:", err);
+        console.error("Failed to load antonym items:", err);
         setError(
           err instanceof Error
             ? err.message
-            : "Failed to load antonym exercise. Please try again."
+            : "Failed to load antonym items. Please try again."
         );
       } finally {
         setIsLoading(false);
       }
     }
-
-    loadAntonyms();
+    loadQuestions();
   }, []);
 
-  // ... rest of the component remains the same
+  const currentQuestion = questions[currentIndex];
 
-  // Show loading state
-  if (isLoading) {
-    return (
-      <div className="h-screen bg-red-50 flex flex-col">
-        <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-red-200">
-          <Link
-            href="/vocabulary"
-            className="flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold text-sm"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back
-          </Link>
-
-          <div className="text-center flex-1 px-4">
-            <h1 className="text-xl md:text-2xl font-bold text-red-900">
-              Antonym Exercise
-            </h1>
-          </div>
-
-          <div className="w-20"></div>
-        </div>
-
-        <div className="flex-1 flex items-center justify-center">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
-            <p className="text-red-600 font-semibold">Loading exercise...</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Show error state
-  if (error || antonymQuestions.length === 0) {
-    return (
-      <div className="h-screen bg-red-50 flex flex-col">
-        <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-red-200">
-          <Link
-            href="/vocabulary"
-            className="flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold text-sm"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back
-          </Link>
-
-          <div className="text-center flex-1 px-4">
-            <h1 className="text-xl md:text-2xl font-bold text-red-900">
-              Antonym Exercise
-            </h1>
-          </div>
-
-          <div className="w-20"></div>
-        </div>
-
-        <div className="flex-1 flex items-center justify-center">
-          <div className="text-center max-w-md px-4">
-            <p className="text-red-600 font-semibold mb-4">
-              {error || "No antonym questions available"}
-            </p>
-            <button
-              onClick={() => window.location.reload()}
-              className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
-            >
-              Retry
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  const currentAntonym = antonymQuestions[currentQuestion];
-  const isLastQuestion = currentQuestion === antonymQuestions.length - 1;
-  const showExplanation =
-    showResult &&
-    selectedAnswer &&
-    selectedAnswer !== currentAntonym.correctAnswer;
-
-  const handleSelectAnswer = (answer: string) => {
-    setSelectedAnswer(answer);
-    setShowResult(true);
-
-    const isCorrect = answer === currentAntonym.correctAnswer;
-    const newAnswers = [...answers];
-    newAnswers[currentQuestion] = isCorrect;
-    setAnswers(newAnswers);
-
-    setDetailedAnswers([
-      ...detailedAnswers,
-      {
-        isCorrect,
-        selectedAnswer: answer,
-        correctAnswer: currentAntonym.correctAnswer,
-        word: currentAntonym.underlinedWord,
-      },
-    ]);
+  const resetExercise = () => {
+    setCurrentIndex(0);
+    setSelectedAnswer(null);
+    setCurrentAnswer(null);
+    setAnswers([]);
+    setShowCompletion(false);
   };
 
-  const handleNext = () => {
-    if (isLastQuestion) {
-      completeExercise();
-    } else {
-      setCurrentQuestion((prev) => prev + 1);
-      setSelectedAnswer(null);
-      setShowResult(false);
+  const handleSubmit = async () => {
+    if (!currentQuestion || !selectedAnswer || submitting) return;
+    setSubmitting(true);
+
+    const isCorrect = selectedAnswer === currentQuestion.correctAnswer;
+
+    const answer: AntonymAnswer = {
+      isCorrect,
+      selectedAnswer,
+      correctAnswer: currentQuestion.correctAnswer,
+      word: currentQuestion.underlinedWord,
+    };
+
+    setCurrentAnswer(answer);
+    setAnswers((prev) => [...prev, answer]);
+
+    // Error pattern features
+    const lowFreq = isLowFrequencyWord(currentQuestion.underlinedWord);
+    const similarChoiceError =
+      !isCorrect &&
+      currentQuestion.options.some((opt) =>
+        areSimilarWords(opt, currentQuestion.correctAnswer)
+      );
+
+    const score = isCorrect ? 100 : 0;
+
+    // --- NEW: send lexical performance event for difficulty modeling ---
+    try {
+      await reportLexicalItemPerformance({
+        module: "vocabulary",
+        exerciseType: "quiz", // treating antonym exercise as quiz-type
+        lemmaId: currentQuestion.lemma_id,
+        correctAnswer: currentQuestion.correctAnswer,
+        userAnswer: selectedAnswer,
+        difficultyShown: "medium", // UI-level difficulty; true difficulty from backend formula
+        score,
+      });
+    } catch (e) {
+      console.error("Failed to record antonym lexical performance", e);
     }
-  };
 
-  const completeExercise = () => {
-    const correctCount = answers.filter((a) => a === true).length;
-    const score = Math.round((correctCount / antonymQuestions.length) * 100);
-
-    // Calculate performance metrics
-    let missedLowFreq = 0;
-    let similarChoiceErrors = 0;
-
-    detailedAnswers.forEach((answer) => {
-      if (!answer.isCorrect && isLowFrequencyWord(answer.word)) {
-        missedLowFreq++;
-      }
-      if (!answer.isCorrect) {
-        similarChoiceErrors++;
-      }
+    // Update LearningProgressContext metrics
+    addPerformanceMetrics("vocabulary", "antonym", {
+      score,
+      difficulty: "medium",
+      missedLowFreq: !isCorrect && lowFreq ? 1 : 0,
+      similarChoiceErrors: similarChoiceError ? 1 : 0,
     });
 
     const history = getPerformanceHistory("vocabulary", "antonym");
-    const currentDifficulty =
-      history.length > 0 ? history[history.length - 1].difficulty : "easy";
-
-    const metrics = {
-      difficulty: currentDifficulty,
-      score,
-      missedLowFreq,
-      similarChoiceErrors,
-      timestamp: new Date().toISOString(),
-    };
-
-    addPerformanceMetrics("vocabulary", "antonym", metrics);
-
-    const allHistory = [...history, metrics];
-    const evaluation = evaluateUserPerformance(allHistory);
+    const { nextDifficulty, tags } = evaluateUserPerformance(history);
 
     updateProgress("antonym", {
-      status: "completed",
-      score,
-      completedAt: new Date().toISOString(),
-      attempts: (history.length || 0) + 1,
-      lastDifficulty: evaluation.nextDifficulty,
-      errorTags: evaluation.tags,
+      lastScore: score,
+      lastDifficulty: nextDifficulty,
+      status: score >= 80 ? "completed" : "available",
     });
 
-    setShowCompletion(true);
+    console.log("Antonym adaptive tags:", tags);
+
+    setSubmitting(false);
   };
 
-  const resetExercise = async () => {
-    try {
-      setIsLoading(true);
-      const questions = await generateAntonymQuestionsFromService();
-      setAntonymQuestions(questions);
-      setCurrentQuestion(0);
+  const handleNext = () => {
+    if (currentIndex < questions.length - 1) {
+      setCurrentIndex((prev) => prev + 1);
       setSelectedAnswer(null);
-      setShowResult(false);
-      setAnswers(Array(questions.length).fill(null));
-      setDetailedAnswers([]);
-      setShowCompletion(false);
-    } catch (err) {
-      console.error("Failed to reload exercise:", err);
-    } finally {
-      setIsLoading(false);
+      setCurrentAnswer(null);
+    } else {
+      setShowCompletion(true);
     }
   };
 
+  if (isLoading) {
+    return (
+      <div className="h-screen bg-pink-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-600 mx-auto mb-4" />
+          <p className="text-pink-600 font-semibold">
+            Loading antonym exercise...
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !currentQuestion) {
+    return (
+      <div className="h-screen bg-pink-50 flex items-center justify-center">
+        <div className="text-center max-w-md px-4">
+          <p className="text-red-600 font-semibold mb-4">
+            {error || "No antonym items available."}
+          </p>
+          <button
+            onClick={() => window.location.reload()}
+            className="px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="h-screen bg-red-50 overflow-auto flex flex-col scrollbar-red">
-      {/* Header */}
-      <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-red-200">
+    <div className="h-screen max-h-screen overflow-hidden flex flex-col bg-pink-50">
+      {/* Top Bar */}
+      <div className="flex-shrink-0 flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-pink-200">
         <Link
           href="/vocabulary"
-          className="flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold text-sm"
+          className="flex items-center gap-2 text-pink-600 hover:text-pink-700 font-semibold text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back
+          Back to Vocabulary
         </Link>
-
-        <div className="text-center flex-1 px-4">
-          <h1 className="text-xl md:text-2xl font-bold text-red-900">
-            Antonym Exercise
-          </h1>
-        </div>
-
         <button
           onClick={resetExercise}
-          className="flex items-center gap-2 text-gray-600 hover:text-gray-700 font-semibold text-sm"
+          className="inline-flex items-center gap-2 text-pink-700 hover:text-pink-900 text-xs font-semibold border border-pink-200 rounded-full px-3 py-1 bg-pink-50"
         >
-          <RotateCcw className="w-4 h-4" />
-          <span className="hidden md:inline">Reset</span>
+          <RotateCcw className="w-3 h-3" />
+          Reset Exercise
         </button>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col justify-start px-4 md:px-8 py-6 space-y-8 max-w-7xl mx-auto w-full">
-        <AntonymProgress
-          currentQuestion={currentQuestion}
-          totalQuestions={antonymQuestions.length}
-          answers={answers}
-          id={currentAntonym.lemma_id}
-        />
-
-        {/* Question Component with Animation */}
-        <motion.div
-          key={currentQuestion}
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -50 }}
-          transition={{ duration: 0.3 }}
-        >
-          <AntonymQuestion
-            questionNumber={currentQuestion + 1}
-            totalQuestions={antonymQuestions.length}
-            sentence={currentAntonym.sentence}
-            wordId={currentAntonym.lemma_id}
-            options={currentAntonym.options}
-            correctAnswer={currentAntonym.correctAnswer}
-            selectedAnswer={selectedAnswer}
-            onSelectAnswer={handleSelectAnswer}
-            showResult={showResult}
-          />
-        </motion.div>
-
-        {showResult ? (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex justify-center"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleNext}
-              className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors"
+      <div className="flex-1 flex flex-col md:flex-row items-stretch max-w-5xl mx-auto w-full px-4 md:px-8 py-4 gap-4">
+        {/* Question Area */}
+        <div className="flex-1 flex flex-col items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentQuestion.id}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.25 }}
+              className="w-full max-w-2xl"
             >
-              {isLastQuestion ? "Finish Exercise" : "Next Question"}
-              <ChevronRight className="w-5 h-5" />
-            </motion.button>
-          </motion.div>
-        ) : (
-          <div className="text-center text-xs text-red-600">
-            💡 Select the antonym of the underlined word
+              <AntonymQuestion
+                sentence={currentQuestion.sentence}
+                options={currentQuestion.options}
+                selectedAnswer={selectedAnswer}
+                onSelectAnswer={setSelectedAnswer}
+                currentAnswer={currentAnswer}
+              />
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="mt-6 flex flex-col sm:flex-row gap-3">
+            <button
+              onClick={handleSubmit}
+              disabled={!selectedAnswer || submitting || !!currentAnswer}
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-pink-600 text-white hover:bg-pink-700 text-sm font-semibold shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Check answer
+            </button>
+            <button
+              onClick={handleNext}
+              disabled={!currentAnswer}
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white text-pink-700 border border-pink-200 hover:bg-pink-50 text-sm font-semibold shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <ChevronRight className="w-4 h-4" />
+              Next question
+            </button>
           </div>
-        )}
+        </div>
+
+        {/* Progress Sidebar */}
+        <div className="w-full md:w-72 flex-shrink-0">
+          <AntonymProgress
+            total={questions.length}
+            currentIndex={currentIndex}
+            answers={answers}
+          />
+        </div>
       </div>
 
+      {/* Completion Modal */}
       <AntonymCompletionModal
         isOpen={showCompletion}
-        score={Math.round(
-          (answers.filter((a) => a === true).length / antonymQuestions.length) *
-            100
-        )}
-        correctCount={answers.filter((a) => a === true).length}
-        totalQuestions={antonymQuestions.length}
         onClose={() => setShowCompletion(false)}
+        onRestart={resetExercise}
+        totalQuestions={questions.length}
+        correctCount={answers.filter((a) => a.isCorrect).length}
       />
     </div>
   );

@@ -17,6 +17,7 @@ import {
   VocabularyExerciseItem,
   LexiconItem,
 } from "@/lib/api/exercises";
+import { reportLexicalItemPerformance } from "@/utils/reportPerformance";
 
 type CardStatus = "unseen" | "learning" | "mastered";
 
@@ -165,123 +166,109 @@ export default function FlashcardsPage() {
             className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back
+            Back to Vocabulary
           </Link>
-          <div className="text-center flex-1 px-4">
-            <h1 className="text-xl md:text-2xl font-bold text-purple-900">
-              Flashcards Practice
-            </h1>
-          </div>
-          <div className="w-20"></div>
         </div>
         <div className="flex-1 flex items-center justify-center">
-          <div className="text-purple-600">Loading session...</div>
+          <p className="text-gray-600">No flashcards available.</p>
         </div>
       </div>
     );
   }
 
-  const masteredCount = cardStates.filter(
-    (c) => c.status === "mastered"
-  ).length;
-  const learningCount = cardStates.filter(
-    (c) => c.status === "learning"
-  ).length;
-  const isLastCard = currentIndex === sessionWords.length - 1;
+  const currentCardState = cardStates.find((c) => c.id === currentWord.id);
 
   const handleFlip = () => {
-    // Track flips
-    const newStates = [...cardStates];
-    newStates[currentIndex].flips++;
-    setCardStates(newStates);
-    setIsFlipped(!isFlipped);
+    setIsFlipped((prev) => !prev);
+    setCardStates((prev) =>
+      prev.map((card) =>
+        card.id === currentWord.id ? { ...card, flips: card.flips + 1 } : card
+      )
+    );
   };
 
-  const handleKnowIt = () => {
-    const newStates = [...cardStates];
-    newStates[currentIndex].status = "mastered";
-    setCardStates(newStates);
-    nextCard();
-  };
-
-  const handleStillLearning = () => {
-    const newStates = [...cardStates];
-    if (newStates[currentIndex].status === "unseen") {
-      newStates[currentIndex].status = "learning";
-    }
-    setCardStates(newStates);
-    nextCard();
-  };
-
-  const nextCard = () => {
-    if (isLastCard) {
-      completeSession();
+  const moveToNextCard = () => {
+    setIsFlipped(false);
+    if (currentIndex < sessionWords.length - 1) {
+      setCurrentIndex((prev) => prev + 1);
     } else {
-      setIsFlipped(false);
-      setTimeout(() => {
-        setCurrentIndex((prev) => prev + 1);
-      }, 300);
+      setShowCompletion(true);
     }
   };
 
-  const completeSession = () => {
-    const score = Math.round((masteredCount / sessionWords.length) * 100);
+  const handleKnowIt = async () => {
+    // Update local card state
+    setCardStates((prev) =>
+      prev.map((card) =>
+        card.id === currentWord.id
+          ? { ...card, status: "mastered" as CardStatus }
+          : card
+      )
+    );
 
-    // Calculate performance metrics
-    let missedLowFreq = 0;
-    let similarChoiceErrors = 0;
-
-    cardStates.forEach((state, index) => {
-      const word = sessionWords[index];
-
-      // Count missed low-frequency words
-      if (state.status !== "mastered" && isLowFrequencyWord(word.word)) {
-        missedLowFreq++;
-      }
-
-      // Count cards flipped multiple times (struggling)
-      if (state.flips > 2) {
-        similarChoiceErrors++;
-      }
-    });
-
-    // Get current difficulty
-    const history = getPerformanceHistory("vocabulary", "flashcards");
-    const currentDifficulty =
-      history.length > 0 ? history[history.length - 1].difficulty : "easy";
-
-    // Create performance metrics
-    const metrics = {
-      difficulty: currentDifficulty,
-      score,
-      missedLowFreq,
-      similarChoiceErrors,
-      timestamp: new Date().toISOString(),
-    };
-
-    // Add to performance history
-    addPerformanceMetrics("vocabulary", "flashcards", metrics);
-
-    // Evaluate and get next difficulty + tags
-    const allHistory = [...history, metrics];
-    const evaluation = evaluateUserPerformance(allHistory);
-
-    // Update progress with evaluation results
+    // Optional: update local learning progress (for dashboard)
     updateProgress("flashcards", {
+      lastScore: 100,
       status: "completed",
-      score,
-      completedAt: new Date().toISOString(),
-      attempts: (history.length || 0) + 1,
-      lastDifficulty: evaluation.nextDifficulty,
-      errorTags: evaluation.tags,
     });
 
-    setShowCompletion(true);
+    // --- NEW: send performance event to backend ---
+    // For flashcards, we treat clicking "I know this" as a correct recall.
+    try {
+      await reportLexicalItemPerformance({
+        module: "vocabulary",
+        exerciseType: "flashcards",
+        lemmaId: currentWord.lemma_id,
+        correctAnswer: currentWord.word,
+        userAnswer: currentWord.word, // they successfully recalled it
+        difficultyShown: "easy", // UI-level difficulty; learned difficulty is computed on backend
+        score: 100,
+      });
+    } catch (e) {
+      console.error("Failed to record 'know it' event", e);
+    }
+
+    moveToNextCard();
+  };
+
+  const handleStillLearning = async () => {
+    // Update local card state
+    setCardStates((prev) =>
+      prev.map((card) =>
+        card.id === currentWord.id
+          ? { ...card, status: "learning" as CardStatus }
+          : card
+      )
+    );
+
+    updateProgress("flashcards", {
+      lastScore: 0,
+      status: "available",
+    });
+
+    // --- NEW: send performance event to backend ---
+    // "Still learning" is effectively an incorrect recall for now.
+    try {
+      await reportLexicalItemPerformance({
+        module: "vocabulary",
+        exerciseType: "flashcards",
+        lemmaId: currentWord.lemma_id,
+        correctAnswer: currentWord.word,
+        userAnswer: "", // effectively "I don't know"
+        difficultyShown: "easy", // UI-level difficulty
+        score: 0,
+      });
+    } catch (e) {
+      console.error("Failed to record 'still learning' event", e);
+    }
+
+    moveToNextCard();
   };
 
   const resetSession = () => {
     setCurrentIndex(0);
     setIsFlipped(false);
+    setShowCompletion(false);
     setCardStates(
       sessionWords.map((word) => ({
         id: word.id,
@@ -289,59 +276,40 @@ export default function FlashcardsPage() {
         flips: 0,
       }))
     );
-    setShowCompletion(false);
   };
 
   return (
-    <div className="h-screen max-h-screen overflow-hidden flex flex-col bg-blue-50">
-      {/* Header */}
-      <div className="flex-shrink-0 flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-blue-200">
+    <div className="h-screen max-h-screen overflow-hidden flex flex-col bg-purple-50">
+      {/* Top Bar */}
+      <div className="flex-shrink-0 flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-purple-200">
         <Link
           href="/vocabulary"
-          className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm"
+          className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back
+          Back to Vocabulary
         </Link>
-
-        <div className="text-center flex-1 px-4">
-          <h1 className="text-xl md:text-2xl font-bold text-blue-900">
-            Flashcards Practice
-          </h1>
-        </div>
-
         <button
           onClick={resetSession}
-          className="flex items-center gap-2 text-gray-600 hover:text-gray-700 font-semibold text-sm"
+          className="inline-flex items-center gap-2 text-purple-700 hover:text-purple-900 text-xs font-semibold border border-purple-200 rounded-full px-3 py-1 bg-purple-50"
         >
-          <RotateCcw className="w-4 h-4" />
-          <span className="hidden md:inline">Reset</span>
+          <RotateCcw className="w-3 h-3" />
+          Reset Session
         </button>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col px-4 md:px-8 py-4 md:py-6 gap-3 md:gap-4 max-w-4xl mx-auto w-full min-h-0 overflow-y-auto scrollbar-blue md:overflow-hidden">
-        {/* Progress - Fixed Height */}
-        <div className="flex-shrink-0">
-          <FlashcardProgress
-            current={currentIndex}
-            total={sessionWords.length}
-            masteredCount={masteredCount}
-            learningCount={learningCount}
-            wordId={currentWord.lemma_id}
-          />
-        </div>
-
-        {/* Flashcard - Responsive Height */}
-        <div className="flex-shrink-0 md:flex-1 flex items-center justify-center md:min-h-0">
+      <div className="flex-1 flex flex-col md:flex-row items-stretch max-w-5xl mx-auto w-full px-4 md:px-8 py-4 gap-4">
+        {/* Flashcard Area */}
+        <div className="flex-1 flex flex-col items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3 }}
-              className="w-full h-full flex items-center justify-center"
+              key={currentWord.id}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.25 }}
+              className="w-full max-w-md"
             >
               <Flashcard
                 word={currentWord.word}
@@ -349,42 +317,42 @@ export default function FlashcardsPage() {
                 example={currentWord.example}
                 isFlipped={isFlipped}
                 onFlip={handleFlip}
-                wordId={currentWord.lemma_id}
               />
             </motion.div>
           </AnimatePresence>
+
+          <div className="mt-6 flex flex-col sm:flex-row gap-3">
+            <button
+              onClick={handleStillLearning}
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white text-purple-700 border border-purple-200 hover:bg-purple-50 text-sm font-semibold shadow-sm"
+            >
+              <X className="w-4 h-4" />
+              Still learning
+            </button>
+            <button
+              onClick={handleKnowIt}
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-purple-600 text-white hover:bg-purple-700 text-sm font-semibold shadow-md"
+            >
+              <CheckCircle className="w-4 h-4" />I know this
+            </button>
+          </div>
         </div>
 
-        {/* Buttons - Fixed Height */}
-        <div className="flex-shrink-0 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-2xl mx-auto w-full">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={handleStillLearning}
-            className="flex items-center justify-center gap-2 bg-orange-100 hover:bg-orange-200 text-orange-700 font-bold py-3 px-8 rounded-xl shadow-lg transition-colors border-2 border-orange-300 flex-1"
-          >
-            <X className="w-5 h-5" />
-            <span>Still Learning</span>
-          </motion.button>
-
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={handleKnowIt}
-            className="flex items-center justify-center gap-2 bg-green-100 hover:bg-green-200 text-green-700 font-bold py-3 px-8 rounded-xl shadow-lg transition-colors border-2 border-green-300 flex-1"
-          >
-            <CheckCircle className="w-5 h-5" />
-            <span>{isLastCard ? "Finish" : "I Know This"}</span>
-          </motion.button>
+        {/* Progress Sidebar */}
+        <div className="w-full md:w-72 flex-shrink-0">
+          <FlashcardProgress
+            cards={sessionWords}
+            cardStates={cardStates}
+            currentIndex={currentIndex}
+          />
         </div>
       </div>
 
+      {/* Completion Modal */}
       <FlashcardCompletionModal
         isOpen={showCompletion}
-        score={Math.round((masteredCount / sessionWords.length) * 100)}
-        masteredCount={masteredCount}
-        totalCards={sessionWords.length}
         onClose={() => setShowCompletion(false)}
+        onRestart={resetSession}
       />
     </div>
   );
